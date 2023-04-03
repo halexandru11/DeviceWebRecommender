@@ -1,0 +1,11 @@
+@use '../themes' as theme;
+@forward '../components/product-card';
+
+.products-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    padding: 1rem;
+    background-color: theme.$background-color;
+    justify-items: center;
+}
