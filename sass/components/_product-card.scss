@@ -1,12 +1,12 @@
 @use '../themes' as theme;
 
 .product-card {
-    width: min(80%, 14rem);
-    aspect-ratio: 1.1/1;
+    width: min(20vh, 80%);
+    aspect-ratio: 1/1;
     background-color: theme.$product-card-color;
     border-radius: 1rem 3rem 1rem 3rem;
-    border-right: 0.5rem solid theme.$primary-color;
-    border-bottom: 0.5rem solid theme.$primary-color;
+    border-right: min(1vw, 0.5rem) solid theme.$primary-color;
+    border-bottom: min(1vw, 0.5rem) solid theme.$primary-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,8 +25,8 @@
     }
 
     &__title {
-        margin-top: 1.5rem;
-        margin-bottom: 0.5rem;
+        margin-top: 1.5vh;
+        margin-bottom: 1.5vh;
         font-weight: 700;
         line-height: 1.1;
     }
