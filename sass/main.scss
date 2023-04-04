@@ -3,6 +3,7 @@
 @import 'components/text-button';
 @import 'components/text-field';
 @import 'base/typograhpy';
+@import 'components/header';
 
 $colors: (
     "primary-color": #FFFFFF,
@@ -13,6 +14,8 @@ $font-weights: (
     "regular": 400,
     "bold": 700
 );
+
+
 
 body {
     background: map-get($colors, primary-color);
