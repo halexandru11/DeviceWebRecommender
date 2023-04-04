@@ -1,1 +1,38 @@
+//@import 'base/typograhpy';
+@import 'pages/auth/signin';
+@import 'components/text-button';
+@import 'components/text-field';
 @import 'base/typograhpy';
+
+$colors: (
+    "primary-color": #FFFFFF,
+    "accent-color": #E53FA3
+);
+
+$font-weights: (
+    "regular": 400,
+    "bold": 700
+);
+
+body {
+    background: map-get($colors, primary-color);
+    color: set-text-color(map-get($colors, accent-color));
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+}
+
+footer {
+    font-size: 1rem;
+    position: fixed;
+    bottom: 0.4rem;
+    right: 1rem;
+    text-align: right;
+    padding: 1rem;
+    color: set-text-color(map-get($colors, primary-color));
+}

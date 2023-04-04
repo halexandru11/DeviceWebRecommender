@@ -1,0 +1,19 @@
+$button-top-left-corner-radius: 8px;
+$button-top-right-corner-radius: 36px;
+$button-bottom-right-corner-radius: 8px;
+$button-bottom-left-corner-radius: 36px;
+
+.button {
+    border-radius: $button-top-left-corner-radius $button-top-right-corner-radius $button-bottom-right-corner-radius $button-bottom-left-corner-radius;
+    background-color: #E53FA3;
+    color: #FFFF;
+    width: 120px;
+    height: 40px;
+    border: #E53FA3;
+    transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+    transform: scale(1.2);
+    /* added transform property */
+}
