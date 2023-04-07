@@ -19,7 +19,7 @@ body {
     color: theme.$text-color;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1;
-    margin: 1rem;
+    margin: 0 min(1rem, 2%);
 }
 
 main {

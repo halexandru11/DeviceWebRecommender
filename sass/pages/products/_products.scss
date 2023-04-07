@@ -1,14 +1,13 @@
 @use '../../components' as component;
 @use '../../utils' as utils;
+@use '../../themes' as theme;
 
 .products-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     grid-gap: 1rem;
-    padding-top: 1rem;
-    padding-left: clamp(1rem, 5%, 2rem);
-    padding-right: clamp(1rem, 5%, 2rem);
+    padding: 1rem;
     justify-content: center;
     justify-items: center;
 
@@ -25,14 +24,26 @@
     }
 }
 
-.filter-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
+.filter {
+    position: sticky;
+    top: 0;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    background-color: theme.$background-color;
+    box-shadow: 0 0.7rem 1rem theme.$background-color;
 
-.filter-icon {
-    padding-left: 1.5rem;
-    padding-top: 0.5rem;
+    &__icon {
+        position: absolute;
+    }
+    
+    &__row {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+        overflow-x: auto;
+        margin-left: 3rem;
+        padding-bottom: 0.5rem;
+    }
 }
