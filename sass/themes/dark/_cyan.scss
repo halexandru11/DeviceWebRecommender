@@ -1,0 +1,26 @@
+// Variables for colors
+$primary-color: #00bcd4;
+$header-color: #181818;
+$background-color: #222222;
+$product-card-color: #363636;
+$text-color: #ffffff;
+
+// Dark mode styles
+body {
+  background-color: $background-color;
+  color: $text-color;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  color: $text-color;
+}
+
+// Links
+a {
+  color: $primary-color;
+
+  &:hover {
+    color: lighten($primary-color, 10%);
+  }
+}

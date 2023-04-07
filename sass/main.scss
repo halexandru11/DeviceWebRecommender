@@ -1,13 +1,13 @@
-//@import 'base/typograhpy';
-@import 'pages/auth/signin';
-@import 'components/text-button';
-@import 'components/text-field';
-@import 'base/typograhpy';
+@forward 'base';
+@use 'themes' as theme;
+@forward 'components';
+@forward 'pages/auth';
+@forward 'pages/products';
 
-$colors: (
-    "primary-color": #FFFFFF,
-    "accent-color": #E53FA3
-);
+// $colors: (
+//     "primary-color": #FFFFFF,
+//     "accent-color": #E53FA3
+// );
 
 $font-weights: (
     "regular": 400,
@@ -15,11 +15,11 @@ $font-weights: (
 );
 
 body {
-    background: map-get($colors, primary-color);
-    color: set-text-color(map-get($colors, accent-color));
-    height: 100vh;
+    background: theme.$background-color;
+    color: theme.$text-color;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1;
+    margin: 1rem;
 }
 
 main {
@@ -34,5 +34,5 @@ footer {
     right: 1rem;
     text-align: right;
     padding: 1rem;
-    color: set-text-color(map-get($colors, primary-color));
+    color: theme.$primary-color;
 }

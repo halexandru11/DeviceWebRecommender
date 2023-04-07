@@ -1,0 +1,38 @@
+@use '../../components' as component;
+@use '../../utils' as utils;
+
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+    padding-top: 1rem;
+    padding-left: clamp(1rem, 5%, 2rem);
+    padding-right: clamp(1rem, 5%, 2rem);
+    justify-content: center;
+    justify-items: center;
+
+    @include utils.breakpoint-up(medium) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include utils.breakpoint-up(large) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    @include utils.breakpoint-up(xlarge) {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+.filter-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.filter-icon {
+    padding-left: 1.5rem;
+    padding-top: 0.5rem;
+}
