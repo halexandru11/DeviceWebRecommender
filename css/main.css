@@ -6,8 +6,24 @@ h5 {
   font-size: clamp(0.5rem, 0.8rem + 0.75vw, 1.2rem);
 }
 
+body {
+  background-color: #222222;
+  color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+}
+
+a {
+  color: #00bcd4;
+}
+a:hover {
+  color: #08e3ff;
+}
+
 .filter-capsule {
-  background-color: #E3E3E3;
+  background-color: #363636;
   padding: 0.3rem 1rem;
   border-radius: 50rem;
   display: flex;
@@ -29,7 +45,7 @@ h5 {
 
 .icon-button {
   background-color: transparent;
-  color: #181818;
+  color: #ffffff;
   border-radius: 0.5rem 1.45rem;
   padding: 0.5rem 1rem;
   font-size: clamp(0.75rem, 0.6rem + 0.8vw, 1rem);
@@ -39,10 +55,10 @@ h5 {
 
 .product-card {
   aspect-ratio: 1/1;
-  background-color: #E3E3E3;
+  background-color: #363636;
   border-radius: 1rem 3rem 1rem 3rem;
-  border-right: min(1vw, 0.5rem) solid #E53FA3;
-  border-bottom: min(1vw, 0.5rem) solid #E53FA3;
+  border-right: min(1vw, 0.5rem) solid #00bcd4;
+  border-bottom: min(1vw, 0.5rem) solid #00bcd4;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -72,8 +88,8 @@ h5 {
 
 .button {
   border-radius: 1rem 3rem;
-  background-color: #E53FA3;
-  color: #FFF;
+  background-color: #00bcd4;
+  color: #222222;
   width: 120px;
   height: 40px;
   border: none;
@@ -87,8 +103,8 @@ h5 {
 }
 
 .text-button {
-  background-color: #E53FA3;
-  color: #FFF;
+  background-color: #00bcd4;
+  color: #222222;
   border-radius: 0.5rem 1.45rem;
   padding: 0.5rem 1rem;
   font-size: clamp(0.75rem, 0.6rem + 0.8vw, 1rem);
@@ -108,12 +124,12 @@ h5 {
 
 .field {
   border-radius: 1rem 3rem;
-  background-color: #FFF;
-  color: #E53FA3;
+  background-color: #222222;
+  color: #00bcd4;
   width: 300px;
   height: 25px;
   text-align: center;
-  border: 1.5px solid #E53FA3;
+  border: 1.5px solid #00bcd4;
 }
 
 .signin {
@@ -131,7 +147,7 @@ h5 {
 .signin__column1__welcome h1 {
   margin-bottom: 50px;
   font-weight: bold;
-  color: #E53FA3;
+  color: #00bcd4;
   font-size: 35px;
 }
 .signin__column1__field {
@@ -150,7 +166,7 @@ h5 {
   margin-right: 100px;
 }
 .signin__column1__forgot h4 {
-  color: #E53FA3;
+  color: #00bcd4;
   font-size: 12px;
 }
 .signin__column1__button {
@@ -268,7 +284,7 @@ h5 {
 .signup__column1__now h1 {
   margin-bottom: 5px;
   font-weight: bold;
-  color: #E53FA3;
+  color: #00bcd4;
   font-size: 35px;
 }
 .signup__column1__later {
@@ -280,7 +296,7 @@ h5 {
   margin-bottom: 40px;
   margin-right: 50px;
   font-weight: bold;
-  color: #E53FA3;
+  color: #00bcd4;
   font-size: 30px;
 }
 .signup__column1__field {
@@ -415,18 +431,18 @@ h5 {
   }
 }
 
-.filter {
+.filters {
   position: sticky;
   top: 0;
   padding-top: 1rem;
   padding-left: 1rem;
-  background-color: #FFF;
-  box-shadow: 0 0.7rem 1rem #FFF;
+  background-color: #222222;
+  box-shadow: 0 0.7rem 1rem #222222;
 }
-.filter__icon {
+.filters__icon {
   position: absolute;
 }
-.filter__row {
+.filters__row {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -460,11 +476,11 @@ h5 {
   bottom: 3rem;
   left: 0;
   padding: 0.5rem 1rem;
-  background-color: #E53FA3;
-  color: #FFF;
+  background-color: #00bcd4;
+  color: #222222;
   font-weight: 900;
   border-radius: 1rem 3rem;
-  border: 0.15rem solid #FFF;
+  border: 0.15rem solid #222222;
 }
 .product-details__title {
   width: 95%;
@@ -526,15 +542,15 @@ h5 {
   font-size: 1.1rem;
   height: 3rem;
   gap: 1rem;
-  border: 0.2rem solid #E53FA3;
-  background-color: #FFF;
-  color: #E53FA3;
+  border: 0.2rem solid #00bcd4;
+  background-color: #222222;
+  color: #00bcd4;
   flex: 1;
 }
 .product-details__more-share:hover {
-  background-color: #E3E3E3;
-  color: #fc62be;
-  border-color: #fc62be;
+  background-color: #363636;
+  color: #58e9fc;
+  border-color: #58e9fc;
 }
 .product-details__more-wishlist {
   display: flex;
@@ -544,15 +560,15 @@ h5 {
   font-size: 1.1rem;
   height: 3rem;
   gap: 1rem;
-  border: 0.2rem solid #E53FA3;
-  background-color: #FFF;
-  color: #E53FA3;
+  border: 0.2rem solid #00bcd4;
+  background-color: #222222;
+  color: #00bcd4;
   flex: 2;
 }
 .product-details__more-wishlist:hover {
-  background-color: #E3E3E3;
-  color: #fc62be;
-  border-color: #fc62be;
+  background-color: #363636;
+  color: #58e9fc;
+  border-color: #58e9fc;
 }
 
 .similar {
@@ -581,7 +597,7 @@ h5 {
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background-color: #E3E3E3;
+  background-color: #363636;
   border-radius: 1rem 3rem;
 }
 .similar__products__card-image {
@@ -619,9 +635,9 @@ h5 {
   width: 100%;
   margin: 0.1rem 0;
   border-radius: 1rem 3rem;
-  background-color: #E3E3E3;
+  background-color: #363636;
   height: 2rem;
-  background-color: #E53FA3;
+  background-color: #00bcd4;
   margin-top: 0;
   margin-bottom: 0.6rem;
 }
@@ -635,9 +651,9 @@ h5 {
   margin: 0 0.5rem;
   height: 100%;
   font-weight: 900;
-  border-right: 0.2rem solid #FFF;
+  border-right: 0.2rem solid #222222;
   margin-left: 1rem;
-  color: #E53FA3;
+  color: #00bcd4;
 }
 .table__header__value {
   display: flex;
@@ -650,10 +666,10 @@ h5 {
   height: 100%;
 }
 .table__header__title, .table__header__value {
-  color: #FFF;
+  color: #222222;
 }
 .table__header__title {
-  border-right: 0.2rem solid #FFF;
+  border-right: 0.2rem solid #222222;
 }
 .table__row {
   display: flex;
@@ -663,7 +679,7 @@ h5 {
   width: 100%;
   margin: 0.1rem 0;
   border-radius: 1rem 3rem;
-  background-color: #E3E3E3;
+  background-color: #363636;
   height: 2rem;
 }
 .table__row__title {
@@ -676,9 +692,9 @@ h5 {
   margin: 0 0.5rem;
   height: 100%;
   font-weight: 900;
-  border-right: 0.2rem solid #FFF;
+  border-right: 0.2rem solid #222222;
   margin-left: 1rem;
-  color: #E53FA3;
+  color: #00bcd4;
 }
 .table__row__value {
   display: flex;
@@ -695,10 +711,10 @@ h5 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #E53FA3;
+  background-color: #00bcd4;
 }
 .filter__box {
-  background-color: #FFFFFF;
+  background-color: #222222;
   width: 400px;
   height: 900px;
   display: flex;
@@ -708,7 +724,7 @@ h5 {
 .filter__box form {
   margin-bottom: 25px;
   font-weight: bold;
-  color: #E53FA3;
+  color: #00bcd4;
   font-size: 30px;
 }
 .filter__box form .site-preferences {
@@ -775,8 +791,8 @@ h5 {
 }
 
 body {
-  background: #FFF;
-  color: #181818;
+  background: #222222;
+  color: #ffffff;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1;
   margin: 0 min(1rem, 2%);
@@ -794,12 +810,12 @@ footer {
   right: 1rem;
   text-align: right;
   padding: 1rem;
-  color: #E53FA3;
+  color: #00bcd4;
 }
 
 button {
-  background: #E53FA3;
-  color: #FFF;
+  background: #00bcd4;
+  color: #222222;
   border: none;
   border-radius: 1rem 3rem;
   padding: 0.5rem 1rem;
@@ -808,5 +824,5 @@ button {
   transition: all 0.2s ease-in-out;
 }
 button:hover {
-  background: #fc62be;
+  background: #58e9fc;
 }/*# sourceMappingURL=main.css.map */
