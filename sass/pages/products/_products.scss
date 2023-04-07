@@ -1,0 +1,49 @@
+@use '../../components' as component;
+@use '../../utils' as utils;
+@use '../../themes' as theme;
+
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+    padding: 1rem;
+    justify-content: center;
+    justify-items: center;
+
+    @include utils.breakpoint-up(medium) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include utils.breakpoint-up(large) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    @include utils.breakpoint-up(xlarge) {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+.filter {
+    position: sticky;
+    top: 0;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    background-color: theme.$background-color;
+    box-shadow: 0 0.7rem 1rem theme.$background-color;
+
+    &__icon {
+        position: absolute;
+    }
+    
+    &__row {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+        overflow-x: auto;
+        margin-left: 3rem;
+        padding-bottom: 0.5rem;
+    }
+}

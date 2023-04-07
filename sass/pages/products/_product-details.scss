@@ -1,0 +1,238 @@
+@use '../../base' as base;
+@use '../../themes' as theme;
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 1rem;
+    overflow-y: auto;
+
+    &__image {
+        width: 95%;
+        aspect-ratio: 1/0.75;
+        object-fit: cover;
+        background-color: grey;
+        border-radius: base.$small-border-radius base.$big-border-radius;
+
+        &-provider {
+            position: relative;
+            bottom: 3rem;
+            left: 0;
+            padding: 0.5rem 1rem;
+            background-color: theme.$primary-color;
+            color: theme.$background-color;
+            font-weight: 900;
+            border-radius: base.$small-border-radius base.$big-border-radius;
+            border: 0.15rem solid theme.$background-color;
+        }
+    }
+
+    &__title {
+        width: 95%;
+        margin-top: -0.5rem;
+        margin-bottom: 0.3rem;
+        font-weight: 900;
+        text-align: left;
+    }
+
+    &__review {
+        width: 95%;
+        font-weight: 400;
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        &-stars {
+            margin-right: 0.5rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            color: goldenrod;
+            gap: 0.2rem;
+        }
+
+        &-details {
+            font-size: 1.1rem;
+            color: grey;
+        }
+    }
+
+    &__buy {
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 3rem;
+        gap: 1.1rem;
+        margin-top: 1rem;
+
+        &-text {
+            font-size: 1.4rem;
+            font-weight: 900;
+        }
+    }
+
+    &__more {
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+
+        @mixin share-wishlist {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.1rem;
+            height: 3rem;
+            gap: 1rem;
+            border: 0.2rem solid theme.$primary-color;
+            background-color: theme.$background-color;
+            color: theme.$primary-color;
+
+            &:hover {
+                background-color: theme.$product-card-color;
+                color: theme.$accent-color;
+                border-color: theme.$accent-color;
+            }
+        }
+
+        &-share {
+            @include share-wishlist;
+            flex: 1;
+        }
+
+        &-wishlist {
+            @include share-wishlist;
+            flex: 2;
+        }
+    }
+}
+
+.similar {
+    width: 95%;
+    margin: 1rem;
+
+    &__text {
+        font-size: 1.6rem;
+        font-weight: 900;
+        text-align: start;
+    }
+
+    &__products {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-bottom: 0.5rem;
+        overflow-x: auto;
+
+        &__card {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: theme.$product-card-color;
+            border-radius: base.$small-border-radius base.$big-border-radius;
+
+            &-image {
+                width: 13rem;
+                aspect-ratio: 1/0.9;
+                object-fit: cover;
+                background-color: grey;
+                border-radius: calc(base.$small-border-radius/1.5) calc(base.$big-border-radius/1.5);
+            }
+
+            &-title {
+                font-size: 1.2rem;
+                font-weight: 900;
+                text-align: left;
+                margin: 0 0.5rem;
+                text-overflow: inherit;
+            }
+
+            button {
+                padding: 0.5rem 2rem;
+            }
+        }
+    }
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 1rem 0;
+    width: 95%;
+
+    @mixin cell {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        font-size: 1.2rem;
+        font-weight: 400;
+        text-align: left;
+        margin: 0 0.5rem;
+        height: 100%;
+    }
+
+    @mixin line {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        margin: 0.1rem 0;
+        border-radius: base.$small-border-radius base.$big-border-radius;
+        background-color: theme.$product-card-color;
+        height: 2rem;
+
+        &__title {
+            @include cell;
+            font-weight: 900;
+            border-right: 0.2rem solid theme.$background-color;
+            margin-left: 1rem;
+            color: theme.$primary-color;
+        }
+
+        &__value {
+            @include cell;
+        }
+    }
+
+    &__header {
+        @include line;
+        background-color: theme.$primary-color;
+        margin-top: 0;
+        margin-bottom: 0.6rem;
+        
+        &__title,
+        &__value {
+            color: theme.$background-color;
+        }
+
+        &__title {
+            border-right: 0.2rem solid theme.$background-color;
+        }
+    }
+
+    &__row {
+        @include line;
+    }
+}

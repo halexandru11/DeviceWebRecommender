@@ -1,8 +1,10 @@
+@use '../../themes' as theme;
+
 .filter {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #E53FA3;
+    background-color: theme.$primary-color;
 
     &__box {
 
@@ -17,7 +19,7 @@
         form {
             margin-bottom: 25px;
             font-weight: bold;
-            color: #E53FA3;
+            color: theme.$primary-color;
             font-size: 30px;
 
             .site-preferences {

@@ -1,3 +1,5 @@
+@use '../../themes' as theme;
+
 .signup {
     //padding-bottom: 2rem;
     display: grid;
@@ -17,7 +19,7 @@
             h1 {
                 margin-bottom: 5px;
                 font-weight: bold;
-                color: #E53FA3;
+                color: theme.$primary-color;
                 font-size: 35px;
             }
         }
@@ -32,7 +34,7 @@
                 margin-bottom: 40px;
                 margin-right: 50px;
                 font-weight: bold;
-                color: #E53FA3;
+                color: theme.$primary-color;
                 font-size: 30px;
             }
         }
