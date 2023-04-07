@@ -1,4 +1,4 @@
-@forward 'base';
+@use 'base' as base;
 @use 'themes' as theme;
 @forward 'components';
 @forward 'pages/auth';
@@ -35,4 +35,19 @@ footer {
     text-align: right;
     padding: 1rem;
     color: theme.$primary-color;
+}
+
+button {
+    background: theme.$primary-color;
+    color: theme.$background-color;
+    border: none;
+    border-radius: base.$small-border-radius base.$big-border-radius;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        background: theme.$accent-color;
+    }
 }
