@@ -152,7 +152,7 @@
 
             &-image {
                 width: 13rem;
-                aspect-ratio: 1/0.75;
+                aspect-ratio: 1/0.9;
                 object-fit: cover;
                 background-color: grey;
                 border-radius: calc(base.$small-border-radius/1.5) calc(base.$big-border-radius/1.5);
@@ -165,6 +165,74 @@
                 margin: 0 0.5rem;
                 text-overflow: inherit;
             }
+
+            button {
+                padding: 0.5rem 2rem;
+            }
         }
+    }
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 1rem 0;
+    width: 95%;
+
+    @mixin cell {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        font-size: 1.2rem;
+        font-weight: 400;
+        text-align: left;
+        margin: 0 0.5rem;
+        height: 100%;
+    }
+
+    @mixin line {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        margin: 0.1rem 0;
+        border-radius: base.$small-border-radius base.$big-border-radius;
+        background-color: theme.$product-card-color;
+        height: 2rem;
+
+        &__title {
+            @include cell;
+            font-weight: 900;
+            border-right: 0.2rem solid theme.$background-color;
+            margin-left: 1rem;
+            color: theme.$primary-color;
+        }
+
+        &__value {
+            @include cell;
+        }
+    }
+
+    &__header {
+        @include line;
+        background-color: theme.$primary-color;
+        margin-top: 0;
+        margin-bottom: 0.6rem;
+        
+        &__title,
+        &__value {
+            color: theme.$background-color;
+        }
+
+        &__title {
+            border-right: 0.2rem solid theme.$background-color;
+        }
+    }
+
+    &__row {
+        @include line;
     }
 }

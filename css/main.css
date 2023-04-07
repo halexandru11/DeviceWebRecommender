@@ -453,7 +453,7 @@ a:hover {
 }
 .similar__products__card-image {
   width: 13rem;
-  aspect-ratio: 1/0.75;
+  aspect-ratio: 1/0.9;
   -o-object-fit: cover;
      object-fit: cover;
   background-color: grey;
@@ -465,6 +465,97 @@ a:hover {
   text-align: left;
   margin: 0 0.5rem;
   text-overflow: inherit;
+}
+.similar__products__card button {
+  padding: 0.5rem 2rem;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 1rem 0;
+  width: 95%;
+}
+.table__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin: 0.1rem 0;
+  border-radius: 1rem 3rem;
+  background-color: #363636;
+  height: 2rem;
+  background-color: #00bcd4;
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+.table__header__title {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: left;
+  margin: 0 0.5rem;
+  height: 100%;
+  font-weight: 900;
+  border-right: 0.2rem solid #222222;
+  margin-left: 1rem;
+  color: #00bcd4;
+}
+.table__header__value {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: left;
+  margin: 0 0.5rem;
+  height: 100%;
+}
+.table__header__title, .table__header__value {
+  color: #222222;
+}
+.table__header__title {
+  border-right: 0.2rem solid #222222;
+}
+.table__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin: 0.1rem 0;
+  border-radius: 1rem 3rem;
+  background-color: #363636;
+  height: 2rem;
+}
+.table__row__title {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: left;
+  margin: 0 0.5rem;
+  height: 100%;
+  font-weight: 900;
+  border-right: 0.2rem solid #222222;
+  margin-left: 1rem;
+  color: #00bcd4;
+}
+.table__row__value {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: left;
+  margin: 0 0.5rem;
+  height: 100%;
 }
 
 body {
