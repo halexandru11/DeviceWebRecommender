@@ -1,0 +1,67 @@
+.filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E53FA3;
+
+    &__box {
+
+        background-color: #FFFFFF;
+        width: 400px;
+        height: 900px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+
+        form {
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: #E53FA3;
+            font-size: 30px;
+
+            .site-preferences {
+
+                border-bottom: 2px solid pink;
+                padding-bottom: 10px;
+
+            }
+
+            .device-preferences {
+                border-bottom: 2px solid pink;
+                padding-bottom: 10px;
+
+            }
+
+
+
+            .price-range {
+                margin-top: 20px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                &__min,
+                &__max {
+                    display: flex;
+                    justify-content: center;
+                }
+
+            }
+
+
+
+            button {
+                display: block;
+                margin: 0 auto;
+            }
+
+        }
+
+        .button {
+            margin-top: 25px;
+        }
+
+
+    }
+
+}

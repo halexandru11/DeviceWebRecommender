@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/main.css">
+    <title>Gimme</title>
+</head>
+
+<body>
+    <header>
+        <div class="menu-btn">
+            <span class="menu-btn__burger"></span>
+        </div>
+
+        <nav class="nav">
+            <ul class="menu-nav">
+                <li class="menu-nav__item">
+                    <a href="../index.html" class="menu-nav__link">
+                        Home
+                    </a>
+                </li>
+                <li class="menu-nav__item active">
+                    <a href="signin.html" class="menu-nav__link">
+                        Sign in
+                    </a>
+                </li>
+                <li class="menu-nav__item">
+                    <a href="about.html" class="menu-nav__link">
+                        About
+                    </a>
+                </li>
+                <li class="menu-nav__item">
+                    <a href="help.html" class="menu-nav__link">
+                        Help
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="filter">
+            <div class="filter__box">
+                <form id="preferences-form">
+                    <div class="site-preferences">
+                        <label for="sites">Site preferences:</label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="site_preference" value="pc_garage">
+                            PC Garage
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="site_preference" value="emag">
+                            Emag
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="site_preference" value="altex">
+                            Altex
+                        </label>
+                        <br>
+                    </div>
+                    <div class="device-preferences">
+                        <label for="devices">Devices:</label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="device_preference" value="mouses">
+                            Mouses
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="device_preference" value="keyboards">
+                            Keyboards
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="device_preference" value="TV's">
+                            TV's
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="device_preference" value="Phones">
+                            Phones
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="device_preference" value="Laptops">
+                            Laptops
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="device_preference" value="Smart watches">
+                            Smart watches
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="device_preference" value="Computer components">
+                            Computer components
+                        </label>
+                        <br>
+                    </div>
+                    <div class="price-range-text ">Price range:</div>
+
+                    <div class="price-range">
+                        <div class="price-range__min">
+                            <input type="text" class="price-field" name="min" placeholder="min">
+                        </div>
+                        <div class="price-range__max">
+                            <input type="text" class="price-field" name="max" placeholder="max">
+                        </div>
+                    </div>
+                    <button type="submit" class="button">Apply changes</button>
+                </form>
+            </div>
+        </section>
+        <footer>&copy; Copyright 2023</footer>
+
+    </main>
+</body>
+
+</html>

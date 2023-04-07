@@ -11,7 +11,7 @@
   align-items: center;
 }
 .signin__column1__welcome h1 {
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   font-weight: bold;
   color: #E53FA3;
   font-size: 35px;
@@ -135,6 +135,143 @@
   margin-right: 55px;
 }
 
+.signup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 100px;
+  padding-right: 2rem;
+}
+.signup__column1__now {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup__column1__now h1 {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #E53FA3;
+  font-size: 35px;
+}
+.signup__column1__later {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.signup__column1__later h1 {
+  margin-bottom: 40px;
+  margin-right: 50px;
+  font-weight: bold;
+  color: #E53FA3;
+  font-size: 30px;
+}
+.signup__column1__field {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.signup__column1__button {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: flex-end;
+}
+.signup__image {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  text-align: right;
+  /* added */
+}
+.signup__image .circle1 {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #E53FA3;
+  bottom: 50%;
+  left: 35%;
+  transform: translate(-350%, -50%);
+}
+.signup__image .circle2 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #F3ED39;
+  bottom: 70%;
+  left: 35%;
+  transform: translate(-230%, -20%);
+}
+.signup__image .circle3 {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #638CF4;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+.signup__image .circle4 {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #E53FA3;
+  bottom: 0%;
+  right: 100%;
+  transform: translate(50%, 50%);
+}
+.signup__image .circle5 {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #6636ED;
+  top: 15%;
+  right: 2.5%;
+  transform: translate(25%, -25%);
+}
+.signup__image .circle6 {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: #F3ED39;
+  top: 50%;
+  right: 0%;
+  transform: translate(50%, -50%);
+}
+.signup__image .circle7 {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #638CF4;
+  bottom: 20%;
+  left: -5%;
+  transform: translate(50%, 25%);
+}
+.signup__image .circle8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #E53FA3;
+  bottom: 20%;
+  right: 0%;
+  transform: translate(-50%, -55%);
+}
+.signup__image img {
+  width: 35vw;
+  border-radius: 50px;
+  margin-right: 55px;
+}
+
 .button {
   border-radius: 8px 36px 8px 36px;
   background-color: #E53FA3;
@@ -143,6 +280,7 @@
   height: 40px;
   border: #E53FA3;
   transition: all 0.3s ease-in-out;
+  font-weight: bold;
 }
 
 .button:hover {
@@ -157,6 +295,7 @@
   width: 300px;
   height: 25px;
   border: 1.5px solid #E53FA3;
+  text-align: center;
 }
 
 body {
@@ -165,6 +304,61 @@ body {
 
 .underlined_text {
   text-decoration: underline;
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E53FA3;
+}
+.filter__box {
+  background-color: #FFFFFF;
+  width: 400px;
+  height: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.filter__box form {
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: #E53FA3;
+  font-size: 30px;
+}
+.filter__box form .site-preferences {
+  border-bottom: 2px solid pink;
+  padding-bottom: 10px;
+}
+.filter__box form .device-preferences {
+  border-bottom: 2px solid pink;
+  padding-bottom: 10px;
+}
+.filter__box form .price-range {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.filter__box form .price-range__min, .filter__box form .price-range__max {
+  display: flex;
+  justify-content: center;
+}
+.filter__box form button {
+  display: block;
+  margin: 0 auto;
+}
+.filter__box .button {
+  margin-top: 25px;
+}
+
+.price-field {
+  border-radius: 8px 36px 8px 36px;
+  background-color: white;
+  color: #E53FA3;
+  width: 90px;
+  height: 30px;
+  border: 1.5px solid #E53FA3;
+  text-align: center;
 }
 
 body {
