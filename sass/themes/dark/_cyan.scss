@@ -1,43 +1,15 @@
 // Variables for colors
 $primary-color: #00bcd4;
-$secondary-color: #00acc1;
 $header-color: #181818;
 $background-color: #222222;
 $product-card-color: #363636;
 $text-color: #ffffff;
+$light-color: #f5f5f5;
 
 // Dark mode styles
 body {
   background-color: $background-color;
   color: $text-color;
-}
-
-// Primary button
-.button-primary {
-  background-color: $primary-color;
-  color: $text-color;
-
-  &:hover {
-    background-color: darken($primary-color, 10%);
-  }
-
-  &:active {
-    background-color: darken($primary-color, 20%);
-  }
-}
-
-// Secondary button
-.button-secondary {
-  background-color: $secondary-color;
-  color: $text-color;
-
-  &:hover {
-    background-color: darken($secondary-color, 10%);
-  }
-
-  &:active {
-    background-color: darken($secondary-color, 20%);
-  }
 }
 
 // Headings
