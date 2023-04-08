@@ -3,20 +3,20 @@
 @use '../../themes' as theme;
 
 .products-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    grid-gap: 1rem;
-    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    justify-items: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
 
     @include utils.breakpoint-up(medium) {
         grid-template-columns: repeat(3, 1fr);
     }
 
     @include utils.breakpoint-up(large) {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 
     @include utils.breakpoint-up(xlarge) {

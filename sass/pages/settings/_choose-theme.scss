@@ -1,0 +1,139 @@
+@use '../../base' as base;
+@use '../../themes' as theme;
+@use '../../utils' as utils;
+
+.themes-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__brightness {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+
+        &__tab {
+            border: none;
+            background-color: transparent;
+            font-size: 16px;
+            font-weight: bold;
+            color: theme.$text-color;
+            cursor: pointer;
+            padding: 0.5rem 2rem;
+            transition: background-color 0.2s ease;
+            border-radius: 0.2rem;
+
+            &:hover {
+                background-color: theme.$product-card-color;
+            }
+
+            &.active {
+                border-bottom: 0.2rem solid theme.$primary-color;
+            }
+        }
+    }
+
+    &__colors {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+
+        button {
+            width: 3rem;
+            height: 2rem;
+        }
+
+        @mixin row-colors {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        &-lighter {
+            @include row-colors;
+
+            // red orange yellow lime aquamarine blue purple pink
+
+            .red {
+                background-color: red;
+            }
+
+            .orange {
+                background-color: orange;
+            }
+
+            .yellow {
+                background-color: yellow;
+            }
+            
+            .lime {
+                background-color: lime;
+            }
+
+            .aquamarine {
+                background-color: aquamarine;
+            }
+
+            .blue {
+                background-color: blue;
+            }
+
+            .purple {
+                background-color: purple;
+            }
+
+            .pink {
+                background-color: pink;
+            }
+        }
+
+        &-darker {
+            @include row-colors;
+            
+            // the same colors as above but darker
+            .red {
+                background-color: darkred;
+            }
+
+            .orange {
+                background-color: darkorange;
+            }
+
+            .yellow {
+                background-color: rgb(196, 196, 20);
+            }
+
+            .lime {
+                background-color: green;
+            }
+
+            .aquamarine {
+                background-color: teal;
+            }
+
+            .blue {
+                background-color: #0000ff;
+            }
+
+            .purple {
+                background-color: purple;
+            }
+
+            .pink {
+                background-color: palevioletred;
+            }
+        }
+    }
+
+    &__preview {
+        width: 95%;
+        border-radius: base.$small-border-radius base.$big-border-radius;
+    }
+}

@@ -1,42 +1,57 @@
 @use '../../base' as base;
 @use '../../themes' as theme;
+@use '../../utils' as utils;
 
 .product-details {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    padding-top: 1rem;
     overflow-y: auto;
 
-    &__image {
-        width: 95%;
-        aspect-ratio: 1/0.75;
-        object-fit: cover;
-        background-color: grey;
-        border-radius: base.$small-border-radius base.$big-border-radius;
+    @include utils.breakpoint-up(large) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
 
-        &-provider {
-            position: relative;
-            bottom: 3rem;
-            left: 0;
-            padding: 0.5rem 1rem;
-            background-color: theme.$primary-color;
-            color: theme.$background-color;
-            font-weight: 900;
-            border-radius: base.$small-border-radius base.$big-border-radius;
-            border: 0.15rem solid theme.$background-color;
+    &__image {
+        position: relative;
+        background-color: theme.$image-background-color;
+        border-radius: base.$small-border-radius base.$big-border-radius;
+        max-height: 65vh;
+        
+        img {
+            max-height: 65vh;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 1/0.75;
         }
+    }
+
+
+    &__label {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 0.5rem 1rem;
+        margin: 1rem 2rem;
+        background-color: theme.$primary-color;
+        color: theme.$background-color;
+        font-size: 1.2rem;
+        font-weight: 900;
+        border-radius: base.$small-border-radius base.$big-border-radius;
+        border: 0.16rem solid theme.$background-color;
     }
 
     &__title {
         width: 95%;
-        margin-top: -0.5rem;
+        margin-top: 1rem;
         margin-bottom: 0.3rem;
         font-weight: 900;
-        text-align: left;
+        text-align: center;
     }
 
     &__review {
@@ -60,7 +75,7 @@
 
         &-details {
             font-size: 1.1rem;
-            color: grey;
+            color: theme.$image-background-color;
         }
     }
 
@@ -139,37 +154,6 @@
         margin-top: 1rem;
         padding-bottom: 0.5rem;
         overflow-x: auto;
-
-        &__card {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background-color: theme.$product-card-color;
-            border-radius: base.$small-border-radius base.$big-border-radius;
-
-            &-image {
-                width: 13rem;
-                aspect-ratio: 1/0.9;
-                object-fit: cover;
-                background-color: grey;
-                border-radius: calc(base.$small-border-radius/1.5) calc(base.$big-border-radius/1.5);
-            }
-
-            &-title {
-                font-size: 1.2rem;
-                font-weight: 900;
-                text-align: left;
-                margin: 0 0.5rem;
-                text-overflow: inherit;
-            }
-
-            button {
-                padding: 0.5rem 2rem;
-            }
-        }
     }
 }
 
