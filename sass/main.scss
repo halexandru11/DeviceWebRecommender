@@ -8,6 +8,11 @@
 @import 'components/text-field';
 @import 'base/typograhpy';
 @import 'components/header';
+@import 'pages/info/about';
+@import 'pages/info/help';
+@import 'pages/info/about';
+@import 'utils/nav-bar';
+
 
 $colors: (
     "primary-color": #FFFFFF,

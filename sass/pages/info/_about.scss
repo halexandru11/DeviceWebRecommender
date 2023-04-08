@@ -1,0 +1,104 @@
+@use '../utils/breakpoints' as u;
+
+
+.explore-app {
+  background-color: #4e0531;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+  @include u.breakpoint-down('medium') {
+    grid-template-columns: 1fr;
+  }
+
+  @include u.breakpoint-down('large') {
+    grid-template-columns: 1fr;
+  }
+
+  &__column-one{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  &__column-two{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  &__catch {
+    color: #ffffff;
+    display: flex;
+    align-items:center;
+  }
+
+  &__button {
+    position: relative;
+    font-size: 1.2em;
+    padding: 0.7em 1.4em;
+    background-color: #e53fa3;
+    text-decoration: none;
+    border: 0.5rem 0.5rem;
+    border-radius: 0.5em;
+    color: #dedede;
+    box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.3);
+  }
+
+  &__button::before {
+    position: absolute;
+    content: '';
+    height: 0;
+    width: 0;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, rgba(33,33,33,1) 0%, rgba(33,33,33,1) 50%, #4e0531 50%, #4e0531 60%);
+    border-radius: 0 0 0.5em 0;
+    box-shadow: 0.2em 0.2em 0.2em rgba(26, 8, 8, 0.3);
+    transition: 0.3s;
+  }
+  
+  &__button:hover::before {
+    width: 1.6em;
+    height: 1.6em;
+  }
+  
+  &__button:active {
+    box-shadow: 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.3);
+    transform: translate(0.1em, 0.1em);
+  }
+
+  &__phrase {
+    color: #ffffff;
+  }
+
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #ffffff;
+
+  @include u.breakpoint-down('medium') {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #FAEFF8;
+
+  @include u.breakpoint-down('medium') {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+body {
+  margin: 0;
+}

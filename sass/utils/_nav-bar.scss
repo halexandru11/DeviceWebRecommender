@@ -1,0 +1,161 @@
+/* Dropdown Button */
+.dropbtn {
+  background-color: #6e747200;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3d3d3d;}
+
+
+  .siteHeader {
+    /**
+     * Lay out the children of this container with
+     * flexbox, which is horizontal by default.
+     */
+    display: flex;
+  
+    /**
+     * Make the container put as much space as possible
+     * between its children, with the children at either
+     * end laying flush against the container's edges.
+     */
+    justify-content: space-between;
+    align-items: center;
+  
+    padding: 10px;
+    background-color: #56727C;
+  }
+  
+    .siteHeader__section1 {
+      /**
+       * Lay out the children of this container with
+       * flexbox.
+       */
+      display: flex;
+  
+      /**
+       * Align the children in the center, along
+       * the main axis. By default the children will
+       * align along their top edges.
+       */
+      align-items: center;
+    }
+  
+      .siteHeader__item {
+        padding: 5px 15px;
+        font-size: 12px;
+      }
+  
+      .siteHeader__item + .siteHeader__item {
+        margin-left: 5px;
+      }
+  
+      .siteHeader__item.is-site-header-item-selected {
+        color: #FFFFFF;
+        background-color: #415F69;
+        border-radius: 4px;
+      }
+  
+      .siteHeaderLogo {
+        font-size: 20px;
+        line-height: 0;
+        color: white;
+      }
+  
+      .siteHeaderButton {
+        cursor: pointer;
+        color: #D9E9EF;
+      }
+
+
+
+/// DROPDOWN MENU
+input[type = "checkbox"] {
+  display: none;
+  visibility: hidden;
+}
+
+.bar {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  width: 50px;
+  height: 40px;
+}
+
+.bar span {
+  position: absolute;
+  width: 45px;
+  height: 7px;
+  background: #f1faee;
+  border-radius: 100px;
+  display: inline-block;
+  transition: 0.3s ease;
+  left: 0;
+}
+
+.bar span.top {
+  top: 0;
+}
+
+.bar span.middle {
+  top: 17px;
+}
+
+.bar span.bottom {
+  bottom: 0;
+}
+
+input[type]:checked ~ span.top {
+  transform: rotate(45deg);
+  transform-origin: top left;
+  width: 48px;
+  left: 5px;
+}
+
+input[type]:checked ~ span.bottom {
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  width: 48px;
+  bottom: -1px;
+  box-shadow: 0 0 10px #495057;
+}
+
+input[type]:checked ~ span.middle {
+  transform: translateX(-20px);
+  opacity: 0;
+}
