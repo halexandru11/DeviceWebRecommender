@@ -10,35 +10,38 @@
 </head>
 
 <body>
-    <header>
-        <div class="menu-btn">
-            <span class="menu-btn__burger"></span>
-        </div>
 
-        <nav class="nav">
-            <ul class="menu-nav">
-                <li class="menu-nav__item">
-                    <a href="../index.html" class="menu-nav__link">
-                        Home
-                    </a>
-                </li>
-                <li class="menu-nav__item active">
-                    <a href="signin.html" class="menu-nav__link">
-                        Sign in
-                    </a>
-                </li>
-                <li class="menu-nav__item">
-                    <a href="../info/about.html" class="menu-nav__link">
-                        About
-                    </a>
-                </li>
-                <li class="menu-nav__item">
-                    <a href="../info/help.html" class="menu-nav__link">
-                        Help
-                    </a>
-                </li>
-            </ul>
-        </nav>
+    <header>
+        <div class="siteHeader">
+            <!-- This section gets pushed to the left side-->
+            <div class="siteHeader__section">
+                <div class="siteHeader__item siteHeaderLogo"> </div>
+            </div>
+            <!-- This section gets pushed to the right side-->
+            <div class="siteHeader__section">
+                <div class="dropdown-menu">
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <label class="bar" for="check">
+                                <input type="checkbox" id="check">
+                                <span class="top"></span>
+                                <span class="middle"></span>
+                                <span class="bottom"></span>
+                            </label>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="signin.html">Sign In</a>
+                            <a href="signup.html">Sign Up</a>
+                            <a href="../info/about.html">About</a>
+                            <a href="../products/product.html">Products</a>
+                            <a href="../settings/choose-theme.html">Choose theme</a>
+                        </div>
+                    </div>
+                    <ul class="dropdown-content">
+                    </ul>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -50,10 +53,10 @@
 
                 <form>
                     <div class="signup__column1__field">
-                        <input type="text" class="field" name="username" placeholder="Username">
+                        <input type="text" name="username" placeholder="Username">
                     </div>
                     <div class="signup__column1__field">
-                        <input type="password" class="field" name="password" placeholder="Password">
+                        <input type="password" name="password" placeholder="Password">
                     </div>
                 </form>
 
@@ -76,7 +79,6 @@
             <div class="signin__image">
                 <div class="circle1"></div>
                 <div class="circle2"></div>
-                <div class="circle3"></div>
                 <div class="circle4"></div>
                 <div class="circle5"></div>
                 <div class="circle6"></div>

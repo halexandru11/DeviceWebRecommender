@@ -56,7 +56,7 @@ a:hover {
 
 /* Dropdown Button */
 .dropbtn {
-  background-color: rgba(110, 116, 114, 0);
+  background-color: #222222;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -81,7 +81,8 @@ a:hover {
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: black;
+  color: #00bcd4;
+  font-weight: bold;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -104,32 +105,32 @@ a:hover {
 
 .siteHeader {
   /**
-   * Lay out the children of this container with
-   * flexbox, which is horizontal by default.
-   */
+     * Lay out the children of this container with
+     * flexbox, which is horizontal by default.
+     */
   display: flex;
   /**
-   * Make the container put as much space as possible
-   * between its children, with the children at either
-   * end laying flush against the container's edges.
-   */
+     * Make the container put as much space as possible
+     * between its children, with the children at either
+     * end laying flush against the container's edges.
+     */
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: #56727C;
+  padding: 1rem;
+  background-color: #222222;
 }
 
 .siteHeader__section1 {
   /**
-   * Lay out the children of this container with
-   * flexbox.
-   */
+       * Lay out the children of this container with
+       * flexbox.
+       */
   display: flex;
   /**
-   * Align the children in the center, along
-   * the main axis. By default the children will
-   * align along their top edges.
-   */
+       * Align the children in the center, along
+       * the main axis. By default the children will
+       * align along their top edges.
+       */
   align-items: center;
 }
 
@@ -176,7 +177,7 @@ input[type=checkbox] {
   position: absolute;
   width: 45px;
   height: 7px;
-  background: #f1faee;
+  background: #00bcd4;
   border-radius: 100px;
   display: inline-block;
   transition: 0.3s ease;
@@ -207,7 +208,7 @@ input[type]:checked ~ span.bottom {
   transform-origin: top left;
   width: 48px;
   bottom: -1px;
-  box-shadow: 0 0 10px #495057;
+  box-shadow: #58e9fc;
 }
 
 input[type]:checked ~ span.middle {
@@ -315,7 +316,7 @@ input[type]:checked ~ span.middle {
   border-radius: 1rem 3rem;
   background-color: #222222;
   color: #00bcd4;
-  width: 300px;
+  width: 300repx;
   height: 25px;
   text-align: center;
   border: 1.5px solid #00bcd4;
@@ -326,7 +327,6 @@ input[type]:checked ~ span.middle {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 100px;
-  padding-right: 2rem;
 }
 .signin__column1__welcome {
   display: flex;
@@ -391,16 +391,6 @@ input[type]:checked ~ span.middle {
   bottom: 70%;
   left: 35%;
   transform: translate(-230%, -20%);
-}
-.signin__image .circle3 {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #638CF4;
-  bottom: 20%;
-  left: 50%;
-  transform: translate(-50%, 50%);
 }
 .signin__image .circle4 {
   position: absolute;
@@ -528,16 +518,6 @@ input[type]:checked ~ span.middle {
   bottom: 70%;
   left: 35%;
   transform: translate(-230%, -20%);
-}
-.signup__image .circle3 {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #638CF4;
-  bottom: 20%;
-  left: 50%;
-  transform: translate(-50%, 50%);
 }
 .signup__image .circle4 {
   position: absolute;
@@ -1110,9 +1090,6 @@ body {
   display: inline-block;
   vertical-align: middle;
 }
-.filter__section2__price__options .field {
-  width: 150px;
-}
 .filter__section2__autonomy h4 {
   font-weight: lighter;
   display: inline-block;
@@ -1123,9 +1100,6 @@ body {
   margin-left: 20px;
   display: inline-block;
   vertical-align: middle;
-}
-.filter__section2__autonomy__options .field {
-  width: 150px;
 }
 .filter__section2__color {
   display: flex;
@@ -1140,9 +1114,6 @@ body {
   overflow-x: auto;
   margin-left: 20px;
   white-space: nowrap;
-}
-.filter__section2__color__options .field {
-  width: 150px;
 }
 .filter__section2__model {
   display: flex;
@@ -1159,9 +1130,6 @@ body {
   margin-left: 20px;
   overflow-x: auto;
   white-space: nowrap;
-}
-.filter__section2__model__options .field {
-  width: 150px;
 }
 .filter__section2 .button {
   display: block;
