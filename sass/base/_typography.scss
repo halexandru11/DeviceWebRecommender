@@ -2,8 +2,13 @@
 
 body {
     font-family: 'Inter', sans-serif;
+    background-color: darkslategray;
 }
 
 h5 {
     font-size: clamp(0.5rem, 0.8rem + 0.75vw, 1.2rem);
+}
+
+.underlined_text {
+    text-decoration: underline;
 }

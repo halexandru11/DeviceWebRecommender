@@ -1,0 +1,182 @@
+@use '../../utils' as u;
+
+
+.explore-app {
+  background-color: #4e0531;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+  @include u.breakpoint-down('medium') {
+    grid-template-columns: 1fr;
+  }
+
+  @include u.breakpoint-down('large') {
+    grid-template-columns: 1fr;
+  }
+
+  &__column-one{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  &__column-two{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  &__catch {
+    color: #ffffff;
+    display: flex;
+    align-items:center;
+  }
+
+  &__button {
+    position: relative;
+    font-size: 1.2em;
+    padding: 0.7em 1.4em;
+    background-color: #e53fa3;
+    text-decoration: none;
+    border: 0.5rem 0.5rem;
+    border-radius: 0.5em;
+    color: #dedede;
+    box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.3);
+  }
+
+  &__button::before {
+    position: absolute;
+    content: '';
+    height: 0;
+    width: 0;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, rgba(33,33,33,1) 0%, rgba(33,33,33,1) 50%, #4e0531 50%, #4e0531 60%);
+    border-radius: 0 0 0.5em 0;
+    box-shadow: 0.2em 0.2em 0.2em rgba(26, 8, 8, 0.3);
+    transition: 0.3s;
+  }
+  
+  &__button:hover::before {
+    width: 1.6em;
+    height: 1.6em;
+  }
+  
+  &__button:active {
+    box-shadow: 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.3);
+    transform: translate(0.1em, 0.1em);
+  }
+
+  &__phrase {
+    color: #ffffff;
+  }
+
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #ffffff;
+
+  @include u.breakpoint-down('medium') {
+    grid-template-columns: 1fr;
+  }
+
+  .element-paragraph {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+  }
+
+  &__column-two {
+    display: grid;
+    justify-content: left;
+    ;
+  }
+
+  &__image{
+    padding: 1rem;
+  }
+  
+  /* Hide the default checkbox */
+// .container input {
+//   position: absolute;
+//   opacity: 0;
+//   cursor: pointer;
+//   height: 0;
+//   width: 0;
+//  }
+ 
+ .container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 25px;
+  user-select: none;
+ }
+ 
+ /* Create a custom checkbox */
+ .checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+  background: black;
+  border-radius: 50px;
+  transition: all 0.7s;
+  --spread: 20px;
+ }
+ 
+ /* When the checkbox is checked, add a blue background */
+//  .container input:checked ~ .checkmark {
+//   background: black;
+//   box-shadow: -10px -10px var(--spread) 0px #5B51D8, 0 -10px var(--spread) 0px #833AB4, 10px -10px var(--spread) 0px #E1306C, 10px 0 var(--spread) 0px #FD1D1D, 10px 10px var(--spread) 0px #F77737, 0 10px var(--spread) 0px #FCAF45, -10px 10px var(--spread) 0px #FFDC80;
+//  }
+ 
+ /* Create the checkmark/indicator (hidden when not checked) */
+ .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+ }
+ 
+ /* Show the checkmark when checked */
+//  .container input:checked ~ .checkmark:after {
+//   display: block;
+//  }
+ 
+ /* Style the checkmark/indicator */
+ .container .checkmark:after {
+  left: 0.45em;
+  top: 0.25em;
+  width: 0.25em;
+  height: 0.5em;
+  border: solid #f0f0f0;
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+ }
+}
+
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: #FAEFF8;
+
+  @include u.breakpoint-down('medium') {
+    grid-template-columns: 1fr;
+  }
+
+  
+}
+
+body {
+  margin: 0;
+}
