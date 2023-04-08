@@ -150,11 +150,12 @@ a:hover {
 .field {
   border-radius: 1rem 3rem;
   background-color: #222222;
-  color: #00bcd4;
-  width: 300px;
-  height: 25px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  width: 18.75rem;
+  height: 2rem;
   text-align: center;
-  border: 1.5px solid #00bcd4;
+  border: 0.2rem solid #00bcd4;
 }
 
 .signin {
@@ -798,6 +799,181 @@ a:hover {
   width: 28px;
   height: 3px;
   background: #E53FA3;
+}
+
+.theme-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.theme-layout__brightness {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+.theme-layout__brightness__tab {
+  background-color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 0.2rem;
+  color: #ffffff;
+  font-size: 1.4rem;
+  padding: 0.3rem 2rem;
+}
+@media (max-width: 43.74875em) {
+  .theme-layout__brightness__tab {
+    font-size: 1rem;
+  }
+}
+.theme-layout__brightness__tab:hover {
+  background-color: #363636;
+}
+.theme-layout__brightness__tab.active {
+  border-bottom: 0.3rem solid #00bcd4;
+}
+.theme-layout__colors {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  gap: 0.8rem;
+}
+.theme-layout__colors button {
+  width: 3rem;
+  height: 2.5rem;
+  border-radius: 0.5rem 1.5rem;
+}
+.theme-layout__colors-lighter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+@media (max-width: 43.74875em) {
+  .theme-layout__colors-lighter {
+    gap: 1vw;
+  }
+}
+.theme-layout__colors-lighter .red {
+  background-color: #E43232;
+}
+.theme-layout__colors-lighter .orange {
+  background-color: #F39628;
+}
+.theme-layout__colors-lighter .yellow {
+  background-color: #F4CF48;
+}
+.theme-layout__colors-lighter .lime {
+  background-color: #56E432;
+}
+.theme-layout__colors-lighter .aquamarine {
+  background-color: #00bcd4;
+}
+.theme-layout__colors-lighter .blue {
+  background-color: #3F71F1;
+}
+.theme-layout__colors-lighter .purple {
+  background-color: #AC45D0;
+}
+.theme-layout__colors-lighter .pink {
+  background-color: #f55ab7;
+}
+.theme-layout__colors-darker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+@media (max-width: 43.74875em) {
+  .theme-layout__colors-darker {
+    gap: 1vw;
+  }
+}
+.theme-layout__colors-darker .red {
+  background-color: #961b1b;
+}
+.theme-layout__colors-darker .orange {
+  background-color: #E45D32;
+}
+.theme-layout__colors-darker .yellow {
+  background-color: #837228;
+}
+.theme-layout__colors-darker .lime {
+  background-color: #107e15;
+}
+.theme-layout__colors-darker .aquamarine {
+  background-color: #117c58;
+}
+.theme-layout__colors-darker .blue {
+  background-color: #18347a;
+}
+.theme-layout__colors-darker .purple {
+  background-color: rgb(80, 33, 168);
+}
+.theme-layout__colors-darker .pink {
+  background-color: rgb(145, 17, 87);
+}
+@media (max-width: 43.74875em) {
+  .theme-layout__colors button {
+    width: 2.2rem;
+    height: 2rem;
+    border-radius: 0.3333333333rem 1rem;
+  }
+}
+.theme-layout__preview {
+  border: 0.4rem solid #00bcd4;
+  border-radius: 1.2rem 4.5rem;
+  padding: 2rem;
+  padding-top: 1rem;
+  margin-bottom: 2rem;
+}
+.theme-layout__preview__columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+}
+.theme-layout__preview__columns-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+.theme-layout__preview__columns-left button {
+  margin: 0.5rem 0;
+  padding: 0.5rem 3rem;
+  font-size: 1rem;
+}
+@media (max-width: 56.24875em) {
+  .theme-layout__preview__columns-left .field {
+    width: 15rem;
+  }
+}
+@media (max-width: 56.24875em) {
+  .theme-layout__preview__columns {
+    gap: 2rem;
+  }
+}
+@media (max-width: 43.74875em) {
+  .theme-layout__preview__columns {
+    flex-direction: column;
+  }
+}
+@media (max-width: 43.74875em) {
+  .theme-layout__preview {
+    border-width: 0.2rem;
+    padding: 0.5rem;
+    padding-top: 0rem;
+    padding-bottom: 1rem;
+    border-radius: 1rem 3.3rem;
+  }
 }
 
 body {

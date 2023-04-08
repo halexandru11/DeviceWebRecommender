@@ -19,7 +19,7 @@
     &__image {
         width: 100%;
         background-color: theme.$image-background-color;
-        border-radius: base.$small-border-radius/1.5 base.$big-border-radius/1.5;
+        border-radius: calc(base.$small-border-radius/1.5) calc(base.$big-border-radius/1.5);
         aspect-ratio: 1/1.1;
 
         img {
