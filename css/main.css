@@ -112,14 +112,16 @@ a:hover {
   border: none;
 }
 
-.price-field {
-  border-radius: 8px 36px 8px 36px;
-  background-color: white;
-  color: #E53FA3;
-  width: 90px;
-  height: 30px;
-  border: 1.5px solid #E53FA3;
+.button-light {
+  border-radius: 1rem 3rem;
+  background-color: #222222;
+  color: #ffffff;
+  font-weight: lighter;
+  width: auto;
+  height: auto;
   text-align: center;
+  border: 1.5px solid #ffffff;
+  cursor: pointer;
 }
 
 .field {
@@ -708,48 +710,129 @@ a:hover {
 }
 
 .filter {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  background-color: #00bcd4;
+}
+.filter__section1 {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  background-color: #222222;
+  height: 50vh;
+  width: 100vw;
+}
+.filter__section1__column1 {
+  justify-self: center;
+}
+.filter__section1__column1 h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #00bcd4;
+  margin-bottom: 60px;
 }
-.filter__box {
-  background-color: #222222;
-  width: 400px;
-  height: 900px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-.filter__box form {
-  margin-bottom: 25px;
-  font-weight: bold;
-  color: #00bcd4;
-  font-size: 30px;
-}
-.filter__box form .site-preferences {
-  border-bottom: 2px solid pink;
-  padding-bottom: 10px;
-}
-.filter__box form .device-preferences {
-  border-bottom: 2px solid pink;
-  padding-bottom: 10px;
-}
-.filter__box form .price-range {
-  margin-top: 20px;
+.filter__section1__column1__buttons {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-gap: auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 10px;
+  justify-items: center;
 }
-.filter__box form .price-range__min, .filter__box form .price-range__max {
+.filter__section1__column1__buttons button {
+  align-self: start;
+}
+.filter__section1__column2 {
+  justify-self: center;
+}
+.filter__section1__column2 h1 {
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
 }
-.filter__box form button {
+.filter__section1__column2__buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 10px;
+  justify-items: center;
+}
+.filter__section1__column2__buttons button {
+  align-self: start;
+}
+.filter__section2 {
+  padding-left: 10px;
+  background-color: #181818;
+  height: 50vh;
+  width: 100vw;
+}
+.filter__section2__price h4 {
+  font-weight: lighter;
+  display: inline-block;
+  vertical-align: middle;
+  color: #00bcd4;
+}
+.filter__section2__price__options {
+  margin-left: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.filter__section2__price__options .field {
+  width: 150px;
+}
+.filter__section2__autonomy h4 {
+  font-weight: lighter;
+  display: inline-block;
+  vertical-align: middle;
+  color: #00bcd4;
+}
+.filter__section2__autonomy__options {
+  margin-left: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.filter__section2__autonomy__options .field {
+  width: 150px;
+}
+.filter__section2__color {
+  display: flex;
+  align-items: center;
+}
+.filter__section2__color h4 {
+  font-weight: lighter;
+  color: #00bcd4;
+}
+.filter__section2__color__options {
+  display: flex;
+  overflow-x: auto;
+  margin-left: 20px;
+  white-space: nowrap;
+}
+.filter__section2__color__options .field {
+  width: 150px;
+}
+.filter__section2__model {
+  display: flex;
+  align-items: center;
+}
+.filter__section2__model h4 {
+  font-weight: lighter;
+  display: inline-block;
+  color: #00bcd4;
+}
+.filter__section2__model__options {
+  display: flex;
+  overflow-x: auto;
+  margin-left: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.filter__section2__model__options .field {
+  width: 150px;
+}
+.filter__section2 .button {
   display: block;
-  margin: 0 auto;
-}
-.filter__box .button {
-  margin-top: 25px;
+  margin: auto;
+  margin-top: 15px;
 }
 
 .home {
