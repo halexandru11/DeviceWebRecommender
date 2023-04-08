@@ -1,12 +1,23 @@
 @use '../../themes' as theme;
+@use '../../components' as component;
+@use '../../utils' as utils;
 
 .signup {
     //padding-bottom: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
     gap: 100px;
     padding-right: 2rem;
+
+    @include utils.breakpoint-up(small) {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr;
+    }
+
+    @include utils.breakpoint-up(medium) {
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
+    }
 
     &__column1 {
 
@@ -58,6 +69,9 @@
 
 
     &__image {
+        @include utils.breakpoint-down(small) {
+            display: none;
+        }
 
         display: flex;
         justify-content: flex-end;
