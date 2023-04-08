@@ -1,0 +1,15 @@
+@use '../themes' as theme;
+
+.fa {
+    font-size: 2rem;
+}
+
+.icon-button {
+    background-color: transparent;
+    color: theme.$text-color;
+    border-radius: 0.5rem 1.45rem;
+    padding: 0.5rem 1rem;
+    font-size: clamp(0.75rem, 0.6rem + 0.8vw, 1rem);
+    font-weight: 700;
+    border: none;
+}

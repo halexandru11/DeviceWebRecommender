@@ -1,0 +1,19 @@
+@use '../themes' as theme;
+
+.filter-capsule {
+    background-color: theme.$product-card-color;
+    padding: 0.3rem 1rem;
+    border-radius: 50rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 1.5rem;
+    white-space: nowrap;
+    font-weight: 900;
+
+    &__icon {
+        font-size: 0.1rem;
+        padding-left: 0.5rem;
+    }
+}

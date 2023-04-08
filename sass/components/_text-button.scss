@@ -1,4 +1,21 @@
 @use '../themes' as theme;
+@use '../base' as base;
+
+.button {
+    border-radius: base.$small-border-radius base.$big-border-radius;
+    background-color: theme.$primary-color;
+    color: theme.$background-color;
+    width: 120px;
+    height: 40px;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.button:hover {
+    transform: scale(1.2);
+    /* added transform property */
+}
 
 .text-button {
     background-color: theme.$primary-color;

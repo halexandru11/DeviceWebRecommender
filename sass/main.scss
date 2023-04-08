@@ -1,23 +1,14 @@
-@forward 'base';
-@forward 'themes';
+@use 'base' as base;
+@use 'themes' as theme;
 @forward 'components';
-@forward 'pages';
-//@import 'base/typograhpy';
-@import 'pages/auth/signin';
-@import 'components/text-button';
-@import 'components/text-field';
-@import 'base/typograhpy';
-@import 'components/header';
-@import 'pages/info/about';
-@import 'pages/info/help';
-@import 'pages/info/about';
-@import 'utils/nav-bar';
+@forward 'pages/auth';
+@forward 'pages/products';
+@forward 'pages/info';
 
-
-$colors: (
-    "primary-color": #FFFFFF,
-    "accent-color": #E53FA3
-);
+// $colors: (
+//     "primary-color": #FFFFFF,
+//     "accent-color": #E53FA3
+// );
 
 $font-weights: (
     "regular": 400,
@@ -27,11 +18,11 @@ $font-weights: (
 
 
 body {
-    background: map-get($colors, primary-color);
-    color: set-text-color(map-get($colors, accent-color));
-    height: 100vh;
+    background: theme.$background-color;
+    color: theme.$text-color;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1;
+    margin: 0 min(1rem, 2%);
 }
 
 main {
@@ -46,6 +37,20 @@ footer {
     right: 1rem;
     text-align: right;
     padding: 1rem;
-    color: set-text-color(map-get($colors, primary-color));
+    color: theme.$primary-color;
 }
 
+button {
+    background: theme.$primary-color;
+    color: theme.$background-color;
+    border: none;
+    border-radius: base.$small-border-radius base.$big-border-radius;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        background: theme.$accent-color;
+    }
+}
