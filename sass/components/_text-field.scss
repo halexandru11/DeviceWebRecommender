@@ -4,9 +4,10 @@
 .field {
     border-radius: base.$small-border-radius base.$big-border-radius;
     background-color: theme.$background-color;
-    color: theme.$primary-color;
-    width: 300repx;
-    height: 25px;
+    color: theme.$text-color;
+    font-size: 1.2rem;
+    width: 18.75rem;
+    height: 2rem;
     text-align: center;
-    border: 1.5px solid theme.$primary-color;
+    border: 0.2rem solid theme.$primary-color;
 }

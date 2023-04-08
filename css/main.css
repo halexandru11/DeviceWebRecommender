@@ -7,6 +7,10 @@ h5 {
   font-size: clamp(0.5rem, 0.8rem + 0.75vw, 1.2rem);
 }
 
+.underlined_text {
+  text-decoration: underline;
+}
+
 body {
   background-color: #222222;
   color: #ffffff;
@@ -38,6 +42,109 @@ a:hover {
 .filter-capsule__icon {
   font-size: 0.1rem;
   padding-left: 0.5rem;
+}
+
+.site-header__wrapper {
+  display: flex;
+  background-color: beige;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #02945f;
+  color: white;
+  padding: 15px;
+  font-size: 1em;
+  border: 5px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+.label-check {
+  display: none;
+}
+
+.hamburger-label {
+  width: 2.7em;
+  height: 2.5em;
+  display: block;
+  cursor: pointer;
+}
+
+.hamburger-label div {
+  width: 2.5em;
+  height: 0.4em;
+  background-color: #fff;
+  position: absolute;
+}
+
+.line1 {
+  transition: all 0.3s;
+}
+
+.line2 {
+  margin: 18px 0 0 0;
+  transition: 0.3s;
+}
+
+.line3 {
+  margin: 36px 0 0 0;
+  transition: 0.3s;
+}
+
+#label-check:checked + .hamburger-label .line1 {
+  transform: rotate(35deg) scaleX(0.55) translate(39px, -4.5px);
+  border-radius: 50px 50px 50px 0;
+}
+
+#label-check:checked + .hamburger-label .line3 {
+  transform: rotate(-35deg) scaleX(0.55) translate(39px, 4.5px);
+  border-radius: 0 50px 50px 50px;
+}
+
+#label-check:checked + .hamburger-label .line2 {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  width: 45px;
 }
 
 .fa {
@@ -160,11 +267,6 @@ a:hover {
   color: #D9E9EF;
 }
 
-input[type=checkbox] {
-  display: none;
-  visibility: hidden;
-}
-
 .bar {
   display: block;
   position: relative;
@@ -194,26 +296,6 @@ input[type=checkbox] {
 
 .bar span.bottom {
   bottom: 0;
-}
-
-input[type]:checked ~ span.top {
-  transform: rotate(45deg);
-  transform-origin: top left;
-  width: 48px;
-  left: 5px;
-}
-
-input[type]:checked ~ span.bottom {
-  transform: rotate(-45deg);
-  transform-origin: top left;
-  width: 48px;
-  bottom: -1px;
-  box-shadow: #58e9fc;
-}
-
-input[type]:checked ~ span.middle {
-  transform: translateX(-20px);
-  opacity: 0;
 }
 
 .product-card {
@@ -315,11 +397,12 @@ input[type]:checked ~ span.middle {
 .field {
   border-radius: 1rem 3rem;
   background-color: #222222;
-  color: #00bcd4;
-  width: 300repx;
-  height: 25px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  width: 18.75rem;
+  height: 2rem;
   text-align: center;
-  border: 1.5px solid #00bcd4;
+  border: 0.2rem solid #00bcd4;
 }
 
 .signin {
@@ -958,13 +1041,6 @@ input[type]:checked ~ span.middle {
 .about__image {
   padding: 1rem;
 }
-.about .container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
 .about .container {
   display: block;
   position: relative;
@@ -985,17 +1061,10 @@ input[type]:checked ~ span.middle {
   transition: all 0.7s;
   --spread: 20px;
 }
-.about .container input:checked ~ .checkmark {
-  background: black;
-  box-shadow: -10px -10px var(--spread) 0px #5B51D8, 0 -10px var(--spread) 0px #833AB4, 10px -10px var(--spread) 0px #E1306C, 10px 0 var(--spread) 0px #FD1D1D, 10px 10px var(--spread) 0px #F77737, 0 10px var(--spread) 0px #FCAF45, -10px 10px var(--spread) 0px #FFDC80;
-}
 .about .checkmark:after {
   content: "";
   position: absolute;
   display: none;
-}
-.about .container input:checked ~ .checkmark:after {
-  display: block;
 }
 .about .container .checkmark:after {
   left: 0.45em;
@@ -1138,10 +1207,6 @@ body {
 }
 
 /*hide the inputs/checkmarks and submenu*/
-input, ul.submenu {
-  display: none;
-}
-
 /*position the label*/
 label {
   position: relative;
@@ -1150,10 +1215,6 @@ label {
 }
 
 /*show the submenu when input is checked*/
-input:checked ~ ul.submenu {
-  display: block;
-}
-
 .home {
   background-color: pink;
 }
@@ -1190,6 +1251,181 @@ input:checked ~ ul.submenu {
   width: 28px;
   height: 3px;
   background: #E53FA3;
+}
+
+.theme-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.theme-layout__brightness {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+.theme-layout__brightness__tab {
+  background-color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 0.2rem;
+  color: #ffffff;
+  font-size: 1.4rem;
+  padding: 0.3rem 2rem;
+}
+@media (max-width: 43.74875em) {
+  .theme-layout__brightness__tab {
+    font-size: 1rem;
+  }
+}
+.theme-layout__brightness__tab:hover {
+  background-color: #363636;
+}
+.theme-layout__brightness__tab.active {
+  border-bottom: 0.3rem solid #00bcd4;
+}
+.theme-layout__colors {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  gap: 0.8rem;
+}
+.theme-layout__colors button {
+  width: 3rem;
+  height: 2.5rem;
+  border-radius: 0.5rem 1.5rem;
+}
+.theme-layout__colors-lighter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+@media (max-width: 43.74875em) {
+  .theme-layout__colors-lighter {
+    gap: 1vw;
+  }
+}
+.theme-layout__colors-lighter .red {
+  background-color: #E43232;
+}
+.theme-layout__colors-lighter .orange {
+  background-color: #F39628;
+}
+.theme-layout__colors-lighter .yellow {
+  background-color: #F4CF48;
+}
+.theme-layout__colors-lighter .lime {
+  background-color: #56E432;
+}
+.theme-layout__colors-lighter .aquamarine {
+  background-color: #00bcd4;
+}
+.theme-layout__colors-lighter .blue {
+  background-color: #3F71F1;
+}
+.theme-layout__colors-lighter .purple {
+  background-color: #AC45D0;
+}
+.theme-layout__colors-lighter .pink {
+  background-color: #f55ab7;
+}
+.theme-layout__colors-darker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+@media (max-width: 43.74875em) {
+  .theme-layout__colors-darker {
+    gap: 1vw;
+  }
+}
+.theme-layout__colors-darker .red {
+  background-color: #961b1b;
+}
+.theme-layout__colors-darker .orange {
+  background-color: #E45D32;
+}
+.theme-layout__colors-darker .yellow {
+  background-color: #837228;
+}
+.theme-layout__colors-darker .lime {
+  background-color: #107e15;
+}
+.theme-layout__colors-darker .aquamarine {
+  background-color: #117c58;
+}
+.theme-layout__colors-darker .blue {
+  background-color: #18347a;
+}
+.theme-layout__colors-darker .purple {
+  background-color: rgb(80, 33, 168);
+}
+.theme-layout__colors-darker .pink {
+  background-color: rgb(145, 17, 87);
+}
+@media (max-width: 43.74875em) {
+  .theme-layout__colors button {
+    width: 2.2rem;
+    height: 2rem;
+    border-radius: 0.3333333333rem 1rem;
+  }
+}
+.theme-layout__preview {
+  border: 0.4rem solid #00bcd4;
+  border-radius: 1.2rem 4.5rem;
+  padding: 2rem;
+  padding-top: 1rem;
+  margin-bottom: 2rem;
+}
+.theme-layout__preview__columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+}
+.theme-layout__preview__columns-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+.theme-layout__preview__columns-left button {
+  margin: 0.5rem 0;
+  padding: 0.5rem 3rem;
+  font-size: 1rem;
+}
+@media (max-width: 56.24875em) {
+  .theme-layout__preview__columns-left .field {
+    width: 15rem;
+  }
+}
+@media (max-width: 56.24875em) {
+  .theme-layout__preview__columns {
+    gap: 2rem;
+  }
+}
+@media (max-width: 43.74875em) {
+  .theme-layout__preview__columns {
+    flex-direction: column;
+  }
+}
+@media (max-width: 43.74875em) {
+  .theme-layout__preview {
+    border-width: 0.2rem;
+    padding: 0.5rem;
+    padding-top: 0rem;
+    padding-bottom: 1rem;
+    border-radius: 1rem 3.3rem;
+  }
 }
 
 body {

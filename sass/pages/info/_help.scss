@@ -1,7 +1,7 @@
 /*hide the inputs/checkmarks and submenu*/
-input, ul.submenu {
-    display: none;
-  }
+// input, ul.submenu {
+//     display: none;
+//   }
   
 /*position the label*/
 label {
@@ -11,6 +11,6 @@ label {
 }
 
 /*show the submenu when input is checked*/
-input:checked~ul.submenu {
-  display: block;
-}
+// input:checked~ul.submenu {
+//   display: block;
+// }
