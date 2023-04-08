@@ -7,7 +7,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-top: 1rem;
     overflow-y: auto;
 
     @include utils.breakpoint-up(large) {
@@ -155,37 +154,6 @@
         margin-top: 1rem;
         padding-bottom: 0.5rem;
         overflow-x: auto;
-
-        &__card {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background-color: theme.$product-card-color;
-            border-radius: base.$small-border-radius base.$big-border-radius;
-
-            &-image {
-                width: 13rem;
-                aspect-ratio: 1/0.9;
-                object-fit: cover;
-                background-color: theme.$image-background-color;
-                border-radius: calc(base.$small-border-radius/1.5) calc(base.$big-border-radius/1.5);
-            }
-
-            &-title {
-                font-size: 1.2rem;
-                font-weight: 900;
-                text-align: left;
-                margin: 0 0.5rem;
-                text-overflow: inherit;
-            }
-
-            button {
-                padding: 0.5rem 2rem;
-            }
-        }
     }
 }
 

@@ -1,35 +1,65 @@
 @use '../themes' as theme;
+@use '../base' as base;
+@use '../utils' as utils;
 
 .product-card {
-    aspect-ratio: 1/1;
-    background-color: theme.$product-card-color;
-    border-radius: 1rem 3rem 1rem 3rem;
-    border-right: min(1vw, 0.5rem) solid theme.$primary-color;
-    border-bottom: min(1vw, 0.5rem) solid theme.$primary-color;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 1rem;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.1;
+    margin-top: 1rem;
+    background-color: theme.$product-card-color;
+    border-radius: base.$small-border-radius base.$big-border-radius;
+    min-width: 13.5rem;
+    max-width: 15rem;
+    border-right: 0.5rem solid theme.$primary-color;
+    border-bottom: 0.5rem solid theme.$primary-color;
 
     &__image {
-        background-color: theme.$image-background-color;
         width: 100%;
-        height: 80%;
-        border-radius: 0.5rem 1.5rem;
-        object-fit: cover;
-        padding: 0;
-        margin: 0;
+        background-color: theme.$image-background-color;
+        border-radius: base.$small-border-radius/1.5 base.$big-border-radius/1.5;
+        aspect-ratio: 1/1.1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &__price {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 1.6rem;
+        top: -1.6rem;
+        padding: 0.5rem 1rem;
+        margin: 0 1.2rem;
+        background-color: theme.$background-color;
+        color: theme.$primary-color;
+        font-size: 1.1rem;
+        font-weight: 900;
+        border-radius: base.$small-border-radius base.$big-border-radius;
+        border: 0.2rem solid theme.$primary-color;
     }
 
     &__title {
-        margin-top: 1.5vh;
-        margin-bottom: 1.5vh;
-        font-weight: 700;
-        line-height: 1.1;
+        position: relative;
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 0.3rem;
+        font-weight: 600;
+        font-size: 1.3rem;
+        text-align: center;
+        top: -1.6rem;
+    }
+
+    button {
+        margin-top: -0.6rem;
+        padding: 0.5rem 2rem;
+        font-size: 1.1rem;
     }
 }

@@ -19,7 +19,7 @@ $breakpoints-down: (
 }
 
 @mixin breakpoint-down($size) {
-    @media (max-width: map-get($breakpoints-up, $size)) {
+    @media (max-width: map-get($breakpoints-down, $size)) {
         @content;
     }
 }
