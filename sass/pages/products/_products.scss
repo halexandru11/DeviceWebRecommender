@@ -24,26 +24,54 @@
     }
 }
 
-.filters {
+.search {
     position: sticky;
     top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding-top: 1rem;
-    padding-left: 1rem;
     background-color: theme.$background-color;
-    box-shadow: 0 0.7rem 1rem theme.$background-color;
+    z-index: 1;
 
-    &__icon {
-        position: absolute;
+    .field {
+        width: 80%;
+        justify-self: center;
+        margin: 0 auto;
     }
-    
-    &__row {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 0.5rem;
-        overflow-x: auto;
-        margin-left: 3rem;
-        padding-bottom: 0.5rem;
+
+    .filters {
+        top: 0;
+        padding-top: 1rem;
+        padding-left: 1rem;
+        background-color: theme.$background-color;
+        margin-left: 5%;
+        margin-right: calc(5% + 3rem);
+        margin-bottom: 1rem;
+
+        &__icon {
+            position: absolute;
+        }
+
+        &__row {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.5rem;
+            overflow-x: auto;
+            margin-left: 3rem;
+        }
+    }
+
+    @include utils.breakpoint-down(small) {
+        .field {
+            width: 90%;
+        }
+
+        .filters {
+            margin-left: 0;
+            margin-right: 1rem;
+        }
     }
 }
