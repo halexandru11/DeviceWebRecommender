@@ -1,0 +1,18 @@
+.persons-and-organizations{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+body {
+    background-color: #6495ed;
+    font-family: 'Inter', sans-serif;
+}
+
+.title {
+    background-color: #5382da;
+    border: 2rem solid transparent;
+}
+
+
+
