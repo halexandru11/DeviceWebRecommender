@@ -1,16 +1,52 @@
-/*hide the inputs/checkmarks and submenu*/
-// input, ul.submenu {
-//     display: none;
-//   }
-  
-/*position the label*/
-label {
-  position: relative;
-  display: block;
-  cursor: pointer;
-}
+@use '../../themes' as theme;
+@use '../../base' as base;
 
-/*show the submenu when input is checked*/
-// input:checked~ul.submenu {
-//   display: block;
-// }
+.help-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin: 1rem;
+  margin-bottom: 3rem;
+
+  .section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    
+    &__title {
+      background-color: theme.$primary-color;
+      color: theme.$background-color;
+      font-size: 3rem;
+      padding: 1rem;
+      font-weight: 600;
+      border-radius: base.$small-border-radius base.$big-border-radius;
+    }
+
+    &__content {
+      display: flex;
+
+      &-line {
+        margin-left: 3rem;
+        margin-right: 1rem;
+        width: 1rem;
+        background-color: theme.$primary-color;
+        border-radius: 0 0 50rem 50rem;
+      }
+
+      &-text {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        margin-right: 2rem;
+        font-size: 1.3rem;
+        width: calc(100% - 4rem);
+        line-height: 1.2;
+
+        strong {
+          color: theme.$primary-color;
+        }
+      }
+    }
+  }
+}
