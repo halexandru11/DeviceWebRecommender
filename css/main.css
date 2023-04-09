@@ -450,6 +450,141 @@ a:hover {
   justify-content: center;
   align-items: flex-end;
 }
+.signin__column1__button {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: flex-end;
+}
+.signin__image {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  text-align: right;
+  /* added */
+}
+@media (max-width: 43.74875em) {
+  .signin__image {
+    display: none;
+  }
+}
+.signin__image .circle1 {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #E53FA3;
+  bottom: 50%;
+  left: 35%;
+  transform: translate(-350%, -50%);
+}
+.signin__image .circle2 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #F3ED39;
+  bottom: 70%;
+  left: 35%;
+  transform: translate(-230%, -20%);
+}
+.signin__image .circle4 {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #E53FA3;
+  bottom: 0%;
+  right: 100%;
+  transform: translate(50%, 50%);
+}
+.signin__image .circle5 {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #6636ED;
+  top: 15%;
+  right: 2.5%;
+  transform: translate(25%, -25%);
+}
+.signin__image .circle6 {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: #F3ED39;
+  top: 50%;
+  right: 0%;
+  transform: translate(50%, -50%);
+}
+.signin__image .circle7 {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #638CF4;
+  bottom: 20%;
+  left: -5%;
+  transform: translate(50%, 25%);
+}
+.signin__image .circle8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #E53FA3;
+  bottom: 20%;
+  right: 0%;
+  transform: translate(-50%, -55%);
+}
+.signin__image img {
+  width: 35vw;
+  border-radius: 50px;
+  margin-right: 55px;
+}
+
+.signin {
+  gap: 100px;
+  padding-right: 2rem;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 43.75em) {
+  .signin {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 56.25em) {
+  .signin {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 90em) {
+  .signin {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.signin__column1__welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signin__column1__welcome h1 {
+  margin-bottom: 50px;
+  font-weight: bold;
+  color: #00bcd4;
+  font-size: 35px;
+}
+.signin__column1__field {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
 .signin__column1__forgot {
   margin-top: 10px;
   margin-bottom: 10px;
