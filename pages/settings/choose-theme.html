@@ -16,31 +16,50 @@
 <body>
     <div class="theme-layout">
         <div class="theme-layout__brightness">
-            <button class="theme-layout__brightness__tab">Light</button>
-            <button class="theme-layout__brightness__tab active">Dark</button>
+            <button id="light-btn" class="theme-layout__brightness__tab">Light</button>
+            <button id="dark-btn" class="theme-layout__brightness__tab active">Dark</button>
         </div>
-        <div class="theme-layout__colors">
-            <span class="theme-layout__colors-lighter">
-                <button class="red"></button>
-                <button class="orange"></button>
-                <button class="yellow"></button>
-                <button class="lime"></button>
-                <button class="aquamarine"></button>
-                <button class="blue"></button>
-                <button class="purple"></button>
-                <button class="pink"></button>
-            </span>
-            <span class="theme-layout__colors-darker">
-                <button class="red"></button>
-                <button class="orange"></button>
-                <button class="yellow"></button>
-                <button class="lime"></button>
-                <button class="aquamarine"></button>
-                <button class="blue"></button>
-                <button class="purple"></button>
-                <button class="pink"></button>
-            </span>
-        </div>
+        <form action="" class="color-picker">
+            <fieldset>
+                <legend class="visually-hidden">Colors</legend>
+                <span>
+                    <label class="visually-hidden" for="red-lighter">red lighter</label>
+                    <input type="radio" name="color" id="red-lighter" class="red-lighter" checked>
+                    <label class="visually-hidden" for="orange-lighter">orange lighter</label>
+                    <input type="radio" name="color" id="orange-lighter" class="orange-lighter">
+                    <label class="visually-hidden" for="yellow-lighter">yellow lighter</label>
+                    <input type="radio" name="color" id="yellow-lighter" class="yellow-lighter">
+                    <label class="visually-hidden" for="lime-lighter">lime lighter</label>
+                    <input type="radio" name="color" id="lime-lighter" class="lime-lighter">
+                    <label class="visually-hidden" for="aquamarine-lighter">aquamarine lighter</label>
+                    <input type="radio" name="color" id="aquamarine-lighter" class="aquamarine-lighter">
+                    <label class="visually-hidden" for="blue-lighter">blue lighter</label>
+                    <input type="radio" name="color" id="blue-lighter" class="blue-lighter">
+                    <label class="visually-hidden" for="purple-lighter">purple lighter</label>
+                    <input type="radio" name="color" id="purple-lighter" class="purple-lighter">
+                    <label class="visually-hidden" for="pink-lighter">pink lighter</label>
+                    <input type="radio" name="color" id="pink-lighter" class="pink-lighter">
+                </span>
+                <span class="theme-layout__colors-darker">
+                    <label class="visually-hidden" for="red-darker">red darker</label>
+                    <input type="radio" name="color" id="red-darker" class="red-darker">
+                    <label class="visually-hidden" for="orange-darker">orange darker</label>
+                    <input type="radio" name="color" id="orange-darker" class="orange-darker">
+                    <label class="visually-hidden" for="yellow-darker">yellow darker</label>
+                    <input type="radio" name="color" id="yellow-darker" class="yellow-darker">
+                    <label class="visually-hidden" for="lime-darker">lime darker</label>
+                    <input type="radio" name="color" id="lime-darker" class="lime-darker">
+                    <label class="visually-hidden" for="aquamarine-darker">aquamarine darker</label>
+                    <input type="radio" name="color" id="aquamarine-darker" class="aquamarine-darker">
+                    <label class="visually-hidden" for="blue-darker">blue darker</label>
+                    <input type="radio" name="color" id="blue-darker" class="blue-darker">
+                    <label class="visually-hidden" for="purple-darker">purple darker</label>
+                    <input type="radio" name="color" id="purple-darker" class="purple-darker">
+                    <label class="visually-hidden" for="pink-darker">pink darker</label>
+                    <input type="radio" name="color" id="pink-darker" class="pink-darker">
+                </span>
+            </fieldset>
+        </form>
         <h2>Preview</h2>
         <div class="theme-layout__preview">
             <span class="theme-layout__preview__columns">
@@ -67,6 +86,8 @@
             </span>
         </div>
     </div>
+
+    <script src="../../assets/scripts/choose-theme.js"></script>
 </body>
 
 </html>

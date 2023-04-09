@@ -1,15 +1,13 @@
-@use '../../themes' as theme;
-
 .filter {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    background-color: theme.get-primary-color();
+    background-color: var(--primary-color);
 
     &__section1 {
         display: grid;
         grid-gap: 10px;
         grid-template-columns: 1fr 1fr;
-        background-color: theme.get-background-color();
+        background-color: var(--background-color);
         height: 50vh;
         width: 100vw;
 
@@ -73,7 +71,7 @@
 
     &__section2 {
         padding-left: 10px;
-        background-color: theme.get-header-color();
+        background-color: var(--header-color);
         height: 50vh;
         width: 100vw;
 
@@ -85,7 +83,7 @@
                 font-weight: lighter;
                 display: inline-block;
                 vertical-align: middle;
-                color: theme.get-primary-color();
+                color: var(--primary-color);
             }
 
             &__options {
@@ -104,7 +102,7 @@
                 font-weight: lighter;
                 display: inline-block;
                 vertical-align: middle;
-                color: theme.get-primary-color();
+                color: var(--primary-color);
             }
 
             &__options {
@@ -125,7 +123,7 @@
 
 
                 font-weight: lighter;
-                color: theme.get-primary-color();
+                color: var(--primary-color);
             }
 
             &__options {
@@ -146,7 +144,7 @@
             h4 {
                 font-weight: lighter;
                 display: inline-block;
-                color: theme.get-primary-color();
+                color: var(--primary-color);
             }
 
             &__options {

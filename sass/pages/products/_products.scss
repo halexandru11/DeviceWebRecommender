@@ -1,6 +1,5 @@
 @use '../../components' as component;
 @use '../../utils' as utils;
-@use '../../themes' as theme;
 
 .products-list {
     display: flex;
@@ -31,7 +30,7 @@
     flex-direction: column;
     justify-content: center;
     padding-top: 1rem;
-    background-color: theme.get-background-color();
+    background-color: var(--background-color);
     z-index: 1;
 
     .field {
@@ -44,7 +43,7 @@
         top: 0;
         padding-top: 1rem;
         padding-left: 1rem;
-        background-color: theme.get-background-color();
+        background-color: var(--background-color);
         margin-left: 5%;
         margin-right: calc(5% + 3rem);
         margin-bottom: 1rem;

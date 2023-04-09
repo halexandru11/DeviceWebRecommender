@@ -7,6 +7,16 @@ $product-card-color: #363636;
 $image-background-color: #525252;
 $text-color: #ffffff;
 
+$theme: (
+  'primary-color': $primary-color,
+  'accent-color': $accent-color,
+  'header-color': $header-color,
+  'background-color': $background-color,
+  'product-card-color': $product-card-color,
+  'image-background-color': $image-background-color,
+  'text-color': $text-color,
+);
+
 // Dark mode styles
 body {
   background-color: $background-color;
