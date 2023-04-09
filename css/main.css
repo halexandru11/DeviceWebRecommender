@@ -12,33 +12,353 @@ h5 {
 }
 
 :root {
-  --background-color: #b93c3c;
   --primary-color: #00bcd4;
   --accent-color: #58e9fc;
+  --background-color: #222222;
   --header-color: #181818;
-  --text-color: #ffffff;
+  --text-color: #EEEEEE;
+  --product-card-color: #363636;
+  --image-background-color: #525252;
+}
+
+:root[data-theme="light/red-lighter"] {
+  --primary-color: #E43232;
+  --accent-color: #fc5858;
+  --background-color: #fde0e0;
+  --header-color: #f7d0d0;
+  --text-color: #5a1c41;
+  --product-card-color: #eea2a2;
+  --image-background-color: #f07a7a;
+}
+
+:root[data-theme="light/red-darker"] {
+  --primary-color: #961b1b;
+  --accent-color: #fc5858;
+  --background-color: #fde0e0;
+  --header-color: #f7d0d0;
+  --text-color: #5a1c41;
+  --product-card-color: #d89595;
+  --image-background-color: #d47272;
+}
+
+:root[data-theme="light/orange-lighter"] {
+  --primary-color: #F39628;
+  --accent-color: #fcbe58;
+  --background-color: #fff0e0;
+  --header-color: #f7d0d0;
+  --text-color: #5a1c41;
+  --product-card-color: #f7c2a2;
+  --image-background-color: #f7a272;
+}
+
+:root[data-theme="light/orange-darker"] {
+  --primary-color: #E45D32;
+  --accent-color: #fcbe58;
+  --background-color: #fff0e0;
+  --header-color: #f7d0d0;
+  --text-color: #5a1c41;
+  --product-card-color: #f7b382;
+  --image-background-color: #f78a52;
+}
+
+:root[data-theme="light/yellow-lighter"] {
+  --primary-color: #F4CF48;
+  --accent-color: #fcf358;
+  --background-color: #fffbe0;
+  --header-color: #f7f0d0;
+  --text-color: #5a1c41;
+  --product-card-color: #f7f0a2;
+  --image-background-color: #f7e272;
+}
+
+:root[data-theme="light/yellow-darker"] {
+  --primary-color: #E4B32C;
+  --accent-color: #fcf358;
+  --background-color: #fffbe0;
+  --header-color: #f7f0d0;
+  --text-color: #5a1c41;
+  --product-card-color: #f7e382;
+  --image-background-color: #f7d052;
+}
+
+:root[data-theme="light/lime-lighter"] {
+  --primary-color: #4CD964;
+  --accent-color: #58fc9e;
+  --background-color: #e0fde0;
+  --header-color: #d0f7d0;
+  --text-color: #1c5a41;
+  --product-card-color: #a2f7a2;
+  --image-background-color: #72f772;
+}
+
+:root[data-theme="light/lime-darker"] {
+  --primary-color: #32E45D;
+  --accent-color: #58fc9e;
+  --background-color: #e0fde0;
+  --header-color: #d0f7d0;
+  --text-color: #1c5a41;
+  --product-card-color: #82f782;
+  --image-background-color: #52f752;
+}
+
+:root[data-theme="light/aquamarine-lighter"] {
+  --primary-color: #48F4CF;
+  --accent-color: #58fcf3;
+  --background-color: #e0ffff;
+  --header-color: #d0f7f7;
+  --text-color: #1c5a5a;
+  --product-card-color: #a2f7f7;
+  --image-background-color: #72f7f7;
+}
+
+:root[data-theme="light/aquamarine-darker"] {
+  --primary-color: #2CE4B3;
+  --accent-color: #58fcf3;
+  --background-color: #e0ffff;
+  --header-color: #d0f7f7;
+  --text-color: #1c5a5a;
+  --product-card-color: #82f7f7;
+  --image-background-color: #52f7f7;
+}
+
+:root[data-theme="light/teal-lighter"] {
+  --primary-color: #48D9F4;
+  --accent-color: #58fcfc;
+  --background-color: #e0f7ff;
+  --header-color: #d0f0f7;
+  --text-color: #1c5a5a;
+  --product-card-color: #a2f7f7;
+  --image-background-color: #72f7f7;
+}
+
+:root[data-theme="light/teal-darker"] {
+  --primary-color: #32E4E4;
+  --accent-color: #58fcfc;
+  --background-color: #e0f7ff;
+  --header-color: #d0f0f7;
+  --text-color: #1c5a5a;
+  --product-card-color: #82f7f7;
+  --image-background-color: #52f7f7;
+}
+
+:root[data-theme="light/blue-lighter"] {
+  --primary-color: #48A4F4;
+  --accent-color: #58b8fc;
+  --background-color: #e0f0ff;
+  --header-color: #d0e0f7;
+  --text-color: #1c5a5a;
+  --product-card-color: #a2d0f7;
+  --image-background-color: #72b8f7;
+}
+
+:root[data-theme="light/blue-darker"] {
+  --primary-color: #328CE4;
+  --accent-color: #58b8fc;
+  --background-color: #e0f0ff;
+  --header-color: #d0e0f7;
+  --text-color: #1c5a5a;
+  --product-card-color: #82b8f7;
+  --image-background-color: #529cf7;
+}
+
+:root[data-theme="light/purple-lighter"] {
+  --primary-color: #8C48F4;
+  --accent-color: #b858fc;
+  --background-color: #f0e0ff;
+  --header-color: #e0d0f7;
+  --text-color: #5a1c5a;
+  --product-card-color: #d0a2f7;
+  --image-background-color: #b872f7;
+}
+
+:root[data-theme="light/purple-darker"] {
+  --primary-color: #6E32E4;
+  --accent-color: #b858fc;
+  --background-color: #f0e0ff;
+  --header-color: #e0d0f7;
+  --text-color: #5a1c5a;
+  --product-card-color: #b882f7;
+  --image-background-color: #9852f7;
+}
+
+:root[data-theme="light/pink-lighter"] {
+  --primary-color: #E53FA3;
+  --accent-color: #fc62be;
+  --background-color: #fae0ef;
+  --header-color: #f7d0d0;
+  --text-color: #5a1c41;
+  --product-card-color: #f7add9;
+  --image-background-color: #f080c3;
+}
+
+:root[data-theme="light/pink-darker"] {
+  --primary-color: #911157;
+  --accent-color: #fc62be;
+  --background-color: #fae0ef;
+  --header-color: #f7d0d0;
+  --text-color: #5a1c41;
+  --product-card-color: #f7add9;
+  --image-background-color: #f080c3;
+}
+
+:root[data-theme="dark/red-lighter"] {
+  --primary-color: #E43232;
+  --accent-color: #fc5858;
+  --background-color: #222222;
+  --header-color: #181818;
+  --text-color: #EEEEEE;
+  --product-card-color: #363636;
+  --image-background-color: #525252;
+}
+
+:root[data-theme="dark/red-darker"] {
+  --primary-color: #961b1b;
+  --accent-color: #fc5858;
+  --background-color: #222222;
+  --header-color: #181818;
+  --text-color: #EEEEEE;
+  --product-card-color: #363636;
+  --image-background-color: #525252;
+}
+
+:root[data-theme="dark/orange-lighter"] {
+  --primary-color: #F39628;
+  --accent-color: #fcbe58;
+  --background-color: #222222;
+  --header-color: #181818;
+  --text-color: #EEEEEE;
+  --product-card-color: #363636;
+  --image-background-color: #525252;
+}
+
+:root[data-theme="dark/orange-darker"] {
+  --primary-color: #E45D32;
+  --accent-color: #fcbe58;
+  --background-color: #222222;
+  --header-color: #181818;
+  --text-color: #EEEEEE;
+  --product-card-color: #363636;
+  --image-background-color: #525252;
+}
+
+:root[data-theme="dark/yellow-lighter"] {
+  --primary-color: #F4CF48;
+  --accent-color: #fcf358;
+  --background-color: #222222;
+  --header-color: #181818;
+  --text-color: #EEEEEE;
+  --product-card-color: #363636;
+  --image-background-color: #525252;
+}
+
+:root[data-theme="dark/yellow-darker"] {
+  --primary-color: #837228;
+  --accent-color: #fcf358;
+  --background-color: #222222;
+  --header-color: #181818;
+  --text-color: #EEEEEE;
+  --product-card-color: #363636;
+  --image-background-color: #525252;
+}
+
+:root[data-theme="dark/lime-lighter"] {
+  --primary-color: #56E432;
+  --accent-color: #58fc7c;
+  --background-color: #222222;
+  --header-color: #181818;
+  --text-color: #EEEEEE;
+  --product-card-color: #363636;
+  --image-background-color: #525252;
+}
+
+:root[data-theme="dark/lime-darker"] {
+  --primary-color: #107e15;
+  --accent-color: #58fc7c;
+  --background-color: #222222;
+  --header-color: #181818;
+  --text-color: #EEEEEE;
   --product-card-color: #363636;
   --image-background-color: #525252;
 }
 
 :root[data-theme="dark/aquamarine-lighter"] {
-  --background-color: #222222;
   --primary-color: #00bcd4;
   --accent-color: #58e9fc;
+  --background-color: #222222;
   --header-color: #181818;
-  --text-color: #ffffff;
+  --text-color: #EEEEEE;
   --product-card-color: #363636;
   --image-background-color: #525252;
 }
 
-:root[data-theme="light/pink-lighter"] {
-  --background-color: #fae0ef;
+:root[data-theme="dark/aquamarine-darker"] {
+  --primary-color: #117c58;
+  --accent-color: #58e9fc;
+  --background-color: #222222;
+  --header-color: #181818;
+  --text-color: #EEEEEE;
+  --product-card-color: #363636;
+  --image-background-color: #525252;
+}
+
+:root[data-theme="dark/blue-lighter"] {
+  --primary-color: #3F71F1;
+  --accent-color: #58a8fc;
+  --background-color: #222222;
+  --header-color: #181818;
+  --text-color: #EEEEEE;
+  --product-card-color: #363636;
+  --image-background-color: #525252;
+}
+
+:root[data-theme="dark/blue-darker"] {
+  --primary-color: #18347a;
+  --accent-color: #58a8fc;
+  --background-color: #222222;
+  --header-color: #181818;
+  --text-color: #EEEEEE;
+  --product-card-color: #363636;
+  --image-background-color: #525252;
+}
+
+:root[data-theme="dark/purple-lighter"] {
+  --primary-color: #AC45D0;
+  --accent-color: #c058fc;
+  --background-color: #222222;
+  --header-color: #181818;
+  --text-color: #EEEEEE;
+  --product-card-color: #363636;
+  --image-background-color: #525252;
+}
+
+:root[data-theme="dark/purple-darker"] {
+  --primary-color: #5021a8;
+  --accent-color: #c058fc;
+  --background-color: #222222;
+  --header-color: #181818;
+  --text-color: #EEEEEE;
+  --product-card-color: #363636;
+  --image-background-color: #525252;
+}
+
+:root[data-theme="dark/pink-lighter"] {
   --primary-color: #E53FA3;
   --accent-color: #fc62be;
-  --header-color: #f7d0d0;
-  --text-color: #5a1c41;
-  --product-card-color: #f7add9;
-  --image-background-color: #f080c3;
+  --background-color: #222222;
+  --header-color: #181818;
+  --text-color: #EEEEEE;
+  --product-card-color: #363636;
+  --image-background-color: #525252;
+}
+
+:root[data-theme="dark/pink-darker"] {
+  --primary-color: #911157;
+  --accent-color: #fc62be;
+  --background-color: #222222;
+  --header-color: #181818;
+  --text-color: #EEEEEE;
+  --product-card-color: #363636;
+  --image-background-color: #525252;
 }
 
 .filter-capsule {
@@ -1832,7 +2152,7 @@ h5 {
 }
 
 .purple-darker {
-  background-color: rgb(80, 33, 168);
+  background-color: #5021a8;
 }
 
 .pink-lighter {
@@ -1840,7 +2160,7 @@ h5 {
 }
 
 .pink-darker {
-  background-color: rgb(145, 17, 87);
+  background-color: #911157;
 }
 
 body {
