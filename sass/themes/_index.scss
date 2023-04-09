@@ -1,4 +1,14 @@
 :root {
+    --background-color: #b93c3c;
+    --primary-color: #00bcd4;
+    --accent-color: #58e9fc;
+    --header-color: #181818;
+    --text-color: #ffffff;
+    --product-card-color: #363636;
+    --image-background-color: #525252;
+}
+
+:root[data-theme='dark/aquamarine-lighter'] {
     --background-color: #222222;
     --primary-color: #00bcd4;
     --accent-color: #58e9fc;
@@ -8,17 +18,7 @@
     --image-background-color: #525252;
 }
 
-:root[data-theme='aquamarine-lighter'] {
-    --background-color: #222222;
-    --primary-color: #00bcd4;
-    --accent-color: #58e9fc;
-    --header-color: #181818;
-    --text-color: #ffffff;
-    --product-card-color: #363636;
-    --image-background-color: #525252;
-}
-
-:root[data-theme='pink-lighter'] {
+:root[data-theme='light/pink-lighter'] {
     --background-color: #fae0ef;
     --primary-color: #E53FA3;
     --accent-color: #fc62be;
