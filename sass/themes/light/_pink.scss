@@ -1,5 +1,33 @@
 $primary-color: #E53FA3;
 $accent-color: #fc62be;
+$header-color: #EEEEEE;
 $background-color: #FFF;
-$product-card-color: #E3E3E3;
+$product-card-color: #f7add9;
+$image-background-color: #f080c3;
 $text-color: #181818;
+
+
+// Dark mode styles
+body {
+    background-color: $background-color;
+    color: $text-color;
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $text-color;
+}
+
+// Links
+a {
+    color: $primary-color;
+
+    &:hover {
+        color: darken($primary-color, 10%);
+    }
+}

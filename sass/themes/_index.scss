@@ -1,2 +1,60 @@
-@forward 'dark/cyan';
-// @forward 'light/pink';
+@use 'dark/cyan' as dark;
+@use 'light/pink' as light;
+
+$active-theme: dark;
+
+@function get-background-color() {
+    @if $active-theme == dark {
+        @return dark.$background-color;
+    } @else {
+        @return light.$background-color;
+    }
+}
+
+@function get-primary-color() {
+    @if $active-theme == dark {
+        @return dark.$primary-color;
+    } @else {
+        @return light.$primary-color;
+    }
+}
+
+@function get-accent-color() {
+    @if $active-theme == dark {
+        @return dark.$accent-color;
+    } @else {
+        @return light.$accent-color;
+    }
+}
+
+@function get-header-color() {
+    @if $active-theme == dark {
+        @return dark.$header-color;
+    } @else {
+        @return light.$header-color;
+    }
+}
+
+@function get-text-color() {
+    @if $active-theme == dark {
+        @return dark.$text-color;
+    } @else {
+        @return light.$text-color;
+    }
+}
+
+@function get-product-card-color() {
+    @if $active-theme == dark {
+        @return dark.$product-card-color;
+    } @else {
+        @return light.$product-card-color;
+    }
+}
+
+@function get-image-background-color() {
+    @if $active-theme == dark {
+        @return dark.$image-background-color;
+    } @else {
+        @return light.$image-background-color;
+    }
+}

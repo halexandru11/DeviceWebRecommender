@@ -20,7 +20,7 @@
             cursor: pointer;
             transition: background-color 0.2s ease;
             border-radius: 0.2rem;
-            color: theme.$text-color;
+            color: theme.get-text-color();
             font-size: 1.4rem;
             padding: 0.3rem 2rem;
 
@@ -29,11 +29,11 @@
             }
 
             &:hover {
-                background-color: theme.$product-card-color;
+                background-color: theme.get-product-card-color();
             }
 
             &.active {
-                border-bottom: 0.3rem solid theme.$primary-color;
+                border-bottom: 0.3rem solid theme.get-primary-color();
             }
         }
     }
@@ -132,7 +132,7 @@
     }
 
     &__preview {
-        border: 0.4rem solid theme.$primary-color;
+        border: 0.4rem solid theme.get-primary-color();
         border-radius: calc(base.$small-border-radius*1.2) calc(base.$big-border-radius*1.5);
         padding: 2rem;
         padding-top: 1rem;

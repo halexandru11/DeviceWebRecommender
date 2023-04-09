@@ -3,13 +3,13 @@
 .filter {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    background-color: theme.$primary-color;
+    background-color: theme.get-primary-color();
 
     &__section1 {
         display: grid;
         grid-gap: 10px;
         grid-template-columns: 1fr 1fr;
-        background-color: theme.$background-color;
+        background-color: theme.get-background-color();
         height: 50vh;
         width: 100vw;
 
@@ -73,7 +73,7 @@
 
     &__section2 {
         padding-left: 10px;
-        background-color: theme.$header-color;
+        background-color: theme.get-header-color();
         height: 50vh;
         width: 100vw;
 
@@ -85,7 +85,7 @@
                 font-weight: lighter;
                 display: inline-block;
                 vertical-align: middle;
-                color: theme.$primary-color;
+                color: theme.get-primary-color();
             }
 
             &__options {
@@ -104,7 +104,7 @@
                 font-weight: lighter;
                 display: inline-block;
                 vertical-align: middle;
-                color: theme.$primary-color;
+                color: theme.get-primary-color();
             }
 
             &__options {
@@ -125,7 +125,7 @@
 
 
                 font-weight: lighter;
-                color: theme.$primary-color;
+                color: theme.get-primary-color();
             }
 
             &__options {
@@ -146,7 +146,7 @@
             h4 {
                 font-weight: lighter;
                 display: inline-block;
-                color: theme.$primary-color;
+                color: theme.get-primary-color();
             }
 
             &__options {
