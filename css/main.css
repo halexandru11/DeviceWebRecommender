@@ -408,18 +408,22 @@ a:hover {
 .signin {
   gap: 100px;
   padding-right: 2rem;
-}
-@media (min-width: ) {
-  .signin {
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr;
-  }
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr;
 }
 @media (min-width: 43.75em) {
   .signin {
-    display: grid;
-    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 56.25em) {
+  .signin {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 90em) {
+  .signin {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -551,18 +555,22 @@ a:hover {
 .signup {
   gap: 100px;
   padding-right: 2rem;
-}
-@media (min-width: ) {
-  .signup {
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr;
-  }
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr;
 }
 @media (min-width: 43.75em) {
   .signup {
-    display: grid;
-    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 56.25em) {
+  .signup {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 90em) {
+  .signup {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -1149,7 +1157,7 @@ body {
 }
 .filter__section1__column1__buttons {
   display: grid;
-  grid-gap: auto;
+  grid-gap: 1 rem;
   grid-template-columns: repeat(3, 1fr);
   grid-row-gap: 10px;
   justify-items: center;

@@ -28,7 +28,7 @@
             &__buttons {
 
                 display: grid;
-                grid-gap: auto;
+                grid-gap: 1 rem;
                 grid-template-columns: repeat(3, 1fr);
                 grid-row-gap: 10px;
                 justify-items: center;

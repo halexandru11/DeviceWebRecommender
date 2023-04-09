@@ -8,15 +8,21 @@
     gap: 100px;
     padding-right: 2rem;
 
-    @include utils.breakpoint-up(small) {
-        display: grid;
-        align-items: center;
-        grid-template-columns: 1fr;
-    }
+
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr;
+
 
     @include utils.breakpoint-up(medium) {
-        display: grid;
-        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include utils.breakpoint-up(large) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include utils.breakpoint-up(xlarge) {
         grid-template-columns: repeat(2, 1fr);
     }
 
