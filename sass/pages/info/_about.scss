@@ -11,7 +11,7 @@
 
   &__section1 {
 
-    background-color: theme.$dark-color;
+    background-color: theme.get-background-color();
     display: grid;
     align-items: center;
     grid-template-columns: 1fr;
@@ -154,7 +154,7 @@
 
   &__section2 {
 
-    background-color: theme.$background-color;
+    background-color: theme.get-primary-color();
     display: grid;
     align-items: center;
     grid-template-columns: 1fr;
@@ -171,7 +171,7 @@
 
     &__writing1 {
       h4 {
-        color: theme.$primary-color;
+        color: theme.get-primary-color();
         padding-left: 1rem;
         font-weight: bold;
         font-size: 40px;

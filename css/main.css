@@ -1188,7 +1188,7 @@ a:hover {
   grid-template-rows: 1fr 1fr;
 }
 .about__section1 {
-  background-color: #074b53;
+  background-color: #222222;
   display: grid;
   align-items: center;
   grid-template-columns: 1fr;
@@ -1323,7 +1323,7 @@ a:hover {
      object-fit: contain;
 }
 .about__section2 {
-  background-color: #222222;
+  background-color: #00bcd4;
   display: grid;
   align-items: center;
   grid-template-columns: 1fr;

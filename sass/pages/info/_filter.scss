@@ -11,7 +11,7 @@
         display: grid;
         grid-gap: 10px;
         grid-template-columns: 1fr;
-        background-color: theme.$background-color;
+        background-color: theme.get-background-color();
 
         @include utils.breakpoint-up(medium) {
             grid-template-columns: repeat(2, 1fr);
@@ -86,7 +86,7 @@
     &__section2 {
         justify-self: center;
         padding-left: 10px;
-        background-color: theme.$header-color;
+        background-color: theme.get-header-color();
         height: 60vh;
         width: 100vw;
 
