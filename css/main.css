@@ -1141,10 +1141,23 @@ body {
 .filter__section1 {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   background-color: #222222;
-  height: 50vh;
-  width: 100vw;
+}
+@media (min-width: 43.75em) {
+  .filter__section1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 56.25em) {
+  .filter__section1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 90em) {
+  .filter__section1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .filter__section1__column1 {
   justify-self: center;
@@ -1157,7 +1170,7 @@ body {
 }
 .filter__section1__column1__buttons {
   display: grid;
-  grid-gap: 1 rem;
+  grid-gap: auto;
   grid-template-columns: repeat(3, 1fr);
   grid-row-gap: 10px;
   justify-items: center;
@@ -1184,9 +1197,10 @@ body {
   align-self: start;
 }
 .filter__section2 {
+  justify-self: center;
   padding-left: 10px;
   background-color: #181818;
-  height: 50vh;
+  height: 60vh;
   width: 100vw;
 }
 .filter__section2__price h4 {
@@ -1200,6 +1214,24 @@ body {
   display: inline-block;
   vertical-align: middle;
 }
+.filter__section2__price__options input {
+  width: 6rem;
+}
+@media (min-width: 43.75em) {
+  .filter__section2__price__options input {
+    width: 13.75rem;
+  }
+}
+@media (min-width: 56.25em) {
+  .filter__section2__price__options input {
+    width: 15.75rem;
+  }
+}
+@media (min-width: 90em) {
+  .filter__section2__price__options input {
+    width: 18.75rem;
+  }
+}
 .filter__section2__autonomy h4 {
   font-weight: lighter;
   display: inline-block;
@@ -1210,6 +1242,24 @@ body {
   margin-left: 20px;
   display: inline-block;
   vertical-align: middle;
+}
+.filter__section2__autonomy__options input {
+  width: 6rem;
+}
+@media (min-width: 43.75em) {
+  .filter__section2__autonomy__options input {
+    width: 13.75rem;
+  }
+}
+@media (min-width: 56.25em) {
+  .filter__section2__autonomy__options input {
+    width: 15.75rem;
+  }
+}
+@media (min-width: 90em) {
+  .filter__section2__autonomy__options input {
+    width: 18.75rem;
+  }
 }
 .filter__section2__color {
   display: flex;
