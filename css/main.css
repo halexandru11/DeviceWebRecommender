@@ -435,7 +435,7 @@ a:hover {
   gap: 100px;
   padding-right: 2rem;
 }
-@media (min-width: ) {
+@media (min-width: 56.25em) {
   .signin {
     display: grid;
     align-items: center;
@@ -578,7 +578,7 @@ a:hover {
   gap: 100px;
   padding-right: 2rem;
 }
-@media (min-width: ) {
+@media (min-width: 56.25em) {
   .signup {
     display: grid;
     align-items: center;
