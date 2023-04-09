@@ -1155,6 +1155,7 @@ a:hover {
   align-items: center;
 }
 .about__section2__writing1 img {
+  width: 100%;
   padding-bottom: 2rem;
   padding-left: 2rem;
   position: relative;
@@ -1162,9 +1163,28 @@ a:hover {
   max-width: 75%;
   max-height: 75%;
 }
-.about__section2__writing2 {
+.about__section2__writing2 h4 {
+  font-size: 12px;
+  padding-right: 2rem;
   padding-left: 2rem;
-  font-weight: lighter;
+  display: flex;
+  justify-content: flex-centered;
+  align-items: center;
+}
+@media (min-width: 43.75em) {
+  .about__section2__writing2 h4 {
+    font-size: 16px;
+  }
+}
+@media (min-width: 56.25em) {
+  .about__section2__writing2 h4 {
+    font-size: 18px;
+  }
+}
+@media (min-width: 90em) {
+  .about__section2__writing2 h4 {
+    font-size: 20px;
+  }
 }
 
 .filter {
