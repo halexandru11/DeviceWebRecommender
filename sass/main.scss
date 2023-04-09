@@ -19,8 +19,8 @@ $font-weights: (
 
 
 body {
-    background: theme.$background-color;
-    color: theme.$text-color;
+    background: theme.get-background-color();
+    color: theme.get-text-color();
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1;
     margin: 0;
@@ -38,12 +38,12 @@ footer {
     right: 1rem;
     text-align: right;
     padding: 1rem;
-    color: theme.$primary-color;
+    color: theme.get-primary-color();
 }
 
 button {
-    background: theme.$primary-color;
-    color: theme.$background-color;
+    background: theme.get-primary-color();
+    color: theme.get-background-color();
     border: none;
     border-radius: base.$small-border-radius base.$big-border-radius;
     padding: 0.5rem 1rem;
@@ -52,6 +52,6 @@ button {
     transition: all 0.2s ease-in-out;
 
     &:hover {
-        background: theme.$accent-color;
+        background: theme.get-accent-color();
     }
 }

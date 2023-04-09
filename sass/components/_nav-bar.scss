@@ -2,7 +2,7 @@
 
 /* Dropdown Button */
 .dropbtn {
-  background-color: theme.$background-color;
+  background-color: theme.get-background-color();
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -27,7 +27,7 @@
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: theme.$primary-color;
+  color: theme.get-primary-color();
   font-weight: bold;
   padding: 12px 16px;
   text-decoration: none;
@@ -65,7 +65,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: theme.$background-color;
+  background-color: theme.get-background-color();
 }
 
 .siteHeader__section1 {
@@ -129,7 +129,7 @@
   position: absolute;
   width: 45px;
   height: 7px;
-  background: theme.$primary-color;
+  background: theme.get-primary-color();
   border-radius: 100px;
   display: inline-block;
   transition: 0.3s ease;
