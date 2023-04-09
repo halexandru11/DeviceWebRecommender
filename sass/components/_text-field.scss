@@ -3,11 +3,18 @@
 
 .field {
     border-radius: base.$small-border-radius base.$big-border-radius;
-    background-color: theme.$background-color;
-    color: theme.$text-color;
+    background-color: var(--background-color);
+    color: var(--text-color);
     font-size: 1.2rem;
     width: 18.75rem;
     height: 2rem;
     text-align: center;
-    border: 0.2rem solid theme.$primary-color;
+    border: 0.2rem solid var(--primary-color);
+    
+    // this is on a input component which is treated as a text field
+    // change the border color when the input is focused
+    &:focus {
+        border: 0.2rem solid var(--text-color);
+        outline: none;
+    }
 }

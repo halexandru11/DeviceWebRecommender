@@ -37,7 +37,7 @@
             h1 {
                 margin-bottom: 50px;
                 font-weight: bold;
-                color: theme.$primary-color;
+                color: var(--primary-color);
                 font-size: 35px;
             }
         }
@@ -60,7 +60,7 @@
 
             h4 {
 
-                color: theme.$primary-color;
+                color: var(--primary-color);
                 font-size: 12px;
 
             }
