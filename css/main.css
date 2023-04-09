@@ -258,6 +258,10 @@ a:hover {
   background-color: #222222;
 }
 
+.siteHeader__section__siteHeaderLogo {
+  size: 0.5rem;
+}
+
 .siteHeader__section1 {
   /**
        * Lay out the children of this container with

@@ -69,9 +69,14 @@
      */
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+ padding: 1rem;
   background-color: theme.get-background-color();
 }
+
+.siteHeader__section__siteHeaderLogo{
+  size: 0.5rem;
+}
+
 
 .siteHeader__section1 {
   /**
@@ -85,7 +90,7 @@
        * the main axis. By default the children will
        * align along their top edges.
        */
-  align-items: center;
+  align-items: center;  
 }
 
 .siteHeader__item {
