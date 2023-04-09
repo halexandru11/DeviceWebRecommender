@@ -1,5 +1,6 @@
 @use '../../themes' as theme;
 @use '../../base' as base;
+@use '../../utils' as utils;
 
 .help-layout {
   display: flex;
@@ -20,31 +21,77 @@
       color: theme.$background-color;
       font-size: 3rem;
       padding: 1rem;
+      padding-left: 2.8rem;
       font-weight: 600;
       border-radius: base.$small-border-radius base.$big-border-radius;
+      
+      @include utils.breakpoint-down(large) {
+        font-size: 2.5rem;
+      }
+      
+      @include utils.breakpoint-down(medium) {
+        font-size: 2rem;
+      }
+      
+      @include utils.breakpoint-down(small) {
+        font-size: 1.5rem;
+        border-radius: calc(base.$small-border-radius*0.8) calc(base.$big-border-radius*0.8);
+        padding-left: 1.5rem;
+      }
     }
 
     &__content {
       display: flex;
 
       &-line {
+        margin-top: -1rem;
         margin-left: 3rem;
         margin-right: 1rem;
         width: 1rem;
         background-color: theme.$primary-color;
         border-radius: 0 0 50rem 50rem;
+
+        @include utils.breakpoint-down(small) {
+          margin-left: 1.5rem;
+          width: 0.5rem;
+        }
       }
 
       &-text {
         margin-top: 1rem;
         margin-bottom: 2rem;
         margin-right: 2rem;
-        font-size: 1.3rem;
+        font-size: 1.7rem;
         width: calc(100% - 4rem);
-        line-height: 1.2;
+        line-height: 1.3;
 
         strong {
           color: theme.$primary-color;
+        }
+
+        ul {
+          list-style-type: disc;
+          margin-left: 1rem;
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
+          padding-left: 0;
+        }
+
+        ol {
+          margin-bottom: 0rem;
+        }
+
+        @include utils.breakpoint-down(large) {
+          font-size: 1.4rem;
+        }
+
+        @include utils.breakpoint-down(medium) {
+          font-size: 1.2rem;
+        }
+
+        @include utils.breakpoint-down(small) {
+          font-size: 1rem;
+          width: calc(100% - 2rem);
         }
       }
     }
