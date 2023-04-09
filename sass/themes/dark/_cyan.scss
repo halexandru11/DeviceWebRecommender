@@ -1,5 +1,7 @@
 // Variables for colors
 $primary-color: #00bcd4;
+$dark-color: #074b53;
+$light-color: #d4f6f9;
 $accent-color: #58e9fc;
 $header-color: #181818;
 $background-color: #222222;
@@ -14,7 +16,12 @@ body {
 }
 
 // Headings
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $text-color;
 }
 
