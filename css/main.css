@@ -291,10 +291,9 @@ a:hover {
   border-radius: 4px;
 }
 
-.siteHeaderLogo {
-  font-size: 20px;
-  line-height: 0;
-  color: white;
+.siteHeader__section__siteHeaderLogo___siteHeaderLogo {
+  width: 150%;
+  height: auto;
 }
 
 .siteHeaderButton {
