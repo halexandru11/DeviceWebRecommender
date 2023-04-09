@@ -1,12 +1,16 @@
 @use '../themes/' as theme;
 
 /* Dropdown Button */
-.dropbtn {
+ .bar{
   background-color: theme.get-background-color();
   color: white;
-  padding: 16px;
+  //padding: 16px;
   font-size: 16px;
   border: none;
+  margin: 0.5rem;
+}
+.drop-btn {
+  display: none;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -21,7 +25,7 @@
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
-  left: -4rem;
+  left: -6rem;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 9999;
 }
