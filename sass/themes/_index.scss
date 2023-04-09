@@ -1,2 +1,29 @@
-@forward 'dark/cyan';
-// @forward 'light/pink';
+:root {
+    --background-color: #b93c3c;
+    --primary-color: #00bcd4;
+    --accent-color: #58e9fc;
+    --header-color: #181818;
+    --text-color: #ffffff;
+    --product-card-color: #363636;
+    --image-background-color: #525252;
+}
+
+:root[data-theme='dark/aquamarine-lighter'] {
+    --background-color: #222222;
+    --primary-color: #00bcd4;
+    --accent-color: #58e9fc;
+    --header-color: #181818;
+    --text-color: #ffffff;
+    --product-card-color: #363636;
+    --image-background-color: #525252;
+}
+
+:root[data-theme='light/pink-lighter'] {
+    --background-color: #fae0ef;
+    --primary-color: #E53FA3;
+    --accent-color: #fc62be;
+    --header-color: #f7d0d0;
+    --text-color: #5a1c41;
+    --product-card-color: #f7add9;
+    --image-background-color: #f080c3;
+}

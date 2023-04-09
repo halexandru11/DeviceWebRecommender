@@ -1,7 +1,7 @@
 @use '../themes' as theme;
 
 .filter-capsule {
-    background-color: theme.$product-card-color;
+    background-color: var(--product-card-color);
     padding: 0.3rem 1rem;
     border-radius: 50rem;
     display: flex;

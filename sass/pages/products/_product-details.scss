@@ -3,6 +3,8 @@
 @use '../../utils' as utils;
 
 .product-details {
+    padding-top: 1.5rem;
+    padding-left: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -18,7 +20,7 @@
 
     &__image {
         position: relative;
-        background-color: theme.$image-background-color;
+        background-color: var(--image-background-color);
         border-radius: base.$small-border-radius base.$big-border-radius;
         max-height: 65vh;
         
@@ -38,12 +40,12 @@
         right: 0;
         padding: 0.5rem 1rem;
         margin: 1rem 2rem;
-        background-color: theme.$primary-color;
-        color: theme.$background-color;
+        background-color: var(--primary-color);
+        color: var(--background-color);
         font-size: 1.2rem;
         font-weight: 900;
         border-radius: base.$small-border-radius base.$big-border-radius;
-        border: 0.16rem solid theme.$background-color;
+        border: 0.16rem solid var(--background-color);
     }
 
     &__title {
@@ -52,6 +54,7 @@
         margin-bottom: 0.3rem;
         font-weight: 900;
         text-align: center;
+        color: var(--text-color);
     }
 
     &__review {
@@ -75,7 +78,7 @@
 
         &-details {
             font-size: 1.1rem;
-            color: theme.$image-background-color;
+            color: var(--image-background-color);
         }
     }
 
@@ -112,14 +115,14 @@
             font-size: 1.1rem;
             height: 3rem;
             gap: 1rem;
-            border: 0.2rem solid theme.$primary-color;
-            background-color: theme.$background-color;
-            color: theme.$primary-color;
+            border: 0.2rem solid var(--primary-color);
+            background-color: var(--background-color);
+            color: var(--primary-color);
 
             &:hover {
-                background-color: theme.$product-card-color;
-                color: theme.$accent-color;
-                border-color: theme.$accent-color;
+                background-color: var(--product-card-color);
+                color: var(--accent-color);
+                border-color: var(--accent-color);
             }
         }
 
@@ -136,6 +139,8 @@
 }
 
 .similar {
+    padding-top: 1rem;
+    padding-left: 1rem;
     width: 95%;
     margin: 1rem;
 
@@ -143,6 +148,7 @@
         font-size: 1.6rem;
         font-weight: 900;
         text-align: start;
+        color: var(--text-color);
     }
 
     &__products {
@@ -162,8 +168,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin: 1rem 0;
-    width: 95%;
+    padding: 2rem;
 
     @mixin cell {
         display: flex;
@@ -184,35 +189,36 @@
         width: 100%;
         margin: 0.1rem 0;
         border-radius: base.$small-border-radius base.$big-border-radius;
-        background-color: theme.$product-card-color;
+        background-color: var(--product-card-color);
         height: 2rem;
 
         &__title {
             @include cell;
             font-weight: 900;
-            border-right: 0.2rem solid theme.$background-color;
+            border-right: 0.2rem solid var(--background-color);
             margin-left: 1rem;
-            color: theme.$primary-color;
+            color: var(--primary-color);
         }
 
         &__value {
             @include cell;
+            color: var(--text-color);
         }
     }
 
     &__header {
         @include line;
-        background-color: theme.$primary-color;
+        background-color: var(--primary-color);
         margin-top: 0;
         margin-bottom: 0.6rem;
         
         &__title,
         &__value {
-            color: theme.$background-color;
+            color: var(--background-color);
         }
 
         &__title {
-            border-right: 0.2rem solid theme.$background-color;
+            border-right: 0.2rem solid var(--background-color);
         }
     }
 
