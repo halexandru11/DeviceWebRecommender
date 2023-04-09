@@ -9,16 +9,16 @@
     align-items: center;
     padding: 1rem;
     margin-top: 1rem;
-    background-color: theme.get-product-card-color();
+    background-color: var(--product-card-color);
     border-radius: base.$small-border-radius base.$big-border-radius;
     min-width: 13.5rem;
     max-width: 15rem;
-    border-right: 0.5rem solid theme.get-primary-color();
-    border-bottom: 0.5rem solid theme.get-primary-color();
+    border-right: 0.5rem solid var(--primary-color);
+    border-bottom: 0.5rem solid var(--primary-color);
 
     &__image {
         width: 100%;
-        background-color: theme.get-image-background-color();
+        background-color: var(--image-background-color);
         border-radius: calc(base.$small-border-radius/1.5) calc(base.$big-border-radius/1.5);
         aspect-ratio: 1/1.1;
 
@@ -38,12 +38,12 @@
         top: -1.6rem;
         padding: 0.5rem 1rem;
         margin: 0 1.2rem;
-        background-color: theme.get-background-color();
-        color: theme.get-primary-color();
+        background-color: var(--background-color);
+        color: var(--primary-color);
         font-size: 1.1rem;
         font-weight: 900;
         border-radius: base.$small-border-radius base.$big-border-radius;
-        border: 0.2rem solid theme.get-primary-color();
+        border: 0.2rem solid var(--primary-color);
     }
 
     &__title {
@@ -55,7 +55,7 @@
         font-size: 1.3rem;
         text-align: center;
         top: -1.6rem;
-        color: theme.get-text-color();
+        color: var(--text-color);
     }
 
     button {

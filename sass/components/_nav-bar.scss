@@ -1,4 +1,5 @@
 @use '../themes/' as theme;
+@use '../base' as base;
 
 /* Dropdown Button */
  .bar{
@@ -23,16 +24,18 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
   left: -6rem;
+  background-color: var(--product-card-color);
+  min-width: 10rem;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 9999;
+  z-index: 999;
+  border-radius: calc(base.$small-border-radius*0.6) calc(base.$big-border-radius*0.6);
+  border: 0.3rem solid var(--primary-color);
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: theme.get-primary-color();
+  color: var(--primary-color);
   font-weight: bold;
   padding: 12px 16px;
   text-decoration: none;
@@ -41,7 +44,8 @@
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  border-radius: calc(base.$small-border-radius*0.5) calc(base.$big-border-radius*0.5);
+  background-color: var(--image-background-color);
 }
 
 /* Show the dropdown menu on hover */
@@ -69,8 +73,8 @@
      */
   justify-content: space-between;
   align-items: center;
- padding: 1rem;
-  background-color: theme.get-background-color();
+  padding: 1rem;
+  background-color: var(--background-color);
 }
 
 .siteHeader__section__siteHeaderLogo{
@@ -140,7 +144,7 @@
   position: absolute;
   width: 45px;
   height: 7px;
-  background: theme.get-primary-color();
+  background: var(--primary-color);
   border-radius: 100px;
   display: inline-block;
   transition: 0.3s ease;

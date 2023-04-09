@@ -6,7 +6,7 @@
 
 .icon-button {
     background-color: transparent;
-    color: theme.get-text-color();
+    color: var(--text-color);
     border-radius: 0.5rem 1.45rem;
     padding: 0.5rem 1rem;
     font-size: clamp(0.75rem, 0.6rem + 0.8vw, 1rem);

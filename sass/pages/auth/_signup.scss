@@ -36,7 +36,7 @@
             h1 {
                 margin-bottom: 5px;
                 font-weight: bold;
-                color: theme.get-primary-color();
+                color: var(--primary-color);
                 font-size: 35px;
             }
         }
@@ -51,7 +51,7 @@
                 margin-bottom: 40px;
                 margin-right: 50px;
                 font-weight: bold;
-                color: theme.get-primary-color();
+                color: var(--primary-color);
                 font-size: 30px;
             }
         }

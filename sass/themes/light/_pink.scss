@@ -1,11 +1,20 @@
 $primary-color: #E53FA3;
 $accent-color: #fc62be;
-$header-color: #EEEEEE;
-$background-color: #FFF;
+$header-color: #f7d0d0;
+$background-color: #fae0ef;
 $product-card-color: #f7add9;
 $image-background-color: #f080c3;
 $text-color: #181818;
 
+$theme: (
+    'primary-color': $primary-color,
+    'accent-color': $accent-color,
+    'header-color': $header-color,
+    'background-color': $background-color,
+    'product-card-color': $product-card-color,
+    'image-background-color': $image-background-color,
+    'text-color': $text-color
+);
 
 // Dark mode styles
 body {
