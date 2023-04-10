@@ -698,7 +698,14 @@ h5 {
   display: flex;
   margin-top: 50px;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  text-align: center;
+}
+.signin__column1__button a {
+  width: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .signin__image {
   display: flex;
@@ -833,9 +840,8 @@ h5 {
   margin-top: 10px;
   margin-bottom: 10px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-end;
-  margin-right: 100px;
 }
 .signin__column1__forgot a {
   color: var(--primary-color);
@@ -992,7 +998,13 @@ h5 {
   display: flex;
   margin-top: 50px;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  text-align: center;
+}
+.signup__column1__button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .signup__image {
   display: flex;
