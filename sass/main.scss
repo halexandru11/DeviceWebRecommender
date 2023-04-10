@@ -17,12 +17,16 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1;
     margin: 0;
-    min-width: 320px;
+    min-width: 360px;
 }
 
 main {
     height: 100%;
     width: 100%;
+}
+
+header {
+    background-color: var(--header-color);
 }
 
 footer {
