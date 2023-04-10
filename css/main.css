@@ -1102,7 +1102,7 @@ h5 {
 
 .filter {
   display: flex;
-  justify-content: flex;
+  justify-content: center;
   flex-direction: column;
   background-color: var(--primary-color);
   gap: 0.8rem;
@@ -1844,7 +1844,7 @@ h5 {
   padding-right: 2rem;
   padding-left: 2rem;
   display: flex;
-  justify-content: flex-centered;
+  justify-content: center;
   align-items: center;
 }
 @media (min-width: 43.75em) {
