@@ -1694,7 +1694,7 @@ h5 {
   justify-content: flex-start;
   align-items: center;
 }
-.about__section1__writing button {
+.about__section1__writing a {
   margin-top: 2rem;
   margin-left: 8rem;
   margin-bottom: 2rem;
@@ -1703,19 +1703,19 @@ h5 {
   justify-content: center;
 }
 @media (min-width: 43.75em) {
-  .about__section1__writing button {
+  .about__section1__writing a {
     margin-top: 3rem;
     margin-left: 6rem;
   }
 }
 @media (min-width: 56.25em) {
-  .about__section1__writing button {
+  .about__section1__writing a {
     margin-top: 5rem;
     margin-left: 10rem;
   }
 }
 @media (min-width: 90em) {
-  .about__section1__writing button {
+  .about__section1__writing a {
     margin-top: 6rem;
     margin-left: 12rem;
   }
