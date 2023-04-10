@@ -1,4 +1,5 @@
 @use '../../utils' as utils;
+@use '../../base' as base;
 
 .filter {
     display: flex;
@@ -237,10 +238,19 @@
 
         &__apply-changes {
             display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--primary-color);
+            width: 10rem;
             margin-inline: auto;
             margin-top: 2rem;
             margin-bottom: 2rem;
             font-size: 1rem;
+            padding: 0.8rem 2rem;
+            border-radius: base.$small-border-radius base.$big-border-radius;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--background-color);
         }
     }
 
