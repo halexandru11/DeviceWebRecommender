@@ -19,10 +19,10 @@
             <button id="light-btn" class="theme-layout__brightness__tab">Light</button>
             <button id="dark-btn" class="theme-layout__brightness__tab active">Dark</button>
         </div>
-        <form action="" class="color-picker">
+        <form action="choose-theme.html" class="color-picker">
             <fieldset>
                 <legend class="visually-hidden">Colors</legend>
-                <span>
+                <div>
                     <label class="visually-hidden" for="red-lighter">red lighter</label>
                     <input type="radio" name="color" id="red-lighter" class="red-lighter" checked>
                     <label class="visually-hidden" for="orange-lighter">orange lighter</label>
@@ -39,8 +39,8 @@
                     <input type="radio" name="color" id="purple-lighter" class="purple-lighter">
                     <label class="visually-hidden" for="pink-lighter">pink lighter</label>
                     <input type="radio" name="color" id="pink-lighter" class="pink-lighter">
-                </span>
-                <span>
+                </div>
+                <div>
                     <label class="visually-hidden" for="red-darker">red darker</label>
                     <input type="radio" name="color" id="red-darker" class="red-darker">
                     <label class="visually-hidden" for="orange-darker">orange darker</label>
@@ -57,12 +57,12 @@
                     <input type="radio" name="color" id="purple-darker" class="purple-darker">
                     <label class="visually-hidden" for="pink-darker">pink darker</label>
                     <input type="radio" name="color" id="pink-darker" class="pink-darker">
-                </span>
+                </div>
             </fieldset>
         </form>
         <h2 class="theme-layout__preview-text">Preview</h2>
         <div class="theme-layout__preview">
-            <span class="theme-layout__preview__columns">
+            <div class="theme-layout__preview__columns">
                 <div class="theme-layout__preview__columns-left">
                     <h3>This is some text</h3>
                     <input class="field" placeholder="Hint text">
@@ -75,7 +75,7 @@
                 </div>
                 <div class="product-card">
                     <div>
-                        <img src="../../assets/images/tablet.png" class="product-card__image">
+                        <img src="../../assets/images/tablet.png" class="product-card__image" alt="ProductImage">
                         <div class="product-card__price">
                             Price
                         </div>
@@ -83,7 +83,7 @@
                     <h1 class="product-card__title">Some product</h1>
                     <button>Details</button>
                 </div>
-            </span>
+            </div>
         </div>
     </div>
 
