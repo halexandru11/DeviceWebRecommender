@@ -1,7 +1,8 @@
 import http from 'http';
-const fs = require('fs');
-const path = require('path')
-require('dotenv').config()
+import fs from 'fs';
+import path from 'path';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const getContentType = (extname) => {
   let contentType = 'text/html';
