@@ -91,10 +91,17 @@
         height: 3rem;
         gap: 1.1rem;
         margin-top: 1rem;
+        background-color: var(--primary-color);
+        border-radius: base.$small-border-radius base.$big-border-radius;
+        cursor: pointer;
 
         &-text {
             font-size: 1.4rem;
             font-weight: 900;
+        }
+
+        &:hover {
+            background-color: var(--accent-color);
         }
     }
 
@@ -117,7 +124,9 @@
             gap: 1rem;
             border: 0.2rem solid var(--primary-color);
             background-color: var(--background-color);
+            border-radius: base.$small-border-radius base.$big-border-radius;
             color: var(--primary-color);
+            cursor: pointer;
 
             &:hover {
                 background-color: var(--product-card-color);
@@ -211,6 +220,7 @@
         background-color: var(--primary-color);
         margin-top: 0;
         margin-bottom: 0.6rem;
+        height: 3rem;
         
         &__title,
         &__value {

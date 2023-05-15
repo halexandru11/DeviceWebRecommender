@@ -58,9 +58,14 @@
         color: var(--text-color);
     }
 
-    button {
+    a {
         margin-top: -0.6rem;
-        padding: 0.5rem 2rem;
+        padding: 0.7rem 2.3rem;
         font-size: 1.1rem;
+        background-color: var(--primary-color);
+        color: var(--background-color);
+        border-radius: base.$small-border-radius base.$big-border-radius;
+        text-decoration: none;
+        font-weight: 600;
     }
 }

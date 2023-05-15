@@ -1,0 +1,257 @@
+@use '../../utils' as utils;
+@use '../../base' as base;
+
+.filter {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    gap: 0.8rem;
+
+    &__section1 {
+        display: flex;
+        grid-gap: 4rem;
+        justify-content: center;
+        background-color: var(--background-color);
+        width: 100%;
+        padding-bottom: 2rem;
+
+        @include utils.breakpoint-down(medium) {
+            grid-gap: 1rem;
+        }
+
+        @include utils.breakpoint-down(small) {
+            flex-direction: column;
+        }
+
+        &__column1 {
+            justify-self: center;
+
+            h1 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 2rem;
+                
+                @include utils.breakpoint-down(small) {
+                    margin-inline: auto;
+                    width: 70%;
+                }
+            }
+
+            &__buttons {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-row-gap: 0.6rem;
+                justify-items: center;
+
+                button {
+                    align-self: start;
+                }
+
+                @include utils.breakpoint-down(medium) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+        }
+
+        &__column2 {
+            justify-self: center;
+
+            h1 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 2rem;
+
+                @include utils.breakpoint-down(small) {
+                    margin-inline: auto;
+                    width: 70%;
+                }
+            }
+
+            &__buttons {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-row-gap: 0.6rem;
+                justify-items: center;
+
+                button {
+                    align-self: start;
+                }
+
+                @include utils.breakpoint-down(medium) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+        }
+    }
+
+    &__section2 {
+        justify-self: center;
+        padding-left: 1rem;
+        background-color: var(--header-color);
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+
+        @include utils.breakpoint-down(small) {
+            padding-left: 0.5rem;
+        }
+
+        &__price {
+            h4 {
+                font-weight: lighter;
+                display: inline-block;
+                vertical-align: middle;
+                color: var(--primary-color);
+                width: 7rem;
+
+                @include utils.breakpoint-down(small) {
+                    width: 5.7rem;
+                }
+            }
+
+            &__options {
+                display: inline-block;
+                vertical-align: middle;
+
+                input {
+                    width: 8rem;
+                    margin-right: 1rem;
+
+                    @include utils.breakpoint-down(small) {
+                        width: 4rem;
+                        margin-right: 0;
+                    }
+                }
+            }
+
+            .unit {
+                margin-left: 0.1rem;
+                width: auto;
+            }
+        }
+
+        &__autonomy {
+            h4 {
+                font-weight: lighter;
+                display: inline-block;
+                vertical-align: middle;
+                color: var(--primary-color);
+                width: 7rem;
+
+                @include utils.breakpoint-down(small) {
+                    width: 5.7rem;
+                }
+            }
+
+            &__options {
+                display: inline-block;
+                vertical-align: middle;
+
+                input {
+                    width: 8rem;
+                    margin-right: 1rem;
+
+                    @include utils.breakpoint-down(small) {
+                        width: 4rem;
+                        margin-right: 0;
+                    }
+                }
+            }
+
+            .unit {
+                margin-left: 0.1rem;
+                width: auto;
+            }
+        }
+
+        &__color {
+            display: flex;
+            align-items: baseline;
+
+            h4 {
+                font-weight: lighter;
+                color: var(--primary-color);
+                width: 7rem;
+
+                @include utils.breakpoint-down(small) {
+                    padding-right: 1rem;
+                }
+            }
+
+            &__options {
+                display: flex;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 0.5rem;
+                
+                .button-light {
+                    margin-right: 0.5rem;
+                    font-size: 1rem;
+                    font-weight: 300;
+                }
+
+                @include utils.breakpoint-down(small) {
+                    overflow-x: hidden;
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                }
+            }
+
+        }
+
+        &__model {
+            display: flex;
+            align-items: baseline;
+
+            h4 {
+                font-weight: lighter;
+                display: inline-block;
+                color: var(--primary-color);
+                width: 7rem;
+
+                @include utils.breakpoint-down(small) {
+                    padding-right: 0.8rem;
+                }
+            }
+
+            &__options {
+                display: flex;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 0.5rem;
+
+                .button-light {
+                    margin-right: 0.5rem;
+                    font-size: 1rem;
+                    font-weight: 300;
+                }
+
+                @include utils.breakpoint-down(small) {
+                    overflow-x: hidden;
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                }
+            }
+        }
+
+        &__apply-changes {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--primary-color);
+            width: 10rem;
+            margin-inline: auto;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            padding: 0.8rem 2rem;
+            border-radius: base.$small-border-radius base.$big-border-radius;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--background-color);
+        }
+    }
+
+}

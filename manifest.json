@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": "Gimme",
+    "version": "1.0.0",
+    "description": "Device Web Recommender",
+    "action": {
+        "default_icon": "assets/images/sun.png",
+        "default_popup": "pages/products/products.html"
+    }
+}

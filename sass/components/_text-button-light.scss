@@ -1,18 +1,29 @@
 @use '../themes' as theme;
 @use '../base' as base;
-$button-top-left-corner-radius: 8px;
-$button-top-right-corner-radius: 36px;
-$button-bottom-right-corner-radius: 8px;
-$button-bottom-left-corner-radius: 36px;
+$button-top-left-corner-radius: 1rem;
+$button-top-right-corner-radius: 3rem;
+$button-bottom-right-corner-radius: 1rem;
+$button-bottom-left-corner-radius: 3rem;
 
 .button-light {
     border-radius: base.$small-border-radius base.$big-border-radius;
     background-color: var(--background-color);
     color: var(--text-color);
-    font-weight: lighter;
     width: auto;
     height: auto;
     text-align: center;
-    border: 1.5px solid var(--text-color);
+    border: 0.1rem solid var(--text-color);
     cursor: pointer;
+    font-size: 1rem;
+    font-weight: 300;
+
+    &:hover {
+        background-color: var(--text-color);
+        color: var(--background-color);
+    }
+
+    &--active {
+        background-color: var(--text-color);
+        color: var(--background-color);
+    }
 }

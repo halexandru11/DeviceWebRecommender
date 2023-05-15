@@ -1,131 +1,261 @@
 <!DOCTYPE html>
-<html  lang="en">
-  <head>
+<html lang="ro">
+
+<head>
     <meta charset="utf-8">
     <title>DeWR (Device Web Recommender)</title>
-    <link rel="stylesheet" href="../css/main.css">
-  </head>
-  <body>
+    <link rel="stylesheet" href="../css/scholarly.css">
+</head>
+
+<body>
     <header>
-        <h1 class="title">DeWR (Device Web Recommender) - Gimme App</h1>
+        <h1 class="title">DeWR (Device Web Recommender) - GIMME APP</h1>
+        <nav>
+            <ul>
+                <li><a href="#abstract">Abstract</a></li>
+                <li><a href="#features">Particularități</a></li>
+                <li><a href="#tehnologii">Tehnologii utilizate</a></li>
+                <li><a href="#design">Design</a></li>
+                <li><a href="#interaction">Interacțiunea utilizatorului cu aplicația</a></li>
+                <li><a href="#references">Referințe</a></li>
+            </ul>
+        </nav>
     </header>
-        <div role="contentinfo">
-            <p><em>DeWR</em> is a web application that recommends electronic devices based on user preferences or on general requirements. It is a part of the Gimme App project.</p>
-            <p><em>DeWR</em> is developed by:</p>
-        </div>
-    
-        <section class="persons-and-organizations">
-            <h2>
-                Persons and Organizations
-            </h2>
-            <ol>
-                <li><span class="person" typeof="schema:Person" resource="http://orcid.org/0000-0003-1279-3709">
-                    <meta property="schema:givenName" content="Alexandru">
-                    <meta property="schema:familyName" content="Hrițcan">
-                    <a href="https://www.facebook.com/alexandru.hritcan">
-                      <span property="schema:name">Hrițcan Alexandru (Computer Science Bc)</span>
-                    </a>
-                  </span></li>
-    
-                  <li><span class="person" typeof="schema:Person" resource="http://orcid.org/0000-0003-1279-3709">
-                    <meta property="schema:givenName" content="Andreea-Daniela">
-                    <meta property="schema:familyName" content="Lupu">
-                    <a href="https://www.linkedin.com/in/andreea-lupu-a68096227/">
-                      <span property="schema:name">Andreea-Daniela Lupu (Computer Science Bc)</span>
-                    </a>
-                  </span></li>
-                    <li><span class="person" typeof="schema:Person" resource="http://orcid.org/0000-0003-1279-3709">
+    <article typeof="schema:ScholarlyArticle" resource="#">
+        <header>
+            <h2>GIMME APP</h2>
+        </header>
+        <section typeof="sa:AuthorsList">
+            <h2>Hrițcan Alexandru, Lupu Andreea-Daniela, Rășcanu Robert-Ionuț</h2>
+            <ul>
+                <li typeof="sa:ContributorRole" property="schema:author"><span typeof="schema:Person" resource="#">
+                        <meta property="schema:givenName" content="Alexandru">
+                        <meta property="schema:familyName" content="Hrițcan">
+                        <a href="https://www.facebook.com/alexandru.hritcan">
+                            <span property="schema:name">Hrițcan Alexandru (Computer Science Bc)</span>
+                        </a>
+                    </span></li>
+
+                <li typeof="sa:ContributorRole" property="schema:author"><span typeof="schema:Person" resource="#">
+                        <meta property="schema:givenName" content="Andreea-Daniela">
+                        <meta property="schema:familyName" content="Lupu">
+                        <a href="https://www.linkedin.com/in/andreea-lupu-a68096227/">
+                            <span property="schema:name">Andreea-Daniela Lupu (Computer Science Bc)</span>
+                        </a>
+                    </span></li>
+                <li typeof="sa:ContributorRole" property="schema:author"><span typeof="schema:Person" resource="#">
                         <meta property="schema:givenName" content="Robert">
                         <meta property="schema:familyName" content="Rășcanu">
                         <a href="https://www.linkedin.com/in/robertrascanu/">
-                        <span property="schema:name">Rășcanu Robert (Computer Science Bc)</span>
+                            <span property="schema:name">Rășcanu Robert (Computer Science Bc)</span>
                         </a>
                     </span></li>
-                  </ol>
-                  <p>The development of the app takes place under the project specifications presented here: 
-                    <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">
-                      <span property="schema:name">Web Technologies Project Specifications</span></a>
-                  </p>
-            
+            </ul>
         </section>
-        <section class="c4-diagram">
-            <h2>Use-case diagram of user <em>Gimme App</em></h2>
-            <figure typeof="sa:image">
-                <img src="../assets/images/use-case.svg" alt="Use-case scenario usage for the app">
-                <figcaption><em>Fig. 1. Usecase scenario diagram for the general use of the app. </em>  </figcaption>
-            </figure>
-            <p>The <em>Gimme app</em> is designed to work as a browser extension, that suggests to the user electronic devices, based either on the user preferences (in case the user is present in the user data base and logged in the app), or on general facts if the user is not authenticated.</p>
-            <p>The purpose of the app is to facilitate the selection of options that a user faces when seeking  to purchase a new electronic device, scavenging for the products most popular at the moment, from trusted websites, that the user can select to get recommendations from.</p>
-            <p>Starting the app, the page that is first opened is the product recommendations page. Here you see a collection of electronic devices(E.G. laptops, smartphones, tablets, keyboards, etc...). Pressing on one product leads you to another page, where you can see more photos of the product, the price, a small description and the link to the merchant page.</p>
-            <p>
-                The user can also access the <em>Menu</em> button on top right, where he can change the theme of the app, the language and the currency. The user can also access the <em>About</em> page, where he can see the information about the app and the developers. On this page there are also testimonials from users of the app.
+        <section typeof="sa:Abstract" id="abstract">
+            <h2>1.Abstract</h2>
+
+            <p><em>Gimme</em>, cunoscut si sub numele de DeWR, este o aplicație web de tip responsive ce oferă
+                recomandări de dispozitive electronice utilizatorilor
+                în funcție de diverse specificații (preț, culoare, model, autonomie). Dorim ca Gimme să fie disponibilă
+                și sub formă de extensie.
+                O mare varietate de dispozitive pot fi recomandate (telefoane, TV-uri, PC-uri, căști audio, laptop-uri,
+                smartwatch-uri, camere, tablete, tastaturi, mouse-uri).
+
             </p>
-            <p> In case of any questions about the way that the app works, the user can consult the <em>help page</em>, that gives explainations reagarding the usage of the app.</p>
+            <p> <em>Gimme</em> se folosește de scraping pentru a obține datele dorite de pe site-urile celor mai mari
+                retaileri de dispozitive din țară (Flanco, Emag, PC Garage, Altex, Media Galaxy).</p>
+            <p> Statisticile cu cele mai populare produse vor fi disponibile sub formă de flux de știri RSS.</p>
+            <p>Poate fi accesata atat de către utilizatorii autentificați, cât și de către cei neautentificați. Cei din
+                urmă vor primi recomandările în funcție de tendințele generale înregistrate pe site-urile retailerilor
+                vizați.
+            </p>
+            <p>Specificațiile/ cerințele aplicației se găsesc la pagina:
+                <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">
+                    <span property="schema:name">Web Technologies Project Specifications.</span></a>
+            </p>
+            <br>
         </section>
+        <section typeof="sa:Features" id="features">
+            <h2>2.Particularități ale aplicației</h2>
+            <ul>
+                <li>Posibilitatea utilizatorului de a își crea cont, de a își modifica detaliile contului, de a se
+                    conecta. </li>
+                <li>
+                    <p>Recomandari personalizate pentru dispozitive electronice, indiferent daca utilizatorul este
+                        conectat sau nu </p>
+                </li>
+                <li>
+                    <p>Filtrare in functie de pret si alte caracteristici, cum ar fi modelul, culoarea si
+                        autonomia</p>
+                </li>
+                <li>
+                    <p>Fluxuri de stiri RSS pentru cele mai populare produse si recomandari</p>
+                </li>
+                <li>
+                    <p>Alegerea temei aplicatiei si a modului de vizualizare (dark/light)</p>
+                </li>
+                <li>
+                    <p>Partajarea datelor recomandate pe cel putin o retea sociala</p>
+                </li>
+            </ul>
+        </section>
+        <section typeof="sa:Technologies" id="tehnologii">
+            <h2>3.Tehnologii utilizate</h2>
+            <ul>
+                <li>Gimme este scris pe partea de frontend in HTML + css/scss (stil adoptat: BEM). </li>
+                <li>
+                    <p>Pe partea de backend, plănuim să utilizăm Node JS.</p>
+                </li>
+                <li>
+                    Datele pentru generarea statisticilor vor fi stocate in baza de date de tipul SQLite.
+                </li>
+                <li>
+                    Utilizeaza propriul API REST sau GraphQL pentru preluarea si procesarea datelor. API-ul poate fi
+                    utilizat de
+                    catre alti dezvoltatori pentru a accesa datele DeWR si pentru a le integra in propriile aplicatii
+                    web.
+                </li>
 
-        <section class="figma-design-process">
-            <h2>Figma design process - <em>Gimme App</em></h2>
-            <p>Here are some screenshots from the design process of the app and the descriptions for the thinking process that happened behind.</p>
-            <figure typeof="sa:image">
-                <img src="../assets/images/page1diagram.png" alt="Class diagram of the app">
-                <figcaption><em>Fig. 2. Sign in page in extension format. </em>  </figcaption>
+            </ul>
+        </section>
+        <section typeof="sa:Design" id="design">
+
+            <h2>4. Design</h2>
+            <p>Designul aplicației este unul modern și plăcut ochiului, cu un aspect vesel și prietenos. Utilizatorii
+                pot alege dintr-o
+                gamă largă de culori, inclusiv variante light și dark pentru fiecare culoare, ceea ce permite
+                personalizarea aplicației
+                după preferințele lor. De asemenea, designul are influențe geeky, care îi pot atrage pe utilizatorii
+                pasionați de
+                tehnologie și gaming.</p>
+
+            <p>Interfața aplicației este simplă și intuitivă, astfel încât utilizatorii să poată găsi rapid ceea ce
+                caută și să
+                interacționeze cu aplicația într-un mod natural. De exemplu, butoanele și meniurile sunt bine
+                poziționate și ușor de
+                accesat, iar fonturile și imaginile sunt alese astfel încât să fie ușor de citit și să transmită
+                informația relevantă în
+                mod eficient.</p>
+
+            <p>De asemenea, designul este responsive, ceea ce înseamnă că aplicația se adaptează la dimensiunea
+                ecranului
+                utilizatorului, astfel încât să poată fi utilizată pe diverse dispozitive, de la smartphone-uri la
+                tablete sau
+                calculatoare.</p>
+
+            <p>În general, designul aplicației este unul atractiv și funcțional, care poate încânta utilizatorii și să
+                le ofere o
+                experiență plăcută de utilizare.</p>
+            <p> Pentru a face design-ul, ne-am folosit de Figma, fiecare venind cu cate o varianta de design pentru
+                mobil. Acest fapt ne-a ajutat la prototipare ca sa stim directia pe care vrem sa mergem. <a
+                    href="https://www.figma.com/file/3lHXk8ZIQssvzvVm24pxUg/GIMME?node-id=0-1&t=EIZZiTXUkRiE5o0R-0">Vezi
+                    Figma</a> </p>
+            <figure typeof="sa:image" class="design">
+                <img src="../scholarly/signup.PNG" alt="Sign up of the app">
+                <figcaption><em>Fig. 1. Sign up - design dark mode </em> </figcaption>
             </figure>
-            <p><em>The Gimme app</em> is designed to be a browser extension, that can be used either by authenticated users or not. As one of the first steps taken into the direction of designing the app, we figured out how the sign in experience should be like, togheter with the main page of the app, the <em>home page</em>.</p>
-            <p>The <em>Home Page</em>, containing in extension format tuples of two products per line, has the most important functionality, of presenting the user the options that he has regarding preffered electronic devices.</p>
-            <figure typeof="sa:image">
-              <img src="../assets/images/page2diagram.png" alt="Class diagram of the app">
-              <figcaption><em>Fig. 3. (from left to right) Sign In, Sign Up and About pages. </em>  </figcaption>
+            <figure typeof="sa:image" class="design">
+                <img src="../scholarly/search_products.png" alt="Products of the app">
+                <figcaption><em>Fig. 2. Pagina de produse- design light mode </em> </figcaption>
             </figure>
-            <p>As part of the design responsiveness, the way the app should look and function differs from device to device, regarding the screen size. Also, not only the functionality differs, but there is the chance to change the color theme as well.</p>
-            <p>In <em>Fig. 3</em>, it's the design of the sign in/ sign up pages, as well as the design for the About page. On the last specified page we have thought of three separate sections, that serve different purposes.</p>
-            <p>
-               The first section is designed for giving additional explaination for the reasoning behind the main page (the page that holds the  recommendations). In this section, there is the <em>Explore</em> button, that lead to the main page. The second one, is presenting in a concentrated manner the advantages and functionalities of the app. Then the third section, in which we have also included a section for testimonials, where users can leave their feedback about the app.
-              </p>
+        </section>
+        <section typeof="sa:UserInteraction" id="interaction">
+            <h2>5.Interacțiunea utilizatorului cu aplicația</h2>
+            <section typeof="sa:NavBar">
+                <h3> Navigation Bar</h3>
+                <p>Nav bar-ul sau bara de navigare va fi situata in partea de sus a fiecarei pagini. Cand se da
+                    click pe aceasta, un pop-up va oferi posibilitatea utilizatorului sa aleaga dintre mai multe pagini
+                    spre care poate naviga: About, Help, SignIn/SignUp, Products, See themes. </p>
+            </section>
+            <section typeof="sa:UserSigninSignUp">
+                <h3>Sign In/Sign Up/Forgot password</h3>
+                <p>Cu toate că nu este necesar ca user-ul să se autentifice sau să își facă cont în aplicație, prin
+                    aceste functionalitati el poate primi fluxuri RSS de recomandari sau recomandari specializate in
+                    aplicatie in functie de specificatiile sale. Pentru autentificare, user-ul trebuie sa isi introduca
+                    username-ul si parola, iar pentru a isi face cont, el trebuie sa introduca username, email si
+                    parola. Primele doua vor fi salvate in baza de date SQLite a aplicatiei. </p>
+            </section>
+            <section typeof="sa:About">
+                <h3>About</h3>
+                <p>Aceasta pagina ofera informatii de baza utilizatorului despre aplicatie la modul general, vorbind
+                    despre ce experienta ofera user-ului, indiferent daca este logat sau nu. Prin
+                    apasarea pe butonul ,,See products", utilizatorul va putea vedea ce fel de produse ii sunt acestuia
+                    recomandate in functie de specificatiile sale (sau lipsa lor). </p>
+
+            </section>
+            <section typeof="sa:Help">
+                <h3>Help</h3>
+                <p>Aceasta pagina ofera informatii utilizatorului despre cum sa navigheze in aplicatie, indiferent
+                    daca este logat sau nu, precum si ce caracteristici specifice are fiecare pagina in parte </p>
+            </section>
+            <section typeof="sa:Products">
+                <h3>Pagina de produse</h3>
+                <p>Aceasta pagina reprezinta functionalitatea de baza a proiectului. Daca user-ul este logat sau nu,
+                    aici
+                    vor aparea produse default obtinute in urma analizei specificatiilor pe care user-ul le pune prin
+                    butonul de filtru, aflat in stanga sus.
+                    Daca user-ul este interesat de un produs anume, poate sa ii vada detaliile, "See product". De
+                    asemenea, utilizatorul are posibilitatea prin aceasta pagina sa caute diverse produse prin search
+                    bar. </p>
+            </section>
+            <section typeof="sa:Product-details">
+                <h3>Vizualizare produs in detaliu</h3>
+                Pe aceasta pagina, utilizatorul are posibilitatea sa vada specificatiile produsului in detaliu, precum
+                si rating-ul pe care acesta l-a primit pe site-ul selectat de utilizator. Daca se aleg mai multe
+                site-uri si produsul este disponibil pe ambele, atunci se iau produsele de pe fiecare site in parte. Tot
+                aici va exista butonul de distribuire, ce ofera posibilitatea utilizatorului sa distribuie produsul
+                gasit.
+            </section>
+            <section typeof="sa:Filters" class="design">
+                <h3>Pagina de filtre</h3>
+                Aceasta pagina ofera posibilitatea utilizatorului sa filtreze in functie de retailer, tip de device,
+                pret, autonomie, culoare si brand.
+
+                <figure typeof="sa:image" class="design">
+                    <img src="filters.PNG" alt="Filters of the app">
+                    <figcaption><em>Fig. 3. Filters- dark mode </em> </figcaption>
+                </figure>
+
+            </section>
+            <section typeof="sa:Themes">
+                <h3>Pagina de teme</h3>
+                Aceasta pagina ofera posibilitatea utilizatorului sa isi aleaga orice tema isi doreste acesta din paleta
+                de culori disponibila, fiecare avand optiune light sau dark. De asemenea, un mic preview este disponibil
+                pentru a-i lasa posibilitatea utilizatorului sa vada cum va arata aplicatie daca doreste sa aplice
+                schimbarile.
+                <figure typeof="sa:image" class="design">
+                    <img src="themes.PNG" alt="Themes of the app">
+                    <figcaption><em>Fig. 4. Pagina pentru alegerea temei- dark mode </em> </figcaption>
+                </figure>
+            </section>
         </section>
 
-        <section class="code-snippets">
-          <h2>Code snippets - <em>Gimme App</em></h2>
-          <p>Here are some code snippets from the project.</p>
-          <h3>Theme page:</h3>
-          <figure typeof="sa:image">
-              <img src="../assets/images/themes.png" alt="Example of theme page - dark cyan">
-              <figcaption><em>Fig. 4. Example of theme page - dark cyan </em>  </figcaption>
-          </figure>
-          <p>This is the format of how each color theme avalaible is implemented. As an example, <em>Fig. 4</em> showcases the dark-cyan theme. Each different theme has its own SASS file. Using SASS variables we are able to easily do the color theme change, rather than hard coding color values in the code itself.</p>
-          <h3>Device page:</h3>
-          <figure typeof="sa:image">
-              <img src="../assets/images/device.png" alt="Example of device page - Samsung Galaxy S21">
-              <figcaption><em>Fig. 5. Example of device page </em>  </figcaption>
-          </figure>
-          <p>
-            As for the device page, for each product we chose to show on to the screen only one relevant image and the title of the product, followed one of the most important  aspects in choosing to buy a product, namely the price. The code is structured in a way that it is easy to read and understand. The code is divided into sections, that are easy to identify.
-          </p>
-          <h3>Breakpoints</h3>
-          <figure typeof="sa:image">
-              <img src="../assets/images/breakpoints.png" alt="Example of breakpoints">
-              <figcaption><em>Fig. 6. Breakpoints used in order to make the app responsive regarding screen size </em>  </figcaption>
-          </figure> 
-          <p>
-            As for the breakpoints, we have used the ones that are most common on the market for desktop, tablet and smartphone sizes. The breakpoints are used in order to make the app responsive regarding screen size.
+        <section typeof="sa:ReferenceList" id="references">
+            <h2>6. Referințe</h2>
+            <p><em>Sass</em></p>
+            <ol>
+                <li>
+                    <a typeof="sa:isBasedOnUrl" href="https://www.w3schools.com/sass/">Sass Tutorial</a>
+                </li>
+                <li>
+                    <a typeof="sa:isBasedOnUrl"
+                        href="https://www.youtube.com/watch?v=jfMHA8SqUL4&t=6249s&ab_channel=CoderCoder">Sass and BEM
+                        for
+                        beginners</a>
+                </li>
+                <li>
+                    <a typeof="sa:isBasedOnUrl" href="https://youtu.be/fyuao3G-2qg">Color themes tutorial</a>
+                </li>
+            </ol>
+            <p><em>Scholary html</em></p>
+            <ol>
+                <li>
+                    <a typeof="sa:isBasedOnUrl" href="https://w3c.github.io/scholarly-html">Scholary HTML</a>
+                </li>
+            </ol>
         </section>
+    </article>
+</body>
 
-      
-      <section class="references" role="doc-bibliography">
-        <h2>References</h2>
-        <p><em>Regarding Sass</em></p>
-        <ol>
-            <li>
-            <a href="https://www.w3schools.com/sass/">Sass Tutorial</a></li>
-            <li>
-            <a href="https://www.youtube.com/watch?v=jfMHA8SqUL4&t=6249s&ab_channel=CoderCoder">Sass and BEM for beginners</a></li>
-        </ol>
-        <p><em>Regarding scholary html</em></p>
-        <ol>
-            <li>
-                <a href="https://w3c.github.io/scholarly-html">Scholary HTML</a>
-            </li>
-        </ol>
-        </section>
-
-    </body>
 </html>

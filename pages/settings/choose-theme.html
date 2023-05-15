@@ -5,41 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../css/main.css">
-    <title>Products</title>
+    <title>Gimme</title>
 </head>
 
 <body>
     <header>
         <div class="siteHeader">
             <!-- This section gets pushed to the left side-->
-            <div class="siteHeader__section">
-                <div class="siteHeader__section__siteHeaderLogo"> 
-                    <a href="../products/products.html">
-                        <img src="../../assets/images/logo.svg" alt="Gimme">
-                    </a>
-                </div>   
+            <div class="siteHeader__logo">
+                <div class="logo">
+                    <h1>G</h1>
+                </div>
+                <h2>GIMME</h2>
             </div>
             <!-- This section gets pushed to the right side-->
             <div class="siteHeader__section">
                 <div class="dropdown-menu">
                     <div class="dropdown">
-                        <label class="bar" for="check"> 
-                            <span class="top"></span>
-                            <span class="middle"></span>
-                            <span class="bottom"></span>
-                        </label>
-                        <button class="drop-btn" id="check"></button>
+                        <div class="dropbtn">
+                            <div class="bar">
+                                <span class="top"></span>
+                                <span class="middle"></span>
+                                <span class="bottom"></span>
+                            </div>
+                        </div>
                         <div class="dropdown-content">
                             <a href="../auth/signin.html">Sign In</a>
                             <a href="../auth/signup.html">Sign Up</a>
                             <a href="../info/about.html">About</a>
                             <a href="../products/products.html">Products</a>
-                            <a href="choose-theme.html">Choose theme</a>
+                            <a href="../settings/choose-theme.html">Choose theme</a>
                             <a href="../info/help.html">Help</a>
                         </div>
                     </div>
@@ -54,10 +51,10 @@
             <button id="light-btn" class="theme-layout__brightness__tab">Light</button>
             <button id="dark-btn" class="theme-layout__brightness__tab active">Dark</button>
         </div>
-        <form action="" class="color-picker">
+        <form action="choose-theme.html" class="color-picker">
             <fieldset>
                 <legend class="visually-hidden">Colors</legend>
-                <span>
+                <div>
                     <label class="visually-hidden" for="red-lighter">red lighter</label>
                     <input type="radio" name="color" id="red-lighter" class="red-lighter" checked>
                     <label class="visually-hidden" for="orange-lighter">orange lighter</label>
@@ -74,8 +71,8 @@
                     <input type="radio" name="color" id="purple-lighter" class="purple-lighter">
                     <label class="visually-hidden" for="pink-lighter">pink lighter</label>
                     <input type="radio" name="color" id="pink-lighter" class="pink-lighter">
-                </span>
-                <span>
+                </div>
+                <div>
                     <label class="visually-hidden" for="red-darker">red darker</label>
                     <input type="radio" name="color" id="red-darker" class="red-darker">
                     <label class="visually-hidden" for="orange-darker">orange darker</label>
@@ -92,12 +89,12 @@
                     <input type="radio" name="color" id="purple-darker" class="purple-darker">
                     <label class="visually-hidden" for="pink-darker">pink darker</label>
                     <input type="radio" name="color" id="pink-darker" class="pink-darker">
-                </span>
+                </div>
             </fieldset>
         </form>
         <h2 class="theme-layout__preview-text">Preview</h2>
         <div class="theme-layout__preview">
-            <span class="theme-layout__preview__columns">
+            <div class="theme-layout__preview__columns">
                 <div class="theme-layout__preview__columns-left">
                     <h3>This is some text</h3>
                     <input class="field" placeholder="Hint text">
@@ -110,7 +107,7 @@
                 </div>
                 <div class="product-card">
                     <div>
-                        <img src="../../assets/images/tablet.png" class="product-card__image">
+                        <img src="../../assets/images/tablet.png" class="product-card__image" alt="ProductImage">
                         <div class="product-card__price">
                             Price
                         </div>
@@ -118,7 +115,7 @@
                     <h1 class="product-card__title">Some product</h1>
                     <button>Details</button>
                 </div>
-            </span>
+            </div>
         </div>
     </div>
 
