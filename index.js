@@ -2,6 +2,9 @@ import http from 'http';
 import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
+import querystring from 'querystring';
+import { sendConfirmationEmail } from './emailService.js';
+
 dotenv.config();
 
 const getContentType = (extname) => {
@@ -26,7 +29,28 @@ const getContentType = (extname) => {
   return contentType;
 }
 
+
+//refactor code 
 const server = http.createServer((req, res) => {
+  if (req.method === 'POST' && req.url === '/auth/signup.html') {
+    let body = [];
+    req.on('data', (chunk) => {
+      body.push(chunk);
+    }).on('end', () => {
+      body = Buffer.concat(body).toString();
+      let values = querystring.parse(body);
+      console.log(values);
+      console.log(body);
+      const email = values.email;
+      const username = values.username;
+      //rewrite this part
+      res.writeHead(302, { 'Location': '../pages/products/products.html' });
+      sendConfirmationEmail(email, username);
+      res.end();
+    });
+
+  }
+
   let filePath = `.${req.url}`;
   if (req.url === '/') {
     filePath = './pages/products/products.html';
@@ -72,9 +96,9 @@ const server = http.createServer((req, res) => {
       });
       res.write(data);
     }
-
     res.end();
   });
+
 });
 
 const port = process.env.PORT || 3000;
