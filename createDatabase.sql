@@ -83,3 +83,6 @@ CREATE TABLE `gimme`.`product_images` (
   `product_id` BIGINT NULL,
   `image_url` VARCHAR(512) NULL,
   PRIMARY KEY (`id`));
+
+  ALTER TABLE `gimme`.`products` 
+ADD COLUMN `brand` VARCHAR(64) NULL AFTER `name`;
