@@ -1,5 +1,6 @@
 import mysql from 'mysql2';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 const pool = mysql.createPool({
@@ -10,17 +11,14 @@ const pool = mysql.createPool({
     connectionLimit: 10
 }).promise();
 
-// The code below should be removed
-// It was just a test to see if the connection works
-// And it is an example on how to write the functions
 
 async function getNotes() {
-    const [rows] = await pool.query('SELECT * FROM notes');
+    const [rows] = await pool.query('SELECT * FROM products');
     return rows;
 }
 
 async function getNote(id) {
-    const [rows] = await pool.query('SELECT * FROM notes WHERE id = ?', [id]);
+    const [rows] = await pool.query('SELECT * FROM products WHERE id = ?', [id]);
     return rows[0];
 }
 
