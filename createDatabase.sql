@@ -1,6 +1,7 @@
 --steps in order to create the database and the tables
 --connect to mysql with user and password, by running the following command and replacing <username> and <password> with the actual values:
--- mysql -u <username> -p <password>
+-- mysql -u <username> -p 
+--enter the password when prompted
 --run the following commands in the mysql console
 --source <path to this file>
 --it should create the database and the tables
@@ -15,19 +16,24 @@ CREATE TABLE `gimme`.`users` (
   `id` BIGINT NOT NULL,
   `username` VARCHAR(64) NULL,
   `email` VARCHAR(128) NULL,
-  PRIMARY KEY (`id`));
+  PRIMARY KEY (`id`)
+);
 
 
 CREATE TABLE `gimme`.`passwords` (
   `user_id` BIGINT NOT NULL,
   `password` VARCHAR(64) NULL,
-  PRIMARY KEY (`user_id`));
+  PRIMARY KEY (`user_id`),
+  CONSTRAINT `fk_passwords_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+);
 
 
 CREATE TABLE `gimme`.`wishlist_products` (
   `user_id` BIGINT NOT NULL,
   `product_id` BIGINT NULL,
-  PRIMARY KEY (`user_id`));
+  PRIMARY KEY (`user_id`),
+  CONSTRAINT `fk_wishlist_products_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+);
 
 
 CREATE TABLE `gimme`.`products` (
@@ -63,26 +69,29 @@ CREATE TABLE `gimme`.`products` (
   `casing` VARCHAR(512) NULL,
   `accessories` VARCHAR(256) NULL,
   `energy_consumption` VARCHAR(256) NULL,
-  PRIMARY KEY (`id`));
+  `brand` VARCHAR(64) NULL,
+  PRIMARY KEY (`id`)
+);
 
 
 CREATE TABLE `gimme`.`vendors` (
   `id` BIGINT NOT NULL,
   `name` VARCHAR(64) NULL,
-  PRIMARY KEY (`id`));
+  PRIMARY KEY (`id`)
+);
 
 
 CREATE TABLE `gimme`.`device_types` (
   `id` BIGINT NOT NULL,
   `name` VARCHAR(64) NULL,
-  PRIMARY KEY (`id`));
+  PRIMARY KEY (`id`)
+);
 
 
 CREATE TABLE `gimme`.`product_images` (
   `id` BIGINT NOT NULL,
   `product_id` BIGINT NULL,
   `image_url` VARCHAR(512) NULL,
-  PRIMARY KEY (`id`));
-
-  ALTER TABLE `gimme`.`products` 
-ADD COLUMN `brand` VARCHAR(64) NULL AFTER `name`;
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_product_images_products` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE
+);

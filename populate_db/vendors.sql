@@ -1,0 +1,10 @@
+insert into vendors (id, name) values (1, 'altex');
+insert into vendors (id, name) values (2, 'emag');
+insert into vendors (id, name) values (3, 'media galaxy');
+insert into vendors (id, name) values (4, 'flanco');
+insert into vendors (id, name) values (5, 'domo');
+insert into vendors (id, name) values (6, 'evomag');
+insert into vendors (id, name) values (7, 'pc garage');
+insert into vendors (id, name) values (8, 'cel');
+insert into vendors (id, name) values (9, 'flip');
+insert into vendors (id, name) values (10, 'pcfun');

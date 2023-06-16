@@ -5,7 +5,9 @@ import dotenv from 'dotenv';
 import querystring from 'querystring';
 import { sendConfirmationEmail } from './emailService.js';
 
+
 dotenv.config();
+
 
 const getContentType = (extname) => {
   let contentType = 'text/html';
