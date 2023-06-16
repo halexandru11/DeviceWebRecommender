@@ -12,18 +12,5 @@ const pool = mysql.createPool({
 }).promise();
 
 
-async function getNotes() {
-    const [rows] = await pool.query('SELECT * FROM products');
-    return rows;
-}
 
-async function getNote(id) {
-    const [rows] = await pool.query('SELECT * FROM products WHERE id = ?', [id]);
-    return rows[0];
-}
-
-const notes = await getNotes();
-console.log(notes);
-
-const note = await getNote(1);
-console.log(note);
+  
