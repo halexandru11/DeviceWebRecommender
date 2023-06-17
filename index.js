@@ -4,23 +4,9 @@ import path from 'path';
 import dotenv from 'dotenv';
 import querystring from 'querystring';
 import { sendConfirmationEmail } from './emailService.js';
-import {testProductsTable} from './entity/productsEntity.js';
-import {testDeviceTypesTable} from './entity/deviceTypesEntity.js';
-import {testPasswordsTable} from './entity/passwordsEntity.js';
-import {testProductImagesTable} from './entity/productImagesEntity.js';
-import { testUsersTable } from './entity/usersEntity.js';
-import { testVendorsTable } from './entity/vendorsEntity.js';
-import { testWishlistProductsTable } from './entity/wishlistProductsEntity.js';
-import { test } from 'node:test';
+
 
 dotenv.config();
-//testProductsTable();
-//testDeviceTypesTable();
-//testPasswordsTable();
-//testProductImagesTable();
-//testUsersTable();
-//testVendorsTable();
-testWishlistProductsTable();
 
 const getContentType = (extname) => {
   let contentType = 'text/html';
