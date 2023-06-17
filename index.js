@@ -4,23 +4,10 @@ import path from 'path';
 import dotenv from 'dotenv';
 import querystring from 'querystring';
 import { sendConfirmationEmail } from './emailService.js';
-import {testProductsTable} from './entity/productsEntity.js';
-import {testDeviceTypesTable} from './entity/deviceTypesEntity.js';
-import {testPasswordsTable} from './entity/passwordsEntity.js';
-import {testProductImagesTable} from './entity/productImagesEntity.js';
-import { testUsersTable } from './entity/usersEntity.js';
-import { testVendorsTable } from './entity/vendorsEntity.js';
-import { testWishlistProductsTable } from './entity/wishlistProductsEntity.js';
-import { test } from 'node:test';
+import { handleSignUpPost } from './endpoints/SignUp.js';
+import { handleSignInPost } from './endpoints/SignIn.js'
 
 dotenv.config();
-//testProductsTable();
-//testDeviceTypesTable();
-//testPasswordsTable();
-//testProductImagesTable();
-//testUsersTable();
-//testVendorsTable();
-testWishlistProductsTable();
 
 const getContentType = (extname) => {
   let contentType = 'text/html';
@@ -48,24 +35,11 @@ const getContentType = (extname) => {
 //refactor code 
 const server = http.createServer((req, res) => {
   if (req.method === 'POST' && req.url === '/auth/signup.html') {
-    let body = [];
-    req.on('data', (chunk) => {
-      body.push(chunk);
-    }).on('end', () => {
-      body = Buffer.concat(body).toString();
-      let values = querystring.parse(body);
-      console.log(values);
-      console.log(body);
-      const email = values.email;
-      const username = values.username;
-      //rewrite this part
-      res.writeHead(302, { 'Location': '../pages/products/products.html' });
-      sendConfirmationEmail(email, username);
-      res.end();
-    });
-
+    handleSignUpPost(req, res);
   }
-
+  if (req.method === 'POST' && req.url === '/auth/signin.html') {
+    handleSignInPost(req, res);
+  }
   let filePath = `.${req.url}`;
   if (req.url === '/') {
     filePath = './pages/products/products.html';
