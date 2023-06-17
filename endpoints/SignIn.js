@@ -1,38 +1,29 @@
+import crypto from 'crypto';
 import querystring from 'querystring';
-import bcrypt from 'bcrypt';
-
-const handleSignInPost = async (req, res) => {
+const handleSignInPost = (req, res) => {
     try {
         let body = [];
-        await new Promise((resolve, reject) => {
-            req.on('data', (chunk) => {
-                body.push(chunk);
-            }).on('end', async () => {
-                try {
-                    body = Buffer.concat(body).toString();
-                    const values = querystring.parse(body);
-                    const password = values.password;
-                    const username = values.username;
+        req.on('data', (chunk) => {
+            body.push(chunk);
+        }).on('end', async () => {
+            body = Buffer.concat(body).toString();
+            let values = querystring.parse(body);
+            console.log(values);
+            console.log(body);
+            const password = values.password;
+            const username = values.username;
+            console.log('Username:', username);
 
-                    console.log('Username:', username);
-                    const salt = await bcrypt.genSalt(10);
-                    const hashedPassword = await bcrypt.hash(password, salt);
-                    console.log('Hashed password:', hashedPassword);
-                    res.writeHead(302, { 'Location': '../pages/products/products.html' });
-                    res.end();
+            const hashedPassword = crypto.createHash('sha256').update(password).digest('hex');
+            console.log('Hashed password:', hashedPassword);
 
-                } catch (error) {
-                    reject(error);
-                }
-
-            }).on('error', (error) => {
-                reject(error);
-            });
-
+            res.writeHead(302, { 'Location': '../' });
+            res.end();
         });
-    } catch (err) {
+    }
+    catch (err) {
         console.log(err);
     }
-};
 
-export { handleSignInPost };
+};
+export { handleSignInPost }
