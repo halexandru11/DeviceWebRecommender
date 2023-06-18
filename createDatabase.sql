@@ -13,7 +13,7 @@ CREATE DATABASE IF NOT EXISTS `gimme`;
 USE `gimme`;
 
 CREATE TABLE `gimme`.`users` (
-  `id` BIGINT NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(64) NULL,
   `email` VARCHAR(128) NULL,
   PRIMARY KEY (`id`)
