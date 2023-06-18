@@ -11,7 +11,7 @@ const pool = mysql.createPool({
     connectionLimit: 10
 }).promise();
 
-async function getDevices() {
+export async function getDevices() {
     const [rows] = await pool.query('SELECT * FROM device_types');
     return rows;
 }
