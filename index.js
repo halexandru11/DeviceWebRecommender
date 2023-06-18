@@ -3,10 +3,10 @@ import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
 import querystring from 'querystring';
-import { sendConfirmationEmail } from './emailService.js';
 import { handleSignUpPost } from './endpoints/SignUp.js';
-import { handleSignInPost } from './endpoints/SignIn.js'
-
+import { handleSignInPost } from './endpoints/SignIn.js';
+import { handleFiltersRequest } from './endpoints/Filters.js';
+import { verifyToken } from '../DeviceWebRecommender/verify-token.js'
 dotenv.config();
 
 const getContentType = (extname) => {
@@ -35,8 +35,11 @@ const server = http.createServer((req, res) => {
   if (req.method === 'POST' && req.url === '/auth/signup.html') {
     handleSignUpPost(req, res);
   }
-  if (req.method === 'POST' && req.url === '/auth/signin.html') {
+  else if (req.method === 'POST' && req.url === '/auth/signin.html') {
     handleSignInPost(req, res);
+  }
+  else if (req.method === 'GET' && req.url === '/products/filter.html') {
+    verifyToken(req, res, handleFiltersRequest);
   }
   let filePath = `.${req.url}`;
   if (req.url === '/') {
