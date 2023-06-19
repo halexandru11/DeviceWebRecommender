@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <title>Gimme</title>
+</head>
+
+<body>
+    <header>
+        <div class="siteHeader">
+            <!-- This section gets pushed to the left side-->
+            <div class="siteHeader__logo">
+                <div class="logo">
+                    <h1>G</h1>
+                </div>
+                <h2>GIMME</h2>
+            </div>
+            <!-- This section gets pushed to the right side-->
+            <div class="siteHeader__section">
+                <div class="dropdown-menu">
+                    <div class="dropdown">
+                        <div class="dropbtn">
+                            <div class="bar">
+                                <span class="top"></span>
+                                <span class="middle"></span>
+                                <span class="bottom"></span>
+                            </div>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="../auth/signin.html">Sign In</a>
+                            <a href="../auth/signup.html">Sign Up</a>
+                            <a href="../info/about.html">About</a>
+                            <a href="../products/products.html">Products</a>
+                            <a href="../settings/choose-theme.html">Choose theme</a>
+                            <a href="../info/help.html">Help</a>
+                        </div>
+                    </div>
+                    <ul class="dropdown-content">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="theme-layout">
+        <div class="theme-layout__brightness">
+            <button id="light-btn" class="theme-layout__brightness__tab">Light</button>
+            <button id="dark-btn" class="theme-layout__brightness__tab active">Dark</button>
+        </div>
+        <form action="choose-theme.html" class="color-picker">
+            <fieldset>
+                <legend class="visually-hidden">Colors</legend>
+                <div>
+                    <label class="visually-hidden" for="red-lighter">red lighter</label>
+                    <input type="radio" name="color" id="red-lighter" class="red-lighter" checked>
+                    <label class="visually-hidden" for="orange-lighter">orange lighter</label>
+                    <input type="radio" name="color" id="orange-lighter" class="orange-lighter">
+                    <label class="visually-hidden" for="yellow-lighter">yellow lighter</label>
+                    <input type="radio" name="color" id="yellow-lighter" class="yellow-lighter">
+                    <label class="visually-hidden" for="lime-lighter">lime lighter</label>
+                    <input type="radio" name="color" id="lime-lighter" class="lime-lighter">
+                    <label class="visually-hidden" for="aquamarine-lighter">aquamarine lighter</label>
+                    <input type="radio" name="color" id="aquamarine-lighter" class="aquamarine-lighter">
+                    <label class="visually-hidden" for="blue-lighter">blue lighter</label>
+                    <input type="radio" name="color" id="blue-lighter" class="blue-lighter">
+                    <label class="visually-hidden" for="purple-lighter">purple lighter</label>
+                    <input type="radio" name="color" id="purple-lighter" class="purple-lighter">
+                    <label class="visually-hidden" for="pink-lighter">pink lighter</label>
+                    <input type="radio" name="color" id="pink-lighter" class="pink-lighter">
+                </div>
+                <div>
+                    <label class="visually-hidden" for="red-darker">red darker</label>
+                    <input type="radio" name="color" id="red-darker" class="red-darker">
+                    <label class="visually-hidden" for="orange-darker">orange darker</label>
+                    <input type="radio" name="color" id="orange-darker" class="orange-darker">
+                    <label class="visually-hidden" for="yellow-darker">yellow darker</label>
+                    <input type="radio" name="color" id="yellow-darker" class="yellow-darker">
+                    <label class="visually-hidden" for="lime-darker">lime darker</label>
+                    <input type="radio" name="color" id="lime-darker" class="lime-darker">
+                    <label class="visually-hidden" for="aquamarine-darker">aquamarine darker</label>
+                    <input type="radio" name="color" id="aquamarine-darker" class="aquamarine-darker">
+                    <label class="visually-hidden" for="blue-darker">blue darker</label>
+                    <input type="radio" name="color" id="blue-darker" class="blue-darker">
+                    <label class="visually-hidden" for="purple-darker">purple darker</label>
+                    <input type="radio" name="color" id="purple-darker" class="purple-darker">
+                    <label class="visually-hidden" for="pink-darker">pink darker</label>
+                    <input type="radio" name="color" id="pink-darker" class="pink-darker">
+                </div>
+            </fieldset>
+        </form>
+        <h2 class="theme-layout__preview-text">Preview</h2>
+        <div class="theme-layout__preview">
+            <div class="theme-layout__preview__columns">
+                <div class="theme-layout__preview__columns-left">
+                    <h3>This is some text</h3>
+                    <input class="field" placeholder="Hint text">
+                    <input class="field" value="I have some text">
+                    <button>I am a button</button>
+                    <div class="filter-capsule">
+                        <p>Filter capsule</p>
+                        <i class="fa fa-times filter-capsule__icon"></i>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div>
+                        <img src="../../assets/images/tablet.png" class="product-card__image" alt="ProductImage">
+                        <div class="product-card__price">
+                            Price
+                        </div>
+                    </div>
+                    <h1 class="product-card__title">Some product</h1>
+                    <button>Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/scripts/choose-theme.js"></script>
+</body>
+
+</html>

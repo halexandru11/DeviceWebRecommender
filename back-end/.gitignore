@@ -1,8 +1,10 @@
 # Node.js
 node_modules
 
-# Build artifacts
-css/*.map
 
 # Environment-specific files
 .env
+
+package-lock.json
+
+*.css.map
