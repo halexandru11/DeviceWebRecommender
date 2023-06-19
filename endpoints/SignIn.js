@@ -65,7 +65,7 @@ const handleSignInPost = (req, res) => {
                                     console.log('JWT:', token);
                                     const encodedToken = Buffer.from(token).toString('base64');
                                     const cookieValue = `jwt=${encodedToken}; Domain=www.gimme.com; Path=/; Expires=${new Date(Date.now() + 3600000).toUTCString()}; Secure; HttpOnly`;
-                                    res.setHeader('Set-Cookie', cookieValue);
+                                    // res.setHeader('Set-Cookie', cookieValue);
                                 }
                             }
                         });
