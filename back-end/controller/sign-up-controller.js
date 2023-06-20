@@ -1,6 +1,6 @@
-import { sendConfirmationEmail } from '../emailService.js';
-import { insertUser } from '../insertUsers.js';
-import { insertHashedPassword } from '../insertHashedPassword.js';
+import { sendConfirmationEmail } from './emailService.js';
+import { insertUser } from '../model/users.js';
+import { insertHashedPassword } from '../model/passwords.js';
 import querystring from 'querystring';
 import crypto from 'crypto';
 import jwt from 'jsonwebtoken';

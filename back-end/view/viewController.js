@@ -1,7 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import { handleSignInPost } from '../controller/sign-in-controller.js';
-//import { handleSignUpPost } from '../controller/sign-up-controller.js';
+import { handleSignUpPost } from '../controller/sign-up-controller.js';
+import { verifyToken } from '../controller/verifyToken.js'
+import { handleForgotPassword } from '../controller/forgot-your-password.js';
+import { callbackFilters } from '../controller/callbackFilters.js';
 const mimeLookup = {
   '.js': 'application/javascript',
   '.html': 'text/html',
@@ -31,7 +34,13 @@ const handleViewRequest = (req, res) => {
     handleSignInPost(req, res);
   }
   else if (req.method === 'POST' && req.url === '/auth/signup.html') {
-    //handleSignUpPost(req, res);
+    handleSignUpPost(req, res);
+  }
+  else if (req.url === '/products/filter.html') {
+    verifyToken(req, res); //callbackFilters
+  }
+  else if (req.method === 'POST' && req.url === '/auth/forgot-password.html') {
+    handleForgotPassword(req, res);
   }
   else if (req.url === '/') {
     respondFile(req, res, 'products.html');
