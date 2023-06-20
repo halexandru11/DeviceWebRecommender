@@ -2,7 +2,7 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 dotenv.config();
-export const verifyToken = (req, res) => {
+export const verifyToken = (req, res, callbackFilters) => {
     const cookie = req.headers.cookie;
     if (!cookie) {
         res.writeHead(401, { 'Content-Type': 'application/json' });
@@ -21,6 +21,7 @@ export const verifyToken = (req, res) => {
     const token = Buffer.from(encodedToken, 'base64').toString('utf-8');
 
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
+        console.log(process.env.ACCESS_TOKEN_SECRET);
         if (err) {
             res.writeHead(401, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ message: 'Unauthorized access. Invalid' }));
@@ -29,6 +30,9 @@ export const verifyToken = (req, res) => {
         const { name: username } = decoded;
         req.username = username;
         console.log('Valid');
-        //callbackFilters(); // Proceed to the next handler if the user is AUTHORIZED
+
+        res.writeHead(200, { 'Location': '../' });
+        res.end(JSON.stringify({ message: 'User is logged in. Now do the filters thingy' }));
+        callbackFilters(); // Proceed to the next handler if the user is AUTHORIZED
     });
 };

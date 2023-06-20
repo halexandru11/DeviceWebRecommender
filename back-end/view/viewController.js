@@ -37,10 +37,10 @@ const handleViewRequest = (req, res) => {
     handleSignUpPost(req, res);
   }
   else if (req.url === '/products/filter.html') {
-    verifyToken(req, res); //callbackFilters
+    verifyToken(req, res, callbackFilters); //callbackFilters or whatever
   }
   else if (req.method === 'POST' && req.url === '/auth/forgot-password.html') {
-    handleForgotPassword(req, res);
+    handleForgotPassword(req, res, callbackFilters); //callbackFilters or whatever
   }
   else if (req.url === '/') {
     respondFile(req, res, 'products.html');
@@ -63,8 +63,6 @@ const handleViewRequest = (req, res) => {
   } else if (req.url === '/auth/forgot-password.html') {
     respondFile(req, res, 'forgot-password.html');
   }
-
-
   else {
     const fileUrl = '/public' + req.url;
     const filePath = path.resolve('.' + fileUrl);

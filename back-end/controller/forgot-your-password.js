@@ -13,7 +13,7 @@ export const handleForgotPassword = async (req, res) => {
             let values = querystring.parse(body);
             const email_resend = values.email_resend;
             await sendPasswordEmail(email_resend);
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
+            res.writeHead(302, { Location: "../" });
             res.end();
         });
     } catch (error) {
