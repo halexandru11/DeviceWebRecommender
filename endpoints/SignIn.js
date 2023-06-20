@@ -2,7 +2,7 @@ import crypto from 'crypto';
 import querystring from 'querystring';
 import mysql from 'mysql2';
 
-const handleSignInPost = (req, res) => {
+/*const handleSignInPost = async (req, res) => {
     try {
         let body = [];
         req.on('data', (chunk) => {
@@ -66,3 +66,4 @@ const handleSignInPost = (req, res) => {
 };
 
 export { handleSignInPost };
+*/

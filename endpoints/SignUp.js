@@ -3,7 +3,7 @@ import querystring from 'querystring';
 import crypto from 'crypto';
 import mysql from 'mysql2';
 
-const handleSignUpPost = (req, res) => {
+/*const handleSignUpPost = (req, res) => {
     try {
         let body = [];
         req.on('data', (chunk) => {
@@ -56,3 +56,4 @@ const handleSignUpPost = (req, res) => {
 };
 
 export { handleSignUpPost };
+*/
