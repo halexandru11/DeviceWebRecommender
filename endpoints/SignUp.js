@@ -1,14 +1,19 @@
 import { sendConfirmationEmail } from '../emailService.js';
+import { insertUser } from '../insertUsers.js';
+import { insertHashedPassword } from '../insertHashedPassword.js';
 import querystring from 'querystring';
 import crypto from 'crypto';
-import mysql from 'mysql2';
-
-const handleSignUpPost = (req, res) => {
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
+const handleSignUpPost = async (req, res) => {
     try {
         let body = [];
         req.on('data', (chunk) => {
             body.push(chunk);
-        }).on('end', () => {
+        }).on('end', async () => {
+
+
             body = Buffer.concat(body).toString();
             let values = querystring.parse(body);
             console.log(values);
@@ -16,43 +21,67 @@ const handleSignUpPost = (req, res) => {
             const email = values.email;
             const username = values.username;
             const password = values.password;
+            const confirm_password = values.confirm_password;
             const hashedPassword = crypto.createHash('sha256').update(password).digest('hex');
             console.log('Hashed password:', hashedPassword);
 
-            const connection = mysql.createConnection({
-                host: 'localhost',
-                user: 'root',
-                password: 'password',
-                database: 'gimme'
-            });
+            if (password === confirm_password) {
+                try {
+                    //problema: cand am username-uri duplicat 
+                    const token = jwt.sign({ name: username }, process.env.ACCESS_TOKEN_SECRET);
+                    console.log('JWT:', token);
+                    const encodedToken = Buffer.from(token).toString('base64');
+                    const cookieValue = `jwtSignUp=${encodedToken}; Path=/`;
+                    res.setHeader('Set-Cookie', cookieValue);
 
-            connection.connect();
-
-            const userSql = 'INSERT INTO users (id, username, email) VALUES (DEFAULT, ?, ?)';
-            connection.query(userSql, [username, email], (error, userResult) => {
-                if (error) {
-                    console.error('Error inserting user data:', error);
-                } else {
-                    console.log('User data inserted successfully.');
-                    const userId = userResult.insertId;
-                    const passwordSql = 'INSERT INTO passwords (user_id, password) VALUES (?, ?)';
-                    connection.query(passwordSql, [userId, hashedPassword], (error, passwordResult) => {
-                        if (error) {
-                            console.error('Error inserting hashed password:', error);
-                        } else {
-                            console.log('Hashed password inserted successfully.');
-                        }
+                    res.writeHead(302, {
+                        Location: "../"
                     });
-                }
-            });
+                    const insertedUserId = await insertUser(username, email, res);
+                    const success = await insertHashedPassword(insertedUserId, hashedPassword);
+                    res.end();
 
-            sendConfirmationEmail(email, username);
-            res.writeHead(302, { 'Location': '../' });
-            res.end();
+                } catch (error) {
+                    console.error('Error inserting user:', error);
+                    res.write('Username or email already exists.'); // Inform the user about the duplicate entry
+                    res.end();
+                }
+            }
+            else {
+                res.write("Passwords do not match!");
+                res.end();
+            }
         });
-    } catch (err) {
-        console.log(err);
+    } catch (error) {
+        console.error(error);
+        res.write("Username already exists!");
+        res.end();
     }
 };
 
+/*async function handleConfirmation(email, username, res) {
+    try {
+        const token = jwt.sign({ name: username }, process.env.ACCESS_TOKEN_SECRET);
+        console.log('JWT:', token);
+        const encodedToken = Buffer.from(token).toString('base64');
+        const cookieValue = `jwtSignUp=${encodedToken}; Path=/`;
+        //res.setHeader('Set-Cookie', cookieValue);
+        res.writeHead(302, {
+            Location: "../"
+        });
+        sendConfirmationEmail(email, username);
+        res.end();
+    } catch (error) {
+        console.error('Error handling confirmation:', error);
+        res.write('Error handling confirmation.');
+        res.end();
+    }
+}*/
+
+
+
+
+
 export { handleSignUpPost };
+
+

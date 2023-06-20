@@ -1,22 +1,34 @@
-export const verifyToken = (req, res, next) => {
-    const token = req.headers.cookie.split('=')[1];
-    if (!token) {
-        // No token found, handle unauthorized access
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
+export const verifyToken = (req, res, callbackFilters) => {
+    const cookie = req.headers.cookie;
+    if (!cookie) {
         res.writeHead(401, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ message: 'Unauthorized access' }));
         return;
     }
 
-    jwt.verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
+    const tokenCookie = cookie.split(';').find((cookie) => cookie.trim().startsWith('jwt'));
+    if (!tokenCookie) {
+        res.writeHead(401, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'Unauthorized access. You have to Sign in/ Register first to access the filters page. ' }));
+        return;
+    }
+
+    const encodedToken = tokenCookie.split('=')[1];
+    const token = Buffer.from(encodedToken, 'base64').toString('utf-8');
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
         if (err) {
-            // Invalid token, handle unauthorized access
             res.writeHead(401, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ message: 'Unauthorized access' }));
+            res.end(JSON.stringify({ message: 'Unauthorized access. Invalid' }));
             return;
         }
-
-        // Valid token, set the decoded userId on the request object
-        req.userId = decoded.userId;
-        next(); // Proceed to the next handler
+        const { name: username } = decoded;
+        req.username = username;
+        console.log('Valid');
+        callbackFilters(); // Proceed to the next handler if the user is AUTHORIZED
     });
 };
+

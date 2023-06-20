@@ -7,6 +7,8 @@ import { handleSignUpPost } from './endpoints/SignUp.js';
 import { handleSignInPost } from './endpoints/SignIn.js';
 import { handleFiltersRequest } from './endpoints/Filters.js';
 import { verifyToken } from '../DeviceWebRecommender/verify-token.js'
+import { handleForgotPassword } from './endpoints/ForgotYourPassword.js';
+import { callbackFilters } from './callbackFilters.js';
 dotenv.config();
 
 const getContentType = (extname) => {
@@ -38,8 +40,11 @@ const server = http.createServer((req, res) => {
   else if (req.method === 'POST' && req.url === '/auth/signin.html') {
     handleSignInPost(req, res);
   }
-  else if (req.method === 'GET' && req.url === '/products/filter.html') {
-    verifyToken(req, res, handleFiltersRequest);
+  else if (req.url === '/products/filter.html') {
+    verifyToken(req, res, callbackFilters);
+  }
+  else if (req.method === 'POST' && req.url === '/auth/forgot-password.html') {
+    handleForgotPassword(req, res, callbackFilters);
   }
   let filePath = `.${req.url}`;
   if (req.url === '/') {
@@ -81,9 +86,9 @@ const server = http.createServer((req, res) => {
       res.writeHead(404);
       res.write('Error: Not found!');
     } else {
-      res.writeHead(200, {
-        'Content-Type': contentType
-      });
+      //res.writeHead(200, {
+      //  'Content-Type': contentType
+      //});
       res.write(data);
     }
     res.end();
