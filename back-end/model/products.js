@@ -11,14 +11,84 @@ const pool = mysql.createPool({
     connectionLimit: 10
 }).promise();
 
-async function getProducts() {
+export async function getProducts() {
     const [rows] = await pool.query('SELECT * FROM products');
-    return rows;
+    const products = [];
+    rows.map(product => {
+        products.push({
+            id: product.id,
+            url: product.url,
+            name: product.name,
+            description: product.description,
+            vendor_id: product.vendor_id,
+            price: product.price,
+            rating: product.rating,
+            color: product.color,
+            device_type_id: product.device_type_id,
+            general_characteristics: product.general_characteristics,
+            technical_characteristics: product.technical_characteristics,
+            processor: product.processor,
+            mother_board: product.mother_board,
+            hard_disk: product.hard_disk,
+            graphics_card: product.graphics_card,
+            memory: product.memory,
+            storage: product.storage,
+            display: product.display,
+            connectivity: product.connectivity,
+            autonomy: product.autonomy,
+            charging: product.charging,
+            efficiency: product.efficiency,
+            multimedia: product.multimedia,
+            photo_video: product.photo_video,
+            audio: product.audio,
+            weight: product.weight,
+            dimensions: product.dimensions,
+            operating_system: product.operating_system,
+            warranty: product.warranty,
+            created_at: product.created_at,
+            updated_at: product.updated_at
+        });
+    });
+    return products;
 }
 
-async function getProductById(id) {
-    const [rows] = await pool.query('SELECT * FROM products WHERE id = ?', [id]);
-    return rows[0];
+export async function getProductById(id) {
+    const [result] = await pool.query('SELECT * FROM products WHERE id = ?', [id]);
+    if(result.length === 0) {
+        return null; }
+    return {
+        id: result[0].id,
+        url: result[0].url,
+        name: result[0].name,
+        description: result[0].description,
+        vendor_id: result[0].vendor_id,
+        price: result[0].price,
+        rating: result[0].rating,
+        color: result[0].color,
+        device_type_id: result[0].device_type_id,
+        general_characteristics: result[0].general_characteristics,
+        technical_characteristics: result[0].technical_characteristics,
+        processor: result[0].processor,
+        mother_board: result[0].mother_board,
+        hard_disk: result[0].hard_disk,
+        graphics_card: result[0].graphics_card,
+        memory: result[0].memory,
+        storage: result[0].storage,
+        display: result[0].display,
+        connectivity: result[0].connectivity,
+        autonomy: result[0].autonomy,
+        charging: result[0].charging,
+        efficiency: result[0].efficiency,
+        multimedia: result[0].multimedia,
+        photo_video: result[0].photo_video,
+        audio: result[0].audio,
+        weight: result[0].weight,
+        dimensions: result[0].dimensions,
+        operating_system: result[0].operating_system,
+        warranty: result[0].warranty,
+        created_at: result[0].created_at,
+        updated_at: result[0].updated_at
+    }
 }
 
 async function getProductUrl(id) {

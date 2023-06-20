@@ -31,6 +31,12 @@ async function getProductImagesImageUrl(id) {
     return rows;
 }
 
+export async function getProductImageUrlByProductId(productid) {
+    const [rows] = await pool.query('SELECT image_url FROM product_images WHERE product_id = ?', [productid]);
+    const imageUrl = rows[0]?.image_url || null;
+    return imageUrl;
+  }
+
 export async function testProductImagesTable() {
 
     try {
