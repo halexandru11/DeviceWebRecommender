@@ -37,59 +37,32 @@ CREATE TABLE `gimme`.`wishlist_products` (
 
 
 CREATE TABLE `gimme`.`products` (
-  `id` BIGINT NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `url` VARCHAR(512) NULL,
   `name` VARCHAR(256) NULL,
   `description` TEXT NULL,
-  `vendor_id` BIGINT NULL,
+  `vendor_name` VARCHAR(256) NULL,
   `price` FLOAT NULL,
   `rating` FLOAT NULL,
-  `color` VARCHAR(32) NULL,
-  `device_type_id` BIGINT NULL,
-  `general_characteristics` TEXT NULL,
-  `technical_characteristics` TEXT NULL,
-  `processor` VARCHAR(320) NULL,
-  `mother_board` TEXT NULL,
-  `hard_disk` VARCHAR(512) NULL,
-  `graphics_card` VARCHAR(1024) NULL,
-  `memory` VARCHAR(320) NULL,
-  `storage` VARCHAR(512) NULL,
-  `display` VARCHAR(256) NULL,
-  `connectivity` VARCHAR(256) NULL,
-  `autonomy` SMALLINT NULL,
-  `charging` VARCHAR(128) NULL,
-  `efficiency` VARCHAR(512) NULL,
-  `multimedia` VARCHAR(512) NULL,
-  `photo_video` VARCHAR(512) NULL,
-  `audio` VARCHAR(256) NULL,
-  `software` VARCHAR(256) NULL,
-  `functions` VARCHAR(1024) NULL,
-  `smart_tv` VARCHAR(256) NULL,
-  `dimentions` VARCHAR(256) NULL,
-  `casing` VARCHAR(512) NULL,
-  `accessories` VARCHAR(256) NULL,
-  `energy_consumption` VARCHAR(256) NULL,
-  `brand` VARCHAR(64) NULL,
+  `numReviews` FLOAT NULL,
   PRIMARY KEY (`id`)
 );
 
-
 CREATE TABLE `gimme`.`vendors` (
-  `id` BIGINT NOT NULL,
+  `id` BIGINT AUTO_INCREMENT,
   `name` VARCHAR(64) NULL,
   PRIMARY KEY (`id`)
 );
 
-
 CREATE TABLE `gimme`.`device_types` (
-  `id` BIGINT NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(64) NULL,
   PRIMARY KEY (`id`)
 );
 
 
 CREATE TABLE `gimme`.`product_images` (
-  `id` BIGINT NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `product_id` BIGINT NULL,
   `image_url` VARCHAR(512) NULL,
   PRIMARY KEY (`id`),

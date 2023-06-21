@@ -11,6 +11,52 @@ const pool = mysql.createPool({
     connectionLimit: 10
 }).promise();
 
+
+export function insertProductImages(productList) {
+    let connection;
+
+    return new Promise((resolve, reject) => {
+        try {
+            connection = mysql.createConnection({
+                host: 'localhost',
+                user: 'root',
+                password: 'password',
+                database: 'gimme'
+            });
+
+            connection.connect();
+
+            const query = 'INSERT INTO product_images (id,product_id, image_url) VALUES ?';
+            const values = productList.map((product) => {
+                return [
+                    null, // Assuming `id` is auto-incremented
+                    null,
+                    product.img,
+                ];
+            });
+
+            connection.query(query, [values], (error) => {
+                if (error) {
+                    console.error('Error inserting product images:', error);
+                    reject(error);
+                } else {
+                    console.log('Product images inserted successfully.');
+                    resolve({ status: 200, message: 'Product images inserted successfully.' });
+                }
+            });
+        } catch (error) {
+            console.error('Error inserting product images:', error);
+            reject(error);
+        } finally {
+            if (connection) {
+                connection.end();
+            }
+        }
+    });
+}
+
+
+
 async function getProductImages() {
     const [rows] = await pool.query('SELECT * FROM product_images');
     return rows;
