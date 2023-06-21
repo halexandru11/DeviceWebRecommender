@@ -1,0 +1,15 @@
+# Node.js
+node_modules
+package-lock.json
+
+
+# Environment-specific files
+.env
+
+# Logs
+back-end/public/css/main.css.map
+back-end/public/css/scholarly.css.map
+front-end/css/main.css.map
+front-end/css/scholarly.css.map
+
+
