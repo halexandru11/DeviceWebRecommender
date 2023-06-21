@@ -68,3 +68,11 @@ CREATE TABLE `gimme`.`product_images` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_product_images_products` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE
 );
+CREATE TABLE `preferences` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(64) NULL,
+  `vendor_name` VARCHAR(64) NULL,
+  `device_type` VARCHAR(64) NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_preferences_users` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE
+);

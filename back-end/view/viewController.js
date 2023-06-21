@@ -108,12 +108,11 @@ const handleViewRequest = (req, res) => {
     handleForgotPassword(req, res, callbackFilters); //callbackFilters or whatever
   }
   else if (req.url === '/') {
-
-    //logSimilarProducts(similarProducts);
     respondFile(req, res, 'products.html');
   } else if (req.url === '/products/products.html') {
     respondFile(req, res, 'products.html');
   } else if (req.url === '/products/filter.html') {
+    verifyToken(req, res, callbackFilters); //callbackFilters or whatever
     respondFile(req, res, 'filter.html');
   } else if (req.url === '/products/product-details.html') {
     respondFile(req, res, 'product-details.html');
