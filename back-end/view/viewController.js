@@ -2,6 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import { getProducts } from '../model/products.js';
 import { getProductImageUrlByProductId } from '../model/productImages.js';
+import { getProductSpecificationsById } from '../model/products.js';
+import { generateTableSpecifications, replaceProductDetailsTemplate} from './productDetailsView.js';
+import { generateProductCards } from './productView.js';
+
 
 const mimeLookup = {
   '.js': 'application/javascript',
@@ -14,22 +18,11 @@ const mimeLookup = {
   '.gif': 'image/gif',
 };
 
-const data = await getProducts();
-const tempOverview = fs.readFileSync('./view/templates/products.html', 'utf-8');
-const tempCard = fs.readFileSync('./view/templates/template-card.html', 'utf-8');
-
-async function replaceTemplate (temp, product) {
-
-  //get photo urle from database
-  const photoUrl = await getProductImageUrlByProductId(product.id);
-
-  let output = temp.replace(/{%PRODUCT_NAME%}/g, product.name);
-  output = output.replace(/{%IMAGE_SRC%}/g, photoUrl);
-  output = output.replace(/{%PRODUCT_PRICE%}/g, product.price);
-  output = output.replace(/{%PRODUCT_ID%}/g, product.id);
-  console.log(output);
-  return output;
-};
+export const productData = await getProducts();
+const tempProductsOverview = fs.readFileSync('./view/templates/products.html', 'utf-8');
+export const tempCard = fs.readFileSync('./view/templates/template-card.html', 'utf-8');
+const tempProductDetails = fs.readFileSync('./view/templates/product-details.html', 'utf-8');
+const tempSpecs = fs.readFileSync('./view/templates/template-table.html', 'utf-8');
 
 const respondFile = (req, res, filePath) => {
   res.statusCode = 200;
@@ -47,10 +40,8 @@ const respondFile = (req, res, filePath) => {
 async function handleViewRequest(req, res) {
   if (req.url === "/" || req.url === "/products/products.html") {
     res.writeHead(200, { "Content-Type": "text/html" });
-    const promises = data.map((el) => replaceTemplate(tempCard, el));
-    const resolvedPromises = await Promise.all(promises);
-    const cardsHtml = resolvedPromises.join("");
-    const output = tempOverview.replace("{%PRODUCT_CARDS%}", cardsHtml);
+    const cardsHtml = await generateProductCards(data, tempCard);
+    const output = tempProductsOverview.replace("{%PRODUCT_CARDS%}", cardsHtml);
     res.end(output);
   } else if (req.url === "/products/filter.html") {
     respondFile(req, res, "filter.html");
@@ -69,7 +60,20 @@ async function handleViewRequest(req, res) {
   } else if (req.url === "/auth/forgot-password.html") {
     respondFile(req, res, "forgot-password.html");
   }  else if (req.url.match(/\/products\/product=[0-9]+/)) {
+    res.writeHead(200, { "Content-Type": "text/html" });
     const productId = req.url.split("=")[1];
+    const product = await getProductSpecificationsById(productId);
+    const tableHtml = await generateTableSpecifications(tempSpecs, product);
+    let output = await replaceProductDetailsTemplate(tempProductDetails, productId);
+    output = output.replace("{%PRODUCT_SPECIFICATIONS%}", tableHtml);
+    res.end(output);
+    // const specifications = await getProductSpecificationsById(productId);
+    // console.log(specifications)
+    // const tableSpecifications = await generateTableSpecifications(tempProductDetails, specifications);
+    // res.writeHead(200, { "Content-Type": "text/html" });
+    // const output = await replaceProductDetailsTemplate(tempProductDetails, productId);
+    // output = output.replace("{%PRODUCT_SPECIFICATIONS%}", tableSpecifications);
+    // res.end(output);
   } else {
     const fileUrl = "/public" + req.url;
     const filePath = path.resolve("." + fileUrl);

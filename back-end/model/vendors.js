@@ -21,7 +21,7 @@ async function getVendorById(id) {
     return rows[0];
 }
 
-async function getVendorName(id) {
+export async function getVendorName(id) {
     const [rows] = await pool.query('SELECT name FROM vendors WHERE id = ?', [id]);
     return rows[0];
 }

@@ -14,42 +14,46 @@ const pool = mysql.createPool({
 export async function getProducts() {
     const [rows] = await pool.query('SELECT * FROM products');
     const products = [];
-    rows.map(product => {
-        products.push({
-            id: product.id,
-            url: product.url,
-            name: product.name,
-            description: product.description,
-            vendor_id: product.vendor_id,
-            price: product.price,
-            rating: product.rating,
-            color: product.color,
-            device_type_id: product.device_type_id,
-            general_characteristics: product.general_characteristics,
-            technical_characteristics: product.technical_characteristics,
-            processor: product.processor,
-            mother_board: product.mother_board,
-            hard_disk: product.hard_disk,
-            graphics_card: product.graphics_card,
-            memory: product.memory,
-            storage: product.storage,
-            display: product.display,
-            connectivity: product.connectivity,
-            autonomy: product.autonomy,
-            charging: product.charging,
-            efficiency: product.efficiency,
-            multimedia: product.multimedia,
-            photo_video: product.photo_video,
-            audio: product.audio,
-            weight: product.weight,
-            dimensions: product.dimensions,
-            operating_system: product.operating_system,
-            warranty: product.warranty,
-            created_at: product.created_at,
-            updated_at: product.updated_at
-        });
+  
+    rows.forEach(product => {
+        let notNullAttributes = {};
+        for (const key in product) {
+            const value = product[key];
+            if(value !== null && value !== '') {
+                notNullAttributes[key] = value;
+            }
+        }
+        products.push(notNullAttributes);
     });
     return products;
+}
+
+export async function getProductSpecificationsById(id) {
+    const [result] = await pool.query('SELECT * FROM products WHERE id = ?', [id]);
+    if(result.length === 0) {
+        return null; }
+    
+    let notNullAttributes = {};
+    for (const key in result[0]) {
+        const value = result[0][key];
+        if(value !== null && value !== '') {
+            notNullAttributes[key] = value;
+        }
+    }
+    return notNullAttributes;
+}
+
+export async function getProductsSpecsAsArray(id) {
+    const specs = await getProductSpecificationsById(id);
+
+    //return specs as array of key value pairs
+    const specsArray = [];
+
+    for (const key in specs) {
+        const value = specs[key];
+        specsArray.push({key, value});
+    }
+    return specsArray;
 }
 
 export async function getProductById(id) {

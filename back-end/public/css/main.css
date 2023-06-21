@@ -1484,6 +1484,11 @@ h5 {
   font-size: 1.1rem;
   color: var(--image-background-color);
 }
+.product-details__buy-button {
+  color: inherit; 
+  text-decoration: none; 
+  cursor: pointer; 
+}
 .product-details__buy {
   width: 95%;
   display: flex;
