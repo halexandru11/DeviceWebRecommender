@@ -5,6 +5,11 @@ import { handleSignUpPost } from '../controller/sign-up-controller.js';
 import { verifyToken } from '../controller/verifyToken.js'
 import { handleForgotPassword } from '../controller/forgot-your-password.js';
 import { callbackFilters } from '../controller/callbackFilters.js';
+import { logSimilarProducts } from '../model/insert_scraped_data.js';
+import { insertProducts } from '../model/products.js';
+import { insertVendors } from '../model/vendors.js';
+import { insertProductImages } from '../model/productImages.js';
+import { insertDeviceTypes } from '../model/deviceTypes.js';
 const mimeLookup = {
   '.js': 'application/javascript',
   '.html': 'text/html',
@@ -15,6 +20,35 @@ const mimeLookup = {
   '.txt': 'text/plain',
   '.gif': 'image/gif',
 };
+
+
+const similarProducts = [
+  {
+    name: 'Similar TV 1',
+    price: 349.9,
+    url: 'https://example.com/similar-tv-1',
+    img: 'https://example.com/images/similar-tv-1.jpg',
+    rating: 4.5,
+    numReviews: 32
+  },
+  {
+    name: 'Similar TV 2',
+    price: 379.9,
+    url: 'https://example.com/similar-tv-2',
+    img: 'https://example.com/images/similar-tv-2.jpg',
+    rating: 4.8,
+    numReviews: 58
+  },
+  {
+    name: 'Similar TV 3',
+    price: 419.9,
+    url: 'https://example.com/similar-tv-3',
+    img: 'https://example.com/images/similar-tv-3.jpg',
+    rating: 4.6,
+    numReviews: 41
+  }
+];
+
 
 const respondFile = (req, res, filePath) => {
   res.statusCode = 200;
@@ -29,7 +63,38 @@ const respondFile = (req, res, filePath) => {
   });
 }
 
+
+insertProducts(similarProducts)
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+insertVendors(similarProducts)
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
+insertProductImages(similarProducts)
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+insertDeviceTypes(similarProducts)
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 const handleViewRequest = (req, res) => {
+
   if (req.method === 'POST' && req.url === '/auth/signin.html') {
     handleSignInPost(req, res);
   }
@@ -43,6 +108,8 @@ const handleViewRequest = (req, res) => {
     handleForgotPassword(req, res, callbackFilters); //callbackFilters or whatever
   }
   else if (req.url === '/') {
+
+    //logSimilarProducts(similarProducts);
     respondFile(req, res, 'products.html');
   } else if (req.url === '/products/products.html') {
     respondFile(req, res, 'products.html');

@@ -11,6 +11,58 @@ const pool = mysql.createPool({
     connectionLimit: 10
 }).promise();
 
+
+export function insertProducts(productList) {
+    let connection;
+
+    return new Promise((resolve, reject) => {
+        try {
+            connection = mysql.createConnection({
+                host: 'localhost',
+                user: 'root',
+                password: 'password',
+                database: 'gimme'
+            });
+
+            connection.connect();
+
+            const query = 'INSERT INTO products (id, url, name, price, rating, numReviews, vendor_name) VALUES ?';
+            const values = productList.map((product) => {
+                const url = new URL(product.url);
+                const vendorName = url.hostname.split('.')[0];
+                return [
+                    null, // Assuming `id` is auto-incremented
+                    product.url,
+                    product.name,
+                    product.price,
+                    product.rating,
+                    product.numReviews,
+                    vendorName
+                ];
+            });
+
+            connection.query(query, [values], (error) => {
+                if (error) {
+                    console.error('Error inserting products:', error);
+                    reject(error);
+                } else {
+                    console.log('Products inserted successfully.');
+                    resolve({ status: 200, message: 'Products inserted successfully.' });
+                }
+            });
+        } catch (error) {
+            console.error('Error inserting products:', error);
+            reject(error);
+        } finally {
+            if (connection) {
+                connection.end();
+            }
+        }
+    });
+}
+
+
+
 async function getProducts() {
     const [rows] = await pool.query('SELECT * FROM products');
     return rows;
@@ -187,7 +239,7 @@ export async function testProductsTable() {
     try {
         const notes = await getProducts();
         console.log('All Notes:\n', notes);
-  
+
         const note = await getProductById(1);
         console.log('\n\nNote with ID 1:\n', note);
 
@@ -287,10 +339,10 @@ export async function testProductsTable() {
         const brand = await getProductBrand(1);
         console.log('\n\nBrand:\n', brand);
 
-    } 
+    }
     catch (error) {
         console.error('Error occurred:', error);
-    } 
+    }
     finally {
         pool.end();
     }
