@@ -6,19 +6,19 @@ import { tempCard, productData} from './viewController.js';
 
 async function replaceProductSpecificationsTemplate (temp, product) {
     let output = temp.replace(/{%PRODUCT_KEY%}/g, product.key);
-    output = output.replace(/{%IMAGE_VALUE%}/g, product.value);
+    output = output.replace(/{%PRODUCT_VALUE%}/g, product.value);
     return output;
   };
   
   export async function generateTableSpecifications(temp, product) {
-    const promises = Object.entries(product).map(([key, value]) =>
-      replaceProductSpecificationsTemplate(temp, { key, value })
-    );
+    const promises = Object.entries(product).map(([key, value]) => {
+      if(key !== 'id' && key !== 'url')
+        return replaceProductSpecificationsTemplate(temp, { key, value })
+    });
     const resolvedPromises = await Promise.all(promises);
     const cardsHtml = resolvedPromises.join("");
     return cardsHtml;
   }
-
 
   export async function replaceProductDetailsTemplate (temp, productId) {
     const product = await getProductSpecificationsById(productId);

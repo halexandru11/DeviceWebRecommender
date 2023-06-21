@@ -40,7 +40,7 @@ const respondFile = (req, res, filePath) => {
 async function handleViewRequest(req, res) {
   if (req.url === "/" || req.url === "/products/products.html") {
     res.writeHead(200, { "Content-Type": "text/html" });
-    const cardsHtml = await generateProductCards(data, tempCard);
+    const cardsHtml = await generateProductCards(productData, tempCard);
     const output = tempProductsOverview.replace("{%PRODUCT_CARDS%}", cardsHtml);
     res.end(output);
   } else if (req.url === "/products/filter.html") {
