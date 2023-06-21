@@ -28,6 +28,7 @@ async function replaceProductSpecificationsTemplate (temp, product) {
     let output = temp.replace(/{%PRODUCT_NAME%}/g, product.name);
     output = output.replace(/{%PRODUCT_CARDS%}/g, cardsHtml);
     output = output.replace(/{%IMAGE_SRC%}/g, photoUrl);
+    output = output.replace(/{%PRODUCT_URL%}/g, product.url)
     output = output.replace(/{%PRODUCT_PRICE%}/g, product.price);
     output = output.replace(/{%PRODUCT_DESCRIPTION%}/g, product.description);
     output = output.replace(/{%PRODUCT_VENDOR%}/g, vendorName.name);
