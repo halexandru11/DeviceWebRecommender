@@ -29,9 +29,10 @@ CREATE TABLE `gimme`.`passwords` (
 
 
 CREATE TABLE `gimme`.`wishlist_products` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `user_id` BIGINT NOT NULL,
   `product_id` BIGINT NULL,
-  PRIMARY KEY (`user_id`),
+  PRIMARY KEY (`id`),
   CONSTRAINT `fk_wishlist_products_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 );
 
@@ -71,7 +72,7 @@ CREATE TABLE `gimme`.`products` (
   `accessories` VARCHAR(256) NULL,
   `energy_consumption` VARCHAR(256) NULL,
   `brand` VARCHAR(64) NULL,
-  `numReviews` FLOAT NULL,
+  `numReviews` INT NULL,
   PRIMARY KEY (`id`)
 );
 
