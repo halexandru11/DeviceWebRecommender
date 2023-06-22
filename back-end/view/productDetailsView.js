@@ -33,3 +33,23 @@ async function replaceProductSpecificationsTemplate (temp, product) {
     output = output.replace(/{%PRODUCT_REVIEWS%}/g, product.numReviews);
     return output;
   };
+
+  export async function addToWishlist() {
+    const productId = req.url.split("=")[1];
+    const product = await getProductSpecificationsById(productId);
+    
+
+    // Get the username of the current user (e.g., from the user session)
+    const username = 'current_user';
+
+    // Call the insertWishlistProductsIfNotExist function
+    insertWishlistProductsIfNotExist([product], username)
+        .then((response) => {
+            // Handle the response (e.g., show success message, update UI)
+            console.log(response);
+        })
+        .catch((error) => {
+            // Handle any errors that occur during the process
+            console.error(error);
+        });
+}

@@ -36,7 +36,6 @@ const respondFile = (req, res, filePath) => {
       }
   });
 }
-import { insertDeviceTypes } from '../model/deviceTypes.js';
 async function handleViewRequest(req, res) {
   if (req.url === "/" || req.url === "/products/products.html") {
     res.writeHead(200, { "Content-Type": "text/html" });
@@ -51,8 +50,6 @@ async function handleViewRequest(req, res) {
     respondFile(req, res, "choose-theme.html");
   } else if (req.url === "/info/about.html") {
     respondFile(req, res, "about.html");
-    const deviceTypes = await insertDeviceTypes("produs");
-    console.log(deviceTypes);
   } else if (req.url === "/info/help.html") {
     respondFile(req, res, "help.html");
   } else if (req.url === "/auth/signin.html") {
