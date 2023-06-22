@@ -28,14 +28,6 @@ CREATE TABLE `gimme`.`passwords` (
 );
 
 
-CREATE TABLE `gimme`.`wishlist_products` (
-  `user_id` BIGINT NOT NULL,
-  `product_id` BIGINT NULL,
-  PRIMARY KEY (`user_id`),
-  CONSTRAINT `fk_wishlist_products_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-);
-
-
 CREATE TABLE `gimme`.`products` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `url` VARCHAR(512) NULL,
@@ -75,4 +67,18 @@ CREATE TABLE `preferences` (
   `device_type` VARCHAR(64) NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_preferences_users` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE
+);
+
+CREATE TABLE `gimme`.`wishlist_products` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `product_url` VARCHAR(512) NULL,
+  `name` VARCHAR(256) NULL,
+  `description` TEXT NULL,
+  `vendor_name` VARCHAR(256) NULL,
+  `price` FLOAT NULL,
+  `rating` FLOAT NULL,
+  `numReviews` FLOAT NULL,
+  `username` VARCHAR(512) NULL,
+  `score` FLOAT DEFAULT 0,
+  PRIMARY KEY (`id`)
 );
