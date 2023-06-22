@@ -102,102 +102,106 @@ insertDeviceTypes(similarProducts)
 
 
 const handleViewRequest = (req, res) => {
-
-  if (req.method === 'POST' && req.url === '/auth/signin.html') {
-    handleSignInPost(req, res);
-  }
-  else if (req.method === 'POST' && req.url === '/auth/signup.html') {
-    handleSignUpPost(req, res);
-  }
-  else if (req.url === '/products/filter.html') {
-
-    verifyToken(req, res, callbackFilters); //callbackFilters or whatever
-  }
-  else if (req.method === 'POST' && req.url === '/auth/forgot-password.html') {
-    handleForgotPassword(req, res);
-  }
-  else if (req.url === '/') {
-    respondFile(req, res, 'products.html');
-  } else if (req.url === '/products/products.html') {
-    const username = getusernameFromCookie(req, res); //WISHLIST STUFF!!!  SE EXECUTA DE 2 ORI (IDK WHY)
-    console.log(username);
-    if (username) {
-      insertWishlistProductsIfNotExist(similarProducts, username)
-        .then((result) => {
-          console.log(result);
-          // If the result is successful, grow the scores
-          console.log('Growing scores...');
-          return updateWishlistProductsScore(username, similarProducts);
-        })
-        .then(() => {
-          console.log('Scores grown successfully.');
-          return getTopPicks(username); // this selects the top picks from the wishlist products
-
-        })
-        .then(() => {
-          console.log('Recommandations:');
-          return searchTopProducts(username);
-
-        })
-        .catch((error) => {
-          if (error instanceof TypeError && error.message.includes("Cannot read properties of null (reading 'url')")) {
-            console.error('Error inserting products:', error);
-            console.log('Calling insertWishlistProducts...');
-            return insertWishlistProducts(similarProducts, username)
-              .then(() => {
-                console.log('Products inserted successfully.');
-                console.log('Growing scores...');
-                return updateWishlistProductsScore(username, similarProducts);
-              })
-              .then(() => {
-                console.log('Scores grown successfully.');
-              });
-          } else {
-            console.error(error);
-          }
-        });
-
+  try {
+    if (req.method === 'POST' && req.url === '/auth/signin.html') {
+      handleSignInPost(req, res);
     }
-    respondFile(req, res, 'products.html');
-  } else if (req.url === '/products/filter.html') {
-    verifyToken(req, res, callbackFilters); //callbackFilters or whatever
-    respondFile(req, res, 'filter.html');
-  } else if (req.url === '/products/product-details.html') {
-    respondFile(req, res, 'product-details.html');
-  } else if (req.url === '/settings/choose-theme.html') {
-    respondFile(req, res, 'choose-theme.html');
-  } else if (req.url === '/info/about.html') {
-    respondFile(req, res, 'about.html');
-  } else if (req.url === '/info/help.html') {
-    respondFile(req, res, 'help.html');
-  } else if (req.url === '/auth/signin.html') {
-    respondFile(req, res, 'signin.html');
-  } else if (req.url === '/auth/signup.html') {
-    respondFile(req, res, 'signup.html');
-  } else if (req.url === '/auth/forgot-password.html') {
-    respondFile(req, res, 'forgot-password.html');
-  }
-  else {
-    const fileUrl = '/public' + req.url;
-    const filePath = path.resolve('.' + fileUrl);
-    const fileExt = path.extname(filePath);
+    else if (req.method === 'POST' && req.url === '/auth/signup.html') {
+      handleSignUpPost(req, res);
+    }
+    else if (req.url === '/products/filter.html') {
+      verifyToken(req, res, callbackFilters); //callbackFilters or whatever
+    }
+    else if (req.method === 'POST' && req.url === '/auth/forgot-password.html') {
+      handleForgotPassword(req, res);
+    }
+    else if (req.url === '/') {
+      respondFile(req, res, 'products.html');
+    } else if (req.url === '/products/products.html') {
+      const username = getusernameFromCookie(req, res); //WISHLIST STUFF!!!  SE EXECUTA DE 2 ORI (IDK WHY)
+      console.log(username);
+      if (username) {
+        insertWishlistProductsIfNotExist(similarProducts, username)
+          .then((result) => {
+            console.log(result);
+            // If the result is successful, grow the scores
+            console.log('Growing scores...');
+            return updateWishlistProductsScore(username, similarProducts);
+          })
+          .then(() => {
+            console.log('Scores grown successfully.');
+            return getTopPicks(username); // this selects the top picks from the wishlist products
 
-    fs.access(filePath, fs.constants.F_OK, (err) => {
-      if (err) {
-        res.statusCode = 404;
-        res.end('404 Not Found');
-      } else {
-        fs.readFile(filePath, (err, data) => {
-          if (err) {
-            res.statusCode = 500;
-            res.end('500 Internal Server Error');
-          } else {
-            res.statusCode = 200;
-            res.end(data);
-          }
-        });
+          })
+          .then(() => {
+            console.log('Recommandations:');
+            return searchTopProducts(username);
+
+          })
+          .catch((error) => {
+            if (error instanceof TypeError && error.message.includes("Cannot read properties of null (reading 'url')")) {
+              console.error('Error inserting products:', error);
+              console.log('Calling insertWishlistProducts...');
+              return insertWishlistProducts(similarProducts, username)
+                .then(() => {
+                  console.log('Products inserted successfully.');
+                  console.log('Growing scores...');
+                  return updateWishlistProductsScore(username, similarProducts);
+                })
+                .then(() => {
+                  console.log('Scores grown successfully.');
+                });
+            } else {
+              console.error(error);
+            }
+          });
+
       }
-    });
+      respondFile(req, res, 'products.html');
+
+    } else if (req.url === '/products/filter.html') {
+      verifyToken(req, res, callbackFilters); //callbackFilters or whatever
+      respondFile(req, res, 'filter.html');
+    } else if (req.url === '/products/product-details.html') {
+      respondFile(req, res, 'product-details.html');
+    } else if (req.url === '/settings/choose-theme.html') {
+      respondFile(req, res, 'choose-theme.html');
+    } else if (req.url === '/info/about.html') {
+      respondFile(req, res, 'about.html');
+    } else if (req.url === '/info/help.html') {
+      respondFile(req, res, 'help.html');
+    } else if (req.url === '/auth/signin.html') {
+      respondFile(req, res, 'signin.html');
+    } else if (req.url === '/auth/signup.html') {
+      respondFile(req, res, 'signup.html');
+    } else if (req.url === '/auth/forgot-password.html') {
+      respondFile(req, res, 'forgot-password.html');
+    }
+    else {
+      const fileUrl = '/public' + req.url;
+      const filePath = path.resolve('.' + fileUrl);
+      const fileExt = path.extname(filePath);
+
+      fs.access(filePath, fs.constants.F_OK, (err) => {
+        if (err) {
+          res.statusCode = 404;
+          res.end('404 Not Found');
+        } else {
+          fs.readFile(filePath, (err, data) => {
+            if (err) {
+              res.statusCode = 500;
+              res.end('500 Internal Server Error');
+            } else {
+              res.statusCode = 200;
+              res.end(data);
+            }
+          });
+        }
+      });
+    }
+  }
+  catch (err) {
+    console.log("Error ", err);
   }
 }
 
