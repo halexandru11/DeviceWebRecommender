@@ -57,7 +57,7 @@ const handleSignUpPost = async (req, res) => {
                 res.writeHead(400, { 'Location': '../' });
                 res.end(JSON.stringify({ message: 'Passwords do not match' }));
                 //res.write("Passwords do not match!");
-                // res.end();
+                res.end();
             }
         });
     } catch (error) {
@@ -67,24 +67,6 @@ const handleSignUpPost = async (req, res) => {
     }
 };
 
-/*async function handleConfirmation(email, username, res) {
-    try {
-        const token = jwt.sign({ name: username }, process.env.ACCESS_TOKEN_SECRET);
-        console.log('JWT:', token);
-        const encodedToken = Buffer.from(token).toString('base64');
-        const cookieValue = `jwtSignUp=${encodedToken}; Path=/`;
-        //res.setHeader('Set-Cookie', cookieValue);
-        res.writeHead(302, {
-            Location: "../"
-        });
-        sendConfirmationEmail(email, username);
-        res.end();
-    } catch (error) {
-        console.error('Error handling confirmation:', error);
-        res.write('Error handling confirmation.');
-        res.end();
-    }
-}*/
 
 
 
