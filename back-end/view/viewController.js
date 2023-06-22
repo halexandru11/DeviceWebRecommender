@@ -10,6 +10,12 @@ import { insertProducts } from '../model/products.js';
 import { insertVendors } from '../model/vendors.js';
 import { insertProductImages } from '../model/productImages.js';
 import { insertDeviceTypes } from '../model/deviceTypes.js';
+import { insertWishlistProducts } from '../model/products.js';
+import { getusernameFromCookie } from '../controller/getUsernameFromCookie.js';
+import { insertWishlistProductsIfNotExist } from '../model/products.js';
+import { updateWishlistProductsScore } from '../model/products.js';
+import { getTopPicks } from '../model/products.js';
+import { searchTopProducts } from '../model/products.js';
 const mimeLookup = {
   '.js': 'application/javascript',
   '.html': 'text/html',
@@ -93,6 +99,8 @@ insertDeviceTypes(similarProducts)
   .catch((error) => {
     console.error(error);
   });
+
+
 const handleViewRequest = (req, res) => {
 
   if (req.method === 'POST' && req.url === '/auth/signin.html') {
@@ -102,18 +110,57 @@ const handleViewRequest = (req, res) => {
     handleSignUpPost(req, res);
   }
   else if (req.url === '/products/filter.html') {
+
     verifyToken(req, res, callbackFilters); //callbackFilters or whatever
   }
   else if (req.method === 'POST' && req.url === '/auth/forgot-password.html') {
-    handleForgotPassword(req, res, callbackFilters); //callbackFilters or whatever
+    handleForgotPassword(req, res);
   }
   else if (req.url === '/') {
-
-    //logSimilarProducts(similarProducts);
     respondFile(req, res, 'products.html');
   } else if (req.url === '/products/products.html') {
+    const username = getusernameFromCookie(req, res); //WISHLIST STUFF!!!  SE EXECUTA DE 2 ORI (IDK WHY)
+    console.log(username);
+    if (username) {
+      insertWishlistProductsIfNotExist(similarProducts, username)
+        .then((result) => {
+          console.log(result);
+          // If the result is successful, grow the scores
+          console.log('Growing scores...');
+          return updateWishlistProductsScore(username, similarProducts);
+        })
+        .then(() => {
+          console.log('Scores grown successfully.');
+          return getTopPicks(username); // this selects the top picks from the wishlist products
+
+        })
+        .then(() => {
+          console.log('Recommandations:');
+          return searchTopProducts(username);
+
+        })
+        .catch((error) => {
+          if (error instanceof TypeError && error.message.includes("Cannot read properties of null (reading 'url')")) {
+            console.error('Error inserting products:', error);
+            console.log('Calling insertWishlistProducts...');
+            return insertWishlistProducts(similarProducts, username)
+              .then(() => {
+                console.log('Products inserted successfully.');
+                console.log('Growing scores...');
+                return updateWishlistProductsScore(username, similarProducts);
+              })
+              .then(() => {
+                console.log('Scores grown successfully.');
+              });
+          } else {
+            console.error(error);
+          }
+        });
+
+    }
     respondFile(req, res, 'products.html');
   } else if (req.url === '/products/filter.html') {
+    verifyToken(req, res, callbackFilters); //callbackFilters or whatever
     respondFile(req, res, 'filter.html');
   } else if (req.url === '/products/product-details.html') {
     respondFile(req, res, 'product-details.html');

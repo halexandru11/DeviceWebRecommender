@@ -32,10 +32,15 @@ const handleSignUpPost = async (req, res) => {
                     console.log('JWT:', token);
                     const encodedToken = Buffer.from(token).toString('base64');
                     const cookieValue = `jwtSignUp=${encodedToken}; Path=/`;
-                    res.setHeader('Set-Cookie', cookieValue);
+
+                    const hasSignUpCookie = req.headers.cookie && req.headers.cookie.includes('jwtSignUp=');
+                    const hasSignInCookie = req.headers.cookie && req.headers.cookie.includes('jwtSignIn=');
+                    if (!(hasSignUpCookie || hasSignInCookie)) {
+                        res.setHeader('Set-Cookie', cookieValue);
+                    }
 
                     res.writeHead(302, {
-                        Location: "../"
+                        Location: "../products/products.html"
                     });
                     const insertedUserId = await insertUser(username, email, res);
                     const success = await insertHashedPassword(insertedUserId, hashedPassword);
@@ -43,13 +48,16 @@ const handleSignUpPost = async (req, res) => {
 
                 } catch (error) {
                     console.error('Error inserting user:', error);
-                    res.write('Username or email already exists.'); // Inform the user about the duplicate entry
-                    res.end();
+                    res.writeHead(400, { 'Location': '../' });
+                    res.end(JSON.stringify({ message: 'Username or email already exists.' }));
                 }
             }
             else {
-                res.write("Passwords do not match!");
-                res.end();
+
+                res.writeHead(400, { 'Location': '../' });
+                res.end(JSON.stringify({ message: 'Passwords do not match' }));
+                //res.write("Passwords do not match!");
+                // res.end();
             }
         });
     } catch (error) {

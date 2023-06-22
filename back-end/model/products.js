@@ -1,6 +1,5 @@
 import mysql from 'mysql2';
 import dotenv from 'dotenv';
-
 dotenv.config();
 
 const pool = mysql.createPool({
@@ -17,6 +16,8 @@ export function insertProducts(productList) {
 
     return new Promise((resolve, reject) => {
         try {
+
+
             connection = mysql.createConnection({
                 host: 'localhost',
                 user: 'root',
@@ -60,6 +61,301 @@ export function insertProducts(productList) {
         }
     });
 }
+
+export async function searchTopProducts(username) {
+    let connection;
+
+    try {
+        connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: 'password',
+            database: 'gimme'
+        });
+
+        connection.connect();
+
+        // Retrieve the top picks for the given username
+        const topPicks = await getTopPicks(username);
+
+        // Create an array to store the promises for each search query
+        const searchPromises = [];
+
+        // Execute a search query for each top pick
+        for (const vendorName of topPicks) {
+            const query = 'SELECT * FROM products WHERE vendor_name = ? ORDER BY rating DESC LIMIT 50';
+            const values = [vendorName];
+
+            const searchPromise = new Promise((resolve, reject) => {
+                connection.query(query, values, (error, results) => {
+                    if (error) {
+                        console.error(`Error searching products for ${vendorName}:`, error);
+                        reject(error);
+                    } else {
+                        resolve(results);
+                    }
+                });
+            });
+
+            searchPromises.push(searchPromise);
+        }
+
+        // Wait for all search queries to complete
+        const searchResults = await Promise.all(searchPromises);
+
+        // Concatenate and sort the search results by rating in descending order
+        const topProducts = searchResults
+            .flat()
+            .sort((a, b) => b.rating - a.rating)
+            .slice(0, 50);
+
+        console.log('Top 50 products:', topProducts);
+        return topProducts;
+    } catch (error) {
+        console.error('Error searching top products:', error);
+        throw error;
+    } finally {
+        if (connection) {
+            connection.end();
+        }
+    }
+}
+
+
+
+
+export async function insertWishlistProducts(productList, username) {
+    let connection;
+
+    return new Promise(async (resolve, reject) => {
+        try {
+            connection = mysql.createConnection({
+                host: 'localhost',
+                user: 'root',
+                password: 'password',
+                database: 'gimme'
+            });
+
+            connection.connect();
+
+            const query = 'INSERT INTO wishlist_products (id, product_url, name, price, rating, numReviews, vendor_name, username, score) VALUES ?';
+            const values = await Promise.all(productList.map(async (product) => {
+                const url = new URL(product.url);
+                const vendorName = url.hostname.split('.')[0];
+                const scoreResult = await getCurrentScoreByUrl(product.url);
+
+                const score = scoreResult.currentScore || 0;
+                console.log(score);
+                return [
+                    null, // Assuming `id` is auto-incremented
+                    product.url,
+                    product.name,
+                    product.price,
+                    product.rating,
+                    product.numReviews,
+                    vendorName,
+                    username,
+                    score
+                ];
+            }));
+
+            connection.query(query, [values], (error) => {
+                if (error) {
+                    console.error('Error inserting products:', error);
+                    reject(error);
+                } else {
+                    console.log('Products inserted successfully.');
+                    resolve({ status: 200, message: 'Products inserted successfully.' });
+                }
+            });
+        } catch (error) {
+            console.error('Error inserting products:', error);
+            reject(error);
+        } finally {
+            if (connection) {
+                connection.end();
+            }
+        }
+    });
+}
+
+export async function insertWishlistProductsIfNotExist(productList, username) {
+    const existingProducts = await Promise.all(
+        productList.map(async (product) => {
+            const exists = await checkWishlistProductExists(product.url, username);
+            return exists ? product : null;
+        })
+    );
+
+    const newProducts = existingProducts.filter((product) => product === null);
+
+    if (newProducts.length > 0) {
+        return insertWishlistProducts(newProducts, username);
+    } else {
+        return Promise.resolve({ status: 200, message: 'All products already exist in the wishlist.' });
+    }
+}
+
+
+export async function checkWishlistProductExists(productUrl, username) {
+    let connection;
+
+    return new Promise(async (resolve, reject) => {
+        try {
+            connection = mysql.createConnection({
+                host: 'localhost',
+                user: 'root',
+                password: 'password',
+                database: 'gimme'
+            });
+
+            connection.connect();
+
+            const query = 'SELECT COUNT(*) AS count FROM wishlist_products WHERE product_url = ? AND username = ?';
+            const values = [productUrl, username];
+
+            connection.query(query, values, (error, results) => {
+                if (error) {
+                    console.error('Error checking product existence:', error);
+                    reject(error);
+                } else {
+                    const count = results[0].count;
+                    const exists = count > 0;
+                    resolve(exists);
+                }
+            });
+        } catch (error) {
+            console.error('Error checking product existence:', error);
+            reject(error);
+        } finally {
+            if (connection) {
+                connection.end();
+            }
+        }
+    });
+}
+
+export function getCurrentScoreByUrl(url) {
+    let connection;
+
+    return new Promise((resolve, reject) => {
+        try {
+            connection = mysql.createConnection({
+                host: 'localhost',
+                user: 'root',
+                password: 'password',
+                database: 'gimme'
+            });
+
+            connection.connect();
+
+            const query = 'SELECT score FROM wishlist_products WHERE product_url = ? ORDER BY id DESC LIMIT 1';
+
+            connection.query(query, [url], (error, results) => {
+                if (error) {
+                    console.error('Error retrieving current score:', error);
+                    reject(error);
+                } else {
+                    if (results.length > 0) {
+                        const currentScore = results[0].score;
+                        console.log('Current score retrieved successfully.');
+                        resolve({ status: 200, currentScore });
+                    } else {
+                        console.log('No score found for the given URL.');
+                        resolve({ status: 200, currentScore: null });
+                    }
+                }
+            });
+        } catch (error) {
+            console.error('Error retrieving current score:', error);
+            reject(error);
+        } finally {
+            if (connection) {
+                connection.end();
+            }
+        }
+    });
+}
+export async function getTopPicks(username) { //this selects the top picks from wishlist products
+    let connection;
+
+    try {
+        connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: 'password',
+            database: 'gimme'
+        });
+
+        connection.connect();
+
+        const query = 'SELECT vendor_name FROM wishlist_products WHERE username = ? ORDER BY score DESC LIMIT 5';
+        const values = [username];
+
+        return new Promise((resolve, reject) => {
+            connection.query(query, values, (error, results) => {
+                if (error) {
+                    console.error('Error retrieving top picks:', error);
+                    reject(error);
+                } else {
+                    const topPicks = results.map((row) => row.vendor_name);
+                    console.log('Top picks retrieved successfully:', topPicks);
+                    resolve(topPicks);
+                }
+            });
+        });
+    } catch (error) {
+        console.error('Error retrieving top picks:', error);
+        throw error;
+    } finally {
+        if (connection) {
+            connection.end();
+        }
+    }
+}
+
+
+export async function updateWishlistProductsScore(username, productList) {
+    let connection;
+
+    try {
+        connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: 'password',
+            database: 'gimme'
+        });
+
+        connection.connect();
+
+        const updatePromises = productList.map(async (product) => {
+            const query = 'UPDATE wishlist_products SET score = score + 0.33 WHERE username = ? AND product_url = ?';
+            const values = [username, product.url];
+
+            return new Promise((resolve, reject) => {
+                connection.query(query, values, (error, results) => {
+                    if (error) {
+                        console.error(`Error updating score for product ${product.url}:`, error);
+                        reject(error);
+                    } else {
+                        console.log(`Score updated successfully for product ${product.url}.`);
+                        resolve();
+                    }
+                });
+            });
+        });
+
+        await Promise.all(updatePromises);
+        console.log('All wishlist product scores updated successfully.');
+    } catch (error) {
+        console.error('Error updating wishlist product scores:', error);
+    } finally {
+        if (connection) {
+            connection.end();
+        }
+    }
+}
+
 
 
 

@@ -28,9 +28,15 @@ const handleSignInPost = async (req, res) => {
                 console.log('JWT:', token);
                 const encodedToken = Buffer.from(token).toString('base64');
                 const cookieValue = `jwtSignIn=${encodedToken}; Path=/`;
-                res.setHeader('Set-Cookie', cookieValue);
+
+                const hasSignUpCookie = req.headers.cookie && req.headers.cookie.includes('jwtSignUp=');
+                const hasSignInCookie = req.headers.cookie && req.headers.cookie.includes('jwtSignIn=');
+                if (!(hasSignUpCookie || hasSignInCookie)) {
+                    res.setHeader('Set-Cookie', cookieValue);
+                }
+
                 res.writeHead(302, {
-                    Location: "../"
+                    Location: "../products/products.html"
                 });
                 res.end();
 
@@ -48,21 +54,29 @@ const handleSignInPost = async (req, res) => {
                         } else {
                             // Password does not match
                             console.log("Passwords do not match.");
-                            res.write("Passwords do not match!");
-                            res.end();
+                            res.writeHead(400, { 'Location': '../' });
+                            res.end(JSON.stringify({ message: 'Passwords do not match' }));
                         }
 
                     } catch (error) {
+                        res.writeHead(400, { 'Location': '../' });
+                        res.end(JSON.stringify({ message: 'Error checking password match' }));
                         console.error("Error checking password match:", error);
                     }
                 } else {
+                    res.writeHead(400, { 'Location': '../' });
+                    res.end(JSON.stringify({ message: 'User not found' }));
                     console.log("User not found.");
                 }
             } catch (error) {
+                res.writeHead(400, { 'Location': '../' });
+                res.end(JSON.stringify({ message: 'Error retrieving user information:' }));
                 console.error("Error retrieving user information:", error);
             }
         });
     } catch (error) {
+        res.writeHead(400, { 'Location': '../' });
+        res.end(JSON.stringify({ message: 'Error handling sign-in post:' }));
         console.error("Error handling sign-in post:", error);
     }
 };
