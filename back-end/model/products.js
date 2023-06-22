@@ -121,7 +121,37 @@ export async function searchTopProducts(username) {
     }
 }
 
+export async function getProductSpecificationsById(id) {
+    const [result] = await pool.query('SELECT * FROM products WHERE id = ?', [id]);
+    if(result.length === 0) {
+        return null; }
+    
+    let notNullAttributes = {};
+    for (const key in result[0]) {
+        const value = result[0][key];
+        if(value !== null && value !== '') {
+            notNullAttributes[key] = value;
+        }
+    }
+    return notNullAttributes;
+}
 
+export async function getAllProducts() {
+    const [rows] = await pool.query('SELECT * FROM products');
+    const products = [];
+  
+    rows.forEach(product => {
+        let notNullAttributes = {};
+        for (const key in product) {
+            const value = product[key];
+            if(value !== null && value !== '') {
+                notNullAttributes[key] = value;
+            }
+        }
+        products.push(notNullAttributes);
+    });
+    return products;
+}
 
 
 export async function insertWishlistProducts(productList, username) {
