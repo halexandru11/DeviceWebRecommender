@@ -1,6 +1,5 @@
 import mysql from 'mysql2';
 import dotenv from 'dotenv';
-
 dotenv.config();
 
 const pool = mysql.createPool({
@@ -256,7 +255,7 @@ async function getProductBrand(id) {
 }
 
 
-export async function testProductsTable() {
+async function testProductTable() {
 
     try {
         const notes = await getProducts();
@@ -370,3 +369,4 @@ export async function testProductsTable() {
     }
 
 }
+

@@ -1,5 +1,6 @@
 import mysql from 'mysql2';
 import dotenv from 'dotenv';
+import bcrypt from 'bcrypt';
 
 dotenv.config();
 
@@ -11,12 +12,80 @@ const pool = mysql.createPool({
     connectionLimit: 10
 }).promise();
 
-async function getUsers() {
+export async function getAllUsers() {
     const [rows] = await pool.query('SELECT * FROM users');
-    return rows;
+    const users = [];
+  
+    rows.forEach(user => {
+        let notNullAttributes = {};
+        for (const key in user) {
+            const value = user[key];
+            if(value !== null && value !== '') {
+                notNullAttributes[key] = value;
+            }
+        }
+        users.push(notNullAttributes);
+    });
+    return users;
 }
 
-async function getUserById(id) {
+const hashPassword = async (password) => {
+    return await bcrypt.hash(password, 12);
+}
+
+export async function validateUsername(username) {
+    const [rows] = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
+
+    if(rows.length > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+export async function validateEmail(email) {
+    const [rows] = await pool.query('SELECT * FROM users WHERE email = ?', [email]);
+
+    if(rows.length > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+async function getNumberOfUsers() {
+    const [rows] = await pool.query('SELECT COUNT(*) AS count FROM users');
+    return rows[0].count;
+}
+
+export async function createUser(user) {
+    user.password = await hashPassword(user.password);
+   
+  const id = await getNumberOfUsers() + 1;
+
+    await pool.query('INSERT INTO users (id, username, email) VALUES (?, ?, ?)',
+    [id, user.username, user.email]);
+    await pool.query('INSERT INTO passwords (user_id, password) VALUES (?, ?)',
+    [id, user.password]);
+    return user;
+}
+
+export async function getUserByUsername (username)  {
+    const [result] = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
+    if(result.length === 0) {
+        return null; }
+    
+    let notNullAttributes = {};
+    for (const key in result[0]) {
+        const value = result[0][key];
+        if(value !== null && value !== '') {
+            notNullAttributes[key] = value;
+        }
+    }
+    return notNullAttributes;
+}
+
+export async function getUserById(id) {
     const [rows] = await pool.query('SELECT * FROM users WHERE id = ?', [id]);
     return rows[0];
 }
