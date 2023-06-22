@@ -1,6 +1,7 @@
 import cheerio from 'cheerio';
 import fs from 'fs';
 import UserAgent from 'user-agents';
+import { insertProducts } from '../model/products.js';
 
 const baseUrl = 'https://altex.ro';
 
@@ -142,7 +143,8 @@ const scrapeAltex = async () => {
     console.log('altex', products.length, link);
     const filename = `./data/altex/${link}.json`;
     writeProductsToFile(filename, products);
-    // TODO: save to database
+    // save to database
+    insertProducts(products);
   }
 };
 

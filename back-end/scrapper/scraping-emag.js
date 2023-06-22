@@ -1,6 +1,7 @@
 import cheerio from 'cheerio';
 import fs from 'fs';
 import UserAgent from 'user-agents';
+import { insertProducts } from '../model/products.js';
 
 const baseUrl = 'https://emag.ro';
 
@@ -152,7 +153,8 @@ const scrapeEmag = async () => {
     const path = link.substring(0, link.indexOf('/'));
     const filename = `./data/emag/${path}.json`;
     writeProductsToFile(filename, products);
-    // TODO: save to database
+    // save to database
+    insertProducts(products);
   }
 };
 

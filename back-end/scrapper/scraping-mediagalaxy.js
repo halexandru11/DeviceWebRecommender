@@ -1,6 +1,7 @@
 import cheerio from 'cheerio';
 import fs from 'fs';
 import UserAgent from 'user-agents';
+import { insertProducts } from '../model/products.js';
 
 const baseUrl = 'https://mediagalaxy.ro';
 
@@ -140,7 +141,8 @@ const scrapeMediaGalaxy = async () => {
     console.log('mediagalaxy', products.length, link);
     const filename = `./data/mediagalaxy/${link}.json`;
     writeProductsToFile(filename, products);
-    // TODO: save to database
+    // save to database
+    insertProducts(products);
   }
 };
 

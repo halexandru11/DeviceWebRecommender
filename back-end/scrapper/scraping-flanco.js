@@ -1,6 +1,7 @@
 import cheerio from 'cheerio';
 import fs from 'fs';
 import UserAgent from 'user-agents';
+import { insertProducts } from '../model/products.js';
 
 const baseUrl = 'https://flanco.ro';
 
@@ -166,7 +167,8 @@ const scrapeFlanco = async () => {
     const path = link.substring(link.lastIndexOf('/') + 1);
     const filename = `./data/flanco/${path}.json`;
     writeProductsToFile(filename, products);
-    // TODO: save to database
+    // save to database
+    insertProducts(products);
   }
 };
 
