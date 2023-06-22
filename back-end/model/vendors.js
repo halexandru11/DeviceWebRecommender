@@ -11,6 +11,50 @@ const pool = mysql.createPool({
     connectionLimit: 10
 }).promise();
 
+export function insertVendors(productList) {
+    let connection;
+
+    return new Promise((resolve, reject) => {
+        try {
+            connection = mysql.createConnection({
+                host: 'localhost',
+                user: 'root',
+                password: 'password',
+                database: 'gimme'
+            });
+
+            connection.connect();
+
+            const query = 'INSERT INTO vendors (id, name) VALUES ?';
+            const values = productList.map((product) => {
+                const url = new URL(product.url);
+                const vendorName = url.hostname.split('.')[0];
+                return [
+                    null, // Assuming `id` is auto-incremented
+                    vendorName
+                ];
+            });
+
+            connection.query(query, [values], (error) => {
+                if (error) {
+                    console.error('Error inserting vendors:', error);
+                    reject(error);
+                } else {
+                    console.log('Vendors inserted successfully.');
+                    resolve({ status: 200, message: 'Vendors  inserted successfully.' });
+                }
+            });
+        } catch (error) {
+            console.error('Error inserting vendors:', error);
+            reject(error);
+        } finally {
+            if (connection) {
+                connection.end();
+            }
+        }
+    });
+}
+
 async function getVendors() {
     const [rows] = await pool.query('SELECT * FROM vendors');
     return rows;

@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { getProducts } from '../model/products.js';
+import { getAllProducts } from '../model/products.js';
 import { getProductImageUrlByProductId } from '../model/productImages.js';
 import { getProductSpecificationsById } from '../model/products.js';
 import { generateTableSpecifications, replaceProductDetailsTemplate} from './productDetailsView.js';
@@ -18,7 +18,7 @@ const mimeLookup = {
   '.gif': 'image/gif',
 };
 
-export const productData = await getProducts();
+export const productData = await getAllProducts();
 const tempProductsOverview = fs.readFileSync('./view/templates/products.html', 'utf-8');
 export const tempCard = fs.readFileSync('./view/templates/template-card.html', 'utf-8');
 const tempProductDetails = fs.readFileSync('./view/templates/product-details.html', 'utf-8');
@@ -36,7 +36,6 @@ const respondFile = (req, res, filePath) => {
       }
   });
 }
-
 async function handleViewRequest(req, res) {
   if (req.url === "/" || req.url === "/products/products.html") {
     res.writeHead(200, { "Content-Type": "text/html" });

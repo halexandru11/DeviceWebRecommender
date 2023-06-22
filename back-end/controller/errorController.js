@@ -1,4 +1,4 @@
-module.exports = (res, err) => {
+export default function errorController(res, err) {
     res.statusCode = err.statusCode || 500;
     res.end(JSON.stringify({
         status: err.status,

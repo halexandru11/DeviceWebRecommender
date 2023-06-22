@@ -1,6 +1,6 @@
 import mysql from 'mysql2';
 import dotenv from 'dotenv';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 dotenv.config();
 
@@ -83,6 +83,12 @@ export async function getUserByUsername (username)  {
         }
     }
     return notNullAttributes;
+}
+
+export async function deleteUserById(id) {
+    await pool.query('DELETE FROM users WHERE id = ?', [id]);
+    await pool.query('DELETE FROM passwords WHERE user_id = ?', [id]);
+    return true;
 }
 
 export async function getUserById(id) {

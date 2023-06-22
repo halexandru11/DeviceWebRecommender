@@ -37,11 +37,12 @@ CREATE TABLE `gimme`.`wishlist_products` (
 
 
 CREATE TABLE `gimme`.`products` (
-  `id` BIGINT NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `url` VARCHAR(512) NULL,
   `name` VARCHAR(256) NULL,
   `description` TEXT NULL,
   `vendor_id` BIGINT NULL,
+  `vendor_name` VARCHAR(256) NULL,
   `price` FLOAT NULL,
   `rating` FLOAT NULL,
   `color` VARCHAR(32) NULL,
@@ -65,31 +66,32 @@ CREATE TABLE `gimme`.`products` (
   `software` VARCHAR(256) NULL,
   `functions` VARCHAR(1024) NULL,
   `smart_tv` VARCHAR(256) NULL,
-  `dimentions` VARCHAR(256) NULL,
+  `dimensions` VARCHAR(256) NULL,
   `casing` VARCHAR(512) NULL,
   `accessories` VARCHAR(256) NULL,
   `energy_consumption` VARCHAR(256) NULL,
   `brand` VARCHAR(64) NULL,
+  `numReviews` FLOAT NULL,
   PRIMARY KEY (`id`)
 );
 
 
 CREATE TABLE `gimme`.`vendors` (
-  `id` BIGINT NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(64) NULL,
   PRIMARY KEY (`id`)
 );
 
 
 CREATE TABLE `gimme`.`device_types` (
-  `id` BIGINT NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(64) NULL,
   PRIMARY KEY (`id`)
 );
 
 
 CREATE TABLE `gimme`.`product_images` (
-  `id` BIGINT NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `product_id` BIGINT NULL,
   `image_url` VARCHAR(512) NULL,
   PRIMARY KEY (`id`),

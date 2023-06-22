@@ -10,7 +10,7 @@ const pool = mysql.createPool({
     connectionLimit: 10
 }).promise();
 
-export async function getProducts() {
+export async function getAllProducts() {
     const [rows] = await pool.query('SELECT * FROM products');
     const products = [];
   
@@ -42,56 +42,73 @@ export async function getProductSpecificationsById(id) {
     return notNullAttributes;
 }
 
-export async function getProductsSpecsAsArray(id) {
-    const specs = await getProductSpecificationsById(id);
+export function insertProducts(productList) {
+    let connection;
 
-    //return specs as array of key value pairs
-    const specsArray = [];
+    return new Promise((resolve, reject) => {
+        try {
+            connection = mysql.createConnection({
+                host: 'localhost',
+                user: 'root',
+                password: 'password',
+                database: 'gimme'
+            });
 
-    for (const key in specs) {
-        const value = specs[key];
-        specsArray.push({key, value});
-    }
-    return specsArray;
+            connection.connect();
+
+            const query = 'INSERT INTO products (id, url, name, price, rating, numReviews, vendor_name) VALUES ?';
+            const values = productList.map((product) => {
+                const url = new URL(product.url);
+                const vendorName = url.hostname.split('.')[0];
+                return [
+                    null, // Assuming `id` is auto-incremented
+                    product.url,
+                    product.name,
+                    product.price,
+                    product.rating,
+                    product.numReviews,
+                    vendorName
+                ];
+            });
+
+            connection.query(query, [values], (error) => {
+                if (error) {
+                    console.error('Error inserting products:', error);
+                    reject(error);
+                } else {
+                    console.log('Products inserted successfully.');
+                    resolve({ status: 200, message: 'Products inserted successfully.' });
+                }
+            });
+        } catch (error) {
+            console.error('Error inserting products:', error);
+            reject(error);
+        } finally {
+            if (connection) {
+                connection.end();
+            }
+        }
+    });
 }
 
-export async function getProductById(id) {
-    const [result] = await pool.query('SELECT * FROM products WHERE id = ?', [id]);
-    if(result.length === 0) {
-        return null; }
-    return {
-        id: result[0].id,
-        url: result[0].url,
-        name: result[0].name,
-        description: result[0].description,
-        vendor_id: result[0].vendor_id,
-        price: result[0].price,
-        rating: result[0].rating,
-        color: result[0].color,
-        device_type_id: result[0].device_type_id,
-        general_characteristics: result[0].general_characteristics,
-        technical_characteristics: result[0].technical_characteristics,
-        processor: result[0].processor,
-        mother_board: result[0].mother_board,
-        hard_disk: result[0].hard_disk,
-        graphics_card: result[0].graphics_card,
-        memory: result[0].memory,
-        storage: result[0].storage,
-        display: result[0].display,
-        connectivity: result[0].connectivity,
-        autonomy: result[0].autonomy,
-        charging: result[0].charging,
-        efficiency: result[0].efficiency,
-        multimedia: result[0].multimedia,
-        photo_video: result[0].photo_video,
-        audio: result[0].audio,
-        weight: result[0].weight,
-        dimensions: result[0].dimensions,
-        operating_system: result[0].operating_system,
-        warranty: result[0].warranty,
-        created_at: result[0].created_at,
-        updated_at: result[0].updated_at
+export async function deleteProduct(id) {
+    const result = await pool.query('DELETE FROM products WHERE id = ?', [id]);
+    return result.rowsAffected === 1;
+}
+
+ async function updateProduct(id, updateFields) {
+    const properties = Object.keys(updateFields);
+    const values = Object.values(updateFields);
+    const binds = {};
+
+    for(let i = 0; i < properties.length; i++) {
+        binds[properties[i]] = values[i];
     }
+
+    binds.id = id;
+
+    const result = await pool.query("UPDATE animals SET column1 = :column1, column2 = :column2, column3 = :column3, WHERE id = :id", binds);
+    return result.rowsAffected === 1;
 }
 
 async function getProductUrl(id) {
@@ -258,7 +275,7 @@ async function getProductBrand(id) {
 async function testProductTable() {
 
     try {
-        const notes = await getProducts();
+        const notes = await getAllProducts();
         console.log('All Notes:\n', notes);
   
         const note = await getProductById(1);
