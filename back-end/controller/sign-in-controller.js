@@ -24,23 +24,6 @@ const handleSignInPost = async (req, res) => {
 
             try {
                 //why does it only work here???
-                const token = jwt.sign({ name: username }, process.env.ACCESS_TOKEN_SECRET);
-                console.log('JWT:', token);
-                const encodedToken = Buffer.from(token).toString('base64');
-                const cookieValue = `jwtSignIn=${encodedToken}; Path=/`;
-
-                const hasSignUpCookie = req.headers.cookie && req.headers.cookie.includes('jwtSignUp=');
-                const hasSignInCookie = req.headers.cookie && req.headers.cookie.includes('jwtSignIn=');
-                if (!(hasSignUpCookie || hasSignInCookie)) {
-                    res.setHeader('Set-Cookie', cookieValue);
-                }
-
-                res.writeHead(302, {
-                    Location: "../products/products.html"
-                });
-                res.end();
-
-
                 const userId = await selectUserIdByUsername(username);
                 if (userId) {
                     // User found
@@ -49,6 +32,21 @@ const handleSignInPost = async (req, res) => {
                         const passwordMatch = await checkPasswordMatch(userId, hashedPassword);
                         if (passwordMatch) {
                             console.log("Password matches.");
+                            const token = jwt.sign({ name: username }, process.env.ACCESS_TOKEN_SECRET);
+                            console.log('JWT:', token);
+                            const encodedToken = Buffer.from(token).toString('base64');
+                            const cookieValue = `jwtSignIn=${encodedToken}; Path=/`;
+
+                            const hasSignUpCookie = req.headers.cookie && req.headers.cookie.includes('jwtSignUp=');
+                            const hasSignInCookie = req.headers.cookie && req.headers.cookie.includes('jwtSignIn=');
+                            if (!(hasSignUpCookie || hasSignInCookie)) {
+                                res.setHeader('Set-Cookie', cookieValue);
+                            }
+
+                            res.writeHead(302, {
+                                Location: "../products/products.html"
+                            });
+                            res.end();
                             // Continue with successful login process
 
                         } else {

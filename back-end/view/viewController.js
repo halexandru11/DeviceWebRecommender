@@ -120,7 +120,7 @@ const handleViewRequest = (req, res) => {
     } else if (req.url === '/products/products.html') {
       const username = getusernameFromCookie(req, res); //WISHLIST STUFF!!!  SE EXECUTA DE 2 ORI (IDK WHY)
       console.log(username);
-      if (username) {
+      /*if (username) {
         insertWishlistProductsIfNotExist(similarProducts, username)
           .then((result) => {
             console.log(result);
@@ -156,7 +156,7 @@ const handleViewRequest = (req, res) => {
             }
           });
 
-      }
+      }*/
       respondFile(req, res, 'products.html');
 
     } else if (req.url === '/products/filter.html') {
