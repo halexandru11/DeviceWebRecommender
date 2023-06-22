@@ -19,10 +19,10 @@ export function insertProductImages(productList) {
   return new Promise((resolve, reject) => {
     try {
       connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'user',
-        password: 'password',
-        database: 'gimme',
+        host: process.env.MYSQL_HOST,
+        user: process.env.MYSQL_USER,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE,
       });
 
       connection.connect();

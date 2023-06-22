@@ -18,10 +18,10 @@ export function insertProducts(productList) {
   return new Promise((resolve, reject) => {
     try {
       connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'user',
-        password: 'password',
-        database: 'gimme',
+        host: process.env.MYSQL_HOST,
+        user: process.env.MYSQL_USER,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE,
       });
 
       connection.connect();
@@ -67,10 +67,10 @@ export async function searchTopProducts(username) {
 
   try {
     connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'user',
-      password: 'password',
-      database: 'gimme',
+      host: process.env.MYSQL_HOST,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DATABASE,
     });
 
     connection.connect();
@@ -128,10 +128,10 @@ export async function insertWishlistProducts(productList, username) {
   return new Promise(async (resolve, reject) => {
     try {
       connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'user',
-        password: 'password',
-        database: 'gimme',
+        host: process.env.MYSQL_HOST,
+        user: process.env.MYSQL_USER,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE,
       });
 
       connection.connect();
@@ -206,10 +206,10 @@ export async function checkWishlistProductExists(productUrl, username) {
   return new Promise(async (resolve, reject) => {
     try {
       connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'user',
-        password: 'password',
-        database: 'gimme',
+        host: process.env.MYSQL_HOST,
+        user: process.env.MYSQL_USER,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE,
       });
 
       connection.connect();
@@ -245,10 +245,10 @@ export function getCurrentScoreByUrl(url) {
   return new Promise((resolve, reject) => {
     try {
       connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'user',
-        password: 'password',
-        database: 'gimme',
+        host: process.env.MYSQL_HOST,
+        user: process.env.MYSQL_USER,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE,
       });
 
       connection.connect();
@@ -287,10 +287,10 @@ export async function getTopPicks(username) {
 
   try {
     connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'user',
-      password: 'password',
-      database: 'gimme',
+      host: process.env.MYSQL_HOST,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DATABASE,
     });
 
     connection.connect();
@@ -326,10 +326,10 @@ export async function updateWishlistProductsScore(username, productList) {
 
   try {
     connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'user',
-      password: 'password',
-      database: 'gimme',
+      host: process.env.MYSQL_HOST,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DATABASE,
     });
 
     connection.connect();

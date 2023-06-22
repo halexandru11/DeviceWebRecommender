@@ -17,10 +17,10 @@ export function insertUser(username, email, res) {
   return new Promise((resolve, reject) => {
     try {
       const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'user',
-        password: 'password',
-        database: 'gimme',
+        host: process.env.MYSQL_HOST,
+        user: process.env.MYSQL_USER,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE,
       });
       connection.connect();
 
@@ -59,10 +59,10 @@ export function insertUser(username, email, res) {
 export const getUserDetailsByEmail = async (email) => {
   return new Promise((resolve, reject) => {
     const connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'user',
-      password: 'password',
-      database: 'gimme',
+      host: process.env.MYSQL_HOST,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DATABASE,
     });
 
     connection.connect();
@@ -84,10 +84,10 @@ export const getUserDetailsByEmail = async (email) => {
 export function selectUserIdByUsername(username) {
   return new Promise((resolve, reject) => {
     const connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'user',
-      password: 'password',
-      database: 'gimme',
+      host: process.env.MYSQL_HOST,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DATABASE,
     });
 
     connection.connect();

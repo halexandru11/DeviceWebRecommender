@@ -19,10 +19,10 @@ export function insertHashedPassword(userId, hashedPassword) {
   return new Promise((resolve, reject) => {
     try {
       connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'user',
-        password: 'password',
-        database: 'gimme',
+        host: process.env.MYSQL_HOST,
+        user: process.env.MYSQL_USER,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE,
       });
       connection.connect();
       const query = 'INSERT INTO passwords (user_id, password) VALUES (?, ?)';
@@ -54,10 +54,10 @@ export function insertHashedPassword(userId, hashedPassword) {
 export const generatePasswordForEmail = async (id, hashedUsername) => {
   return new Promise((resolve, reject) => {
     const connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'user',
-      password: 'password',
-      database: 'gimme',
+      host: process.env.MYSQL_HOST,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DATABASE,
     });
 
     connection.connect();
@@ -79,10 +79,10 @@ export const generatePasswordForEmail = async (id, hashedUsername) => {
 export function checkPasswordMatch(userId, hashedPassword) {
   return new Promise((resolve, reject) => {
     const connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'user',
-      password: 'password',
-      database: 'gimme',
+      host: process.env.MYSQL_HOST,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DATABASE,
     });
 
     connection.connect();
