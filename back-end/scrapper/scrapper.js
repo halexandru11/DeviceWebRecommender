@@ -3,7 +3,7 @@ import { scrapeEmag } from './scraping-emag.js';
 import { scrapeFlanco } from './scraping-flanco.js';
 import { scrapeMediaGalaxy } from './scraping-mediagalaxy.js';
 
-const startScraping = async () => {
+export const startScraping = async () => {
   await Promise.all([
     scrapeAltex(),
     scrapeEmag(),
@@ -12,4 +12,4 @@ const startScraping = async () => {
   ]);
 };
 
-startScraping();
+//startScraping();

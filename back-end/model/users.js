@@ -25,7 +25,7 @@ export function insertUser(username, email, res) {
       connection.connect();
 
       const query =
-        'INSERT INTO users (id, username, email) VALUES (DEFAULT, ?, ?)';
+        'INSERT INTO users (id, username, email, role) VALUES (DEFAULT, ?, ?, DEFAULT)';
       const values = [username, email];
 
       connection.query(query, values, (error, result) => {
