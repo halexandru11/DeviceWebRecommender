@@ -115,19 +115,46 @@ const getProductsFromPage = async (url) => {
 };
 
 const getProductsFromAllPages = async (url) => {
-  let products = [];
+  const relativeUrl = url.substring(16);
+  const dirName = relativeUrl
+    .substring(0, relativeUrl.indexOf('/'))
+    .replaceAll('/', '_');
+  try {
+    fs.mkdirSync(`./data/emag/${dirName}`, { recursive: true });
+  } catch (error) {
+    console.log(`Could not create directory ${dirName}: `, error);
+    return null;
+  }
+
   let nextPageUrl = url;
+  let pageNumber = 1;
   while (nextPageUrl) {
-    const [newProducts, newNextPageUrl] = await getProductsFromPage(
-      nextPageUrl
+    const [products, newNextPageUrl] = await getProductsFromPage(nextPageUrl);
+
+    // filter the products that have bad data such as NaN, null or undefined
+    const filteredProducts = products.filter(
+      (product) =>
+        product.name &&
+        product.url &&
+        product.price &&
+        product.img &&
+        product.rating &&
+        product.numReviews
     );
-    if (newProducts) {
-      products = [...products, ...newProducts];
+
+    try {
+      const filename = `./data/emag/${dirName}/${pageNumber}.json`;
+      console.log('emag', filteredProducts.length, filename);
+      writeProductsToFile(filename, products);
+      // save to database
+      insertProducts(filteredProducts);
+      nextPageUrl = newNextPageUrl;
+      pageNumber++;
+    } catch (error) {
+      console.log(error);
     }
-    nextPageUrl = newNextPageUrl;
     await new Promise((resolve) => setTimeout(resolve, 10000));
   }
-  return products;
 };
 
 const links = [
@@ -148,13 +175,7 @@ const links = [
 const scrapeEmag = async () => {
   for (let link of links) {
     const url = `${baseUrl}/${link}`;
-    const products = await getProductsFromAllPages(url);
-    console.log('emag', products.length, link);
-    const path = link.substring(0, link.indexOf('/'));
-    const filename = `./data/emag/${path}.json`;
-    writeProductsToFile(filename, products);
-    // save to database
-    insertProducts(products);
+    await getProductsFromAllPages(url);
   }
 };
 

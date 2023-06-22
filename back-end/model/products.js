@@ -29,15 +29,25 @@ export function insertProducts(productList) {
       const query =
         'INSERT INTO products (id, url, name, price, rating, numReviews, vendor_name) VALUES ?';
       const values = productList.map((product) => {
-        const url = new URL(product.url);
-        const vendorName = url.hostname.split('.')[0];
+        // const url = new URL(product.url);
+        // const vendorName = url.hostname.split('.')[0];
+        const url = product.url || 'https://www.emag.ro/';
+        const name = product.name || '';
+        const price = product.price || 0;
+        const rating = product.rating || 0;
+        const numReviews = product.numReviews || 0;
+
+        const simpleUrl = url
+          .substring(url.indexOf('://') + 3)
+          .replace('www.', '');
+        const vendorName = simpleUrl.substring(0, simpleUrl.indexOf('.')) || '';
         return [
           null, // Assuming `id` is auto-incremented
-          product.url,
-          product.name,
-          product.price,
-          product.rating,
-          product.numReviews,
+          url,
+          name,
+          price,
+          rating,
+          numReviews,
           vendorName,
         ];
       });

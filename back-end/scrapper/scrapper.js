@@ -5,10 +5,10 @@ import { scrapeMediaGalaxy } from './scraping-mediagalaxy.js';
 
 const startScraping = async () => {
   await Promise.all([
-    scrapeAltex(),
+    // scrapeAltex(),
     scrapeEmag(),
-    scrapeFlanco(),
-    scrapeMediaGalaxy(),
+    // scrapeFlanco(),
+    // scrapeMediaGalaxy(),
   ]);
 };
 
