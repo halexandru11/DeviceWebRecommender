@@ -1,0 +1,452 @@
+[
+  {
+    "id": 55,
+    "url": "https://example.com/similar-tv-1",
+    "name": "Similar TV 1",
+    "vendor_name": "example",
+    "price": 349.9,
+    "rating": 4.5,
+    "numReviews": 32
+  },
+  {
+    "id": 56,
+    "url": "https://example.com/similar-tv-2",
+    "name": "Similar TV 2",
+    "vendor_name": "example",
+    "price": 379.9,
+    "rating": 4.8,
+    "numReviews": 58
+  },
+  {
+    "id": 57,
+    "url": "https://example.com/similar-tv-3",
+    "name": "Similar TV 3",
+    "vendor_name": "example",
+    "price": 419.9,
+    "rating": 4.6,
+    "numReviews": 41
+  },
+  {
+    "id": 58,
+    "url": "https://example.com/similar-tv-1",
+    "name": "Similar TV 1",
+    "vendor_name": "example",
+    "price": 349.9,
+    "rating": 4.5,
+    "numReviews": 32
+  },
+  {
+    "id": 59,
+    "url": "https://example.com/similar-tv-2",
+    "name": "Similar TV 2",
+    "vendor_name": "example",
+    "price": 379.9,
+    "rating": 4.8,
+    "numReviews": 58
+  },
+  {
+    "id": 60,
+    "url": "https://example.com/similar-tv-3",
+    "name": "Similar TV 3",
+    "vendor_name": "example",
+    "price": 419.9,
+    "rating": 4.6,
+    "numReviews": 41
+  },
+  {
+    "id": 61,
+    "url": "https://example.com/similar-tv-1",
+    "name": "Similar TV 1",
+    "vendor_name": "example",
+    "price": 349.9,
+    "rating": 4.5,
+    "numReviews": 32
+  },
+  {
+    "id": 62,
+    "url": "https://example.com/similar-tv-2",
+    "name": "Similar TV 2",
+    "vendor_name": "example",
+    "price": 379.9,
+    "rating": 4.8,
+    "numReviews": 58
+  },
+  {
+    "id": 63,
+    "url": "https://example.com/similar-tv-3",
+    "name": "Similar TV 3",
+    "vendor_name": "example",
+    "price": 419.9,
+    "rating": 4.6,
+    "numReviews": 41
+  },
+  {
+    "id": 64,
+    "url": "https://example.com/similar-tv-1",
+    "name": "Similar TV 1",
+    "vendor_name": "example",
+    "price": 349.9,
+    "rating": 4.5,
+    "numReviews": 32
+  },
+  {
+    "id": 65,
+    "url": "https://example.com/similar-tv-2",
+    "name": "Similar TV 2",
+    "vendor_name": "example",
+    "price": 379.9,
+    "rating": 4.8,
+    "numReviews": 58
+  },
+  {
+    "id": 66,
+    "url": "https://example.com/similar-tv-3",
+    "name": "Similar TV 3",
+    "vendor_name": "example",
+    "price": 419.9,
+    "rating": 4.6,
+    "numReviews": 41
+  },
+  {
+    "id": 67,
+    "url": "https://example.com/similar-tv-1",
+    "name": "Similar TV 1",
+    "vendor_name": "example",
+    "price": 349.9,
+    "rating": 4.5,
+    "numReviews": 32
+  },
+  {
+    "id": 68,
+    "url": "https://example.com/similar-tv-2",
+    "name": "Similar TV 2",
+    "vendor_name": "example",
+    "price": 379.9,
+    "rating": 4.8,
+    "numReviews": 58
+  },
+  {
+    "id": 69,
+    "url": "https://example.com/similar-tv-3",
+    "name": "Similar TV 3",
+    "vendor_name": "example",
+    "price": 419.9,
+    "rating": 4.6,
+    "numReviews": 41
+  },
+  {
+    "id": 70,
+    "url": "https://www.flanco.ro/sistem-desktop-pc-all-in-one-apple-imac-24-mid-2021-apple-m1-8gb-ram-ssd-256gb-apple-m1-8-core-gpu-macos-big-sur-int-kb-blue.html",
+    "name": "Sistem Desktop PC All-In-One Apple iMac 24\" (Mid 2021), Apple M1, 8GB RAM, SSD 256GB, Apple M1 8-core GPU, macOS Big Sur, INT KB, Blue",
+    "vendor_name": "flanco",
+    "price": 7899.99,
+    "rating": 0,
+    "numReviews": 0
+  },
+  {
+    "id": 71,
+    "url": "https://www.flanco.ro/sistem-desktop-pc-all-in-one-lenovo-ideacentre-aio-3-27iap7-27-full-hd-intel-core-i5-1235u-8gb-ram-512gb-ssd-intel-iris-xe-no-os.html",
+    "name": "Sistem Desktop PC All-in-One Lenovo IdeaCentre AIO 3 27IAP7, 27\", Full HD, Intel Core i5-1235U, 8GB RAM, 512GB SSD, Intel Iris Xe, No OS",
+    "vendor_name": "flanco",
+    "price": 3599.99,
+    "rating": 0,
+    "numReviews": 0
+  },
+  {
+    "id": 72,
+    "url": "https://www.flanco.ro/sistem-desktop-pc-all-in-one-apple-imac-24-mid-2021-apple-m1-8gb-ram-ssd-256gb-apple-m1-8-core-gpu-macos-big-sur-int-kb-green.html",
+    "name": "Sistem Desktop PC All-In-One Apple iMac 24\" (Mid 2021), Apple M1, 8GB RAM, SSD 256GB, Apple M1 8-core GPU, macOS Big Sur, INT KB, Green",
+    "vendor_name": "flanco",
+    "price": 7799.99,
+    "rating": 0,
+    "numReviews": 0
+  },
+  {
+    "id": 73,
+    "url": "https://www.flanco.ro/sistem-desktop-pc-all-in-one-apple-imac-24-mid-2021-apple-m1-8gb-ram-ssd-512gb-apple-m1-8-core-gpu-macos-big-sur-int-kb-green.html",
+    "name": "Sistem Desktop PC All-In-One Apple iMac 24\" (Mid 2021), Apple M1, 8GB RAM, SSD 512GB, Apple M1 8-core GPU, macOS Big Sur, INT KB, Green",
+    "vendor_name": "flanco",
+    "price": 8299.99,
+    "rating": 0,
+    "numReviews": 0
+  },
+  {
+    "id": 74,
+    "url": "https://www.flanco.ro/sistem-desktop-pc-all-in-one-apple-imac-24-mid-2021-apple-m1-8gb-ram-ssd-256gb-apple-m1-7-core-gpu-macos-big-sur-int-kb-blue.html",
+    "name": "Sistem Desktop PC All-In-One Apple iMac 24\" (Mid 2021), Apple M1, 8GB RAM, SSD 256GB, Apple M1 7-core GPU, macOS Big Sur, INT KB, Blue",
+    "vendor_name": "flanco",
+    "price": 6849.99,
+    "rating": 5,
+    "numReviews": 1
+  },
+  {
+    "id": 75,
+    "url": "https://www.flanco.ro/sistem-desktop-pc-all-in-one-lenovo-ideacentre-aio-3-24iap7-23-8-full-hd-intel-core-i3-1215u-8gb-ram-512gb-ssd-intel-uhd-no-os-tastatura-uk-negru.html",
+    "name": "Sistem Desktop PC All-In-One Lenovo IdeaCentre AIO 3 24IAP7, 23.8\", Full HD, Intel Core i3-1215U, 8GB RAM, 512GB SSD, Intel UHD, No OS, Tastatura UK, Negru",
+    "vendor_name": "flanco",
+    "price": 2699.99,
+    "rating": 0,
+    "numReviews": 0
+  },
+  {
+    "id": 76,
+    "url": "https://www.flanco.ro/sistem-desktop-pc-all-in-one-lenovo-ideacentre-aio-3-24alc6-23-8-full-hd-amd-ryzen-7-5825u-16gb-ram-512gb-ssd-amd-radeon-graphics-no-os.html",
+    "name": "Sistem Desktop PC All-in-One Lenovo IdeaCentre AIO 3 24ALC6, 23.8\", Full HD, AMD Ryzen 7 5825U, 16GB RAM, 512GB SSD, AMD Radeon Graphics, No OS",
+    "vendor_name": "flanco",
+    "price": 3599.99,
+    "rating": 0,
+    "numReviews": 0
+  },
+  {
+    "id": 77,
+    "url": "https://example.com/similar-tv-1",
+    "name": "Similar TV 1",
+    "vendor_name": "example",
+    "price": 349.9,
+    "rating": 4.5,
+    "numReviews": 32
+  },
+  {
+    "id": 78,
+    "url": "https://example.com/similar-tv-2",
+    "name": "Similar TV 2",
+    "vendor_name": "example",
+    "price": 379.9,
+    "rating": 4.8,
+    "numReviews": 58
+  },
+  {
+    "id": 79,
+    "url": "https://example.com/similar-tv-3",
+    "name": "Similar TV 3",
+    "vendor_name": "example",
+    "price": 419.9,
+    "rating": 4.6,
+    "numReviews": 41
+  },
+  {
+    "id": 80,
+    "url": "https://www.emag.ro/drona-dji-tello-boost-combo-6958265178535/pd/D6PJV3MBM/",
+    "name": "Drona Dji Tello Boost Combo",
+    "vendor_name": "flanco",
+    "price": 699.99,
+    "rating": 4.54,
+    "numReviews": 13
+  },
+  {
+    "id": 81,
+    "url": "https://www.emag.ro/drona-dji-mini-3-pro-48mp-4k60-smart-controller-cp-ma-00000492-01/pd/DMBLVVMBM/",
+    "name": "Drona DJI Mini 3 PRO, 48MP, 4K60 + Smart Controller",
+    "vendor_name": "flanco",
+    "price": 5399.99,
+    "rating": 4.6,
+    "numReviews": 25
+  },
+  {
+    "id": 82,
+    "url": "https://www.emag.ro/drona-dji-tello-cp-pt-00000210-01/pd/DDL9RJBBM/",
+    "name": "Drona Dji Tello",
+    "vendor_name": "flanco",
+    "price": 555.28,
+    "rating": 4.07,
+    "numReviews": 45
+  },
+  {
+    "id": 83,
+    "url": "https://www.emag.ro/drona-dji-mini-3-fly-more-combo-smart-controller-cp-ma-00000613-01/pd/DTDBDQMBM/",
+    "name": "Drona DJI Mini 3 Fly More Combo + Smart Controller",
+    "vendor_name": "flanco",
+    "price": 4642.87,
+    "rating": 4.75,
+    "numReviews": 4
+  },
+  {
+    "id": 84,
+    "url": "https://www.emag.ro/drona-dji-avata-explorer-combo-4k-60fps-cp-fp-00000116-01/pd/D45118MBM/",
+    "name": "Drona DJI Avata Explorer Combo, 4K/60fps",
+    "vendor_name": "flanco",
+    "price": 6099.99,
+    "rating": 0,
+    "numReviews": 0
+  },
+  {
+    "id": 85,
+    "url": "https://www.emag.ro/drona-dji-mini-3-smart-controller-4k-hdr-cp-ma-00000587-03/pd/D64HS6MBM/",
+    "name": "Drona DJI Mini 3 + Smart Controller, 4K HDR",
+    "vendor_name": "flanco",
+    "price": 3499.99,
+    "rating": 0,
+    "numReviews": 0
+  },
+  {
+    "id": 86,
+    "url": "https://www.emag.ro/drona-dji-fpv-combo-4k-gri-cp-fp-00000002-01/pd/DJBJHTMBM/",
+    "name": "Drona DJI FPV Combo, 4K, Gri",
+    "vendor_name": "flanco",
+    "price": 5260.59,
+    "rating": 4.67,
+    "numReviews": 6
+  },
+  {
+    "id": 87,
+    "url": "https://www.emag.ro/drona-dji-mini-se-fly-more-combo-cp-ma-00000320-01/pd/DC74P9MBM/",
+    "name": "Drona DJI Mini SE Fly More Combo",
+    "vendor_name": "flanco",
+    "price": 2630.99,
+    "rating": 4.8,
+    "numReviews": 15
+  },
+  {
+    "id": 88,
+    "url": "https://www.emag.ro/drona-dji-mini-3-pro-48mp-4k60-cp-ma-00000488-01/pd/DBBLVVMBM/",
+    "name": "Drona DJI Mini 3 PRO, 48MP, 4K60",
+    "vendor_name": "flanco",
+    "price": 4499.99,
+    "rating": 4.6,
+    "numReviews": 25
+  },
+  {
+    "id": 89,
+    "url": "https://www.emag.ro/drona-dji-mavic-air-2s-5-4k-gri-cp-ma-00000359-01/pd/DXZL7KMBM/",
+    "name": "Drona DJI Mavic Air 2S, 5.4K, Gri",
+    "vendor_name": "flanco",
+    "price": 5861.45,
+    "rating": 4.57,
+    "numReviews": 14
+  },
+  {
+    "id": 90,
+    "url": "https://www.emag.ro/drona-dji-mavic-3-pro-no-rc-5-1k-50-20mp-cp-ma-00000651-01/pd/DF8KHGMBM/",
+    "name": "Drona DJI Mavic 3 PRO, No RC, 5.1K/50, 20MP",
+    "vendor_name": "flanco",
+    "price": 8999.99,
+    "rating": 0,
+    "numReviews": 0
+  },
+  {
+    "id": 91,
+    "url": "https://www.emag.ro/drona-dji-mavic-air-2s-fly-more-combo-5-4k-gri-cp-ma-00000350-01/pd/DPZL7KMBM/",
+    "name": "Drona DJI Mavic Air 2S Fly More Combo, 5.4K, Gri",
+    "vendor_name": "flanco",
+    "price": 6732.86,
+    "rating": 4.57,
+    "numReviews": 14
+  },
+  {
+    "id": 92,
+    "url": "https://www.emag.ro/drona-dji-mavic-mini-2-gimbal-3-axe-4k-video-32766/pd/DL63H7MBM/",
+    "name": "Drona DJI Mavic Mini 2, Gimbal 3 axe, 4K video",
+    "vendor_name": "flanco",
+    "price": 4278.21,
+    "rating": 4.8,
+    "numReviews": 139
+  },
+  {
+    "id": 93,
+    "url": "https://www.emag.ro/drona-dji-mini-3-4k-hdr-cp-ma-00000584-01/pd/D2DBDQMBM/",
+    "name": "Drona DJI Mini 3, 4K HDR",
+    "vendor_name": "flanco",
+    "price": 3508.82,
+    "rating": 5,
+    "numReviews": 3
+  },
+  {
+    "id": 94,
+    "url": "https://www.emag.ro/drona-dji-mini-2-se-cp-ma-00000573-01/pd/DX5NZ5MBM/",
+    "name": "Drona DJI Mini 2 SE",
+    "vendor_name": "flanco",
+    "price": 2905.64,
+    "rating": 5,
+    "numReviews": 5
+  },
+  {
+    "id": 95,
+    "url": "https://www.emag.ro/robot-drona-dji-robomaster-s1-cp-rm-00000103-01/pd/DZRL2GBBM/",
+    "name": "Robot Drona DJI RoboMaster S1",
+    "vendor_name": "flanco",
+    "price": 2699.99,
+    "rating": 5,
+    "numReviews": 1
+  },
+  {
+    "id": 96,
+    "url": "https://www.emag.ro/drona-dji-avata-pro-view-combo-rc-motion-2-4k-60-cp-fp-00000115-01/pd/DS5118MBM/",
+    "name": "Drona DJI Avata Pro-View Combo, RC Motion 2, 4K/60",
+    "vendor_name": "flanco",
+    "price": 8276.01,
+    "rating": 0,
+    "numReviews": 0
+  },
+  {
+    "id": 97,
+    "url": "https://www.emag.ro/drona-dji-mavic-3-classic-cp-ma-00000597-01/pd/D2V3K1MBM/",
+    "name": "Drona DJI Mavic 3 Classic",
+    "vendor_name": "flanco",
+    "price": 7299.99,
+    "rating": 5,
+    "numReviews": 3
+  },
+  {
+    "id": 98,
+    "url": "https://www.emag.ro/drona-dji-avata-pro-view-combo-dji-goggles-2-cp-fp-00000101-01/pd/D8TBTLMBM/",
+    "name": "Drona DJI Avata Pro-View Combo (DJI Goggles 2)",
+    "vendor_name": "flanco",
+    "price": 11282.2,
+    "rating": 4.67,
+    "numReviews": 3
+  },
+  {
+    "id": 99,
+    "url": "https://www.emag.ro/drona-dji-mini-3-fly-more-combo-cp-ma-00000610-01/pd/DDDBDQMBM/",
+    "name": "Drona DJI Mini 3 Fly More Combo",
+    "vendor_name": "flanco",
+    "price": 3697.24,
+    "rating": 4.75,
+    "numReviews": 4
+  },
+  {
+    "id": 100,
+    "url": "https://www.emag.ro/drona-dji-mavic-3-5-1k-cine-premium-combo-cp-ma-00000457-01/pd/D5J0CXMBM/",
+    "name": "Drona DJI Mavic 3, 5.1K, Cine Premium Combo",
+    "vendor_name": "flanco",
+    "price": 23000,
+    "rating": 4.67,
+    "numReviews": 6
+  },
+  {
+    "id": 101,
+    "url": "https://www.emag.ro/drona-dji-mavic-3-pro-fly-more-combo-smart-controller-5-1k-50-20mp-cp-ma-00000660-01/pd/DL5118MBM/",
+    "name": "Drona DJI Mavic 3 PRO Fly More Combo, Smart Controller, 5.1K/50, 20MP",
+    "vendor_name": "flanco",
+    "price": 15000,
+    "rating": 0,
+    "numReviews": 0
+  },
+  {
+    "id": 102,
+    "url": "https://www.emag.ro/drona-dji-mavic-3-pro-smart-controller-5-1k-50-20mp-cp-ma-00000656-01/pd/DC5118MBM/",
+    "name": "Drona DJI Mavic 3 PRO + Smart Controller, 5.1K/50, 20MP",
+    "vendor_name": "flanco",
+    "price": 12000,
+    "rating": 0,
+    "numReviews": 0
+  },
+  {
+    "id": 103,
+    "url": "https://www.emag.ro/drona-dji-mini-2-se-fly-more-combo-cp-ma-00000574-01/pd/D95NZ5MBM/",
+    "name": "Drona DJI Mini 2 SE Fly More Combo",
+    "vendor_name": "flanco",
+    "price": 3997.52,
+    "rating": 5,
+    "numReviews": 5
+  },
+  {
+    "id": 104,
+    "url": "https://www.emag.ro/drona-agras-t-16-3-km-10-m-s-gps-android-fibra-de-carbon-16-gb-agr-t16/pd/DX0D2DMBM/",
+    "name": "Drona Agras T-16, 3 km. 10 m/s, GPS, Android, fibra de carbon, 16 GB",
+    "vendor_name": "flanco",
+    "price": 99006.8,
+    "rating": 5,
+    "numReviews": 4
+  }
+]
