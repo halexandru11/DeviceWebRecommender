@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+  <link rel="stylesheet" href="css/scholarly2.css">
+    <link rel="stylesheet" href="css/footer.css">
+  <title>Gimme Scholarly</title>
+</head>
+
+<body>
+<article>
+  <header>
+    <h1>Gimme Web Application</h1>
+    <h2>Content</h2>
+
+    <ol role="directory">
+      <li><a href="#introduction">Introducere</a>
+        <ol>
+          <li><a href="#introduction__purpose">Scopul documentului</a></li>
+          <li><a href="#introduction__audience">Publicul tinta și sugestii</a></li>
+          <li><a href="#introduction__product-scope">Scopul aplicatiei</a></li>
+        </ol>
+      </li>
+      <li><a href="#overall-description">Descriere</a>
+        <ol>
+          <li><a href="#overall-description__product-perspective">Perspectiva produsului</a></li>
+          <li><a href="#overall-description__product-functions">Functionalitatile produsului</a></li>
+          <li><a href="#overall-description__design-constraints">Constrângeri de proiectare și implementare</a></li>
+          <li><a href="#overall-description__user-documentation">Documentatia utilizatorul</a></li>
+        </ol>
+      </li>
+      <li><a href="#interfacereq">Cerințe pentru interfața externă</a>
+        <ol>
+          <li><a href="#interfacereq__user-interfaces">Interfata User</a></li>
+        </ol>
+      </li>
+
+      <li><a href="#systemfeatures">Caracteristici ale sistemului</a>
+        <ol>
+          <li><a href="#systemfeatures__login">Conectare</a></li>
+          <li><a href="#systemfeatures__register">Creare cont</a></li>
+          <li><a href="#systemfeatures__home">Acasa</a></li>
+          <li><a href="#systemfeatures__children">Animale</a></li>
+          <li><a href="#systemfeatures__notifications-center">Animal</a></li>
+          <li><a href="#systemfeatures__friends-family">Profilul meu</a></li>
+          <li><a href="#systemfeatures__friends-family">Recuperare parola</a></li>
+        </ol>
+      </li>
+
+      <li><a href="#nonfunctionalreq">Other Nonfunctional Requirements</a>
+        <ol>
+          <li><a href="#nonfunctionalreq__security-requirements">Security requirements</a></li>
+        </ol>
+      </li>
+
+      <li><a href="#week8utils">Week 8 Utils</a>
+        <ol>
+          <li><a href="#week8utils__routes">Routes</a></li>
+        </ol>
+      </li>
+    </ol>
+
+  </header>
+
+  <section id="introduction" role="doc-introduction">
+    <h2>1. Introducere</h2>
+    <section id="introduction__purpose" role="doc-introduction">
+      <h3>1.1 Scopul documentului</h3>
+      <p>
+        Scopul acestui document este să prezinte detalii despre aplicația Device Recommender. 
+        Aici vor fi prezentate caracteristicile cheie ale aplicației, interfața și modul de funcționare. 
+        Acest document este destinat să ofere utilizatorilor, atât dezvoltatorilor de aplicații, cât și utilizatorilor finali,
+         o înțelegere clară a funcționalității și utilizării aplicației.
+      </p>
+    </section>
+
+    <section id="introduction__audience" role="doc-introduction">
+      <h3>1.2 Publicul tinta și sugestii</h3>
+      <p>
+        Acest document este adresat atât dezvoltatorilor de aplicații, cât și utilizatorilor interesați de achiziționarea de dispozitive electronice.
+         Dezvoltatorii vor putea înțelege modul în care aplicația a fost concepută și dezvoltată, 
+         în timp ce publicul țintă se va bucura de funcționalitățile ale aplicației pentru a obține recomandări personalizate de dispozitive electronice.
+      </p>
+    </section>
+
+    <section id="introduction__product-scope" role="doc-introduction">
+      <h3>1.3 Scopul aplicatiei</h3>
+
+      <p>
+        Scopul aplicației este de a ajuta utilizatorii să facă alegeri informate în ceea ce privește achiziționarea dispozitivelor electronice.
+         Utilizatorii se pot conecta la contul lor sau își pot crea unul nou pentru a accesa aplicația.
+          Ulterior, aceștia vor putea explora diverse categorii de dispozitive electronice, aplica filtre personalizate în funcție de preferințele lor.
+           De asemenea, aplicația va oferi recomandări personalizate bazate pe preferințele utilizatorilor, ajutându-i să găsească dispozitive electronice potrivite nevoilor și bugetului lor.
+      </p>
+    </section>
+  </section>
+  <section id="overall-description">
+    <h2>2. Descriere</h2>
+
+    <section id="arhitectura aplicatiei">
+      <h3>Arhitectura Aplicatiei</h3>
+      <h4>2.1.1 Arhitectura MVC</h4>
+      <p>
+        Arhitectura MVC (Model-View-Controller) este un tip de arhitectură software care separă datele de afișare și de logica de control.
+         Aceasta este utilizată în dezvoltarea aplicațiilor web și mobile, precum și în dezvoltarea software-ului desktop.
+          Arhitectura MVC este una dintre cele mai populare arhitecturi software utilizate în prezent.
+      </p>
+      <h4>
+        Diagrame C4
+      </h4>
+      <figure>
+        <img src="../../public/assets/images/GIMME_C4_Context.png" alt="C4 Level 1">
+        <figcaption>Figura 1. C4 Level 1</figcaption>
+      </figure>
+      <figure>
+        <img src="../../public/assets/images/GIMME_C4_Container.png" alt="C4 Level 2">
+        <figcaption>Figura 2. C4 Level 2</figcaption>
+      </figure>
+      <figure>
+        <img src="../../public/assets/images/GIMME_C4_Component.png" alt="C4 Level 3">
+        <figcaption>Figura 3. C4 Level 3</figcaption>
+    </section>
+  </section>
+</article>
+
+</body>
+</html>
