@@ -6,6 +6,7 @@ import { getProductSpecificationsById } from '../model/products.js';
 import { generateTableSpecifications, replaceProductDetailsTemplate} from './productDetailsView.js';
 import { generateProductCards } from './productView.js';
 import { insertWishlistProduct } from '../model/products.js';
+import { getusernameFromCookie } from '../controller/getUsernameFromCookie.js';
 
 
 const mimeLookup = {
@@ -92,7 +93,9 @@ async function handleViewRequest(req, res) {
 
       const productId = requestData.character;
       const product = await getProductSpecificationsById(productId);
-      insertWishlistProduct(product, 'jon');
+      const username = getusernameFromCookie(req, res); //WISHLIST STUFF!!!  SE EXECUTA DE 2 ORI (IDK WHY)
+      console.log(username);
+      insertWishlistProduct(product, username);
     });
   }
   else {
