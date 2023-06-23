@@ -9,7 +9,7 @@ if (hasAdminJwtCookie) {
     adminButton.style.display = 'none';
 }
 
-/*adminButton.addEventListener('click', startScraping);
+adminButton.addEventListener('click', startScraping);
 
 async function startScraping() {
     await Promise.all([
@@ -19,7 +19,7 @@ async function startScraping() {
         scrapeMediaGalaxy(),
     ]);
 }
-import {startScraping} from '../../../scrapper/scrapper.js';
-import { scrapeAltex } from '../../../scrapper/scrapper-altex.js';
-import { scrapeFlanco } from '../../../scrapper/scrapper-flanco.js'; 
-import { scrapeMediaGalaxy } from '../../../scrapper/scrappe.js';*/
+import { startScraping } from '../../../scrapper/scrapper.js';
+import { scrapeAltex } from '../../../scrapper/scraping-altex.js';
+import { scrapeFlanco } from '../../../scrapper/scraping-flanco.js';
+import { scrapeMediaGalaxy } from '../../../scrapper/scraping-mediagalaxy.js';
