@@ -72,11 +72,10 @@ export function insertProducts(productList) {
       connection.connect();
 
       const query =
-        'INSERT INTO products (id, url, name, price, rating, numReviews, vendor_name) VALUES ?';
+        'INSERT INTO products (id, url, image, name, price, rating, numReviews, vendor_name) VALUES ?';
       const values = productList.map((product) => {
-        // const url = new URL(product.url);
-        // const vendorName = url.hostname.split('.')[0];
         const url = product.url || 'https://www.emag.ro/';
+        const image = product.img || 'https://www.emag.ro/';
         const name = product.name || '';
         const price = product.price || 0;
         const rating = product.rating || 0;
@@ -89,6 +88,7 @@ export function insertProducts(productList) {
         return [
           null, // Assuming `id` is auto-incremented
           url,
+          image,
           name,
           price,
           rating,

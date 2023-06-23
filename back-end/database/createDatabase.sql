@@ -36,6 +36,7 @@ INSERT INTO `gimme`.`passwords` (`user_id`, `password`) VALUES (1, 'gimme');
 CREATE TABLE `gimme`.`products` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `url` VARCHAR(512) NULL,
+  `image` VARCHAR(1024) NULL,
   `name` VARCHAR(256) NULL,
   `description` TEXT NULL,
   `vendor_name` VARCHAR(256) NULL,
@@ -58,13 +59,13 @@ CREATE TABLE `gimme`.`device_types` (
 );
 
 
-CREATE TABLE `gimme`.`product_images` (
-  `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `product_id` BIGINT NULL,
-  `image_url` VARCHAR(512) NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `fk_product_images_products` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE
-);
+-- CREATE TABLE `gimme`.`product_images` (
+--   `id` BIGINT NOT NULL AUTO_INCREMENT,
+--   `product_id` BIGINT NULL,
+--   `image_url` VARCHAR(512) NULL,
+--   PRIMARY KEY (`id`),
+--   CONSTRAINT `fk_product_images_products` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE
+-- );
 CREATE TABLE `preferences` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(64) NULL,

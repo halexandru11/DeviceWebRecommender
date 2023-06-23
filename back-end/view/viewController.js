@@ -58,33 +58,6 @@ const tempSpecs = fs.readFileSync(
   'utf-8'
 );
 
-const similarProducts = [
-  {
-    name: 'Similar TV 1',
-    price: 349.9,
-    url: 'https://example.com/similar-tv-1',
-    img: 'https://example.com/images/similar-tv-1.jpg',
-    rating: 4.5,
-    numReviews: 32,
-  },
-  {
-    name: 'Similar TV 2',
-    price: 379.9,
-    url: 'https://example.com/similar-tv-2',
-    img: 'https://example.com/images/similar-tv-2.jpg',
-    rating: 4.8,
-    numReviews: 58,
-  },
-  {
-    name: 'Similar TV 3',
-    price: 419.9,
-    url: 'https://example.com/similar-tv-3',
-    img: 'https://example.com/images/similar-tv-3.jpg',
-    rating: 4.6,
-    numReviews: 41,
-  },
-];
-
 const respondFile = (req, res, filePath) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/html');
@@ -97,54 +70,6 @@ const respondFile = (req, res, filePath) => {
     }
   });
 };
-
-insertProducts(similarProducts)
-  .then((result) => {
-    console.log(result);
-  })
-  .then(async () => {
-    console.log('Popular products:');
-    const populars = await getTopProductsByReviews();
-    // console.log(recommendations);
-
-    const rssXml = generateRSSFeedPopular(populars);
-    //console.log(rssXml);
-    const fileName = 'popular-products.xml';
-    const filePath = path.join('./', fileName);
-    fs.writeFile(filePath, rssXml, (err) => {
-      if (err) {
-        res.write();
-        console.error('Error saving RSS feed:', err);
-      } else {
-        console.log('RSS feed saved successfully!');
-      }
-    });
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-insertVendors(similarProducts)
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-
-insertProductImages(similarProducts)
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-insertDeviceTypes(similarProducts)
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
 
 async function handleViewRequest(req, res) {
   try {

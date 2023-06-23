@@ -21,11 +21,11 @@ export async function generateTableSpecifications(temp, product) {
 
 export async function replaceProductDetailsTemplate(temp, productId) {
   const product = await getProductSpecificationsById(productId);
-  const photoUrl = await getProductImageUrlByProductId(productId);
+  // const photoUrl = await getProductImageUrlByProductId(productId);
   const cardsHtml = await generateProductCards(productData, tempCard);
   let output = temp.replace(/{%PRODUCT_NAME%}/g, product.name);
   output = output.replace(/{%PRODUCT_CARDS%}/g, cardsHtml);
-  output = output.replace(/{%IMAGE_SRC%}/g, photoUrl);
+  output = output.replace(/{%IMAGE_SRC%}/g, product.image);
   output = output.replace(/{%PRODUCT_URL%}/g, product.url);
   output = output.replace(/{%PRODUCT_PRICE%}/g, product.price);
   output = output.replace(/{%PRODUCT_DESCRIPTION%}/g, product.description);
