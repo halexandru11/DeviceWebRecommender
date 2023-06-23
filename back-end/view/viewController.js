@@ -5,6 +5,7 @@ import { getProductImageUrlByProductId } from '../model/productImages.js';
 import { getProductSpecificationsById } from '../model/products.js';
 import { generateTableSpecifications, replaceProductDetailsTemplate} from './productDetailsView.js';
 import { generateProductCards } from './productView.js';
+import { insertWishlistProduct } from '../model/products.js';
 
 
 const mimeLookup = {
@@ -58,6 +59,8 @@ async function handleViewRequest(req, res) {
     respondFile(req, res, "signup.html");
   } else if (req.url === "/auth/forgot-password.html") {
     respondFile(req, res, "forgot-password.html");
+  } else if (req.url === "/products/product-details.js") {
+    respondFile(req, res, "product-details.js");
   }  else if (req.url.match(/\/products\/product=[0-9]+/)) {
     res.writeHead(200, { "Content-Type": "text/html" });
     const productId = req.url.split("=")[1];
@@ -73,7 +76,26 @@ async function handleViewRequest(req, res) {
     // const output = await replaceProductDetailsTemplate(tempProductDetails, productId);
     // output = output.replace("{%PRODUCT_SPECIFICATIONS%}", tableSpecifications);
     // res.end(output);
-  } else {
+  } 
+
+  else if(req.method === 'POST' && req.url === '/products/product=[0-9]+') {
+    let data  ='';
+
+    req.on('data', chunk => {
+        data += chunk;
+        console.log("am primit ceva\n")
+    });
+
+    req.on('end', async () => {
+      const requestData = JSON.parse(data);
+      console.log("Request data: ", requestData);
+
+      const productId = requestData.character;
+      const product = await getProductSpecificationsById(productId);
+      insertWishlistProduct(product, 'jon');
+    });
+  }
+  else {
     const fileUrl = "/public" + req.url;
     const filePath = path.resolve("." + fileUrl);
     const fileExt = path.extname(filePath);

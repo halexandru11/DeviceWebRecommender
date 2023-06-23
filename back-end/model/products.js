@@ -153,6 +153,12 @@ export async function getAllProducts() {
     return products;
 }
 
+export async function insertWishlistProduct(product, username) {
+    pool.query('INSERT INTO wishlist_products (id, product_url, name, description, price, rating, numReviews, vendor_name, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+     [null, product.url, product.name, product.description, product.price, product.rating, product.numReviews, product.vendorName, username]);
+    return { status: 200, message: 'Product inserted successfully.' };
+}
+
 
 export async function insertWishlistProducts(productList, username) {
     let connection;
@@ -208,6 +214,7 @@ export async function insertWishlistProducts(productList, username) {
         }
     });
 }
+
 
 export async function insertWishlistProductsIfNotExist(productList, username) {
     const existingProducts = await Promise.all(
