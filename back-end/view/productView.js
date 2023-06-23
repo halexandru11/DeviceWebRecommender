@@ -19,25 +19,6 @@ export async function generateProductCards(data, tempCard) {
   return cardsHtml;
 }
 
-// export function exportAsJson() {
-//   console.log('exporting as json');
-//   const blob = new Blob([JSON.stringify(productData.slice(0, 50))], {
-//     type: 'application/json',
-//   });
-//
-//   console.log('creating url');
-//   const url = URL.createObjectURL(blob);
-//
-//   console.log('creating link');
-//   const link = document.createElement('a');
-//   link.href = url;
-//   link.download = 'products.json';
-//
-//   link.click();
-//
-//   URL.revokeObjectURL(url);
-// }
-
 function downloadFile(response, filename, fileContent) {
   fs.writeFile(filename, fileContent, (err) => {
     if (err) {

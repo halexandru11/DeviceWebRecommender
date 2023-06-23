@@ -127,13 +127,6 @@ async function handleViewRequest(req, res) {
     );
     output = output.replace('{%PRODUCT_SPECIFICATIONS%}', tableHtml);
     res.end(output);
-    // const specifications = await getProductSpecificationsById(productId);
-    // console.log(specifications)
-    // const tableSpecifications = await generateTableSpecifications(tempProductDetails, specifications);
-    // res.writeHead(200, { "Content-Type": "text/html" });
-    // const output = await replaceProductDetailsTemplate(tempProductDetails, productId);
-    // output = output.replace("{%PRODUCT_SPECIFICATIONS%}", tableSpecifications);
-    // res.end(output);
   } else if (req.method === 'POST' && req.url === '/products/product=[0-9]+') {
     let data = '';
 
