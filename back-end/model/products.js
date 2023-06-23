@@ -185,6 +185,42 @@ export async function searchTopProducts(username) {
     }
 }
 
+export async function getTopProductsByReviews() {
+    let connection;
+
+    try {
+        connection = mysql.createConnection({
+            host: process.env.MYSQL_HOST,
+            user: process.env.MYSQL_USER,
+            password: process.env.MYSQL_PASSWORD,
+            database: process.env.MYSQL_DATABASE,
+        });
+
+        connection.connect();
+
+        const query = 'SELECT * FROM products ORDER BY numReviews DESC LIMIT 50';
+
+        return new Promise((resolve, reject) => {
+            connection.query(query, (error, results) => {
+                if (error) {
+                    console.error('Error retrieving top products by reviews:', error);
+                    reject(error);
+                } else {
+                    resolve(results);
+                }
+            });
+        });
+    } catch (error) {
+        console.error('Error retrieving top products by reviews:', error);
+        throw error;
+    } finally {
+        if (connection) {
+            connection.end();
+        }
+    }
+}
+
+
 
 export async function getAllProducts() {
     const [rows] = await pool.query('SELECT * FROM products');
