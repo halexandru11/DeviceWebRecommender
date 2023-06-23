@@ -173,7 +173,7 @@ export async function searchTopProducts(username) {
             .sort((a, b) => b.rating - a.rating)
             .slice(0, 50);
 
-        console.log('Top 50 products:', topProducts);
+        // console.log('Top 50 products:', topProducts);
         return topProducts;
     } catch (error) {
         console.error('Error searching top products:', error);
