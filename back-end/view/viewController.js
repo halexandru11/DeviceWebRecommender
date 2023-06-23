@@ -21,6 +21,8 @@ import { getAllProducts, getProductSpecificationsById } from '../model/products.
 import { generateProductCards } from './productView.js';
 import { generateTableSpecifications, replaceProductDetailsTemplate } from './productDetailsView.js';
 import { generateRSSFeed } from '../controller/RSSRecommend.js';
+import { getTopProductsByReviews } from '../model/products.js';
+import { generateRSSFeedPopular } from '../controller/RSSPopular.js';
 const mimeLookup = {
   '.js': 'application/javascript',
   '.html': 'text/html',
@@ -85,6 +87,25 @@ insertProducts(similarProducts)
   .then((result) => {
     console.log(result);
   })
+  .then(async () => {
+    console.log('Popular products:');
+    const populars = await getTopProductsByReviews();
+    // console.log(recommendations);
+
+    const rssXml = generateRSSFeedPopular(populars);
+    //console.log(rssXml);
+    const fileName = 'popular-products.xml';
+    const filePath = path.join('./', fileName);
+    fs.writeFile(filePath, rssXml, (err) => {
+      if (err) {
+        res.write();
+        console.error('Error saving RSS feed:', err);
+      } else {
+        console.log('RSS feed saved successfully!');
+      }
+    });
+
+  })
   .catch((error) => {
     console.error(error);
   });
@@ -148,11 +169,9 @@ async function handleViewRequest(req, res) {
     }
     else if (req.method === 'POST' && req.url === '/products/product=[0-9]+') {
       let data = '';
-      console.log('dfnkahglaej');
 
       req.on('data', chunk => {
         data += chunk;
-        console.log("am primit ceva\n")
       });
 
       req.on('end', async () => {
@@ -207,7 +226,7 @@ async function handleViewRequest(req, res) {
 
       });
     }
-    else if (req.url === "/recommandations.xml") {
+    else if (req.url === "/recommandations.xml") { // not a object
       const username = getusernameFromCookie(req, res);
       if (username) {
         try {
@@ -223,11 +242,33 @@ async function handleViewRequest(req, res) {
           res.end('Internal Server Error');
         }
       }
+
       else {
         res.write(404, JSON.stringify({ message: "You must be logged in to have this functionality!" }));
       }
+    }
+    else if (req.url === "/popular-products.xml") { // not a object
+      const username = getusernameFromCookie(req, res);
+      if (username) {
+        try {
+          const data = fs.readFileSync('popular-products.xml', 'utf8');
+          const modifiedData = data.replace(/<!\[CDATA\[/g, '').replace(/]]>/g, '');
 
-    } else if (req.url === "/products/product-details.js") {
+          res.writeHead(200, { 'Content-Type': 'application/xml' });
+          res.write(modifiedData);
+          res.end();
+        } catch (err) {
+          console.error(err);
+          res.writeHead(500, { 'Content-Type': 'text/plain' });
+          res.end('Internal Server Error');
+        }
+      }
+
+      else {
+        res.write(404, JSON.stringify({ message: "You must be logged in to have this functionality!" }));
+      }
+    }
+    else if (req.url === "/products/product-details.js") {
       respondFile(req, res, "product-details.js");
     } else if (req.url === '/products/filter.html') {
       const username = getusernameFromCookie(req, res); // verifies token
