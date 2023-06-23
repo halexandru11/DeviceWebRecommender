@@ -20,6 +20,7 @@ import { insertWishlistProduct } from '../model/products.js';
 import { getAllProducts, getProductSpecificationsById } from '../model/products.js';
 import { generateProductCards } from './productView.js';
 import { generateTableSpecifications, replaceProductDetailsTemplate } from './productDetailsView.js';
+import { generateRSSFeed } from '../controller/RSSRecommend.js';
 const mimeLookup = {
   '.js': 'application/javascript',
   '.html': 'text/html',
@@ -127,18 +128,14 @@ async function handleViewRequest(req, res) {
     else if (req.url === '/' || req.url === '/products/products.html') {
 
       // respondFile(req, res, 'products.html');
-      const username = getusernameFromCookie(req, res); //WISHLIST STUFF!!!  SE EXECUTA DE 2 ORI (IDK WHY)
-      if (username) {
-        console.log(username);
-        res.writeHead(200, { "Content-Type": "text/html" });
-        const cardsHtml = await generateProductCards(productData, tempCard);
-        const output = tempProductsOverview.replace("{%PRODUCT_CARDS%}", cardsHtml);
-        res.end(output);
+      const username = getusernameFromCookie(req, res);
 
-      }
-      else {
-        res.write(404, JSON.stringify({ message: "You must be logged in to have this functionality!" }));
-      }
+      console.log(username);
+      res.writeHead(200, { "Content-Type": "text/html" });
+      const cardsHtml = await generateProductCards(productData, tempCard);
+      const output = tempProductsOverview.replace("{%PRODUCT_CARDS%}", cardsHtml);
+      res.end(output);
+
 
     } else if (req.url.match(/\/products\/product=[0-9]+/)) {
       res.writeHead(200, { "Content-Type": "text/html" });
@@ -167,24 +164,69 @@ async function handleViewRequest(req, res) {
         const username = getusernameFromCookie(req, res);
         console.log(username);
         const productList = [product];
-        insertWishlistProduct(product, username)
-          .then((result) => {
-            console.log(result);
-            // If the result is successful, grow the scores
-            console.log('Growing scores...');
-            return updateWishlistProductsScore(username, productList);
-          })
-          .then(() => {
-            console.log('Scores grown successfully.');
-            console.log(username);
-            return getTopPicks(username); // this selects the top picks from the wishlist products
-          })
-          .then(() => {
-            console.log('Recommandations:');
-            return searchTopProducts(username);
 
-          });
+        if (username) {
+
+          insertWishlistProduct(product, username)
+            .then((result) => {
+              console.log(result);
+              // If the result is successful, grow the scores
+              console.log('Growing scores...');
+              return updateWishlistProductsScore(username, productList);
+            })
+            .then(() => {
+              console.log('Scores grown successfully.');
+              console.log(username);
+              return getTopPicks(username); // this selects the top picks from the wishlist products
+            })
+            .then(async () => {
+              console.log('Recommendations:');
+              const recommendations = await searchTopProducts(username);
+              // console.log(recommendations);
+
+              const rssXml = generateRSSFeed(recommendations);
+              //console.log(rssXml);
+              const fileName = 'recommandations.xml';
+              const filePath = path.join('./', fileName);
+              fs.writeFile(filePath, rssXml, (err) => {
+                if (err) {
+                  res.write();
+                  console.error('Error saving RSS feed:', err);
+                } else {
+                  console.log('RSS feed saved successfully!');
+                }
+              });
+
+            });
+
+
+        }
+        else {
+          res.write(404, JSON.stringify({ message: "You must be logged in to have this functionality!" }));
+        }
+
       });
+    }
+    else if (req.url === "/recommandations.xml") {
+      const username = getusernameFromCookie(req, res);
+      if (username) {
+        try {
+          const data = fs.readFileSync('recommandations.xml', 'utf8');
+          const modifiedData = data.replace(/<!\[CDATA\[/g, '').replace(/]]>/g, '');
+
+          res.writeHead(200, { 'Content-Type': 'application/xml' });
+          res.write(modifiedData);
+          res.end();
+        } catch (err) {
+          console.error(err);
+          res.writeHead(500, { 'Content-Type': 'text/plain' });
+          res.end('Internal Server Error');
+        }
+      }
+      else {
+        res.write(404, JSON.stringify({ message: "You must be logged in to have this functionality!" }));
+      }
+
     } else if (req.url === "/products/product-details.js") {
       respondFile(req, res, "product-details.js");
     } else if (req.url === '/products/filter.html') {
