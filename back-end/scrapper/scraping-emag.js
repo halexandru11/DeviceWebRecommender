@@ -128,26 +128,26 @@ const getProductsFromAllPages = async (url) => {
 
   let nextPageUrl = url;
   let pageNumber = 1;
-  while (nextPageUrl) {
-    const [products, newNextPageUrl] = await getProductsFromPage(nextPageUrl);
-
-    // filter the products that have bad data such as NaN, null or undefined
-    const filteredProducts = products.filter(
-      (product) =>
-        product.name &&
-        product.url &&
-        product.price &&
-        product.img &&
-        product.rating &&
-        product.numReviews
-    );
-
+  while (nextPageUrl && pageNumber < 20) {
     try {
+      const [products, newNextPageUrl] = await getProductsFromPage(nextPageUrl);
+
+      // filter the products that have bad data such as NaN, null or undefined
+      const filteredProducts = products.filter(
+        (product) =>
+          product.name &&
+          product.url &&
+          product.price &&
+          product.img &&
+          product.rating &&
+          product.numReviews
+      );
+
       const filename = `./data/emag/${dirName}/${pageNumber}.json`;
       console.log('emag', filteredProducts.length, filename);
       writeProductsToFile(filename, products);
       // save to database
-      insertProducts(filteredProducts);
+      await insertProducts(filteredProducts);
       nextPageUrl = newNextPageUrl;
       pageNumber++;
     } catch (error) {
@@ -158,8 +158,6 @@ const getProductsFromAllPages = async (url) => {
 };
 
 const links = [
-  'drone/brand/dji/c?ref=banner_0_1',
-  'laptopuri/c?ref=hp_menu_quick-nav_1_1&type=category',
   'telefoane-mobile/c?ref=hp_menu_quick-nav_1_16&type=category',
   'tablete/c?ref=hp_menu_quick-nav_1_32&type=category',
   'smartwatch/c?ref=hp_menu_quick-nav_1_36&type=category',
@@ -170,6 +168,8 @@ const links = [
   'boxe/c?ref=hp_menu_quick-nav_190_16&type=category',
   'casti-audio/c?ref=hp_menu_quick-nav_190_25&type=category',
   'camere-video-sport/c?ref=banner_1_0',
+  'drone/brand/dji/c?ref=banner_0_1',
+  'laptopuri/c?ref=hp_menu_quick-nav_1_1&type=category',
 ];
 
 const scrapeEmag = async () => {

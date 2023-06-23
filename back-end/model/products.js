@@ -55,10 +55,14 @@ export function insertProducts(productList) {
       connection.query(query, [values], (error) => {
         if (error) {
           console.error('Error inserting products:', error);
+          console.log('These are the values: ', values);
           reject(error);
         } else {
           console.log('Products inserted successfully.');
-          resolve({ status: 200, message: 'Products inserted successfully.' });
+          resolve({
+            status: 200,
+            message: 'Products inserted successfully.',
+          });
         }
       });
     } catch (error) {
