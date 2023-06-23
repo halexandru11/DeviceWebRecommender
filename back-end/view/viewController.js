@@ -16,6 +16,10 @@ import { insertWishlistProductsIfNotExist } from '../model/products.js';
 import { updateWishlistProductsScore } from '../model/products.js';
 import { getTopPicks } from '../model/products.js';
 import { searchTopProducts } from '../model/products.js';
+import { insertWishlistProduct } from '../model/products.js';
+import { getAllProducts, getProductSpecificationsById } from '../model/products.js';
+import { generateProductCards } from './productView.js';
+import { generateTableSpecifications, replaceProductDetailsTemplate } from './productDetailsView.js';
 const mimeLookup = {
   '.js': 'application/javascript',
   '.html': 'text/html',
@@ -27,6 +31,12 @@ const mimeLookup = {
   '.gif': 'image/gif',
 };
 
+
+export const productData = await getAllProducts();
+const tempProductsOverview = fs.readFileSync('./view/templates/products.html', 'utf-8');
+export const tempCard = fs.readFileSync('./view/templates/template-card.html', 'utf-8');
+const tempProductDetails = fs.readFileSync('./view/templates/product-details.html', 'utf-8');
+const tempSpecs = fs.readFileSync('./view/templates/template-table.html', 'utf-8');
 
 const similarProducts = [
   {
@@ -101,7 +111,7 @@ insertDeviceTypes(similarProducts)
   });
 
 
-const handleViewRequest = (req, res) => {
+async function handleViewRequest(req, res) {
   try {
     if (req.method === 'POST' && req.url === '/auth/signin.html') {
       handleSignInPost(req, res);
@@ -109,17 +119,13 @@ const handleViewRequest = (req, res) => {
     else if (req.method === 'POST' && req.url === '/auth/signup.html') {
       handleSignUpPost(req, res);
     }
-    else if (req.url === '/products/filter.html') {
-      verifyToken(req, res, callbackFilters); //callbackFilters or whatever
-    }
+
     else if (req.method === 'POST' && req.url === '/auth/forgot-password.html') {
       handleForgotPassword(req, res);
     }
-    else if (req.url === '/') {
-      respondFile(req, res, 'products.html');
-    } else if (req.url === '/products/products.html') {
-      const username = getusernameFromCookie(req, res); //WISHLIST STUFF!!!  SE EXECUTA DE 2 ORI (IDK WHY)
-      console.log(username);
+
+    else if (req.url === '/' || req.url === '/products/products.html') {
+
       /*if (username) {
         insertWishlistProductsIfNotExist(similarProducts, username)
           .then((result) => {
@@ -157,11 +163,60 @@ const handleViewRequest = (req, res) => {
           });
 
       }*/
-      respondFile(req, res, 'products.html');
+      // respondFile(req, res, 'products.html');
+      const username = getusernameFromCookie(req, res); //WISHLIST STUFF!!!  SE EXECUTA DE 2 ORI (IDK WHY)
+      if (username) {
+        console.log(username);
+        res.writeHead(200, { "Content-Type": "text/html" });
+        const cardsHtml = await generateProductCards(productData, tempCard);
+        const output = tempProductsOverview.replace("{%PRODUCT_CARDS%}", cardsHtml);
+        res.end(output);
 
+      }
+      else {
+        res.write(404, JSON.stringify({ message: "You must be logged in to have this functionality!" }));
+      }
+
+    } else if (req.url.match(/\/products\/product=[0-9]+/)) {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      const productId = req.url.split("=")[1];
+      const product = await getProductSpecificationsById(productId);
+      const tableHtml = await generateTableSpecifications(tempSpecs, product);
+      let output = await replaceProductDetailsTemplate(tempProductDetails, productId);
+      output = output.replace("{%PRODUCT_SPECIFICATIONS%}", tableHtml);
+      res.end(output);
+    }
+    else if (req.method === 'POST' && req.url === '/products/product=[0-9]+') {
+      let data = '';
+      console.log('dfnkahglaej');
+
+      req.on('data', chunk => {
+        data += chunk;
+        console.log("am primit ceva\n")
+      });
+
+      req.on('end', async () => {
+        const requestData = JSON.parse(data);
+        console.log("Request data: ", requestData);
+
+        const productId = requestData.character;
+        const product = await getProductSpecificationsById(productId);
+        const username = getusernameFromCookie(req, res); //WISHLIST STUFF!!!  SE EXECUTA DE 2 ORI (IDK WHY)
+        console.log(username);
+        insertWishlistProduct(product, username);
+      });
+    } else if (req.url === "/products/product-details.js") {
+      respondFile(req, res, "product-details.js");
     } else if (req.url === '/products/filter.html') {
-      verifyToken(req, res, callbackFilters); //callbackFilters or whatever
-      respondFile(req, res, 'filter.html');
+      const username = getusernameFromCookie(req, res); // verifies token
+      if (username) {
+        respondFile(req, res, 'filter.html');
+      }
+      else {
+        res.write(404, JSON.stringify({ message: "You must be logged in to have this functionality!" }));
+      }
+      //verifyToken(req, res, callbackFilters); //callbackFilters or whatever
+
     } else if (req.url === '/products/product-details.html') {
       respondFile(req, res, 'product-details.html');
     } else if (req.url === '/settings/choose-theme.html') {

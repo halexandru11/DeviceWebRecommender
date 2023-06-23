@@ -16,8 +16,12 @@ CREATE TABLE `gimme`.`users` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(64) NULL UNIQUE,
   `email` VARCHAR(128) NULL,
+  `role` VARCHAR(64) DEFAULT 'user',
   PRIMARY KEY (`id`)
 );
+
+
+INSERT INTO `gimme`.`users` (`id`, `username`, `email`, `role`) VALUES (1, 'admin', '0607andreea.ro@gmail.com', 'admin');
 
 
 CREATE TABLE `gimme`.`passwords` (
@@ -27,6 +31,7 @@ CREATE TABLE `gimme`.`passwords` (
   CONSTRAINT `fk_passwords_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 );
 
+INSERT INTO `gimme`.`passwords` (`user_id`, `password`) VALUES (1, 'gimme');
 
 CREATE TABLE `gimme`.`products` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
@@ -82,3 +87,4 @@ CREATE TABLE `gimme`.`wishlist_products` (
   `score` FLOAT DEFAULT 0,
   PRIMARY KEY (`id`)
 );
+
