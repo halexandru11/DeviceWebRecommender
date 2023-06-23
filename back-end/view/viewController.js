@@ -38,14 +38,26 @@ const respondFile = (req, res, filePath) => {
       }
   });
 }
+
 async function handleViewRequest(req, res) {
-  if (req.url === "/" || req.url === "/products/products.html") {
+  if (req.method === 'POST' && req.url === '/auth/signin.html') {
+    handleSignInPost(req, res);
+  }
+  else if (req.method === 'POST' && req.url === '/auth/signup.html') {
+    handleSignUpPost(req, res);
+  }
+  else if (req.url === '/products/filter.html') {
+    verifyToken(req, res, callbackFilters); //callbackFilters or whatever
+    respondFile(req, res, 'filter.html');
+  }
+  else if (req.method === 'POST' && req.url === '/auth/forgot-password.html') {
+    handleForgotPassword(req, res);
+  }
+  else if (req.url === "/" || req.url === "/products/products.html") {
     res.writeHead(200, { "Content-Type": "text/html" });
     const cardsHtml = await generateProductCards(productData, tempCard);
     const output = tempProductsOverview.replace("{%PRODUCT_CARDS%}", cardsHtml);
     res.end(output);
-  } else if (req.url === "/products/filter.html") {
-    respondFile(req, res, "filter.html");
   } else if (req.url === "/products/product-details.html") {
     respondFile(req, res, "product-details.html");
   } else if (req.url === "/settings/choose-theme.html") {
@@ -54,12 +66,6 @@ async function handleViewRequest(req, res) {
     respondFile(req, res, "about.html");
   } else if (req.url === "/info/help.html") {
     respondFile(req, res, "help.html");
-  } else if (req.url === "/auth/signin.html") {
-    respondFile(req, res, "signin.html");
-  } else if (req.url === "/auth/signup.html") {
-    respondFile(req, res, "signup.html");
-  } else if (req.url === "/auth/forgot-password.html") {
-    respondFile(req, res, "forgot-password.html");
   } else if (req.url === "/products/product-details.js") {
     respondFile(req, res, "product-details.js");
   }  else if (req.url.match(/\/products\/product=[0-9]+/)) {
@@ -121,6 +127,9 @@ async function handleViewRequest(req, res) {
     });
   }
 }
+
+      
+     
 
     
 
