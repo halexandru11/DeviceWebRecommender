@@ -126,43 +126,6 @@ async function handleViewRequest(req, res) {
 
     else if (req.url === '/' || req.url === '/products/products.html') {
 
-      /*if (username) {
-        insertWishlistProductsIfNotExist(similarProducts, username)
-          .then((result) => {
-            console.log(result);
-            // If the result is successful, grow the scores
-            console.log('Growing scores...');
-            return updateWishlistProductsScore(username, similarProducts);
-          })
-          .then(() => {
-            console.log('Scores grown successfully.');
-            return getTopPicks(username); // this selects the top picks from the wishlist products
-
-          })
-          .then(() => {
-            console.log('Recommandations:');
-            return searchTopProducts(username);
-
-          })
-          .catch((error) => {
-            if (error instanceof TypeError && error.message.includes("Cannot read properties of null (reading 'url')")) {
-              console.error('Error inserting products:', error);
-              console.log('Calling insertWishlistProducts...');
-              return insertWishlistProducts(similarProducts, username)
-                .then(() => {
-                  console.log('Products inserted successfully.');
-                  console.log('Growing scores...');
-                  return updateWishlistProductsScore(username, similarProducts);
-                })
-                .then(() => {
-                  console.log('Scores grown successfully.');
-                });
-            } else {
-              console.error(error);
-            }
-          });
-
-      }*/
       // respondFile(req, res, 'products.html');
       const username = getusernameFromCookie(req, res); //WISHLIST STUFF!!!  SE EXECUTA DE 2 ORI (IDK WHY)
       if (username) {
@@ -201,9 +164,26 @@ async function handleViewRequest(req, res) {
 
         const productId = requestData.character;
         const product = await getProductSpecificationsById(productId);
-        const username = getusernameFromCookie(req, res); //WISHLIST STUFF!!!  SE EXECUTA DE 2 ORI (IDK WHY)
+        const username = getusernameFromCookie(req, res);
         console.log(username);
-        insertWishlistProduct(product, username);
+        const productList = [product];
+        insertWishlistProduct(product, username)
+          .then((result) => {
+            console.log(result);
+            // If the result is successful, grow the scores
+            console.log('Growing scores...');
+            return updateWishlistProductsScore(username, productList);
+          })
+          .then(() => {
+            console.log('Scores grown successfully.');
+            console.log(username);
+            return getTopPicks(username); // this selects the top picks from the wishlist products
+          })
+          .then(() => {
+            console.log('Recommandations:');
+            return searchTopProducts(username);
+
+          });
       });
     } else if (req.url === "/products/product-details.js") {
       respondFile(req, res, "product-details.js");

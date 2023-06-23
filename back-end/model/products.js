@@ -13,10 +13,51 @@ const pool = mysql
     .promise();
 
 
-export async function insertWishlistProduct(product, username) {
+/*export async function insertWishlistProduct(product, username) {
     pool.query('INSERT INTO wishlist_products (id, product_url, name, description, price, rating, numReviews, vendor_name, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
         [null, product.url, product.name, product.description, product.price, product.rating, product.numReviews, product.vendorName, username]);
     return { status: 200, message: 'Product inserted successfully.' };
+}*/
+
+export async function insertWishlistProduct(product, username) {
+    try {
+        const query = `
+            INSERT INTO wishlist_products (id, product_url, name, description, price, rating, numReviews, vendor_name, username)
+            SELECT ?, ?, ?, ?, ?, ?, ?, ?, ?
+            WHERE NOT EXISTS (
+                SELECT 1 FROM wishlist_products WHERE username = ? AND product_url = ?
+            )
+        `;
+        const url = product.url || 'https://www.emag.ro/';
+        const name = product.name || '';
+        const price = product.price || 0;
+        const rating = product.rating || 0;
+        const numReviews = product.numReviews || 0;
+        const simpleUrl = url
+            .substring(url.indexOf('://') + 3)
+            .replace('www.', '');
+        const vendorName = simpleUrl.substring(0, simpleUrl.indexOf('.')) || '';
+        const values = [
+            null,
+            url,
+            name,
+            product.description,
+            price,
+            rating,
+            numReviews,
+            vendorName,
+            username,
+            username,
+            url
+        ];
+
+        await pool.query(query, values);
+
+        return { status: 200, message: 'Product inserted successfully.' };
+    } catch (error) {
+        console.error('Error inserting product:', error);
+        throw error;
+    }
 }
 
 
@@ -195,22 +236,35 @@ export async function insertWishlistProducts(productList, username) {
                 'INSERT INTO wishlist_products (id, product_url, name, price, rating, numReviews, vendor_name, username, score) VALUES ?';
             const values = await Promise.all(
                 productList.map(async (product) => {
-                    const url = new URL(product.url);
-                    const vendorName = url.hostname.split('.')[0];
+                    //const url = new URL(product.url);
+                    //const vendorName = url.hostname.split('.')[0];
+
+                    const url = product.url || 'https://www.emag.ro/';
+                    const name = product.name || '';
+                    const price = product.price || 0;
+                    const rating = product.rating || 0;
+                    const numReviews = product.numReviews || 0;
+
+                    const simpleUrl = url
+                        .substring(url.indexOf('://') + 3)
+                        .replace('www.', '');
+                    const vendorName = simpleUrl.substring(0, simpleUrl.indexOf('.')) || '';
+                    // const url = new URL(product.url);
+                    //const vendorName = url.hostname.split('.')[0];
                     const scoreResult = await getCurrentScoreByUrl(product.url);
 
                     const score = scoreResult.currentScore || 0;
                     console.log(score);
                     return [
                         null, // Assuming `id` is auto-incremented
-                        product.url,
-                        product.name,
-                        product.price,
-                        product.rating,
-                        product.numReviews,
+                        url,
+                        name,
+                        price,
+                        rating,
+                        numReviews,
                         vendorName,
                         username,
-                        score,
+                        score
                     ];
                 })
             );
