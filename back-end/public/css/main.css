@@ -2499,4 +2499,15 @@ button:hover {
   width: min(90%, 50rem);
 }
 
+.admin-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-inline: auto;
+}
+.admin-buttons * {
+  flex: 1;
+}
+
 /*# sourceMappingURL=main.css.map */

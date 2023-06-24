@@ -78,6 +78,8 @@ async function handleViewRequest(req, res) {
       res.end();
     }
 
+    console.log('req.url: ', req.url);
+
     if (req.method === 'POST' && req.url === '/auth/signin.html') {
       handleSignInPost(req, res);
     } else if (req.method === 'POST' && req.url === '/auth/signup.html') {
@@ -93,6 +95,9 @@ async function handleViewRequest(req, res) {
       respondFile(req, res, 'assets/scripts/filters.js');
     } else if (req.url === '/products/assets/scripts/add-product.js') {
       respondFile(req, res, 'assets/scripts/add-product.js');
+    } else if (req.url === '/auth/assets/scripts/signin.js') {
+      console.log('aici');
+      respondFile(req, res, 'assets/scripts/signin.js');
     } else if (req.url === '/' || req.url === '/products/products.html') {
       // respondFile(req, res, 'products.html');
       const username = getusernameFromCookie(req, res);

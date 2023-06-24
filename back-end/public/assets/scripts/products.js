@@ -64,4 +64,25 @@ async function showProducts() {
   }
 }
 
+async function startScraping() {
+  try {
+    const response = await fetch(
+      'http://localhost:3000/api/admin/start-scraping',
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    if (!response.ok) {
+      alert('Could not start scraping');
+      return;
+    }
+    alert('Scraping started');
+  } catch (err) {
+    console.error('Error starting scraping: ', err);
+  }
+}
+
 showProducts();

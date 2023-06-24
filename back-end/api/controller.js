@@ -1,3 +1,4 @@
+import { adminController } from './adminController.js';
 import { productController } from './productsController.js';
 
 const handleApiRequest = (req, res) => {
@@ -8,6 +9,8 @@ const handleApiRequest = (req, res) => {
 
   if (url.startsWith('/api/products')) {
     productController(req, res);
+  } else if (url.startsWith('/api/admin')) {
+    adminController(req, res);
   } else {
     res.statusCode = 404;
     res.end(JSON.stringify({ message: 'Route Not Found!' }));

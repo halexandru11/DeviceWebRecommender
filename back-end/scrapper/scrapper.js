@@ -6,10 +6,10 @@ import { scrapeMediaGalaxy } from './scraping-mediagalaxy.js';
 export const startScraping = async () => {
   await Promise.all([
     scrapeAltex(),
-    scrapeEmag(),
+    // scrapeEmag(),
     scrapeFlanco(),
     scrapeMediaGalaxy(),
   ]);
 };
 
-startScraping();
+// startScraping();
