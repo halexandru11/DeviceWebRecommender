@@ -1,5 +1,6 @@
 import mysql from 'mysql2';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 const pool = mysql
@@ -237,6 +238,7 @@ export async function getAllProducts() {
         notNullAttributes[key] = value;
       }
     }
+
     products.push(notNullAttributes);
   });
   return products;

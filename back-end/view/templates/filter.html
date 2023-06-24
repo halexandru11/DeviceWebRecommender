@@ -1,134 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../../css/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../../css/main.css" />
     <title>Gimme</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="siteHeader">
-            <!-- This section gets pushed to the left side-->
-            <div class="siteHeader__logo">
-                <div class="logo">
-                    <h1>G</h1>
-                </div>
-                <h2>GIMME</h2>
-            </div>
-            <!-- This section gets pushed to the right side-->
-            <div class="siteHeader__section">
-                <div class="dropdown-menu">
-                    <div class="dropdown">
-                        <div class="dropbtn">
-                            <div class="bar">
-                                <span class="top"></span>
-                                <span class="middle"></span>
-                                <span class="bottom"></span>
-                            </div>
-                        </div>
-                        <div class="dropdown-content">
-                            <a href="../auth/signin.html">Sign In</a>
-                            <a href="../auth/signup.html">Sign Up</a>
-                            <a href="../info/about.html">About</a>
-                            <a href="../products/products.html">Products</a>
-                            <a href="../settings/choose-theme.html">Choose theme</a>
-                            <a href="../info/help.html">Help</a>
-                        </div>
-                    </div>
-                    <ul class="dropdown-content">
-                    </ul>
-                </div>
-            </div>
+      <div class="siteHeader">
+        <!-- This section gets pushed to the left side-->
+        <div class="siteHeader__logo">
+          <div class="logo">
+            <h1>G</h1>
+          </div>
+          <h2>GIMME</h2>
         </div>
+        <!-- This section gets pushed to the right side-->
+        <div class="siteHeader__section">
+          <div class="dropdown-menu">
+            <div class="dropdown">
+              <div class="dropbtn">
+                <div class="bar">
+                  <span class="top"></span>
+                  <span class="middle"></span>
+                  <span class="bottom"></span>
+                </div>
+              </div>
+              <div class="dropdown-content">
+                <a href="../auth/signin.html">Sign In</a>
+                <a href="../auth/signup.html">Sign Up</a>
+                <a href="../info/about.html">About</a>
+                <a href="../products/products.html">Products</a>
+                <a href="../settings/choose-theme.html">Choose theme</a>
+                <a href="../info/help.html">Help</a>
+              </div>
+            </div>
+            <ul class="dropdown-content"></ul>
+          </div>
+        </div>
+      </div>
     </header>
 
     <main>
-        <section class="filter">
-            <div class="filter__section1">
-                <div class="filter__section1__column1">
-                    <h1 class="text-button">Favourite shops</h1>
-                    <div class="filter__section1__column1__buttons">
-                        <button class="button-light" id="Emag">Emag</button>
-                        <button class="button-light" id="Flanco">Flanco</button>
-                        <button class="button-light" id="PCGarage">PC Garage</button>
-                        <button class="button-light" id="Altex">Altex</button>
-                        <button class="button-light" id="MediaGalaxy">Media Galaxy</button>
-                    </div>
-                </div>
-                <div class="filter__section1__column2">
-                    <h1 class="text-button">Devices</h1>
-                    <div class="filter__section1__column2__buttons">
-                        <button class="button-light" id="PC's">PC's</button>
-                        <button class="button-light" id="Phones">Phones</button>
-                        <button class="button-light" id="Headphones">Headphones</button>
-                        <button class="button-light" id="Laptops">Laptops</button>
-                        <button class="button-light" id="Smartwatches">Smartwatches</button>
-                        <button class="button-light" id="Cameras">Cameras</button>
-                        <button class="button-light" id="Tablets">Tablets</button>
-                        <button class="button-light" id="Keyboards">Keyboards</button>
-                        <button class="button-light" id="Mouses">Mouses</button>
-                        <button class="button-light" id="TV's">TV's</button>
-                    </div>
-                </div>
+      <section class="filter">
+        <div class="filter__section1">
+          <div class="filter__section1__column1">
+            <h1 class="text-button">Favourite shops</h1>
+            <div class="filter__section1__column1__buttons">
+              <button class="button-light" id="Emag">Emag</button>
+              <button class="button-light" id="Flanco">Flanco</button>
+              <button class="button-light" id="Altex">Altex</button>
+              <button class="button-light" id="MediaGalaxy">
+                Media Galaxy
+              </button>
             </div>
-            <div class="filter__section2">
-                <div class="filter__section2__price">
-                    <h4> Price: </h4>
-                    <div class="filter__section2__price__options">
-                        <input type="text" class="field" name="min-ron" placeholder="min">
-                        <input type="text" class="field" name="max-ron" placeholder="max">
-                    </div>
-                    <h4 class="unit"> RON </h4>
-                </div>
-                <div class="filter__section2__autonomy">
-                    <h4> Autonomy: </h4>
-                    <div class="filter__section2__autonomy__options">
-                        <input type="text" class="field" name="min-hours" placeholder="min">
-                        <input type="text" class="field" name="max-hours" placeholder="max">
-                    </div>
-                    <h4 class="unit"> Hours </h4>
-                </div>
-                <div class="filter__section2__color">
-                    <h4> Color: </h4>
-                    <div class="filter__section2__color__options">
-                        <button class="button-light" id="Red">Red</button>
-                        <button class="button-light" id="Black">Black</button>
-                        <button class="button-light" id="White">White</button>
-                        <button class="button-light" id="Golden">Golden</button>
-                        <button class="button-light" id="Green">Green</button>
-                        <button class="button-light" id="Pink">Pink</button>
-                        <button class="button-light" id="Grey">Grey</button>
-                        <button class="button-light" id="Blue">Blue</button>
-                        <button class="button-light" id="Purple">Purple</button>
-                        <button class="button-light" id="Yellow">Yellow</button>
-                    </div>
-                </div>
-                <div class="filter__section2__model">
-                    <h4> Model: </h4>
-                    <div class="filter__section2__model__options">
-                        <button class="button-light" id="LG">LG</button>
-                        <button class="button-light" id="Huawei">Huawei</button>
-                        <button class="button-light" id="Apple">Apple</button>
-                        <button class="button-light" id="Samsung">Samsung</button>
-                        <button class="button-light" id="Xiaomi">Xiaomi</button>
-                        <button class="button-light" id="Philips">Philips</button>
-                        <button class="button-light" id="Asus">Asus</button>
-                        <button class="button-light" id="LogiTech">LogiTech</button>
-                    </div>
-                </div>
-                <a id="apply-changes" href="products.html" class="filter__section2__apply-changes">Apply changes</a>
+          </div>
+          <div class="filter__section1__column2">
+            <h1 class="text-button">Devices</h1>
+            <div class="filter__section1__column2__buttons">
+              <button class="button-light" id="PC's">PC's</button>
+              <button class="button-light" id="Phones">Phones</button>
+              <button class="button-light" id="Headphones">Headphones</button>
+              <button class="button-light" id="Laptops">Laptops</button>
+              <button class="button-light" id="Smartwatches">
+                Smartwatches
+              </button>
+              <button class="button-light" id="Cameras">Cameras</button>
+              <button class="button-light" id="Tablets">Tablets</button>
+              <button class="button-light" id="Keyboards">Keyboards</button>
+              <button class="button-light" id="Mouses">Mouses</button>
+              <button class="button-light" id="TVs">TVs</button>
             </div>
-        </section>
+          </div>
+        </div>
+        <div class="filter__section2">
+          <div class="filter__section2__price">
+            <h4>Price:</h4>
+            <div class="filter__section2__price__options">
+              <input
+                type="text"
+                class="field"
+                name="min-ron"
+                placeholder="min"
+              />
+              <input
+                type="text"
+                class="field"
+                name="max-ron"
+                placeholder="max"
+              />
+            </div>
+            <h4 class="unit">RON</h4>
+          </div>
+          <div class="filter__section2__autonomy">
+            <h4>Autonomy:</h4>
+            <div class="filter__section2__autonomy__options">
+              <input
+                type="text"
+                class="field"
+                name="min-hours"
+                placeholder="min"
+              />
+              <input
+                type="text"
+                class="field"
+                name="max-hours"
+                placeholder="max"
+              />
+            </div>
+            <h4 class="unit">Hours</h4>
+          </div>
+          <div class="filter__section2__color">
+            <h4>Color:</h4>
+            <div class="filter__section2__color__options">
+              <button class="button-light" id="Red">Red</button>
+              <button class="button-light" id="Black">Black</button>
+              <button class="button-light" id="White">White</button>
+              <button class="button-light" id="Golden">Golden</button>
+              <button class="button-light" id="Green">Green</button>
+              <button class="button-light" id="Pink">Pink</button>
+              <button class="button-light" id="Grey">Grey</button>
+              <button class="button-light" id="Blue">Blue</button>
+              <button class="button-light" id="Purple">Purple</button>
+              <button class="button-light" id="Yellow">Yellow</button>
+            </div>
+          </div>
+          <div class="filter__section2__model">
+            <h4>Model:</h4>
+            <div class="filter__section2__model__options">
+              <button class="button-light" id="LG">LG</button>
+              <button class="button-light" id="Huawei">Huawei</button>
+              <button class="button-light" id="Apple">Apple</button>
+              <button class="button-light" id="Samsung">Samsung</button>
+              <button class="button-light" id="Xiaomi">Xiaomi</button>
+              <button class="button-light" id="Philips">Philips</button>
+              <button class="button-light" id="Asus">Asus</button>
+              <button class="button-light" id="LogiTech">LogiTech</button>
+            </div>
+          </div>
+          <a
+            id="apply-changes"
+            href="products.html"
+            class="filter__section2__apply-changes"
+            >Apply changes</a
+          >
+        </div>
+      </section>
 
-        <footer>&copy; Copyright 2023</footer>
-
+      <footer>&copy; Copyright 2023</footer>
     </main>
     <script src="../../assets/scripts/load-theme.js"></script>
     <script src="../../assets/scripts/filters.js"></script>
-</body>
-
+  </body>
 </html>
