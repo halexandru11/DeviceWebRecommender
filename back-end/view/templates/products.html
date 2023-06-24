@@ -73,10 +73,14 @@
           placeholder="Search for your product..."
         />
         <div class="admin-buttons">
-          <a href="add-product.html" class="filter__section2__apply-changes"
+          <a
+            href="add-product.html"
+            class="filter__section2__apply-changes adminButton"
             >Add product</a
           >
-          <button onclick="startScraping()">Start scraping</button>
+          <button class="adminButton" onclick="startScraping()">
+            Start scraping
+          </button>
           <button onclick="downloadProductsJson()">Download Json</button>
           <button onclick="downloadProductsCsv()">Download Csv</button>
         </div>

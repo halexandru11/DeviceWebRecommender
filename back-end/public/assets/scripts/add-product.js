@@ -1,4 +1,11 @@
+const hasAdminJwtCookie = document.cookie.includes('adminJwt');
+
 async function addProduct(product) {
+  if (!hasAdminJwtCookie) {
+    alert('You are not logged in as admin');
+    return;
+  }
+
   try {
     let url = 'http://localhost:3000/api/products';
     console.log('request url: ', url);

@@ -2504,10 +2504,20 @@ button:hover {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  padding: 0.5rem;
   margin-inline: auto;
 }
+
 .admin-buttons * {
   flex: 1;
+}
+
+.admin-buttons a {
+  min-width: 9rem;
+}
+
+.admin-buttons button {
+  min-width: 9rem;
 }
 
 /*# sourceMappingURL=main.css.map */

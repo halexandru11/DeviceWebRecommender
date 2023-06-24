@@ -1,3 +1,10 @@
+const hasAdminJwtCookie = document.cookie.includes('adminJwt');
+const adminButtons = document.querySelectorAll('.adminButton');
+
+adminButtons?.forEach((adminButton) => {
+  adminButton.style.display = hasAdminJwtCookie ? 'block' : 'none';
+});
+
 function createProductCard(product, parentHTML) {
   const htmlString = `
     <div class="product-card">
@@ -65,6 +72,10 @@ async function showProducts() {
 }
 
 async function startScraping() {
+  if (!hasAdminJwtCookie) {
+    alert('You are not logged in as admin');
+    return;
+  }
   try {
     const response = await fetch(
       'http://localhost:3000/api/admin/start-scraping',
