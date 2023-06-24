@@ -85,4 +85,49 @@ async function startScraping() {
   }
 }
 
+async function downloadProductsJson() {
+  try {
+    const products = await getProducts();
+    const blob = new Blob([JSON.stringify(products)], {
+      type: 'application/json',
+    });
+    const url = URL.createObjectURL(blob);
+    const downloadLink = document.createElement('a');
+    downloadLink.href = url;
+    downloadLink.download = 'products.json';
+    downloadLink.click();
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    alert('Could not download products json');
+  }
+}
+
+async function downloadProductsCsv() {
+  try {
+    const products = await getProducts();
+    const csvHeader = Object.keys(products[0]).join(',') + '\n';
+    const csvContent = products
+      .map((product) => {
+        return Object.values(product)
+          .map((value) => {
+            return value.toString().replaceAll(',', ' ');
+          })
+          .join(',');
+      })
+      .join('\n');
+
+    const blob = new Blob([csvHeader + csvContent], {
+      type: 'text/csv;charset=utf-8;',
+    });
+    const url = URL.createObjectURL(blob);
+    const downloadLink = document.createElement('a');
+    downloadLink.href = url;
+    downloadLink.download = 'products.csv';
+    downloadLink.click();
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    alert('Could not download products csv');
+  }
+}
+
 showProducts();

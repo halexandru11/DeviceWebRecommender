@@ -1,6 +1,5 @@
 import { getAllProducts, insertProducts } from '../model/products.js';
 import { getProductImageUrlByProductId } from '../model/productImages.js';
-import { getusernameFromCookie } from '../controller/getUsernameFromCookie.js';
 
 async function getFilteredProductsApi(req, res) {
   try {
