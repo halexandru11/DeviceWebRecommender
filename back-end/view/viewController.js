@@ -73,6 +73,11 @@ const respondFile = (req, res, filePath) => {
 
 async function handleViewRequest(req, res) {
   try {
+    if (req.url === '/products/products.html') {
+      res.writeHead(302, { Location: '/' });
+      res.end();
+    }
+
     if (req.method === 'POST' && req.url === '/auth/signin.html') {
       handleSignInPost(req, res);
     } else if (req.method === 'POST' && req.url === '/auth/signup.html') {
@@ -82,6 +87,8 @@ async function handleViewRequest(req, res) {
       req.url === '/auth/forgot-password.html'
     ) {
       handleForgotPassword(req, res);
+    } else if (req.url === '/products/assets/scripts/products.js') {
+      respondFile(req, res, 'assets/scripts/products.js');
     } else if (req.url === '/' || req.url === '/products/products.html') {
       // respondFile(req, res, 'products.html');
       const username = getusernameFromCookie(req, res);

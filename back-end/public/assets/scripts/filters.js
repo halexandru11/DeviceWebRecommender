@@ -47,8 +47,6 @@ export function getFilters() {
   const selectedFilters =
     JSON.parse(localStorage.getItem('selectedFilters')) || [];
   console.log(selectedFilters);
-
-  return selectedFilters;
 }
 
 buttons.forEach((button) => {
