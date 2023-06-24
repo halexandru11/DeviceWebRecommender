@@ -12,4 +12,4 @@ export const startScraping = async () => {
   ]);
 };
 
-//startScraping();
+startScraping();

@@ -62,24 +62,22 @@ export async function insertWishlistProduct(product, username) {
 
 
 export function insertProducts(productList) {
-    let connection;
+    const pool = mysql.createPool({
+        host: process.env.MYSQL_HOST,
+        user: process.env.MYSQL_USER,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE,
+        connectionLimit: 10,
+    }).promise();
 
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
+        let connection;
         try {
-            connection = mysql.createConnection({
-                host: process.env.MYSQL_HOST,
-                user: process.env.MYSQL_USER,
-                password: process.env.MYSQL_PASSWORD,
-                database: process.env.MYSQL_DATABASE,
-            });
+            connection = await pool.getConnection();
 
-            connection.connect();
-
-            const query =
+            const insertProductQuery =
                 'INSERT INTO products (id, url, name, price, rating, numReviews, vendor_name) VALUES ?';
-            const values = productList.map((product) => {
-                // const url = new URL(product.url);
-                // const vendorName = url.hostname.split('.')[0];
+            const productValues = productList.map((product) => {
                 const url = product.url || 'https://www.emag.ro/';
                 const name = product.name || '';
                 const price = product.price || 0;
@@ -91,7 +89,7 @@ export function insertProducts(productList) {
                     .replace('www.', '');
                 const vendorName = simpleUrl.substring(0, simpleUrl.indexOf('.')) || '';
                 return [
-                    null, // Assuming `id` is auto-incremented
+                    null,
                     url,
                     name,
                     price,
@@ -101,25 +99,38 @@ export function insertProducts(productList) {
                 ];
             });
 
-            connection.query(query, [values], (error) => {
-                if (error) {
-                    console.error('Error inserting products:', error);
-                    console.log('These are the values: ', values);
-                    reject(error);
-                } else {
-                    console.log('Products inserted successfully.');
-                    resolve({
-                        status: 200,
-                        message: 'Products inserted successfully.',
-                    });
-                }
+            const [insertProductResults] = await connection.query(insertProductQuery, [productValues]);
+            console.log('Products inserted successfully.');
+
+            const productIdMap = new Map();
+            for (let i = 0; i < insertProductResults.affectedRows; i++) {
+                const productId = insertProductResults.insertId + i;
+                productIdMap.set(productList[i], productId);
+            }
+
+            const imageValues = [];
+            for (let i = 0; i < productList.length; i++) {
+                const productId = productIdMap.get(productList[i]);
+                const imageUrl = productList[i].img || 'https://www.emag.ro/default-image.jpg';
+
+                imageValues.push([null, productId, imageUrl]);
+            }
+
+            const insertImageQuery =
+                'INSERT INTO product_images (id, product_id, image_url) VALUES ?';
+            await connection.query(insertImageQuery, [imageValues]);
+            console.log('Product images inserted successfully.');
+
+            resolve({
+                status: 200,
+                message: 'Products and product images inserted successfully.',
             });
         } catch (error) {
             console.error('Error inserting products:', error);
             reject(error);
         } finally {
             if (connection) {
-                connection.end();
+                connection.release();
             }
         }
     });
