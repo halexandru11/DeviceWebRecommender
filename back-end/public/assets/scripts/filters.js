@@ -25,12 +25,15 @@ const addFilter = (filterId) => {
 
 const removeFilter = (filterId) => {
   console.log('removing filter ' + filterId);
-  let selectedFilters = JSON.parse(localStorage.getItem('selectedFilters'));
+  let selectedFilters =
+    JSON.parse(localStorage.getItem('selectedFilters')) || [];
   selectedFilters = selectedFilters.filter((filter) => filter !== filterId);
   localStorage.setItem('selectedFilters', JSON.stringify(selectedFilters));
 };
 
 const loadFilters = function () {
+  let selectedFilters =
+    JSON.parse(localStorage.getItem('selectedFilters')) || [];
   buttons.forEach((button) => {
     if (selectedFilters.includes(button.id)) {
       button.style.backgroundColor = 'grey';
@@ -43,7 +46,7 @@ const loadFilters = function () {
   });
 };
 
-export function getFilters() {
+function getFilters() {
   const selectedFilters =
     JSON.parse(localStorage.getItem('selectedFilters')) || [];
   console.log(selectedFilters);

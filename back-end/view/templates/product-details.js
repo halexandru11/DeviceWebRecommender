@@ -1,7 +1,7 @@
 function getFilters() {
   const url = window.location.href;
   const index = url.indexOf('=');
-  const character = url.charAt(index + 1);
+  const character = url.substring(index + 1);
   console.log(character);
 
   const data = { character };

@@ -89,6 +89,10 @@ async function handleViewRequest(req, res) {
       handleForgotPassword(req, res);
     } else if (req.url === '/products/assets/scripts/products.js') {
       respondFile(req, res, 'assets/scripts/products.js');
+    } else if (req.url === '/products/assets/scripts/filters.js') {
+      respondFile(req, res, 'assets/scripts/filters.js');
+    } else if (req.url === '/products/assets/scripts/add-product.js') {
+      respondFile(req, res, 'assets/scripts/add-product.js');
     } else if (req.url === '/' || req.url === '/products/products.html') {
       // respondFile(req, res, 'products.html');
       const username = getusernameFromCookie(req, res);
@@ -245,6 +249,8 @@ async function handleViewRequest(req, res) {
       respondFile(req, res, 'choose-theme.html');
     } else if (req.url === '/info/about.html') {
       respondFile(req, res, 'about.html');
+    } else if (req.url === '/add-product.html') {
+      respondFile(req, res, 'add-product.html');
     } else if (req.url === '/info/help.html') {
       respondFile(req, res, 'help.html');
     } else if (req.url === '/auth/signin.html') {
@@ -254,6 +260,7 @@ async function handleViewRequest(req, res) {
     } else if (req.url === '/auth/forgot-password.html') {
       respondFile(req, res, 'forgot-password.html');
     } else {
+      console.log('De suntem aici');
       const fileUrl = '/public' + req.url;
       const filePath = path.resolve('.' + fileUrl);
       const fileExt = path.extname(filePath);
@@ -276,6 +283,7 @@ async function handleViewRequest(req, res) {
       });
     }
   } catch (err) {
+    console.log('We are here');
     console.log('Error ', err);
   }
 }

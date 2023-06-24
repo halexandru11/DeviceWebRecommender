@@ -2486,4 +2486,17 @@ button:hover {
   background: var(--accent-color);
 }
 
+.add-product-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.add-product-layout > input {
+  width: min(90%, 50rem);
+}
+
 /*# sourceMappingURL=main.css.map */
