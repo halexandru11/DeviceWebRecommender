@@ -9,6 +9,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     >
     <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../public/css/main.css">
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -50,14 +51,15 @@
                 </div>
               </div>
               <div class="dropdown-content">
-                <a href="../auth/signin.html">Sign In</a>
-                <a href="../auth/signup.html">Sign Up</a>
+                <a href="../auth/signin.html" class="i-am-in">Sign In</a>
+                <a href="../auth/signup.html" class="i-am-in">Sign Up</a>
                 <a href="../info/about.html">About</a>
                 <a href="../products/products.html" id="products-btn"
                   >Products</a
                 >
                 <a href="../settings/choose-theme.html">Choose theme</a>
                 <a href="../info/help.html">Help</a>
+                <a href="../auth/signin.html" class="i-am-out">Log Out</a>
               </div>
             </div>
             <ul class="dropdown-content"></ul>
@@ -119,6 +121,7 @@
       <script src="../../assets/scripts/filters-products-page.js"></script>
       <!-- <script src="../../controller/productsController.js"></script> -->
       <script src="assets/scripts/products.js"></script>
+      <script src="/public/assets/scripts/products.js"></script>
     </div>
   </body>
 </html>

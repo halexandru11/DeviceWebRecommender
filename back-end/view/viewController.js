@@ -237,16 +237,16 @@ async function handleViewRequest(req, res) {
       respondFile(req, res, 'product-details.js');
     } else if (req.url === '/products/filter.html') {
       const username = getusernameFromCookie(req, res); // verifies token
-      if (username) {
-        respondFile(req, res, 'filter.html');
-      } else {
-        res.write(
-          404,
-          JSON.stringify({
-            message: 'You must be logged in to have this functionality!',
-          })
-        );
-      }
+      // if (username) {
+      respondFile(req, res, 'filter.html');
+      // } else {
+      //   res.write(
+      //     404,
+      //     JSON.stringify({
+      //       message: 'You must be logged in to have this functionality!',
+      //     })
+      //   );
+      // }
       //verifyToken(req, res, callbackFilters); //callbackFilters or whatever
     } else if (req.url === '/products/product-details.html') {
       respondFile(req, res, 'product-details.html');

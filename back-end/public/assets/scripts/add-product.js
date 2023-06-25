@@ -19,6 +19,8 @@ async function addProduct(product) {
     });
     if (!response.ok) {
       alert('Could not add product');
+    } else {
+      alert('Product added');
     }
   } catch (err) {
     console.error('Error getting products: ', err);

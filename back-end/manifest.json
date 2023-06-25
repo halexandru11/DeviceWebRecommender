@@ -1,10 +1,18 @@
 {
-    "manifest_version": 3,
-    "name": "Gimme",
-    "version": "1.0.0",
-    "description": "Device Web Recommender",
-    "action": {
-        "default_icon": "assets/images/sun.png",
-        "default_popup": "pages/products/products.html"
+  "manifest_version": 3,
+  "name": "Gimme",
+  "version": "1.0.0",
+  "description": "Device Web Recommender",
+  "action": {
+    "default_icon": "assets/images/sun.png",
+    "default_popup": "view/templates/products.html",
+    "default_popup_width": 1000,
+    "default_popup_height": 1200
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*", "css/*", "view/templates/*"],
+      "matches": ["http://localhost:3000/*"]
     }
+  ]
 }

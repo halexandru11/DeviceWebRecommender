@@ -1,8 +1,31 @@
 const hasAdminJwtCookie = document.cookie.includes('adminJwt');
+const hasUserJwtCookie = document.cookie.toLowerCase().includes('jwt');
 const adminButtons = document.querySelectorAll('.adminButton');
+const logOutButton = document.querySelectorAll('.i-am-out');
+const loggedInButton = document.querySelectorAll('.i-am-in');
 
 adminButtons?.forEach((adminButton) => {
   adminButton.style.display = hasAdminJwtCookie ? 'block' : 'none';
+});
+
+loggedInButton?.forEach((loggedInButton) => {
+  loggedInButton.style.display = hasUserJwtCookie ? 'none' : 'block';
+});
+
+logOutButton?.forEach((logOutButton) => {
+  logOutButton.style.display = hasUserJwtCookie ? 'block' : 'none';
+});
+
+logOutButton?.forEach((loggedOutButton) => {
+  loggedOutButton.addEventListener('click', async () => {
+    try {
+      // delete jwt cookie
+      document.cookie =
+        'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    } catch (err) {
+      console.error('Error logging out: ', err);
+    }
+  });
 });
 
 function createProductCard(product, parentHTML) {
