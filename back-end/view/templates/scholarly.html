@@ -58,29 +58,28 @@
         <section typeof="sa:Abstract" id="abstract">
             <h2>1.Abstract</h2>
 
-            <li><em>Gimme</em>, cunoscut si sub numele de DeWR, este o aplicație web de tip responsive ce oferă
+            <p><em>Gimme</em>, cunoscut si sub numele de DeWR, este o aplicație web de tip responsive ce oferă
                 recomandări de dispozitive electronice utilizatorilor
                 în funcție de diverse specificații (preț, culoare, model, autonomie). Dorim ca Gimme să fie disponibilă
                 și sub formă de extensie.
                 O mare varietate de dispozitive pot fi recomandate (telefoane, TV-uri, PC-uri, căști audio, laptop-uri,
-                smartwatch-uri, camere, tablete, tastaturi, mouse-uri).
+                smartwatch-uri, camere, tablete, tastaturi, mouse-uri).</p>
 
-            </li>
-            <li> <em>Gimme</em> se folosește de scraping pentru a obține datele dorite de pe site-urile celor mai mari
-                retaileri de dispozitive din țară (Flanco, Emag, Altex, Media Galaxy).</li>
-            <li> Statisticile cu cele mai populare produse vor fi disponibile sub formă de flux de știri RSS +
-                recomandarile in functie de wishlistul personal.</li>
-            <li>Poate fi accesata atat de către utilizatorii autentificați, cât și de către cei neautentificați. Cei din
+            <p> <em>Gimme</em> se folosește de scraping pentru a obține datele dorite de pe site-urile celor mai mari
+                retaileri de dispozitive din țară (Flanco, Emag, Altex, Media Galaxy).</p>
+            <p> Statisticile cu cele mai populare produse vor fi disponibile sub formă de flux de știri RSS +
+                recomandarile in functie de wishlistul personal.</p>
+            <p>Poate fi accesata atat de către utilizatorii autentificați, cât și de către cei neautentificați. Cei din
                 urmă vor primi recomandările în funcție de tendințele generale înregistrate pe site-urile retailerilor
                 vizați.
-            </li>
+            </p>
             <p>Specificațiile/ cerințele aplicației se găsesc la pagina:
                 <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">
                     <span property="schema:name">Web Technologies Project Specifications.</span></a>
             </p>
             <br>
         </section>
-        <section typeof="sa:Features - OVERVIEW. USE CASES" id="features">
+        <section typeof="sa:Features" id="features">
             <h2>2.Use cases</h2>
             <ul>
                 <li>(NORMAL USER) Posibilitatea utilizatorului de a face Sign In/ Sign up/ Forgot Password
@@ -131,11 +130,11 @@
                 <li>GET la toate produsele, dar cu filtre</li>
                 <li>POST la un produs si se poate incepe scrapingul </li>
 
-                API-ul poate fi
-                utilizat de
-                catre alti dezvoltatori pentru a accesa datele aplicatiei noastre Gimme si pentru a le integra in
-                propriile aplicatii
-                web.
+                <li>API-ul poate fi
+                    utilizat de
+                    catre alti dezvoltatori pentru a accesa datele aplicatiei noastre Gimme si pentru a le integra in
+                    propriile aplicatii
+                    web.
                 </li>
 
             </ul>
@@ -231,63 +230,60 @@
             </section>
             <section typeof="sa:About">
                 <h3>3. About</h3>
-                <ul>
-
-
-                    <figure typeof="sa:image" class="design">
-                        <img src="assets/images/about.png" alt="about">
-                        <figcaption><em>Fig. 5. About page
-                            </em> </figcaption>
-                    </figure>
-
-                </ul>
+                <figure typeof="sa:image" class="design">
+                    <img src="assets/images/about.png" alt="about">
+                    <figcaption><em>Fig. 5. About page
+                        </em> </figcaption>
+                </figure>
 
             </section>
             <section typeof="sa:Help">
                 <h3>4. Help</h3>
-                <ul>Aceasta pagina ofera informatii utilizatorului despre cum sa navigheze in aplicatie, indiferent
-                    daca este logat sau nu, precum si ce caracteristici specifice are fiecare pagina in parte.
-                    <figure typeof="sa:image" class="design">
-                        <img src="assets/images/help.png" alt="help">
-                        <figcaption><em>Fig. 6. Help page
-                            </em> </figcaption>
-                    </figure>
-                </ul>
+
+                Aceasta pagina ofera informatii utilizatorului despre cum sa navigheze in aplicatie, indiferent
+                daca este logat sau nu, precum si ce caracteristici specifice are fiecare pagina in parte.
+
+                <figure typeof="sa:image" class="design">
+                    <img src="assets/images/help.png" alt="help">
+                    <figcaption><em>Fig. 6. Help page
+                        </em> </figcaption>
+                </figure>
+
             </section>
             <section typeof="sa:Products">
                 <h3>5. Pagina de produse</h3>
-                <ul>Aceasta pagina reprezinta functionalitatea de baza a proiectului. Daca user-ul este logat sau nu,
-                    aici
-                    vor aparea produse default obtinute in urma analizei specificatiilor pe care user-ul le pune prin
-                    butonul de filtru, aflat in stanga sus.
-                    Daca user-ul este interesat de un produs anume, poate sa ii vada detaliile, "Details".
-                    <li> Add product - se foloseste de REST API pt a face post
-                    </li>
-                    <li>
-                        Start scraping - specific adminului - face scraping automat de la selleri nationali
-                    </li>
-                    <li>
-                        Download JSON - downleadeaza fisierul cu produsele ce se afla pe site la un moment dat, format
-                        JSON
-                    </li>
-                    <li>
-                        Download CSV - downleadeaza fisierul cu produsele ce se afla pe site la un moment dat, format
-                        CSV
-                    </li>
-                    <figure typeof="sa:image" class="design">
-                        <img src="assets/images/products.png" alt="products">
-                        <figcaption><em>Fig. 7. Product page
-                            </em> </figcaption>
-                    </figure>
-                </ul>
+                Aceasta pagina reprezinta functionalitatea de baza a proiectului. Daca user-ul este logat sau nu,
+                aici
+                vor aparea produse default obtinute in urma analizei specificatiilor pe care user-ul le pune prin
+                butonul de filtru, aflat in stanga sus.
+                Daca user-ul este interesat de un produs anume, poate sa ii vada detaliile, "Details".
+                <p> Add product - se foloseste de REST API pt a face post
+                </p>
+                <p>
+                    Start scraping - specific adminului - face scraping automat de la selleri nationali
+                </p>
+                <p>
+                    Download JSON - downleadeaza fisierul cu produsele ce se afla pe site la un moment dat, format
+                    JSON
+                </p>
+                <p>
+                    Download CSV - downleadeaza fisierul cu produsele ce se afla pe site la un moment dat, format
+                    CSV
+                </p>
+                <figure typeof="sa:image" class="design">
+                    <img src="assets/images/products.png" alt="products">
+                    <figcaption><em>Fig. 7. Product page
+                        </em> </figcaption>
+                </figure>
+
             </section>
             <section typeof="sa:Product-details">
                 <h3>6. Vizualizare produs in detaliu</h3>
-                <li> Pe aceasta pagina, utilizatorul are posibilitatea sa vada specificatiile produsului in detaliu,
+                <p> Pe aceasta pagina, utilizatorul are posibilitatea sa vada specificatiile produsului in detaliu,
                     precum
                     si rating-ul pe care acesta l-a primit pe site-ul selectat de utilizator. Daca se aleg mai multe
                     site-uri si produsul este disponibil pe ambele, atunci se iau produsele de pe fiecare site in parte.
-                </li>
+                </p>
                 <figure typeof="sa:image" class="design">
                     <img src="assets/images/details.png" alt="products">
                     <figcaption><em>Fig. 8. Detalii
@@ -313,47 +309,47 @@
         </section>
         <section typeof="sa:Arhitectura" id="arhitectura">
             <h2> 6. Arhitectura aplicației</h2>
-            <ul>
-                <li>Aplicatia noastra face atat SERVER SIDE RENDERING cat si CLIENT SIDE RENDERING. </li>
-                <li> CLIENT SIDE RENDERING se face atunci cand se incarca produsele in pagina principala. </li>
 
-                <figure typeof="sa:image" class="design">
-                    <img src="assets/images/client.png" alt="products">
-                    <figcaption><em>Fig. 9. CLIENT SIDE RENDERING FUNCTION
-                        </em> </figcaption>
-                </figure>
-                <li> SERVER SIDE RENDERING se face atunci cand se incarca produsele in ,,show similar products". </li>
-                Această secțiune de cod HTML reprezintă o structură pentru afișarea produselor similare și
+            <p>Aplicatia noastra face atat SERVER SIDE RENDERING cat si CLIENT SIDE RENDERING. </p>
+            <p> CLIENT SIDE RENDERING se face atunci cand se incarca produsele in pagina principala. </p>
+
+            <figure typeof="sa:image" class="design">
+                <img src="assets/images/client.png" alt="products">
+                <figcaption><em>Fig. 9. CLIENT SIDE RENDERING FUNCTION
+                    </em> </figcaption>
+            </figure>
+            <p> SERVER SIDE RENDERING se face atunci cand se incarca produsele in ,,show similar products". </p>
+            <p> Această secțiune de cod HTML reprezintă o structură pentru afișarea produselor similare și
                 specificațiilor produsului.
                 Această structură poate fi utilizată în procesul de server-side rendering (renderizare la nivelul
                 serverului), unde
                 datele produsului și produsele similare sunt generate de server și apoi adăugate în șablonul HTML
                 înainte de a fi trimis
-                către client.
-                <figure typeof="sa:image" class="design">
-                    <img src="assets/images/server1.png" alt="products">
-                    <figcaption><em>Fig. 10. SERVER SIDE RENDERING FUNCTION
-                        </em> </figcaption>
-                </figure>
+                către client.</p>
+            <figure typeof="sa:image" class="design">
+                <img src="assets/images/server1.png" alt="products">
+                <figcaption><em>Fig. 10. SERVER SIDE RENDERING FUNCTION
+                    </em> </figcaption>
+            </figure>
 
-                <figure typeof="sa:image" class="design">
-                    <img src="assets/images/server2.png" alt="products">
-                    <figcaption><em>Fig. 11. SERVER SIDE RENDERING FUNCTION
-                        </em> </figcaption>
-                </figure>
-
-
-                <li> Generalitati: Aplicatia noastra are 2 foldere principale: front-end si back-end. front-end este
-                    ceea ce am facut pana in saptamana a 8-a, pentru componenta I.
-                    in folderul back-end este tot ceea ce este necesar pentru componenta S. </li>
-                <li> MVC - Model View Controller - in folderul back-end</li>
-                <li> In folderul model: toate functiile .js ce tin de manipularea obiectelor in baza de date. </li>
-                <li> In folderul view: in template se afla toate html-urile, back-endul incarcand front-endul. </li>
-                <li> In folderul controller: ceea ce am folost pentru REST API + alte functii necesare pentru
-                    manipularea datelor, ce nu tin neaparat de bazele de date. </li>
+            <figure typeof="sa:image" class="design">
+                <img src="assets/images/server2.png" alt="products">
+                <figcaption><em>Fig. 11. SERVER SIDE RENDERING FUNCTION
+                    </em> </figcaption>
+            </figure>
 
 
-            </ul>
+            <p> Generalitati: Aplicatia noastra are 2 foldere principale: front-end si back-end. front-end este
+                ceea ce am facut pana in saptamana a 8-a, pentru componenta I.
+                in folderul back-end este tot ceea ce este necesar pentru componenta S. </p>
+            <p> MVC - Model View Controller - in folderul back-end</p>
+            <p> In folderul model: toate functiile .js ce tin de manipularea obiectelor in baza de date. </p>
+            <p> In folderul view: in template se afla toate html-urile, back-endul incarcand front-endul. </p>
+            <p> In folderul controller: ceea ce am folost pentru REST API + alte functii necesare pentru
+                manipularea datelor, ce nu tin neaparat de bazele de date. </p>
+
+
+
         </section>
         <section typeof="sa:Scrapper" id="scrapper">
             <h2>7. Scrapper </h2>
@@ -396,40 +392,40 @@
         </section>
         <section typeof="sa:C4" id="c4">
             <h2>8. C4 </h2>
-            <ul>
-                1. In acest nivel, este prezentata o imagine de
-                ansamblu asupra aplicatiei si asupra lumii din jurul ei. Clientul interactioneaza cu aplicatia web
-                pentru a accesa
-                functionalitatile site-ului. Site-ul
-                este in relatie cu un API extern, de care se foloseste pentru a obtine date
-                specifice domeniului sau. API-ul extern este utilizat atunci cand aplicatia interactioneaza cu
-                scrapper-ul.
-                <figure typeof="sa:image" class="design">
-                    <img src="assets/images/context_new.png" alt="products">
-                    <figcaption><em>Fig. 12. C1
-                        </em> </figcaption>
-                </figure>
 
-                2. In nivelul 2 din modelul C4, este aratat modul
-                general de functionare a aplicatiei, impreuna cu agentii externi care sunt
-                necesari ei. Utilizatorii acceseaza o pagina a aplicatiei care este livrata de
-                catre server. Serverul pune la dispozitie un API REST care ofera functionalitati pt a vizualiza
-                produsele
-                <figure typeof="sa:image" class="design">
-                    <img src="assets/images/container.png" alt="products">
-                    <figcaption><em>Fig. 13. C2
-                        </em> </figcaption>
-                </figure>
+            1. In acest nivel, este prezentata o imagine de
+            ansamblu asupra aplicatiei si asupra lumii din jurul ei. Clientul interactioneaza cu aplicatia web
+            pentru a accesa
+            functionalitatile site-ului. Site-ul
+            este in relatie cu un API extern, de care se foloseste pentru a obtine date
+            specifice domeniului sau. API-ul extern este utilizat atunci cand aplicatia interactioneaza cu
+            scrapper-ul.
+            <figure typeof="sa:image" class="design">
+                <img src="assets/images/context_new.png" alt="products">
+                <figcaption><em>Fig. 12. C1
+                    </em> </figcaption>
+            </figure>
 
-                3. In acest nivel, se poate observa arhitectura
-                server-ului care prelucreaza cererile clientilor.
-                <figure typeof="sa:image" class="design">
-                    <img src="assets/images/level3.png" alt="products">
-                    <figcaption><em>Fig. 14. C3
-                        </em> </figcaption>
-                </figure>
+            2. In nivelul 2 din modelul C4, este aratat modul
+            general de functionare a aplicatiei, impreuna cu agentii externi care sunt
+            necesari ei. Utilizatorii acceseaza o pagina a aplicatiei care este livrata de
+            catre server. Serverul pune la dispozitie un API REST care ofera functionalitati pt a vizualiza
+            produsele
+            <figure typeof="sa:image" class="design">
+                <img src="assets/images/container.png" alt="products">
+                <figcaption><em>Fig. 13. C2
+                    </em> </figcaption>
+            </figure>
 
-            </ul>
+            3. In acest nivel, se poate observa arhitectura
+            server-ului care prelucreaza cererile clientilor.
+            <figure typeof="sa:image" class="design">
+                <img src="assets/images/level3.png" alt="products">
+                <figcaption><em>Fig. 14. C3
+                    </em> </figcaption>
+            </figure>
+
+
         </section>
         <section typeof="sa:ReferenceList" id="references">
             <h2>9. Referințe</h2>
