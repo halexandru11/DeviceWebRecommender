@@ -2,144 +2,460 @@
 <html lang="ro">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/scholarly2.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <title>Gimme Scholarly</title>
+    <meta charset="utf-8">
+    <title>Device Web Recommender</title>
+    <link rel="stylesheet" href="../css/scholarly.css">
 </head>
 
 <body>
-    <article>
+    <header>
+        <h1 class="title">Device Web Recommender - GIMME APP</h1>
+        <nav>
+            <ul>
+                <li><a href="#abstract">Abstract</a></li>
+                <li><a href="#features">Use cases</a></li>
+                <li><a href="#tehnologii">Tehnologii utilizate</a></li>
+                <li><a href="#design">Design</a></li>
+                <li><a href="#interaction">Interacțiunea utilizatorului cu aplicația</a></li>
+                <li><a href="#arhitectura">Arhitectura aplicatiei</a></li>
+                <li><a href="#scrapper">Scrapping</a></li>
+                <li><a href="#c4">C4</a></li>
+                <li><a href="#references">Referințe</a></li>
+            </ul>
+        </nav>
+    </header>
+    <article typeof="schema:ScholarlyArticle" resource="#">
         <header>
-            <h1>Gimme Web Application</h1>
-            <h2>Content</h2>
+            <h2>GIMME APP</h2>
+        </header>
+        <section typeof="sa:AuthorsList">
+            <h2>Hrițcan Alexandru, Lupu Andreea-Daniela, Rășcanu Robert-Ionuț</h2>
+            <ul>
+                <li typeof="sa:ContributorRole" property="schema:author"><span typeof="schema:Person" resource="#">
+                        <meta property="schema:givenName" content="Alexandru">
+                        <meta property="schema:familyName" content="Hrițcan">
+                        <a href="https://www.facebook.com/alexandru.hritcan">
+                            <span property="schema:name">Hrițcan Alexandru (Computer Science Bc)</span>
+                        </a>
+                    </span></li>
 
-            <ol role="directory">
-                <li><a href="#introduction">Introducere</a>
-                    <ol>
-                        <li><a href="#introduction__purpose">Scopul documentului</a></li>
-                        <li><a href="#introduction__audience">Publicul tinta și sugestii</a></li>
-                        <li><a href="#introduction__product-scope">Scopul aplicatiei</a></li>
-                    </ol>
-                </li>
-                <li><a href="#overall-description">Descriere</a>
-                    <ol>
-                        <li><a href="#overall-description__product-perspective">Perspectiva produsului</a></li>
-                        <li><a href="#overall-description__product-functions">Functionalitatile produsului</a></li>
-                        <li><a href="#overall-description__design-constraints">Constrângeri de proiectare și
-                                implementare</a></li>
-                        <li><a href="#overall-description__user-documentation">Documentatia utilizatorul</a></li>
-                    </ol>
-                </li>
-                <li><a href="#interfacereq">Cerințe pentru interfața externă</a>
-                    <ol>
-                        <li><a href="#interfacereq__user-interfaces">Interfata User</a></li>
-                    </ol>
+                <li typeof="sa:ContributorRole" property="schema:author"><span typeof="schema:Person" resource="#">
+                        <meta property="schema:givenName" content="Andreea-Daniela">
+                        <meta property="schema:familyName" content="Lupu">
+                        <a href="https://www.linkedin.com/in/andreea-lupu-a68096227/">
+                            <span property="schema:name">Andreea-Daniela Lupu (Computer Science Bc)</span>
+                        </a>
+                    </span></li>
+                <li typeof="sa:ContributorRole" property="schema:author"><span typeof="schema:Person" resource="#">
+                        <meta property="schema:givenName" content="Robert">
+                        <meta property="schema:familyName" content="Rășcanu">
+                        <a href="https://www.linkedin.com/in/robertrascanu/">
+                            <span property="schema:name">Rășcanu Robert (Computer Science Bc)</span>
+                        </a>
+                    </span></li>
+            </ul>
+        </section>
+        <section typeof="sa:Abstract" id="abstract">
+            <h2>1.Abstract</h2>
+
+            <li><em>Gimme</em>, cunoscut si sub numele de DeWR, este o aplicație web de tip responsive ce oferă
+                recomandări de dispozitive electronice utilizatorilor
+                în funcție de diverse specificații (preț, culoare, model, autonomie). Dorim ca Gimme să fie disponibilă
+                și sub formă de extensie.
+                O mare varietate de dispozitive pot fi recomandate (telefoane, TV-uri, PC-uri, căști audio, laptop-uri,
+                smartwatch-uri, camere, tablete, tastaturi, mouse-uri).
+
+            </li>
+            <li> <em>Gimme</em> se folosește de scraping pentru a obține datele dorite de pe site-urile celor mai mari
+                retaileri de dispozitive din țară (Flanco, Emag, Altex, Media Galaxy).</li>
+            <li> Statisticile cu cele mai populare produse vor fi disponibile sub formă de flux de știri RSS +
+                recomandarile in functie de wishlistul personal.</li>
+            <li>Poate fi accesata atat de către utilizatorii autentificați, cât și de către cei neautentificați. Cei din
+                urmă vor primi recomandările în funcție de tendințele generale înregistrate pe site-urile retailerilor
+                vizați.
+            </li>
+            <p>Specificațiile/ cerințele aplicației se găsesc la pagina:
+                <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">
+                    <span property="schema:name">Web Technologies Project Specifications.</span></a>
+            </p>
+            <br>
+        </section>
+        <section typeof="sa:Features - OVERVIEW. USE CASES" id="features">
+            <h2>2.Use cases</h2>
+            <ul>
+                <li>(NORMAL USER) Posibilitatea utilizatorului de a face Sign In/ Sign up/ Forgot Password
                 </li>
 
-                <li><a href="#systemfeatures">Caracteristici ale sistemului</a>
-                    <ol>
-                        <li><a href="#systemfeatures__login">Conectare</a></li>
-                        <li><a href="#systemfeatures__register">Creare cont</a></li>
-                        <li><a href="#systemfeatures__home">Acasa</a></li>
-                        <li><a href="#systemfeatures__children">Animale</a></li>
-                        <li><a href="#systemfeatures__notifications-center">Animal</a></li>
-                        <li><a href="#systemfeatures__friends-family">Profilul meu</a></li>
-                        <li><a href="#systemfeatures__friends-family">Recuperare parola</a></li>
-                    </ol>
+                <li>(NORMAL USER) - ONLY LOGGED IN: Posibilitatea ca utilizatorul sa utilizeze functia de filter pentru
+                    a-si selecta
+                    produsele in functie de: magazine, device-uri, pret, culoare, model.
+                </li>
+                <li>(NORMAL USER) Posibilitatea ca user-ul sa isi descarce fisiere JSON/CSV ce contin produsele ce sunt
+                    afisate pe ecran la un moment dat.
+                </li>
+                <li>(NORMAL USER) - ONLY LOGGED IN: Posibilitatea ca utilizatorul sa vizualizeze fluxurile de stiri RSS
+                    cu produse recomandate strict pentru el in functie de ce are in lista de wishlist (top 50) si de
+                    asemenea fluxuri de date RSS cu cele mai populare produse in functie de numarul de review-uri (top
+                    50).
+                </li>
+                <li>(NORMAL USER) - ONLY LOGGED IN: Posibilitatea ca utilizatorul sa adauge produse la wish_list
+                </li>
+                <li>(SUPER USER) Acesta are parola si username-ul predefinit din baza de date. Username: admin,
+                    parola: gimme. Sign-ul se face introducand aceste date.
+                </li>
+                <li>(SUPER USER) Din modulul de administrare, super-user-ul poate sa dea scrape automat la produsele de
+                    pe pagina de produse apasand pe buton.
+                </li>
+                <li>(SUPER USER/ NORMAL USER) Posibilitatea de a vizualiza diverse produse de la selleri national precum
+                    Emag, Altex, Flanco, MediaGalaxy.
+                </li>
+                <li>(SUPER USER/ NORMAL USER) Posibilitatea de a aplica functia de personalizare a temei (dark/light).
+                </li>
+            </ul>
+        </section>
+        <section typeof="sa:Technologies" id="tehnologii">
+            <h2>3.Tehnologii utilizate</h2>
+            <ul>
+                <li>Frontend: HTML + CSS/SCSS (stil adoptat: BEM). </li>
+                <li>
+                    Backend: NodeJS, JavaScript.
+                </li>
+                <li>
+                    Baze de date: MySql.
+                </li>
+                <li>
+                    Utilizeaza propriul API REST pentru a oferi JSON-uri cu produsele din BD.
+                    Putem face dupa cum urmeaza:
+
+                <li>GET la toate produsele</li>
+                <li>GET la toate produsele, dar cu filtre</li>
+                <li>POST la un produs si se poate incepe scrapingul </li>
+
+                API-ul poate fi
+                utilizat de
+                catre alti dezvoltatori pentru a accesa datele aplicatiei noastre Gimme si pentru a le integra in
+                propriile aplicatii
+                web.
                 </li>
 
-                <li><a href="#nonfunctionalreq">Other Nonfunctional Requirements</a>
-                    <ol>
-                        <li><a href="#nonfunctionalreq__security-requirements">Security requirements</a></li>
-                    </ol>
-                </li>
+            </ul>
+        </section>
+        <section typeof="sa:Design" id="design">
 
-                <li><a href="#week8utils">Week 8 Utils</a>
-                    <ol>
-                        <li><a href="#week8utils__routes">Routes</a></li>
-                    </ol>
+            <h2>4. Design</h2>
+            <p>Designul aplicației este unul modern și plăcut ochiului, cu un aspect vesel și prietenos. Utilizatorii
+                pot alege dintr-o
+                gamă largă de culori, inclusiv variante light și dark pentru fiecare culoare, ceea ce permite
+                personalizarea aplicației
+                după preferințele lor. De asemenea, designul are influențe geeky, care îi pot atrage pe utilizatorii
+                pasionați de
+                tehnologie și gaming.</p>
+
+            <p>Interfața aplicației este simplă și intuitivă, astfel încât utilizatorii să poată găsi rapid ceea ce
+                caută și să
+                interacționeze cu aplicația într-un mod natural. De exemplu, butoanele și meniurile sunt bine
+                poziționate și ușor de
+                accesat, iar fonturile și imaginile sunt alese astfel încât să fie ușor de citit și să transmită
+                informația relevantă în
+                mod eficient.</p>
+
+            <p>De asemenea, designul este responsive, ceea ce înseamnă că aplicația se adaptează la dimensiunea
+                ecranului
+                utilizatorului, astfel încât să poată fi utilizată pe diverse dispozitive, de la smartphone-uri la
+                tablete sau
+                calculatoare.</p>
+
+            <p>În general, designul aplicației este unul atractiv și funcțional, care poate încânta utilizatorii și să
+                le ofere o
+                experiență plăcută de utilizare.</p>
+            <p> Pentru a face design-ul, ne-am folosit de Figma, fiecare venind cu cate o varianta de design pentru
+                mobil. Acest fapt ne-a ajutat la prototipare ca sa stim directia pe care vrem sa mergem. <a
+                    href="https://www.figma.com/file/3lHXk8ZIQssvzvVm24pxUg/GIMME?node-id=0-1&t=EIZZiTXUkRiE5o0R-0">Vezi
+                    Figma</a> </p>
+            <figure typeof="sa:image" class="design">
+                <img src="assets/images/signup.PNG" alt="Sign up of the app">
+                <figcaption><em>Fig. 1. Sign up - design dark mode </em> </figcaption>
+            </figure>
+
+        </section>
+        <section typeof="sa:UserInteraction" id="interaction">
+            <h2>5.Interacțiunea utilizatorului cu aplicația</h2>
+            <section typeof="sa:NavBar">
+                <h3> 1. Bara de navigare</h3>
+                <p> Bara de navigare va fi situata in partea de sus a fiecarei pagini. Cand se da
+                    click pe aceasta, un pop-up va oferi posibilitatea utilizatorului sa aleaga dintre mai multe pagini
+                    spre care poate naviga: About, Help, SignIn SignUp, Products, Choose themes. </p>
+            </section>
+            <section typeof="sa:UserSigninSignUp">
+                <h3>2. Autentificare</h3>
+                <ul>
+                    <li>
+                        SIGN IN. User-ul va primi un email (gmail service) de confirmare de fiecare data cand face sign
+                        in. Totul va fi salvat in baza de date a aplicatiei, tip MySql.
+
+
+
+
+                        <figure typeof="sa:image" class="design">
+                            <img src="assets/images/signin.png" alt="Products of the app">
+                            <figcaption><em>Fig. 2. Sign In </em> </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        SIGN UP.
+
+
+                        <figure typeof="sa:image" class="design">
+                            <img src="assets/images/signup.png" alt="sign up">
+                            <figcaption><em>Fig. 2. Sign Up </em> </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        FORGOT PASSWORD. User-ul primeste o noua parola prin email, intr-un fisier de tip SVG.
+                        Totul va fi reactualizat in baza de date a aplicatiei, tip MySql.
+
+
+                        <figure typeof="sa:image" class="design">
+                            <img src="assets/images/forgot-pass.png" alt="sign in">
+                            <figcaption><em>Fig. 3. Forgot-password </em> </figcaption>
+                        </figure>
+                        <figure typeof="sa:image" class="design">
+                            <img src="assets/images/email.png" alt="email">
+                            <figcaption><em>Fig. 4. Fisier SVG in email trimis dupa ce se face POST la forgot-password
+                                </em> </figcaption>
+                        </figure>
+                    </li>
+
+                </ul>
+
+            </section>
+            <section typeof="sa:About">
+                <h3>3. About</h3>
+                <ul>
+
+
+                    <figure typeof="sa:image" class="design">
+                        <img src="assets/images/about.png" alt="about">
+                        <figcaption><em>Fig. 5. About page
+                            </em> </figcaption>
+                    </figure>
+
+                </ul>
+
+            </section>
+            <section typeof="sa:Help">
+                <h3>4. Help</h3>
+                <ul>Aceasta pagina ofera informatii utilizatorului despre cum sa navigheze in aplicatie, indiferent
+                    daca este logat sau nu, precum si ce caracteristici specifice are fiecare pagina in parte.
+                    <figure typeof="sa:image" class="design">
+                        <img src="assets/images/help.png" alt="help">
+                        <figcaption><em>Fig. 6. Help page
+                            </em> </figcaption>
+                    </figure>
+                </ul>
+            </section>
+            <section typeof="sa:Products">
+                <h3>5. Pagina de produse</h3>
+                <ul>Aceasta pagina reprezinta functionalitatea de baza a proiectului. Daca user-ul este logat sau nu,
+                    aici
+                    vor aparea produse default obtinute in urma analizei specificatiilor pe care user-ul le pune prin
+                    butonul de filtru, aflat in stanga sus.
+                    Daca user-ul este interesat de un produs anume, poate sa ii vada detaliile, "Details".
+                    <li> Add product - se foloseste de REST API pt a face post
+                    </li>
+                    <li>
+                        Start scraping - specific adminului - face scraping automat de la selleri nationali
+                    </li>
+                    <li>
+                        Download JSON - downleadeaza fisierul cu produsele ce se afla pe site la un moment dat, format
+                        JSON
+                    </li>
+                    <li>
+                        Download CSV - downleadeaza fisierul cu produsele ce se afla pe site la un moment dat, format
+                        CSV
+                    </li>
+                    <figure typeof="sa:image" class="design">
+                        <img src="assets/images/products.png" alt="products">
+                        <figcaption><em>Fig. 7. Product page
+                            </em> </figcaption>
+                    </figure>
+                </ul>
+            </section>
+            <section typeof="sa:Product-details">
+                <h3>6. Vizualizare produs in detaliu</h3>
+                <li> Pe aceasta pagina, utilizatorul are posibilitatea sa vada specificatiile produsului in detaliu,
+                    precum
+                    si rating-ul pe care acesta l-a primit pe site-ul selectat de utilizator. Daca se aleg mai multe
+                    site-uri si produsul este disponibil pe ambele, atunci se iau produsele de pe fiecare site in parte.
+                </li>
+                <figure typeof="sa:image" class="design">
+                    <img src="assets/images/details.png" alt="products">
+                    <figcaption><em>Fig. 8. Detalii
+                        </em> </figcaption>
+                </figure>
+            </section>
+            <section typeof="sa:Filters" class="design">
+                <h3>7. Pagina de filtre</h3>
+                Aceasta pagina ofera posibilitatea utilizatorului sa filtreze in functie de retailer, tip de device,
+                pret, autonomie, culoare si brand.
+
+
+
+            </section>
+            <section typeof="sa:Themes">
+                <h3>8. Pagina de teme</h3>
+                Aceasta pagina ofera posibilitatea utilizatorului sa isi aleaga orice tema isi doreste acesta din paleta
+                de culori disponibila, fiecare avand optiune light sau dark. De asemenea, un mic preview este disponibil
+                pentru a-i lasa posibilitatea utilizatorului sa vada cum va arata aplicatie daca doreste sa aplice
+                schimbarile.
+
+            </section>
+        </section>
+        <section typeof="sa:Arhitectura" id="arhitectura">
+            <h2> 6. Arhitectura aplicației</h2>
+            <ul>
+                <li>Aplicatia noastra face atat SERVER SIDE RENDERING cat si CLIENT SIDE RENDERING. </li>
+                <li> CLIENT SIDE RENDERING se face atunci cand se incarca produsele in pagina principala. </li>
+
+                <figure typeof="sa:image" class="design">
+                    <img src="assets/images/client.png" alt="products">
+                    <figcaption><em>Fig. 9. CLIENT SIDE RENDERING FUNCTION
+                        </em> </figcaption>
+                </figure>
+                <li> SERVER SIDE RENDERING se face atunci cand se incarca produsele in ,,show similar products". </li>
+                Această secțiune de cod HTML reprezintă o structură pentru afișarea produselor similare și
+                specificațiilor produsului.
+                Această structură poate fi utilizată în procesul de server-side rendering (renderizare la nivelul
+                serverului), unde
+                datele produsului și produsele similare sunt generate de server și apoi adăugate în șablonul HTML
+                înainte de a fi trimis
+                către client.
+                <figure typeof="sa:image" class="design">
+                    <img src="assets/images/server1.png" alt="products">
+                    <figcaption><em>Fig. 10. SERVER SIDE RENDERING FUNCTION
+                        </em> </figcaption>
+                </figure>
+
+                <figure typeof="sa:image" class="design">
+                    <img src="assets/images/server2.png" alt="products">
+                    <figcaption><em>Fig. 11. SERVER SIDE RENDERING FUNCTION
+                        </em> </figcaption>
+                </figure>
+
+
+                <li> Generalitati: Aplicatia noastra are 2 foldere principale: front-end si back-end. front-end este
+                    ceea ce am facut pana in saptamana a 8-a, pentru componenta I.
+                    in folderul back-end este tot ceea ce este necesar pentru componenta S. </li>
+                <li> MVC - Model View Controller - in folderul back-end</li>
+                <li> In folderul model: toate functiile .js ce tin de manipularea obiectelor in baza de date. </li>
+                <li> In folderul view: in template se afla toate html-urile, back-endul incarcand front-endul. </li>
+                <li> In folderul controller: ceea ce am folost pentru REST API + alte functii necesare pentru
+                    manipularea datelor, ce nu tin neaparat de bazele de date. </li>
+
+
+            </ul>
+        </section>
+        <section typeof="sa:Scrapper" id="scrapper">
+            <h2>7. Scrapper </h2>
+            Web Scraper-ul implementat în cadrul acestui proiect în JavaScript are rolul de a extrage informații de pe
+            site-urile
+            Emag, Altex, MediaGalaxy și Flanco. Prin intermediul acestui scraper, puteți obține date precum numele
+            produselor,
+            prețurile, imaginile, ratingurile și numărul de recenzii.
+
+            Implementarea web scraper-ului se bazează pe mai multe funcționalități principale. Pentru a obține
+            conținutul paginilor
+            web, se folosește o librărie numită Cheerio, care permite parsarea și manipularea codului HTML. Astfel, se
+            pot selecta
+            elemente specifice de interes, cum ar fi numele produselor sau prețurile, și se pot extrage aceste
+            informații.
+
+            Pentru a efectua cereri HTTP către paginile web, se utilizează modulul fetch și se adaugă un agent de
+            utilizator
+            aleatoriu pentru a simula un browser obișnuit. Aceasta ajută la evitarea blocării sau restricțiilor impuse
+            de site-urile
+            vizate.
+
+            De asemenea, funcția de scraping este implementată pentru a parcurge paginile multiple de produse. Aceasta
+            înseamnă că
+            nu se extrag doar datele de pe o singură pagină, ci se realizează o iterație prin pagini pentru a obține
+            toate
+            informațiile disponibile.
+            <figure typeof="sa:image" class="design">
+                <img src="assets/images/scrape.png" alt="products">
+                <figcaption><em>Fig. 12. Scraper agent
+                    </em> </figcaption>
+            </figure>
+            Funcția care utilizează agentul de utilizator aleatoriu este funcția scrapeUrl. Aceasta este responsabilă de
+            efectuarea
+            unei cereri HTTP către URL-ul specificat și returnarea conținutului răspunsului.
+
+            În cadrul acestei funcții, se creează o instanță a clasei UserAgent pentru a genera un agent de utilizator
+            aleatoriu.
+            Acesta este apoi inclus în antetul cererii HTTP, prin intermediul opțiunilor de către cheia 'User-Agent'.
+        </section>
+        <section typeof="sa:C4" id="c4">
+            <h2>8. C4 </h2>
+            <ul>
+                1. In acest nivel, este prezentata o imagine de
+                ansamblu asupra aplicatiei si asupra lumii din jurul ei. Clientul interactioneaza cu aplicatia web
+                pentru a accesa
+                functionalitatile site-ului. Site-ul
+                este in relatie cu un API extern, de care se foloseste pentru a obtine date
+                specifice domeniului sau. API-ul extern este utilizat atunci cand aplicatia interactioneaza cu
+                scrapper-ul.
+                <figure typeof="sa:image" class="design">
+                    <img src="assets/images/context_new.png" alt="products">
+                    <figcaption><em>Fig. 12. C1
+                        </em> </figcaption>
+                </figure>
+
+                2. In nivelul 2 din modelul C4, este aratat modul
+                general de functionare a aplicatiei, impreuna cu agentii externi care sunt
+                necesari ei. Utilizatorii acceseaza o pagina a aplicatiei care este livrata de
+                catre server. Serverul pune la dispozitie un API REST care ofera functionalitati pt a vizualiza
+                produsele
+                <figure typeof="sa:image" class="design">
+                    <img src="assets/images/container.png" alt="products">
+                    <figcaption><em>Fig. 13. C2
+                        </em> </figcaption>
+                </figure>
+
+                3. In acest nivel, se poate observa arhitectura
+                server-ului care prelucreaza cererile clientilor.
+                <figure typeof="sa:image" class="design">
+                    <img src="assets/images/level3.png" alt="products">
+                    <figcaption><em>Fig. 14. C3
+                        </em> </figcaption>
+                </figure>
+
+            </ul>
+        </section>
+        <section typeof="sa:ReferenceList" id="references">
+            <h2>9. Referințe</h2>
+            <p><em>Sass</em></p>
+            <ol>
+                <li>
+                    <a typeof="sa:isBasedOnUrl" href="https://www.w3schools.com/sass/">Sass Tutorial</a>
+                </li>
+                <li>
+                    <a typeof="sa:isBasedOnUrl"
+                        href="https://www.youtube.com/watch?v=jfMHA8SqUL4&t=6249s&ab_channel=CoderCoder">Sass and BEM
+                        for
+                        beginners</a>
+                </li>
+                <li>
+                    <a typeof="sa:isBasedOnUrl" href="https://youtu.be/fyuao3G-2qg">Color themes tutorial</a>
                 </li>
             </ol>
-
-        </header>
-
-        <section id="introduction" role="doc-introduction">
-            <h2>1. Introducere</h2>
-            <section id="introduction__purpose" role="doc-introduction">
-                <h3>1.1 Scopul documentului</h3>
-                <p>
-                    Scopul acestui document este să prezinte detalii despre aplicația Device Recommender.
-                    Aici vor fi prezentate caracteristicile cheie ale aplicației, interfața și modul de funcționare.
-                    Acest document este destinat să ofere utilizatorilor, atât dezvoltatorilor de aplicații, cât și
-                    utilizatorilor finali,
-                    o înțelegere clară a funcționalității și utilizării aplicației.
-                </p>
-            </section>
-
-            <section id="introduction__audience" role="doc-introduction">
-                <h3>1.2 Publicul tinta și sugestii</h3>
-                <p>
-                    Acest document este adresat atât dezvoltatorilor de aplicații, cât și utilizatorilor interesați de
-                    achiziționarea de dispozitive electronice.
-                    Dezvoltatorii vor putea înțelege modul în care aplicația a fost concepută și dezvoltată,
-                    în timp ce publicul țintă se va bucura de funcționalitățile ale aplicației pentru a obține
-                    recomandări personalizate de dispozitive electronice.
-                </p>
-            </section>
-
-            <section id="introduction__product-scope" role="doc-introduction">
-                <h3>1.3 Scopul aplicatiei</h3>
-
-                <p>
-                    Scopul aplicației este de a ajuta utilizatorii să facă alegeri informate în ceea ce privește
-                    achiziționarea dispozitivelor electronice.
-                    Utilizatorii se pot conecta la contul lor sau își pot crea unul nou pentru a accesa aplicația.
-                    Ulterior, aceștia vor putea explora diverse categorii de dispozitive electronice, aplica filtre
-                    personalizate în funcție de preferințele lor.
-                    De asemenea, aplicația va oferi recomandări personalizate bazate pe preferințele utilizatorilor,
-                    ajutându-i să găsească dispozitive electronice potrivite nevoilor și bugetului lor.
-                </p>
-            </section>
-        </section>
-        <section id="overall-description">
-            <h2>2. Descriere</h2>
-
-            <section id="arhitectura aplicatiei">
-                <h3>Arhitectura Aplicatiei</h3>
-                <h4>2.1.1 Arhitectura MVC</h4>
-                <p>
-                    Arhitectura MVC (Model-View-Controller) este un tip de arhitectură software care separă datele de
-                    afișare și de logica de control.
-                    Aceasta este utilizată în dezvoltarea aplicațiilor web și mobile, precum și în dezvoltarea
-                    software-ului desktop.
-                    Arhitectura MVC este una dintre cele mai populare arhitecturi software utilizate în prezent.
-                </p>
-                <h4>
-                    Diagrame C4
-                </h4>
-                <figure>
-                    <img src="../../public/assets/images/GIMME_C4_Context.png" alt="C4 Level 1">
-                    <figcaption>Figura 1. C4 Level 1</figcaption>
-                </figure>
-                <figure>
-                    <img src="../../public/assets/images/GIMME_C4_Container.png" alt="C4 Level 2">
-                    <figcaption>Figura 2. C4 Level 2</figcaption>
-                </figure>
-                <figure>
-                    <img src="../../public/assets/images/GIMME_C4_Component.png" alt="C4 Level 3">
-                    <figcaption>Figura 3. C4 Level 3</figcaption>
-            </section>
+            <p><em>Scholary html</em></p>
+            <ol>
+                <li>
+                    <a typeof="sa:isBasedOnUrl" href="https://w3c.github.io/scholarly-html">Scholary HTML</a>
+                </li>
+            </ol>
         </section>
     </article>
-
 </body>
 
 </html>
