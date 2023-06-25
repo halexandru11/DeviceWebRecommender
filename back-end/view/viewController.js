@@ -259,6 +259,9 @@ async function handleViewRequest(req, res) {
       respondFile(req, res, 'signup.html');
     } else if (req.url === '/auth/forgot-password.html') {
       respondFile(req, res, 'forgot-password.html');
+    }
+    else if (req.url === '/scholarly.html') {
+      respondFile(req, res, 'scholarly.html');
     } else {
       console.log('De suntem aici');
       const fileUrl = '/public' + req.url;
